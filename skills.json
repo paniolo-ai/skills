@@ -289,6 +289,19 @@
       ]
     },
     {
+      "name": "paniolo-qmd",
+      "description": "Find relevant skills, docs, and repo-specific guidance with the Paniolo qmd workspace search. Use before task-shaped work, when qmd results mention a repo-local skill, or when maintaining the qmd index. Do not use for editing qmd implementation code; use script, TypeScript, or test guidance for that.",
+      "license": "MIT",
+      "version": "0.4.21",
+      "tags": [
+        "qmd",
+        "lasso"
+      ],
+      "sourceSkill": "harness-qmd",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-qmd",
+      "references": []
+    },
+    {
       "name": "paniolo-react-best-practices",
       "description": "React 18+ conventions for this project — React Compiler (no manual memoization), ReactElement ambient type, useEffect comment rule, plain function declarations, file and import conventions. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead.",
       "license": "MIT",
@@ -463,6 +476,19 @@
         "vitest-supabase-postgrest-mocking",
         "vitest-test"
       ]
+    },
+    {
+      "name": "paniolo-wiki",
+      "description": "Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).",
+      "license": "MIT",
+      "version": "0.4.21",
+      "tags": [
+        "wiki",
+        "llm-wiki"
+      ],
+      "sourceSkill": "llm-wiki",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-wiki",
+      "references": []
     },
     {
       "name": "paniolo-writing-style-best-practices",
