@@ -2,6 +2,8 @@
 
 Source registry for Paniolo-vendored authoring skills.
 
+[![Install with skills.sh](https://skills.sh/b/paniolo-ai/skills)](https://skills.sh/paniolo-ai/skills)
+
 ## Layout
 
 This repo follows the [skills.sh](https://skills.sh) multi-skill layout:
