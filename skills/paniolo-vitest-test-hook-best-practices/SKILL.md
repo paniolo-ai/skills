@@ -1,7 +1,7 @@
 ---
 name: paniolo-vitest-test-hook-best-practices
 description: |
-  Complete guide for testing React hooks — renderHook, Documentation by Harness, installStore, fixtures, subscription patterns, lint/compiler traps, and pre-completion checklist. Read [[sharp-shooter-wiki:vitest-hook]] for the full reference.
+  Complete guide for testing React hooks — renderHook, Documentation by Harness, installStore, fixtures, subscription patterns, lint/compiler traps, and pre-completion checklist. Read [vitest-hook](references/vitest-hook.md) for the full reference.
 license: MIT
 metadata:
   version: 0.1.0

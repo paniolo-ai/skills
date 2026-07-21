@@ -193,8 +193,10 @@
       "sourceSkill": "lint-error-resolution",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-lint-error-resolution",
       "references": [
+        "typescript-all-if-else-branches-contain-same-code-supabase-error-check",
         "typescript-isolateddeclarations-explicit-type-annotations-on-exports",
         "typescript-lint",
+        "typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna",
         "typescript-no-unsafe-type-assertion-request-validation",
         "typescript-quick-lookup",
         "typescript-require-useeffect-comment-comment-before-useeffect",
@@ -430,7 +432,7 @@
     },
     {
       "name": "paniolo-vitest-test-hook-best-practices",
-      "description": "Complete guide for testing React hooks — renderHook, Documentation by Harness, installStore, fixtures, subscription patterns, lint/compiler traps, and pre-completion checklist. Read [[sharp-shooter-wiki:vitest-hook]] for the full reference.",
+      "description": "Complete guide for testing React hooks — renderHook, Documentation by Harness, installStore, fixtures, subscription patterns, lint/compiler traps, and pre-completion checklist. Read [vitest-hook](references/vitest-hook.md) for the full reference.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [

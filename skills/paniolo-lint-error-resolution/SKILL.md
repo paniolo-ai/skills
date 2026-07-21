@@ -9,8 +9,10 @@ tags:
 - lint
 - typescript
 references:
+- 'wiki: sharp-shooter-wiki:typescript-all-if-else-branches-contain-same-code-supabase-error-check → references/typescript-all-if-else-branches-contain-same-code-supabase-error-check.md'
 - 'wiki: sharp-shooter-wiki:typescript-isolateddeclarations-explicit-type-annotations-on-exports → references/typescript-isolateddeclarations-explicit-type-annotations-on-exports.md'
 - 'wiki: sharp-shooter-wiki:typescript-lint → references/typescript-lint.md'
+- 'wiki: sharp-shooter-wiki:typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna → references/typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna.md'
 - 'wiki: sharp-shooter-wiki:typescript-no-unsafe-type-assertion-request-validation → references/typescript-no-unsafe-type-assertion-request-validation.md'
 - 'wiki: sharp-shooter-wiki:typescript-quick-lookup → references/typescript-quick-lookup.md'
 - 'wiki: sharp-shooter-wiki:typescript-require-useeffect-comment-comment-before-useeffect → references/typescript-require-useeffect-comment-comment-before-useeffect.md'
@@ -61,11 +63,9 @@ Do not substitute bare `npx eslint` for the repo lint script.
 - `no-unsafe-type-assertion` (API) →
   [Request validation](references/typescript-no-unsafe-type-assertion-request-validation.md)
 - `no-unsafe-assignment` / dynamic Supabase tables →
-  [[sharp-shooter-wiki:typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna|
-  Dynamic tables]]
+  [Dynamic tables](references/typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna.md)
 - "All if-else branches same code" (Supabase) →
-  [[sharp-shooter-wiki:typescript-all-if-else-branches-contain-same-code-supabase-error-check|
-  Supabase errors]]
+  [Supabase errors](references/typescript-all-if-else-branches-contain-same-code-supabase-error-check.md)
 - `SupabaseFromLike` optional method chain →
   [callSelect](references/typescript-supabasefromlike-optional-method-chain-use-callselect.md)
 - `require-useeffect-comment` →
