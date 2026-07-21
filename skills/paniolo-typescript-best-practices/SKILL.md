@@ -4,7 +4,6 @@ description: TypeScript conventions for any repo — no `any`, explicit return t
 license: MIT
 metadata:
   version: 0.1.0
-  homepage: https://github.com/paniolo-ai/skills
 tags:
 - typescript
 references:
