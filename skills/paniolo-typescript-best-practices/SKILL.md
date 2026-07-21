@@ -5,6 +5,8 @@ license: MIT
 metadata:
   version: 0.1.0
   homepage: https://github.com/paniolo-ai/skills
+tags:
+  - typescript
 references:
   - wiki: sharp-shooter-wiki:typescript-typescript → references/typescript-typescript.md
   - wiki: sharp-shooter-wiki:typescript-avoid-any → references/typescript-avoid-any.md

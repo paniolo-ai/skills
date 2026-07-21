@@ -5,6 +5,8 @@ description: |
 license: MIT
 metadata:
   version: 0.1.0
+tags:
+  - react
 references:
   - "wiki: sharp-shooter-wiki:react → references/react.md"
   - "wiki: sharp-shooter-wiki:react-prefer-required-props → references/react-prefer-required-props.md"
