@@ -87,6 +87,27 @@
       ]
     },
     {
+      "name": "paniolo-effect-ts-patterns",
+      "description": "Effect-TS patterns for scripts (CLI orchestration, subprocesses, typed errors, schema validation). Use when building or migrating scripts, hooks, or validators — not Hono APIs.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "effect-ts",
+        "typescript"
+      ],
+      "sourceSkill": "effect-ts-patterns",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-effect-ts-patterns",
+      "references": [
+        "entry-point-vs-logic-module-pattern",
+        "typescript-effect-defining-tagged-errors",
+        "typescript-effect-logic-module-pattern",
+        "typescript-effect-mixing-promises-and-effects",
+        "typescript-effect-refactoring-promise-to-effect",
+        "typescript-effect-subprocesses",
+        "typescript-effect-throwing-instead-of-effectfail"
+      ]
+    },
+    {
       "name": "paniolo-file-organization",
       "description": "File organization, naming conventions, and import patterns (no barrel files, direct imports, kebab-case docs, ESM config). Use when creating new files, modules, refactoring imports, or setting up directory structures.",
       "license": "MIT",
