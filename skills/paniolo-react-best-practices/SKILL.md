@@ -6,19 +6,19 @@ license: MIT
 metadata:
   version: 0.1.0
 tags:
-  - react
+- react
 references:
-  - "wiki: sharp-shooter-wiki:react → references/react.md"
-  - "wiki: sharp-shooter-wiki:react-prefer-required-props → references/react-prefer-required-props.md"
-  - "wiki: sharp-shooter-wiki:react-avoid-react-fc → references/react-avoid-react-fc.md"
-  - "wiki: sharp-shooter-wiki:react-optional-render-nothing → references/react-optional-render-nothing.md"
-  - "wiki: sharp-shooter-wiki:react-common-prop-types → references/react-common-prop-types.md"
-  - "wiki: sharp-shooter-wiki:react-function-declaration-style → references/react-function-declaration-style.md"
-  - "wiki: sharp-shooter-wiki:react-useeffect-rules → references/react-useeffect-rules.md"
-  - "wiki: sharp-shooter-wiki:react-compiler → references/react-compiler.md"
-  - "wiki: sharp-shooter-wiki:react-compiler-control-flow → references/react-compiler-control-flow.md"
-  - "wiki: sharp-shooter-wiki:react-file-and-import-conventions → references/react-file-and-import-conventions.md"
-  - "wiki: sharp-shooter-wiki:react-paired-hook-for-non-display-logic → references/react-paired-hook-for-non-display-logic.md"
+- 'wiki: sharp-shooter-wiki:react → references/react.md'
+- 'wiki: sharp-shooter-wiki:react-avoid-react-fc → references/react-avoid-react-fc.md'
+- 'wiki: sharp-shooter-wiki:react-common-prop-types → references/react-common-prop-types.md'
+- 'wiki: sharp-shooter-wiki:react-compiler → references/react-compiler.md'
+- 'wiki: sharp-shooter-wiki:react-compiler-control-flow → references/react-compiler-control-flow.md'
+- 'wiki: sharp-shooter-wiki:react-file-and-import-conventions → references/react-file-and-import-conventions.md'
+- 'wiki: sharp-shooter-wiki:react-function-declaration-style → references/react-function-declaration-style.md'
+- 'wiki: sharp-shooter-wiki:react-optional-render-nothing → references/react-optional-render-nothing.md'
+- 'wiki: sharp-shooter-wiki:react-paired-hook-for-non-display-logic → references/react-paired-hook-for-non-display-logic.md'
+- 'wiki: sharp-shooter-wiki:react-prefer-required-props → references/react-prefer-required-props.md'
+- 'wiki: sharp-shooter-wiki:react-useeffect-rules → references/react-useeffect-rules.md'
 ---
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.

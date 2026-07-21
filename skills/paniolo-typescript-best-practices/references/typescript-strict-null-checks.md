@@ -3,14 +3,14 @@ source-wiki: sharp-shooter-wiki
 source-slug: typescript-strict-null-checks
 source-hash: 726980e5e897d1890ba460b211b587105029ceae4a2f5576449e2fa7b1b5b93a
 bundled: 2026-07-20
----
----
-title: "Strict Null Checks"
+title: Strict Null Checks
 type: concept
-tags: [authoring, typescript]
+tags:
+- authoring
+- typescript
 updated: 2026-06-18
 sources:
-  - raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
+- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Strict Null Checks

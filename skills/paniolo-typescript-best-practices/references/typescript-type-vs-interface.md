@@ -3,14 +3,14 @@ source-wiki: sharp-shooter-wiki
 source-slug: typescript-type-vs-interface
 source-hash: 669379749ab79c9b44ace7cfae72b0fe20c5e4c3399fbe3f6d7cdfb213fd13ea
 bundled: 2026-07-20
----
----
-title: "Type vs Interface"
+title: Type vs Interface
 type: concept
-tags: [authoring, typescript]
+tags:
+- authoring
+- typescript
 updated: 2026-06-18
 sources:
-  - raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
+- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Type vs Interface

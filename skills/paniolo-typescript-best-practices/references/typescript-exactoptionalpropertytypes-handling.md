@@ -3,14 +3,14 @@ source-wiki: sharp-shooter-wiki
 source-slug: typescript-exactoptionalpropertytypes-handling
 source-hash: 2934dd0f29d75aa9532d36c0e8066f03a3791536e74a8319790d2b7402b08ae8
 bundled: 2026-07-20
----
----
-title: "exactOptionalPropertyTypes Handling"
+title: exactOptionalPropertyTypes Handling
 type: concept
-tags: [authoring, typescript]
+tags:
+- authoring
+- typescript
 updated: 2026-06-18
 sources:
-  - raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
+- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # exactOptionalPropertyTypes Handling

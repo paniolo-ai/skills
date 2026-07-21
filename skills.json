@@ -1,0 +1,490 @@
+{
+  "$schema": "https://paniolo.ai/schemas/paniolo-skills.v1.json",
+  "version": "1.0.0",
+  "source": "https://github.com/paniolo-ai/skills",
+  "skills": [
+    {
+      "name": "paniolo-cloudflare-cache-cicd",
+      "description": "Cloudflare CDN cache management and GitHub Actions CI/CD workflows. Use when setting up or debugging CI/CD pipelines, handling cache invalidation, or troubleshooting workflow failures.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "cloudflare",
+        "cicd"
+      ],
+      "sourceSkill": "cloudflare-cache-cicd",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-cloudflare-cache-cicd",
+      "references": []
+    },
+    {
+      "name": "paniolo-code-comment-best-practices",
+      "description": "Code comment conventions for TypeScript/React — JSDoc vs inline, when to explain why vs what, params/returns rules, spacing, placement, test comment rules, links in comments (@see vs {@link}), TODO/FIXME format, anti-patterns, writing style. Use when adding, updating, or reviewing comments in .ts or .tsx files. Do NOT use for general documentation questions unrelated to in-code comments.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "code-comments",
+        "documentation"
+      ],
+      "sourceSkill": "code-comment-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-code-comment-best-practices",
+      "references": [
+        "anti-patterns",
+        "code-comments",
+        "constants",
+        "inline-comments",
+        "jsdoc-formatting",
+        "jsdoc-params-returns",
+        "jsdoc-when",
+        "links-in-comments",
+        "philosophy",
+        "spacing-placement",
+        "test-comments",
+        "what-not-to-comment",
+        "writing-style"
+      ]
+    },
+    {
+      "name": "paniolo-deployment-operations",
+      "description": "Cloudflare deployment rollback, health monitoring, and production troubleshooting. Use when recovering from a failed deployment, checking deployment health, or diagnosing production issues.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "deployment"
+      ],
+      "sourceSkill": "deployment-operations",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-deployment-operations",
+      "references": []
+    },
+    {
+      "name": "paniolo-deployment-strategies",
+      "description": "Core Cloudflare Pages/Workers deployment workflow, environment variable configuration, and secrets management. Use when deploying code, configuring environments, or managing secrets.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "deployment"
+      ],
+      "sourceSkill": "deployment-strategies",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-deployment-strategies",
+      "references": []
+    },
+    {
+      "name": "paniolo-doc-best-practices",
+      "description": "Documentation standards for this project — file naming, structure, writing style, formatting, skill+doc pairs, placement, and maintenance. Use when creating, updating, reviewing, or auditing any Markdown doc in sharp-shooter-wiki `wiki/`, `README.md`, or `CONTRIBUTING.md`. Also use when deciding whether a new topic needs a doc, a skill, or both. Do NOT use for in-code JSDoc/TSDoc comments — load code-comment-best-practices instead.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "documentation"
+      ],
+      "sourceSkill": "doc-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-doc-best-practices",
+      "references": [
+        "doc-content",
+        "doc-structure",
+        "markdown-anchor-links",
+        "markdown-file-naming",
+        "markdown-required-elements",
+        "writing-style-writing-style"
+      ]
+    },
+    {
+      "name": "paniolo-file-organization",
+      "description": "File organization, naming conventions, and import patterns (no barrel files, direct imports, kebab-case docs, ESM config). Use when creating new files, modules, refactoring imports, or setting up directory structures.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "files",
+        "structure"
+      ],
+      "sourceSkill": "file-organization",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-file-organization",
+      "references": [
+        "avoid-multi-function-helpersts-modules",
+        "code-layout",
+        "component-files-react-components",
+        "constants-placement-across-modules",
+        "file-organization",
+        "forbidden-feature-folder-names",
+        "import-organization-pattern",
+        "naming-conventions",
+        "project-structure-example",
+        "vitest-colocate-make-fixtures"
+      ]
+    },
+    {
+      "name": "paniolo-file-splitting",
+      "description": "Step-by-step guide for breaking large consolidated files into single-function files — naming, exports, import paths, test colocation, and validation. Use when refactoring consolidated utilities or test helpers into modular, maintainable pieces. Do NOT use for creating new files from scratch — this skill is for splitting existing files only.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "files",
+        "refactoring"
+      ],
+      "sourceSkill": "file-splitting",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-file-splitting",
+      "references": [
+        "avoid-multi-function-helpersts-modules",
+        "file-organization"
+      ]
+    },
+    {
+      "name": "paniolo-form-best-practices",
+      "description": "Standardized form patterns using useAppForm and Effect helpers. Covers validation, submission, and immediate error clearing on field edit.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "react",
+        "forms"
+      ],
+      "sourceSkill": "form-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-form-best-practices",
+      "references": [
+        "api-and-client-handling",
+        "form",
+        "hook-api-reference",
+        "schema-definition"
+      ]
+    },
+    {
+      "name": "paniolo-internationalization-system",
+      "description": "i18n patterns for this project — useLocale/useLanguage/useCurrentLang hooks, URL-based language routing, adding translation keys, SupportedLanguageType. Use when adding UI text, building localized links, or working with language switching.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "i18n",
+        "react"
+      ],
+      "sourceSkill": "internationalization-system",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-internationalization-system",
+      "references": [
+        "i18n",
+        "typescript-i18n-creating-language-links"
+      ]
+    },
+    {
+      "name": "paniolo-lint-error-resolution",
+      "description": "Guide for resolving lint errors in strict TypeScript environments — oxlint, ESLint, and tsc. Use when encountering lint errors in files being edited. Load the repo-specific lint supplement when fixing a workspace app repo's code.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "lint",
+        "typescript"
+      ],
+      "sourceSkill": "lint-error-resolution",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-lint-error-resolution",
+      "references": [
+        "typescript-isolateddeclarations-explicit-type-annotations-on-exports",
+        "typescript-lint",
+        "typescript-no-unsafe-type-assertion-request-validation",
+        "typescript-quick-lookup",
+        "typescript-require-useeffect-comment-comment-before-useeffect",
+        "typescript-supabasefromlike-optional-method-chain-use-callselect"
+      ]
+    },
+    {
+      "name": "paniolo-markdown-lint-best-practices",
+      "description": "Pre-authoring checklist and validation workflow for writing lint-clean markdown in this repo. Use when creating or editing any .md file to pass paniolo-scan and wiki-io checks on the first try.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "markdown",
+        "lint"
+      ],
+      "sourceSkill": "markdown-lint-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-markdown-lint-best-practices",
+      "references": [
+        "doc-content",
+        "markdown-lint"
+      ]
+    },
+    {
+      "name": "paniolo-naming-best-practices",
+      "description": "Symbol and file naming conventions for functions, types, variables, and React components. Use when naming a new function, hook, type, file, or variable, or when reviewing whether an existing name is appropriate.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "naming"
+      ],
+      "sourceSkill": "naming-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-naming-best-practices",
+      "references": [
+        "naming",
+        "naming-file-naming",
+        "react-component-naming",
+        "type-and-interface-naming",
+        "typescript-naming-use-vs-compute",
+        "typescript-naming-variable-naming"
+      ]
+    },
+    {
+      "name": "paniolo-playwright-test-auth-best-practices",
+      "description": "Playwright authentication strategies for this project — mock auth helpers (authenticateTestUser, mockSignedOutUser, createTestUser), real signed-session flows for staging-DB and deployed runs, two-user sharing tests, and session management. Use when authoring or editing any Playwright spec that involves sign-in, sign-out, protected routes, multi-user flows, or staging DB sessions. Pair with playwright-test-best-practices for general E2E conventions.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "playwright",
+        "testing",
+        "auth"
+      ],
+      "sourceSkill": "playwright-test-auth-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-playwright-test-auth-best-practices",
+      "references": [
+        "playwright-auth",
+        "playwright-authentication-model",
+        "playwright-mock-auth-api-reference",
+        "playwright-mock-auth-best-practices",
+        "playwright-mock-auth-in-tests",
+        "playwright-mock-auth-troubleshooting",
+        "playwright-multiple-users-mock",
+        "playwright-session-expiry",
+        "playwright-staging-db-setup",
+        "playwright-test",
+        "playwright-why-some-suites-run-serially"
+      ]
+    },
+    {
+      "name": "paniolo-playwright-test-best-practices",
+      "description": "Playwright E2E test conventions for this project — AAA pattern, translation-aware selectors, hydration waits, mock auth, staging DB sessions, two-user flows, debugging, and CI setup. Use when authoring or editing any Playwright spec, test helper, or E2E configuration. Do NOT use for unit tests or hook tests — load vitest-test-best-practices instead.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "sourceSkill": "playwright-test-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-playwright-test-best-practices",
+      "references": [
+        "playwright-aaa-pattern",
+        "playwright-auth",
+        "playwright-debugging",
+        "playwright-hydration-waits",
+        "playwright-mock-auth-in-tests",
+        "playwright-mock-auth-troubleshooting",
+        "playwright-multiple-users-mock",
+        "playwright-session-expiry",
+        "playwright-staging-db-setup",
+        "playwright-test",
+        "playwright-test-organization",
+        "playwright-translation-aware-tests"
+      ]
+    },
+    {
+      "name": "paniolo-react-best-practices",
+      "description": "React 18+ conventions for this project — React Compiler (no manual memoization), ReactElement ambient type, useEffect comment rule, plain function declarations, file and import conventions. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "react"
+      ],
+      "sourceSkill": "react-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-react-best-practices",
+      "references": [
+        "react",
+        "react-avoid-react-fc",
+        "react-common-prop-types",
+        "react-compiler",
+        "react-compiler-control-flow",
+        "react-file-and-import-conventions",
+        "react-function-declaration-style",
+        "react-optional-render-nothing",
+        "react-paired-hook-for-non-display-logic",
+        "react-prefer-required-props",
+        "react-useeffect-rules"
+      ]
+    },
+    {
+      "name": "paniolo-safety-and-git-best-practices",
+      "description": "Repository-wide safety guardrails for command execution, environment management, and git usage.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "git",
+        "safety"
+      ],
+      "sourceSkill": "safety-and-git-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-safety-and-git-best-practices",
+      "references": []
+    },
+    {
+      "name": "paniolo-skill-best-practices",
+      "description": "How to write, update, split, or review SKILL.md files in this repo. Use when creating a new skill, updating an existing one, or auditing for quality and conventions.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "skills",
+        "authoring"
+      ],
+      "sourceSkill": "skill-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-skill-best-practices",
+      "references": []
+    },
+    {
+      "name": "paniolo-source-refactoring",
+      "description": "Patterns for splitting functions and components into their own files. Ensures consistent exports, JSDoc preservation, and test colocation. Use when refactoring large files or extracting reusable logic.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "refactoring"
+      ],
+      "sourceSkill": "source-refactoring",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-source-refactoring",
+      "references": [
+        "file-organization",
+        "vitest-shared-mock-helper-infrastructure"
+      ]
+    },
+    {
+      "name": "paniolo-typescript-best-practices",
+      "description": "TypeScript conventions for any repo — no `any`, explicit return types, JSDoc, exactOptionalPropertyTypes, ambient types, import style. Use when authoring or editing `.ts`/`.tsx`, resolving strictness errors, or fixing type-related lint failures. Do NOT use for React-specific typing (see paniolo-react-best-practices) or JSDoc-only changes (see paniolo-code-comment-best-practices).",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "typescript"
+      ],
+      "sourceSkill": "typescript-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-typescript-best-practices",
+      "references": [
+        "typescript-ambient-types",
+        "typescript-avoid-any",
+        "typescript-avoiding-redundant-type-assertions",
+        "typescript-consistent-type-imports-type-only-imports",
+        "typescript-default-export-functions",
+        "typescript-exactoptionalpropertytypes-handling",
+        "typescript-explicit-return-types",
+        "typescript-function-parameters",
+        "typescript-strict-null-checks",
+        "typescript-type-vs-interface",
+        "typescript-typescript",
+        "vitest-colocate-make-fixtures",
+        "vitest-forcecast-vs-make-fixtures"
+      ]
+    },
+    {
+      "name": "paniolo-typescript-lint-best-practices",
+      "description": "Pre-authoring checklist, workflow, and common-error lookup for writing lint-clean TypeScript. Use when writing new code to pass lint on the first try. Load the repo-specific supplement when editing a workspace app repo.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "typescript",
+        "lint"
+      ],
+      "sourceSkill": "typescript-lint-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-typescript-lint-best-practices",
+      "references": [
+        "typescript-lint"
+      ]
+    },
+    {
+      "name": "paniolo-vitest-test-best-practices",
+      "description": "Vitest unit test authoring for this repo — setup, mocking, API handler testing, and common pitfalls for non-hook code. Use when the user asks to add, update, fix, or review unit tests for utilities, components, API handlers, or scripts. Do NOT use for React hook tests — load vitest-test-hook-best-practices instead.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "vitest",
+        "testing"
+      ],
+      "sourceSkill": "vitest-test-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-vitest-test-best-practices",
+      "references": [
+        "vitest-colocate-make-fixtures",
+        "vitest-extract-helpers-only-after-repetition",
+        "vitest-forcecast-vs-make-fixtures",
+        "vitest-mock",
+        "vitest-one-canonical-make-helper",
+        "vitest-test",
+        "vitest-testing-when-to-write"
+      ]
+    },
+    {
+      "name": "paniolo-vitest-test-hook-best-practices",
+      "description": "Complete guide for testing React hooks — renderHook, Documentation by Harness, installStore, fixtures, subscription patterns, lint/compiler traps, and pre-completion checklist. Read [[sharp-shooter-wiki:vitest-hook]] for the full reference.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "vitest",
+        "testing",
+        "hooks"
+      ],
+      "sourceSkill": "vitest-test-hook-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-vitest-test-hook-best-practices",
+      "references": [
+        "vitest-colocate-make-fixtures",
+        "vitest-documentation-by-harness",
+        "vitest-extract-helpers-only-after-repetition",
+        "vitest-forcecast-vs-make-fixtures",
+        "vitest-hook",
+        "vitest-mock",
+        "vitest-test"
+      ]
+    },
+    {
+      "name": "paniolo-vitest-test-mock-best-practices",
+      "description": "Vitest mocking guidance for this repo — module mock strategy, Supabase and Postgrest response stubs, API-handler mock setup, shared mock helpers, *forceCast* store selectors, and common mock pitfalls. Use when the user asks how to mock something in Vitest, wants mock-heavy unit tests added or fixed, or needs a review of mock strategy. Do NOT use for general non-mock test structure, AAA guidance, or hook Harness requirements.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "vitest",
+        "testing",
+        "mocking"
+      ],
+      "sourceSkill": "vitest-test-mock-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-vitest-test-mock-best-practices",
+      "references": [
+        "vitest-api-handler-mock-setup",
+        "vitest-colocate-make-fixtures",
+        "vitest-domock",
+        "vitest-forceCast-and-the-installStore-selector-dispatch-pattern",
+        "vitest-mock",
+        "vitest-mock-vs-spyon",
+        "vitest-mocking-nodejs-built-ins",
+        "vitest-non-factory-mock",
+        "vitest-react-dom-mocking-flushsync",
+        "vitest-shared-mock-helper-infrastructure",
+        "vitest-supabase-postgrest-mocking",
+        "vitest-test"
+      ]
+    },
+    {
+      "name": "paniolo-writing-style-best-practices",
+      "description": "Writing style standards for documentation in this project — clarity, conciseness, audience, tone, active vs passive voice, and jargon handling. Use when writing or reviewing prose in wiki authoring pages, README.md, CONTRIBUTING.md, SKILL.md, or inline code comments. Do NOT use for structural/formatting questions (file naming, ToC, headers, code blocks) — load doc-best-practices instead.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "writing"
+      ],
+      "sourceSkill": "writing-style-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-writing-style-best-practices",
+      "references": [
+        "active-vs-passive-voice",
+        "audience-and-tone",
+        "avoid-jargon-unless-necessary",
+        "doc-content",
+        "writing-style-clarity-and-conciseness",
+        "writing-style-writing-style"
+      ]
+    },
+    {
+      "name": "paniolo-zustand-best-practices",
+      "description": "Zustand state management patterns for this project — store creation, selectors, Immer middleware, async actions with loading states, devtools, persist, and testing. Use when authoring or editing Zustand stores (use*Store files) or components that subscribe to stores. Do NOT use for React component structure or TypeScript-only utilities.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "zustand",
+        "state"
+      ],
+      "sourceSkill": "zustand-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-zustand-best-practices",
+      "references": [
+        "async-actions-with-loading-states",
+        "basic-selector-pattern",
+        "devtools",
+        "immer-middleware",
+        "memoized-selectors",
+        "persist-middleware",
+        "selector-factory-pattern",
+        "store-composition",
+        "testing-zustand-unit-testing",
+        "zustand"
+      ]
+    }
+  ]
+}

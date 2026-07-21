@@ -3,11 +3,12 @@ source-wiki: sharp-shooter-wiki
 source-slug: typescript-typescript
 source-hash: dc3c68df1db850436642d09897dd1347313813a9be9a3ed731d68ca284542df4
 bundled: 2026-07-20
----
----
 title: Authoring — TypeScript
 type: index
-tags: [index, authoring, typescript]
+tags:
+- index
+- authoring
+- typescript
 updated: 2026-06-18
 ---
 

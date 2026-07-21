@@ -2,16 +2,16 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react-compiler
 source-hash: c3efefa30544cb40cf356840f74f70e1ab743136495cee29a15313bdad2773b3
-bundled: 2026-07-21
+bundled: 2026-07-20
 title: React Compiler
 type: concept
 tags:
-  - authoring
-  - react
-  - client
+- authoring
+- react
+- client
 updated: 2026-06-18
 sources:
-  - raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
+- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # React Compiler

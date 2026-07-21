@@ -3,14 +3,14 @@ source-wiki: sharp-shooter-wiki
 source-slug: typescript-explicit-return-types
 source-hash: 1b3db661d4fb93cfd5d718a787de4be18bfa7462e38efc1906547e073d3990d2
 bundled: 2026-07-20
----
----
-title: "Explicit Return Types"
+title: Explicit Return Types
 type: concept
-tags: [authoring, typescript]
+tags:
+- authoring
+- typescript
 updated: 2026-06-18
 sources:
-  - raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
+- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Explicit Return Types

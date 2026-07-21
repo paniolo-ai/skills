@@ -2,16 +2,16 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react-paired-hook-for-non-display-logic
 source-hash: c78878bf923937eb6d0846512ee9a71146fa8d6f08c74ae9f0553e1a80634378
-bundled: 2026-07-21
+bundled: 2026-07-20
 title: Paired hook for non-display logic
 type: concept
 tags:
-  - authoring
-  - react
-  - client
+- authoring
+- react
+- client
 updated: 2026-06-18
 sources:
-  - raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
+- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Paired hook for non-display logic

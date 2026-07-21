@@ -3,14 +3,14 @@ source-wiki: sharp-shooter-wiki
 source-slug: typescript-default-export-functions
 source-hash: 75e449dc45aa212b0a197c00e0532218f555925dbfcbb8e61570865e2a1158b6
 bundled: 2026-07-20
----
----
-title: "Default Export Functions"
+title: Default Export Functions
 type: concept
-tags: [authoring, typescript]
+tags:
+- authoring
+- typescript
 updated: 2026-06-18
 sources:
-  - raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
+- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Default Export Functions
