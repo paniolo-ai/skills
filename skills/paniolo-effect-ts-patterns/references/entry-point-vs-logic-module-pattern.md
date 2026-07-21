@@ -1,7 +1,7 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: entry-point-vs-logic-module-pattern
-source-hash: 3e31c68ed9aec6cf817cc17ab1622a5d5d070c89fc182b940afaa9e5a5f8ecfd
+source-hash: fa9a0ca1c4b595a62d1640c1ba478fb698893ce8d82d0b555abd0ab8c883e881
 bundled: 2026-07-20
 title: Entry-point vs logic-module pattern
 type: concept
@@ -62,13 +62,13 @@ import { resolve } from "node:path";
 
 import { Effect } from "effect";
 
-import runSkills from "./runSkills.ts";
+import runChecks from "./runChecks.ts";
 
 const ARGS_OFFSET = 2;
 const repoRoot = resolve(import.meta.dir, "../..");
 const args = process.argv.slice(ARGS_OFFSET);
 
-const exitCode = await Effect.runPromise(runSkills(args, { repoRoot }));
+const exitCode = await Effect.runPromise(runChecks(args, { repoRoot }));
 process.exit(exitCode);
 ```
 
