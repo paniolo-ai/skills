@@ -72,7 +72,7 @@ src/song/active-songs/
 ```
 
 If you touch an existing multi-export helper file, prefer splitting it (see
-[`file-splitting`](@harness/.agents/skills/file-splitting/SKILL.md)) over adding another export.
+[`file-splitting`](../../paniolo-file-splitting/SKILL.md)) over adding another export.
 
 ### Playwright E2E util modules (`*.e2e-util.ts`)
 

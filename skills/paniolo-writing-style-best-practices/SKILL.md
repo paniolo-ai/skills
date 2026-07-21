@@ -163,4 +163,4 @@ new to project) and gives a concrete yes/no with specific examples.
 
 - Full reference: [writing-style-writing-style](references/writing-style-writing-style.md)
 - Structural standards: [doc-content](references/doc-content.md)
-- Doc structure skill: `/.agents/skills/doc-best-practices/SKILL.md`
+- [Doc structure skill](../paniolo-doc-best-practices/SKILL.md)

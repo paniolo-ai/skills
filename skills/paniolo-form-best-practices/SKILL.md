@@ -93,7 +93,7 @@ Colocate an Effect Schema in `<feature>FormSchema.ts` next to the component.
 ## References
 
 - [form](references/form.md)
-- [Effect TS Patterns](../paniolo-effect-ts-patterns/SKILL.md)
+- Effect TS Patterns
 - Source: `@/react/lib/form/useAppForm.ts`
 
 ## Skill Handoffs
