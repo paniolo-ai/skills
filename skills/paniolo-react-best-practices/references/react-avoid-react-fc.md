@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react-avoid-react-fc
 source-hash: f84e8ae0930c85a37edd32f3524fe8a9c61aa9f7f631a4a0181ea1b0efd8f0f4
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Avoid React.FC
 type: concept
 tags:
@@ -10,8 +10,6 @@ tags:
 - react
 - client
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Avoid React.FC

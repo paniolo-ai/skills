@@ -2,15 +2,13 @@
 source-wiki: sharp-shooter-wiki
 source-slug: naming-conventions
 source-hash: f89ebf3fdd62bf55fbf17831ea183197d5865cb17d62d32d60f496b37d5afd23
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Naming Conventions
 type: concept
 tags:
 - authoring
 - file-organization
 updated: 2026-06-18
-sources:
-- raw/harness-eng/songshare-ai-system/skill-file-organization.md
 ---
 
 # Naming Conventions

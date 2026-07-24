@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react-optional-render-nothing
 source-hash: 942ccf90c4ad139db4d02473a3adb89c0227b838cace8165cd2752027ebd4609
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Optional “render nothing” return
 type: concept
 tags:
@@ -10,8 +10,6 @@ tags:
 - react
 - client
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Optional “render nothing” return

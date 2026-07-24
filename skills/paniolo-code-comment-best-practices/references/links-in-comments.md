@@ -2,15 +2,13 @@
 source-wiki: sharp-shooter-wiki
 source-slug: links-in-comments
 source-hash: ff36ccbfbebe976e7f4dfbbded39a9c46a32cbcbfc55a998bbf90199fd2ad28c
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Links in comments
 type: concept
 tags:
 - authoring
 - code-comments
 updated: 2026-06-18
-sources:
-- raw/harness-eng/songshare-ai-system/skill-code-comment-best-practices.md
 ---
 
 # Links in comments

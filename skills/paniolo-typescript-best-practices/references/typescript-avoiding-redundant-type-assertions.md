@@ -2,15 +2,13 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-avoiding-redundant-type-assertions
 source-hash: dfd3db4cca18e83b016444dacc24d8273a6e7e88986ea2ce7dc60e304b3f96ea
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Avoiding Redundant Type Assertions
 type: concept
 tags:
 - authoring
 - typescript
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Avoiding Redundant Type Assertions

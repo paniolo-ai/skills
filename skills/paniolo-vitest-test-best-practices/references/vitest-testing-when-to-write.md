@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-testing-when-to-write
-source-hash: 7547847fa19d3f2dd6bc534e5b75ed1df493cf1d0f0ec3201c9c09f9bf78ed56
-bundled: 2026-07-20
+source-hash: 18a5682932ac6ccceb57439d850c37115cd1a0ed9b60c2ae434bd3fd5d39527a
+bundled: 2026-07-24
 title: When to Write a Test (and When NOT to)
 type: concept
 tags:
@@ -10,10 +10,6 @@ tags:
 - vitest
 - testing
 updated: 2026-07-12
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
-- raw/harness-eng/songshare-unit-test-purge-2026-07-12/decision-songshare-low-value-unit-test-purge-2026-07-12.md
-- raw/harness-eng/songshare-unit-test-purge-2026-07-12/implementation-progress-2026-07-12.md
 ---
 
 # When to Write a Test (and When NOT to)
@@ -46,7 +42,7 @@ standalone behavioral contract.
   exercise; consumers and integration tests already depend on those values. Import the constants
   in real specs instead of asserting `MAX_ATTEMPTS === 2`.
 - **Generated or vendored code** — files under `generated/` or third-party wrappers you don't own.
-- **Test-util helpers themselves** — helpers like `asPostgrestResponse` or `makeCtx` are
+- **Test-util helpers themselves** — helpers like `asApiResponse` or `makeCtx` are
   infrastructure, not behavior; they don't need their own specs.
 - **Type-only modules** — runtime imports cannot verify TypeScript contracts. Use the compiler or
   a dedicated compile-time assertion when a type contract needs explicit verification.
@@ -65,4 +61,4 @@ that depends on that mock.
 ## See also
 
 - Vitest unit testing (authoring) index
-- decision-songshare-low-value-unit-test-purge
+- Low-value unit test purge

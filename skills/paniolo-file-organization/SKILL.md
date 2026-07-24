@@ -117,13 +117,14 @@ locations**:
 
 ```typescript
 // ✅ GOOD: Same absolute path from any caller
-import mockUseSlideManagerView from "@/react/event/manage/test-utils/mockUseSlideManagerView.test-util";
+import mockUseItemManagerView from "@react/item/manage/test-utils/mockUseItemManagerView.test-util";
 
 // ❌ BAD: Relative paths break when caller depth changes
-import mockUseSlideManagerView from "./test-utils/mockUseSlideManagerView.test-util";
+import mockUseItemManagerView from "./test-utils/mockUseItemManagerView.test-util";
 ```
 
-Path aliases: `@/api/` = `api/src/`, `@/shared/` = `shared/src/`, `@/react/` = `react/src/`
+Path aliases: map one alias per package root (for example `@api/` = `api/src/`,
+`@shared/` = `shared/src/`, `@react/` = `react/src/`)
 
 ### 6. Import Order Within a File
 

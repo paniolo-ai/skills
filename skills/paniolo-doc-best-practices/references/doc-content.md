@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: doc-content
 source-hash: b298f16618e20c9a8a7996caef3c3b499e1347ef82768cac520b853f0f4b4f92
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Authoring — Doc content organization
 type: index
 tags:

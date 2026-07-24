@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-mock
-source-hash: 02eb41488ee259aaadbccb4392714f81d77dd0b22d70f9789529946927b3920b
-bundled: 2026-07-20
+source-hash: fcf102598293726d68c2691a730ea2313aeef2420f370cc91a1af333989194a0
+bundled: 2026-07-24
 title: Authoring — Vitest mocking
 type: index
 tags:
@@ -45,7 +45,7 @@ Repo hub: `docs/testing/vitest-test-mock-best-practices.md` (thin router during 
 - Quick-Start Routing Guide
 - Shared Mock Helper Infrastructure
 - Stubs Vs Mocks
-- Supabase / Postgrest Mocking
+- Database client mocking
 - Test Double Taxonomy
 
 ## Getting started
@@ -58,7 +58,7 @@ Start with these pages when choosing a mocking approach:
 - Non-Factory `vi.mock` Pattern
 - `vi.mock()` vs `vi.spyOn()`
 - `vi.doMock()` — Runtime Exception Path
-- Supabase / Postgrest Mocking
+- Database client mocking
 - Shared Mock Helper Infrastructure
 - `forceCast` and `installStore`
 - Setup: Mock External Modules
@@ -141,13 +141,13 @@ the test calls after any `vi.resetAllMocks()`). Do **not** use a `vi.mock("path"
 ... }))` factory for this case.
 
 ```ts
-import EventLibraryCard from "@/react/event-library/card/EventLibraryCard";
+import ItemCard from "@react/item-library/card/ItemCard";
 
-vi.mock("@/react/event-library/card/EventLibraryCard");
+vi.mock("@react/item-library/card/ItemCard");
 
-it("isolates TagView from EventLibraryCard", () => {
-	vi.mocked(EventLibraryCard).mockImplementation(({ entry }) => (
-		<div data-testid={`event-card-${entry.event_id}`} />
+it("isolates TagView from ItemCard", () => {
+	vi.mocked(ItemCard).mockImplementation(({ entry }) => (
+		<div data-testid={`item-card-${entry.item_id}`} />
 	));
 	// render the system under test …
 });
@@ -160,7 +160,7 @@ Use `vi.spyOn()` only when you intentionally want to keep the real module implem
 just one property for a test:
 
 ```ts
-const mod = await import("@/shared/utils/date/clientLocalDateToUtcTimestamp");
+const mod = await import("@shared/utils/date/clientLocalDateToUtcTimestamp");
 vi.spyOn(mod, "default").mockReturnValue("2026-01-01T00:00:00Z");
 ```
 

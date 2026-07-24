@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: active-vs-passive-voice
 source-hash: 07db4198af441195f4d22fff8ea53e2b9a9f44eadfc21eb8ff73064cb53110b2
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Active vs Passive Voice
 type: concept
 tags:
@@ -11,8 +11,6 @@ tags:
 - writing
 - prose
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Active vs Passive Voice

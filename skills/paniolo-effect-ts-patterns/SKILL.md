@@ -1,7 +1,7 @@
 ---
 name: paniolo-effect-ts-patterns
 description: |
-  Effect-TS patterns for scripts (CLI orchestration, subprocesses, typed errors, schema validation). Use when building or migrating scripts, hooks, or validators — not Hono APIs.
+  Effect-TS patterns for scripts (CLI orchestration, subprocesses, typed errors, schema validation). Use when building or migrating scripts, hooks, or validators — not HTTP API handlers.
 license: MIT
 metadata:
   version: 0.1.0

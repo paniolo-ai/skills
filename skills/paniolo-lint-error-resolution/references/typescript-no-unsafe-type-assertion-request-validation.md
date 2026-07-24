@@ -1,18 +1,15 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-no-unsafe-type-assertion-request-validation
-source-hash: 5c94c6d7aed0c9c39dd63cf1f557f28ea42a30549f238f968a4ac2ccc91ddb60
-bundled: 2026-07-20
+source-hash: a61add85dfee99a4a45b3c1ef49e04a6d90a6f88f5d6807472580fcbe424cf77
+bundled: 2026-07-24
 title: '`no-unsafe-type-assertion` — request validation'
 type: concept
 tags:
 - authoring
 - typescript
 - lint
-- songshare
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # `no-unsafe-type-assertion` — request validation
@@ -20,8 +17,8 @@ sources:
 Never cast `request as Record<string, unknown>`. Use `decodeUnknownSyncOrThrow` with a schema:
 
 ```typescript
-import decodeUnknownSyncOrThrow from "@/shared/validation/decodeUnknownSyncOrThrow";
-import { mySchema } from "@/shared/validation/mySchemas";
+import decodeUnknownSyncOrThrow from "@shared/validation/decodeUnknownSyncOrThrow";
+import { mySchema } from "@shared/validation/mySchemas";
 
 export default function extractMyRequest(request: unknown): MyRequest {
 	return decodeUnknownSyncOrThrow(mySchema, request);

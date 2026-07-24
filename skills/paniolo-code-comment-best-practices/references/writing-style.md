@@ -2,15 +2,13 @@
 source-wiki: sharp-shooter-wiki
 source-slug: writing-style
 source-hash: edd18e88a2c566f2186638bec5e988c5519d0a57d8570be15b36c9db39fdfd58
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Writing style
 type: concept
 tags:
 - authoring
 - code-comments
 updated: 2026-06-18
-sources:
-- raw/harness-eng/songshare-ai-system/skill-code-comment-best-practices.md
 ---
 
 # Writing style

@@ -1,16 +1,14 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: test-comments
-source-hash: 2067a98b6a54c3d528619c46c0ee0365603eeeb8685c6cdcb9baf49300a222b8
-bundled: 2026-07-20
+source-hash: 12ab309d1af16c04d21bf8f3a5c01be91f16ad7c2a23b8dcde8fc907391dcc68
+bundled: 2026-07-24
 title: Test file comments
 type: concept
 tags:
 - authoring
 - code-comments
 updated: 2026-06-18
-sources:
-- raw/harness-eng/songshare-ai-system/skill-code-comment-best-practices.md
 ---
 
 # Test file comments
@@ -21,16 +19,16 @@ self-explanatory. Keep these comments extremely concise.
 
 ```ts
 // ❌ — redundant header + over-explained
-// Test suite for `subscribeToActivePrivateSongs`.
+// Test suite for `subscribeToActiveItems`.
 //
 // Ensures the factory returns a no-op unsubscribe, warns correctly when there
-// is no Supabase client or no active IDs, and logs errors when token fetching fails.
-describe("subscribeToActivePrivateSongs", () => {
+// is no database client or no active IDs, and logs errors when token fetching fails.
+describe("subscribeToActiveItems", () => {
 
 // ✅
 // Ensures the factory returns a no-op unsubscribe, warns correctly when there
-// is no Supabase client or no active IDs, and logs errors when token fetching fails.
-describe("subscribeToActivePrivateSongs", () => {
+// is no database client or no active IDs, and logs errors when token fetching fails.
+describe("subscribeToActiveItems", () => {
 ```
 
 Use JSDoc in test files only for shared utility functions that are exported or reused across test

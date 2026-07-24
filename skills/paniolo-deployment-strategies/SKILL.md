@@ -98,8 +98,8 @@ VITE*API*URL=http://localhost:8787          # Development
 VITE*API*URL=https://staging-api.app.com   # Staging
 VITE*API*URL=https://api.app.com           # Production
 
-VITE*SUPABASE*URL=https://project.supabase.co
-VITE*SUPABASE*ANON_KEY=your-anon-key
+VITE*DB*URL=https://project.db-host.example
+VITE*DB*ANON_KEY=your-anon-key
 ```
 
 ### API Variables
@@ -109,7 +109,7 @@ Non-secret config in `wrangler.toml`:
 ```toml
 [env.production.vars]
 ENVIRONMENT = "production"
-SUPABASE_URL = "https://project.supabase.co"
+DB_URL = "https://project.db-host.example"
 ```
 
 ### Secrets Management
@@ -118,7 +118,7 @@ SUPABASE_URL = "https://project.supabase.co"
 
 ```bash
 # Set a secret in production
-wrangler secret put SUPABASE*SERVICE*KEY --env production
+wrangler secret put DB*SERVICE*KEY --env production
 # (paste value, press Enter)
 
 # List current secrets

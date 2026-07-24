@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: zustand
 source-hash: 78821c3300e4fa0b8150cd80884bafb544e096ce09cd853b7370b295f4f3e46a
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Authoring — Zustand
 type: index
 tags:

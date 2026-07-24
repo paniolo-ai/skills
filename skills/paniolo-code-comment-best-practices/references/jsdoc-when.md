@@ -2,15 +2,13 @@
 source-wiki: sharp-shooter-wiki
 source-slug: jsdoc-when
 source-hash: 0d76639986f769e96d0500a468e400e82f2f2abf719c0e498d5a36783e8a903b
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: JSDoc — when to use
 type: concept
 tags:
 - authoring
 - code-comments
 updated: 2026-06-18
-sources:
-- raw/harness-eng/songshare-ai-system/skill-code-comment-best-practices.md
 ---
 
 # JSDoc — when to use

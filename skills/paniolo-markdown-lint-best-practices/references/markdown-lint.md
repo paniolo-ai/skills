@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: markdown-lint
 source-hash: 4c8c5e23a5274986cdbac1c97004e97609197af512e914bf00025b1b676b91bc
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Authoring — Markdown lint
 type: index
 tags:

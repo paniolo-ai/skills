@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react
 source-hash: 3fb4a6c0fdee1eb712c16ff7019d490fc8c2563a19792b484e938ec953bb18b8
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Authoring — React
 type: index
 tags:

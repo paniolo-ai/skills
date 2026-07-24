@@ -2,15 +2,13 @@
 source-wiki: sharp-shooter-wiki
 source-slug: constants
 source-hash: c3396f73668a24980f3937aaa451b9c2c178a895f7ec877fbf79b43270ba9535
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Constants and grouped symbols
 type: concept
 tags:
 - authoring
 - code-comments
 updated: 2026-06-18
-sources:
-- raw/harness-eng/songshare-ai-system/skill-code-comment-best-practices.md
 ---
 
 # Constants and grouped symbols

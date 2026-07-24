@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: audience-and-tone
 source-hash: 081cb75ea4178d4dd502c9e70d30b33f8191903b0601df8c6a732998b8ca650d
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Audience and Tone
 type: concept
 tags:
@@ -11,8 +11,6 @@ tags:
 - writing
 - prose
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Audience and Tone

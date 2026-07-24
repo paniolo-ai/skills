@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react-compiler-control-flow
 source-hash: 2f843650b0a5d101ec7d3cb8da7975bdd37d080acd47121ed80af14de6b994c9
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Compiler-compatible control flow
 type: concept
 tags:
@@ -10,8 +10,6 @@ tags:
 - react
 - client
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Compiler-compatible control flow

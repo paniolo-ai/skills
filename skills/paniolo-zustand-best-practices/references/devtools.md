@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: devtools
 source-hash: 2d6894fb0867f68d5b402521c775db11b8050e0b44e47afb254a4e8171d05457
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: DevTools
 type: concept
 tags:
@@ -12,8 +12,6 @@ tags:
 - client
 - state
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # DevTools

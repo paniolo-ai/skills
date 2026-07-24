@@ -2,15 +2,13 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-avoid-any
 source-hash: 138e7963fbab074bc09358c30ccf40351a6a961e77bd8972dd6cecf46acb639b
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Avoid `any`
 type: concept
 tags:
 - authoring
 - typescript
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Avoid `any`

@@ -1,18 +1,15 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-isolateddeclarations-explicit-type-annotations-on-exports
-source-hash: 9f26ea8247bc8403709653ada1a5dea8a0a0706e30ad50fe31d7a5b1c8bae6d6
-bundled: 2026-07-20
+source-hash: f31decd3b819a978c8eff1898b06bc9a1a01b1783b1f1a94425e0d1257453e25
+bundled: 2026-07-24
 title: '`--isolatedDeclarations` — explicit type annotations on exports'
 type: concept
 tags:
 - authoring
 - typescript
 - lint
-- songshare
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # `--isolatedDeclarations` — explicit type annotations on exports

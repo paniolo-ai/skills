@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-typescript
-source-hash: dc3c68df1db850436642d09897dd1347313813a9be9a3ed731d68ca284542df4
-bundled: 2026-07-20
+source-hash: 7b9b5dbcb06f84cad3aed6a2e322e87994b8ac31462a2ff1f89b86c71b65ba76
+bundled: 2026-07-24
 title: Authoring — TypeScript
 type: index
 tags:
@@ -51,7 +51,7 @@ Repo hub: `docs/typescript-best-practices.md` (thin router during wiki migration
 - Required vs Optional Properties
 - Set-Based Union Type Guards
 - Strict Null Checks
-- Supabase Client Integration
+- Database client integration
 - Type Extraction from Effect Schema
 - Type-Only Imports
 - Type vs Interface

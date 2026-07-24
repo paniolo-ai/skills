@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: writing-style-writing-style
 source-hash: d7a1d1e3bb98eb726ae09ad333057076c69d70657228a1f691c0b319067881dd
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Authoring — Writing style
 type: index
 tags:

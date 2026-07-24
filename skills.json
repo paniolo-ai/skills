@@ -88,7 +88,7 @@
     },
     {
       "name": "paniolo-effect-ts-patterns",
-      "description": "Effect-TS patterns for scripts (CLI orchestration, subprocesses, typed errors, schema validation). Use when building or migrating scripts, hooks, or validators — not Hono APIs.",
+      "description": "Effect-TS patterns for scripts (CLI orchestration, subprocesses, typed errors, schema validation). Use when building or migrating scripts, hooks, or validators — not HTTP API handlers.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [
@@ -148,40 +148,6 @@
       ]
     },
     {
-      "name": "paniolo-form-best-practices",
-      "description": "Standardized form patterns using useAppForm and Effect helpers. Covers validation, submission, and immediate error clearing on field edit.",
-      "license": "MIT",
-      "version": "0.1.0",
-      "tags": [
-        "react",
-        "forms"
-      ],
-      "sourceSkill": "form-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-form-best-practices",
-      "references": [
-        "api-and-client-handling",
-        "form",
-        "hook-api-reference",
-        "schema-definition"
-      ]
-    },
-    {
-      "name": "paniolo-internationalization-system",
-      "description": "i18n patterns for this project — useLocale/useLanguage/useCurrentLang hooks, URL-based language routing, adding translation keys, SupportedLanguageType. Use when adding UI text, building localized links, or working with language switching.",
-      "license": "MIT",
-      "version": "0.1.0",
-      "tags": [
-        "i18n",
-        "react"
-      ],
-      "sourceSkill": "internationalization-system",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-internationalization-system",
-      "references": [
-        "i18n",
-        "typescript-i18n-creating-language-links"
-      ]
-    },
-    {
       "name": "paniolo-lint-error-resolution",
       "description": "Guide for resolving lint errors in strict TypeScript environments — oxlint, ESLint, and tsc. Use when encountering lint errors in files being edited. Load the repo-specific lint supplement when fixing a workspace app repo's code.",
       "license": "MIT",
@@ -193,14 +159,14 @@
       "sourceSkill": "lint-error-resolution",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-lint-error-resolution",
       "references": [
-        "typescript-all-if-else-branches-contain-same-code-supabase-error-check",
+        "typescript-all-if-else-branches-contain-same-code-shared-error-check",
         "typescript-isolateddeclarations-explicit-type-annotations-on-exports",
         "typescript-lint",
         "typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna",
         "typescript-no-unsafe-type-assertion-request-validation",
+        "typescript-optional-method-chain-use-typed-query-wrapper",
         "typescript-quick-lookup",
-        "typescript-require-useeffect-comment-comment-before-useeffect",
-        "typescript-supabasefromlike-optional-method-chain-use-callselect"
+        "typescript-require-useeffect-comment-comment-before-useeffect"
       ]
     },
     {
@@ -239,62 +205,10 @@
       ]
     },
     {
-      "name": "paniolo-playwright-test-auth-best-practices",
-      "description": "Playwright authentication strategies for this project — mock auth helpers (authenticateTestUser, mockSignedOutUser, createTestUser), real signed-session flows for staging-DB and deployed runs, two-user sharing tests, and session management. Use when authoring or editing any Playwright spec that involves sign-in, sign-out, protected routes, multi-user flows, or staging DB sessions. Pair with playwright-test-best-practices for general E2E conventions.",
-      "license": "MIT",
-      "version": "0.1.0",
-      "tags": [
-        "playwright",
-        "testing",
-        "auth"
-      ],
-      "sourceSkill": "playwright-test-auth-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-playwright-test-auth-best-practices",
-      "references": [
-        "playwright-auth",
-        "playwright-authentication-model",
-        "playwright-mock-auth-api-reference",
-        "playwright-mock-auth-best-practices",
-        "playwright-mock-auth-in-tests",
-        "playwright-mock-auth-troubleshooting",
-        "playwright-multiple-users-mock",
-        "playwright-session-expiry",
-        "playwright-staging-db-setup",
-        "playwright-test",
-        "playwright-why-some-suites-run-serially"
-      ]
-    },
-    {
-      "name": "paniolo-playwright-test-best-practices",
-      "description": "Playwright E2E test conventions for this project — AAA pattern, translation-aware selectors, hydration waits, mock auth, staging DB sessions, two-user flows, debugging, and CI setup. Use when authoring or editing any Playwright spec, test helper, or E2E configuration. Do NOT use for unit tests or hook tests — load vitest-test-best-practices instead.",
-      "license": "MIT",
-      "version": "0.1.0",
-      "tags": [
-        "playwright",
-        "testing"
-      ],
-      "sourceSkill": "playwright-test-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-playwright-test-best-practices",
-      "references": [
-        "playwright-aaa-pattern",
-        "playwright-auth",
-        "playwright-debugging",
-        "playwright-hydration-waits",
-        "playwright-mock-auth-in-tests",
-        "playwright-mock-auth-troubleshooting",
-        "playwright-multiple-users-mock",
-        "playwright-session-expiry",
-        "playwright-staging-db-setup",
-        "playwright-test",
-        "playwright-test-organization",
-        "playwright-translation-aware-tests"
-      ]
-    },
-    {
       "name": "paniolo-qmd",
       "description": "Find relevant skills, docs, and repo-specific guidance with the Paniolo qmd workspace search. Use before task-shaped work, when qmd results mention a repo-local skill, or when maintaining the qmd index. Do not use for editing qmd implementation code; use script, TypeScript, or test guidance for that.",
       "license": "MIT",
-      "version": "0.4.21",
+      "version": "0.5.0",
       "tags": [
         "qmd",
         "lasso"
@@ -431,59 +345,10 @@
       ]
     },
     {
-      "name": "paniolo-vitest-test-hook-best-practices",
-      "description": "Complete guide for testing React hooks — renderHook, Documentation by Harness, installStore, fixtures, subscription patterns, lint/compiler traps, and pre-completion checklist. Read [vitest-hook](references/vitest-hook.md) for the full reference.",
-      "license": "MIT",
-      "version": "0.1.0",
-      "tags": [
-        "vitest",
-        "testing",
-        "hooks"
-      ],
-      "sourceSkill": "vitest-test-hook-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-vitest-test-hook-best-practices",
-      "references": [
-        "vitest-colocate-make-fixtures",
-        "vitest-documentation-by-harness",
-        "vitest-extract-helpers-only-after-repetition",
-        "vitest-forcecast-vs-make-fixtures",
-        "vitest-hook",
-        "vitest-mock",
-        "vitest-test"
-      ]
-    },
-    {
-      "name": "paniolo-vitest-test-mock-best-practices",
-      "description": "Vitest mocking guidance for this repo — module mock strategy, Supabase and Postgrest response stubs, API-handler mock setup, shared mock helpers, *forceCast* store selectors, and common mock pitfalls. Use when the user asks how to mock something in Vitest, wants mock-heavy unit tests added or fixed, or needs a review of mock strategy. Do NOT use for general non-mock test structure, AAA guidance, or hook Harness requirements.",
-      "license": "MIT",
-      "version": "0.1.0",
-      "tags": [
-        "vitest",
-        "testing",
-        "mocking"
-      ],
-      "sourceSkill": "vitest-test-mock-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-vitest-test-mock-best-practices",
-      "references": [
-        "vitest-api-handler-mock-setup",
-        "vitest-colocate-make-fixtures",
-        "vitest-domock",
-        "vitest-forceCast-and-the-installStore-selector-dispatch-pattern",
-        "vitest-mock",
-        "vitest-mock-vs-spyon",
-        "vitest-mocking-nodejs-built-ins",
-        "vitest-non-factory-mock",
-        "vitest-react-dom-mocking-flushsync",
-        "vitest-shared-mock-helper-infrastructure",
-        "vitest-supabase-postgrest-mocking",
-        "vitest-test"
-      ]
-    },
-    {
       "name": "paniolo-wiki",
       "description": "Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).",
       "license": "MIT",
-      "version": "0.4.21",
+      "version": "0.5.0",
       "tags": [
         "wiki",
         "llm-wiki"

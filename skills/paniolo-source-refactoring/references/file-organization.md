@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: file-organization
 source-hash: f5a257ebbbf51a6b380355a28fd55f54e453fe14d3749b225415dc881adf16c8
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Authoring — File organization
 type: index
 tags:

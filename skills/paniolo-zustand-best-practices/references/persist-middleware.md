@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: persist-middleware
 source-hash: dfb595795b0b972dd520b9270ba0bce5f0ca9bf0fae0178c5810e07dbc18898d
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Persist Middleware
 type: concept
 tags:
@@ -12,8 +12,6 @@ tags:
 - client
 - state
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Persist Middleware

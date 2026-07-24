@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: code-layout
 source-hash: 76c924dfa1fd58e978570ea2d10073101e46739dc5c75221b54251609dbef872
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Authoring — Code layout
 type: index
 tags:

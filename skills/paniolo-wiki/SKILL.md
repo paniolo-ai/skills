@@ -4,7 +4,7 @@ description: |
   Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).
 license: MIT
 metadata:
-  version: 0.4.21
+  version: 0.5.0
 tags:
 - wiki
 - llm-wiki

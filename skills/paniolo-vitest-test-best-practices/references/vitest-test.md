@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-test
 source-hash: 952ad641428f146b5c16d8f94b50f0c6ff611f207e69adba9258f7c727ee058e
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Authoring — Vitest unit testing
 type: index
 tags:

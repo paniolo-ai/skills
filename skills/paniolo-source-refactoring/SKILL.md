@@ -72,14 +72,14 @@ locations, use absolute paths (`@/`) to ensure the helper works regardless of th
 depth.
 
 **Why:** Relative paths (`../../../`) break when tests or modules move to different directory
-levels. Absolute paths (`@/react/event/manage/helpers`) remain stable.
+levels. Absolute paths (`@react/item/manage/helpers`) remain stable.
 
 ```typescript
 // ❌ BAD: Relative path breaks from different caller locations
-vi.doMock("../slide/useSlideManagerView", () => ({ default: mockFn }));
+vi.doMock("../manage/useItemManagerView", () => ({ default: mockFn }));
 
 // ✅ GOOD: Absolute path works from any location
-vi.doMock("@/react/event/manage/slide/useSlideManagerView", () => ({ default: mockFn }));
+vi.doMock("@react/item/manage/useItemManagerView", () => ({ default: mockFn }));
 ```
 
 For test helper files created during refactoring, **always use absolute imports** if the helper will
@@ -117,7 +117,7 @@ Search the codebase for all occurrences of the moved symbol and update their imp
 - If switching from a named export in a multi-symbol file to a default export in a new file, change
   `import { symbol } from './Original'` to `import symbol from './New'`.
 - When extracting test helpers: update all test files that import these helpers to use absolute
-  paths (`@/react/event/manage/test-utils/mockUseSlideManagerView.test-util`). Also follow the
+  paths (`@react/item/manage/test-utils/mockUseItemManagerView.test-util`). Also follow the
   convention of naming helper files with a `.test-util.ts[x]` suffix so their purpose is obvious.
 
 ## Step-by-Step Refactoring Process

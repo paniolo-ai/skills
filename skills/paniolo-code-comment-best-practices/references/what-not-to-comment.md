@@ -2,15 +2,13 @@
 source-wiki: sharp-shooter-wiki
 source-slug: what-not-to-comment
 source-hash: c9b50c78937dd13eb3cfcb9b8bf5ae5d7dd8cb7003b86fb70cf4f31aaad11687
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: What NOT to comment
 type: concept
 tags:
 - authoring
 - code-comments
 updated: 2026-06-18
-sources:
-- raw/harness-eng/songshare-ai-system/skill-code-comment-best-practices.md
 ---
 
 # What NOT to comment

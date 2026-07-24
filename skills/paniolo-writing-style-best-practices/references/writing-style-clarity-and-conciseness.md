@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: writing-style-clarity-and-conciseness
 source-hash: 290fff5dc6749e414c217ab3ddb8fce8d6d64613d0a9e0ef6bd8c3e0eba33162
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Clarity and Conciseness
 type: concept
 tags:
@@ -11,8 +11,6 @@ tags:
 - writing
 - prose
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Clarity and Conciseness

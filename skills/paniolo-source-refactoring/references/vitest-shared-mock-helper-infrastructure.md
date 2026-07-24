@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-shared-mock-helper-infrastructure
-source-hash: aa49debe121c541b9add84eaf41036e88fc8810bcb9faa0b836eb8ab5a98467a
-bundled: 2026-07-20
+source-hash: b03557b803ba87741e4333c0b6546ff89e8c40406cd5de1e69ab11f8f0bbc2db
+bundled: 2026-07-24
 title: Shared Mock Helper Infrastructure
 type: concept
 tags:
@@ -11,8 +11,6 @@ tags:
 - testing
 - mocking
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Shared Mock Helper Infrastructure
@@ -36,20 +34,20 @@ mock function.
 **Callable mock setup functions:**
 
 ```typescript
-// react/src/event/manage/test-utils/mockUseSlideManagerView.ts
+// react/src/item/manage/test-utils/mockUseItemManagerView.ts
 import { vi } from "vitest";
 
 let mockFn: ReturnType<typeof vi.fn> | undefined = undefined;
 
 /**
- * Set up the mock for useSlideManagerView.
+ * Set up the mock for useItemManagerView.
  * Must be called explicitly in each test before using the hook.
  * @returns The mock function for inspection
  */
-export default function mockUseSlideManagerView(): ReturnType<typeof vi.fn> {
+export default function mockUseItemManagerView(): ReturnType<typeof vi.fn> {
 	vi.resetModules();
 	mockFn = vi.fn();
-	vi.doMock("@/react/event/manage/slide/useSlideManagerView", () => ({ default: mockFn }));
+	vi.doMock("@react/item/manage/useItemManagerView", () => ({ default: mockFn }));
 	return mockFn;
 }
 
@@ -59,15 +57,15 @@ export function getMockFn(): ReturnType<typeof vi.fn> | undefined {
 ```
 
 **Global mock storage with `vi.hoisted()`** — use `vi.hoisted(() => ({ mockFn: undefined }))` to
-share mock state across helper files. See real examples in `react/src/form/test-util.ts`.
+share mock state across helper files. See the helper modules in your own `test-util.ts` files.
 
 **Helper module rules:**
 
 1. No top-level `vi.mock` calls in helper modules. Export a callable function (`mockFoo()`) that
    calls `vi.doMock` when invoked.
 2. No lint disable comments in test files — test-util files may use disables only when unavoidable.
-3. See real examples in `react/src/form/test-util.ts` and
-   `react/src/lib/supabase/client/getSupabaseClient.test-util.ts`.
+3. Keep such examples beside the feature that owns them (for example a form `test-util.ts`
+   and a `getDbClient.test-util.ts` in the data-access layer).
 
 ## See also
 

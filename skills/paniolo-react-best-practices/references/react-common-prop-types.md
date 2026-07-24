@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react-common-prop-types
 source-hash: 41554bc84ffc415a45cabca2110892c85f00d8c1f0e8c703a786352644dfedae
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Common Prop Types
 type: concept
 tags:
@@ -10,8 +10,6 @@ tags:
 - react
 - client
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Common Prop Types

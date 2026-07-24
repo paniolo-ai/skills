@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: testing-zustand-unit-testing
 source-hash: dc48e920260e258a3775f14ddc32e245f254f4259747d1d536a86d9070ee24bf
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Unit Testing
 type: concept
 tags:
@@ -12,8 +12,6 @@ tags:
 - client
 - state
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Unit Testing

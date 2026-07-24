@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-lint
-source-hash: bca3a52c2635fef29d46fad37478f71603c70148ba7dd70e031d930293ab1c62
-bundled: 2026-07-20
+source-hash: 77ee2ed5861c12b5356cbf91dc3ecea9d7d51265c97264e09a6320726ae3689e
+bundled: 2026-07-24
 title: Authoring — TypeScript lint
 type: index
 tags:
@@ -19,12 +19,12 @@ Repo hub: `docs/repos/paniolo/typescript-lint-best-practices.md` (thin router du
 
 ## Pages
 
-- Shared Supabase error handling
+- Shared error handling across branches
 - Async
 - Commands and Workflow
 - `consistent-type-imports` — type-only imports
 - Execution Workflow
-- General Rules (SongShare context)
+- General rules
 - `--isolatedDeclarations` — explicit type annotations on exports
 - Lint Command Policy
 - `no-unsafe-assignment` / dynamic tables
@@ -35,7 +35,7 @@ Repo hub: `docs/repos/paniolo/typescript-lint-best-practices.md` (thin router du
 - Quick Reference
 - `require-useeffect-comment` — comment before `useEffect`
 - Style
-- `SupabaseFromLike` optional chains — use `callSelect`
+- Query-builder optional chains — use a typed wrapper
 - Tooling and Config
 - Tooling and Hooks
 - Types

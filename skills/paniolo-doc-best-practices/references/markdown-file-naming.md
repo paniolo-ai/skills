@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: markdown-file-naming
 source-hash: ffd1431cb40c600e1c08e1d4311f2b0eaff44cdcb1205985939af5ff6cd7baa4
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: File Naming
 type: concept
 tags:
@@ -11,8 +11,6 @@ tags:
 - markdown
 - formatting
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # File Naming

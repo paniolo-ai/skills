@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: naming
 source-hash: d7ce7bfd8c444c71ae8aa5b9db2d22fb5c25517b7eeda38adb4d531aecbfdb31
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Authoring — Naming conventions
 type: index
 tags:
@@ -21,7 +21,7 @@ Repo hub: `docs/naming-best-practices.md` (thin router during wiki migration).
 
 - File Naming
 - React Component Naming
-- Paniolo CLI packages (`@paniolo/cli`)
+- Scanner and CLI packages (paniolo-scan)
 - Type and Interface Naming
 - use\\_ vs compute\\_ — The Most Common Mistake
 - Variable Naming

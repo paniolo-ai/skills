@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react-prefer-required-props
 source-hash: 35257fa8cae3cf6351c7ad473713aeec846c8c07c770a87f3b80ad0f01b3b1b2
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Prefer Required Props
 type: concept
 tags:
@@ -10,8 +10,6 @@ tags:
 - react
 - client
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Prefer Required Props

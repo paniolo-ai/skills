@@ -45,7 +45,7 @@ The prefix signals the responsibility of the function. Pick the most precise one
 | ----------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `use*`                  | React hook — **must** call at least one React hook internally  | `useEventPermissions` → ❌ (no hooks inside); `useActiveEventSync` → ✅ |
 | `compute*`              | Pure function that **derives** a value via non-trivial logic   | `computeEventPermissions`, `computeSlidePosition`                       |
-| `get*`                  | Simple **retrieval** — property access, map lookup, array find | `getErrorMessage`, `getSupabaseClient`                                  |
+| `get*`                  | Simple **retrieval** — property access, map lookup, array find | `getErrorMessage`, `getDbClient`                                       |
 | `fetch*`                | **Async** data load (network/DB)                               | `fetchEventBySlug`, `fetchCommunityLibrary`                             |
 | `subscribe*`            | Sets up a **realtime / WebSocket** subscription                | `subscribeToCommunityEvent`, `subscribeToPresence`                      |
 | `run*`                  | Executes a multi-step **Effect pipeline** or async flow        | `runAction`, `runCommunityAction`                                       |

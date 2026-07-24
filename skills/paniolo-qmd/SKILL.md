@@ -4,9 +4,10 @@ description: |
   Find relevant skills, docs, and repo-specific guidance with the Paniolo qmd workspace search. Use before task-shaped work, when qmd results mention a repo-local skill, or when maintaining the qmd index. Do not use for editing qmd implementation code; use script, TypeScript, or test guidance for that.
 license: MIT
 metadata:
-  version: 0.4.21
+  version: 0.5.0
 tags:
 - qmd
+- lasso
 references: []
 user-invocable: true
 ---

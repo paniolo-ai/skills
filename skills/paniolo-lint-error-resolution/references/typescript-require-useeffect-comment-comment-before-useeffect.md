@@ -1,18 +1,15 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-require-useeffect-comment-comment-before-useeffect
-source-hash: fef7171a8dac33fcb7406e14a88422f33c4197f4647c387448fe96e756162359
-bundled: 2026-07-20
+source-hash: 3c2100d683bbc913e2be4264ec4fc46d6faa665243215a302ad592c928c2f4be
+bundled: 2026-07-24
 title: '`require-useeffect-comment` — comment before `useEffect`'
 type: concept
 tags:
 - authoring
 - typescript
 - lint
-- songshare
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # `require-useeffect-comment` — comment before `useEffect`

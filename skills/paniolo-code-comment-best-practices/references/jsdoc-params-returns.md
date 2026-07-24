@@ -2,15 +2,13 @@
 source-wiki: sharp-shooter-wiki
 source-slug: jsdoc-params-returns
 source-hash: e51b98e40d05fefc61dea09d353e99b00d5fe3f062ca8df375d21f76d35d66a8
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: JSDoc — params and returns
 type: concept
 tags:
 - authoring
 - code-comments
 updated: 2026-06-18
-sources:
-- raw/harness-eng/songshare-ai-system/skill-code-comment-best-practices.md
 ---
 
 # JSDoc — params and returns

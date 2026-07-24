@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: react-paired-hook-for-non-display-logic
-source-hash: c78878bf923937eb6d0846512ee9a71146fa8d6f08c74ae9f0553e1a80634378
-bundled: 2026-07-20
+source-hash: 62fa851c7b4bb002383ddb054078329ca5250ffff2677adb45a8cdceaeacc35d
+bundled: 2026-07-24
 title: Paired hook for non-display logic
 type: concept
 tags:
@@ -10,8 +10,6 @@ tags:
 - react
 - client
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Paired hook for non-display logic
@@ -61,8 +59,8 @@ as Split hooks over prop spreading: keep props between them
 minimal and intentional. Thin shells that only resolve route or tab inputs and render a child may
 stay inline without a dedicated hook until that logic becomes non-trivial.
 
-**Do not accept, return, or prop-drill `t`.** Components that render copy call `useLocale()` or
-`useTranslation()` themselves and keep `t(...)` beside the JSX. Paired hooks may also call locale
+**Do not accept, return, or prop-drill `t`.** Components that render copy call their locale or
+`useTranslation()` hook themselves and keep `t(...)` beside the JSX. Paired hooks may also call locale
 hooks for non-display needs such as `lang`-aware href building, routing, or hook-owned derived
 strings, but do not move `t` out of a rendering component just to centralize it. **Never** pass `t`
 as a prop (for example `t={t}`) or a hook argument (for example `useThing({ t })`).

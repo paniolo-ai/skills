@@ -22,15 +22,8 @@ references:
 
 **Related skills:**
 
-- [`vitest-test-mock-best-practices/SKILL.md`](../paniolo-vitest-test-mock-best-practices/SKILL.md)
 - [`code-comment-best-practices/SKILL.md`](../paniolo-code-comment-best-practices/SKILL.md)
 - [`typescript-lint-best-practices/SKILL.md`](../paniolo-typescript-lint-best-practices/SKILL.md)
-
-**Depends on (MANDATORY for hook tests):**
-
-[`vitest-test-hook-best-practices/SKILL.md`](../paniolo-vitest-test-hook-best-practices/SKILL.md)
-
-Load it whenever the target under test is a React hook or hook test file.
 
 ## Full reference
 
@@ -42,7 +35,7 @@ test structure, API handler execution, and general tradeoffs.
 scan-vitest
 
 [vitest-mock](references/vitest-mock.md) —
-load on demand for mocking patterns, Supabase/Postgrest stubs, API handler mock setup, or helper
+load on demand for mocking patterns, data-client stubs, API handler mock setup, or helper
 architecture.
 
 ## When invoked
@@ -99,7 +92,7 @@ architecture.
 - Prefer lowercase `describe` names for component/content tests when nearby
   files follow that convention.
 - Use `mockTranslation()` for localized UI instead of ad-hoc
-  `react-i18next` mocks.
+  translation-library mocks.
 - Use `MemoryRouter` plus a probe component for navigation assertions instead
   of mocking `react-router-dom`.
 - Default to bare `vi.mock("path")` + `vi.mocked(...)`. Avoid factory
@@ -139,10 +132,9 @@ one-off overrides, `vi.doMock` for per-test runtime setup, factory patterns for 
 - Do not assert a mocked function's own implementation — assert observable behavior instead.
 - Do not mock `effect` at module level. Mock your own boundary and return real `Effect` values.
 - Do not treat `vi.hoisted()` or `vi.importActual()` as baseline patterns — they are exceptions.
-- Do not use `beforeEach`/`afterEach`/`beforeAll`/`afterAll` in `*.test.*` (`jest/no-hooks`); see
-  [vitest-test-mock-best-practices](../paniolo-vitest-test-mock-best-practices/SKILL.md).
-- Do not hand-roll `react-i18next` module mocks when
-  `@/react/lib/test-utils/mockTranslation` fits the scenario.
+- Do not use `beforeEach`/`afterEach`/`beforeAll`/`afterAll` in `*.test.*` (`jest/no-hooks`).
+- Do not hand-roll translation-library module mocks when a shared `mockTranslation`
+  test util fits the scenario.
 - Do not mock `react-router-dom` when a `MemoryRouter` render exercises the
   behavior directly.
 - Do not stop after a targeted Vitest run when a new or edited test file still

@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: selector-factory-pattern
 source-hash: 89b0a6699bb02c3f7e013636d2fdefff11d8719756042382d2adad8161eab511
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: Selector Factory Pattern
 type: concept
 tags:
@@ -12,8 +12,6 @@ tags:
 - client
 - state
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # Selector Factory Pattern

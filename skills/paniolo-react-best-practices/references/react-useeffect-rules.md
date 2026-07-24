@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react-useeffect-rules
 source-hash: 21be01b24853e663a328a4011854a14a872a927f3c086af08630cf9e15483cd9
-bundled: 2026-07-20
+bundled: 2026-07-24
 title: useEffect Rules
 type: concept
 tags:
@@ -10,8 +10,6 @@ tags:
 - react
 - client
 updated: 2026-06-18
-sources:
-- raw/harness-eng/doc-fragment-extraction/doc-content-organization.md
 ---
 
 # useEffect Rules
