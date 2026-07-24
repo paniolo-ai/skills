@@ -137,5 +137,5 @@ Apply while writing so pages pass `pnpm run lint:md` and `pnpm run check:wiki` o
 
 ## References
 
-- Validator: `pnpm run check:wiki` in harness (`@paniolo/wiki-io` / `wiki-io`).
+- Validator: `pnpm run check:wiki` in harness (`paniolo wiki` via `@paniolo/cli`).
 - Wiki config: `paniolo.config.json` — lists all wiki roots and known repos.

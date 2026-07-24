@@ -7,7 +7,6 @@ metadata:
   version: 0.4.21
 tags:
 - qmd
-- lasso
 references: []
 user-invocable: true
 ---
@@ -26,8 +25,8 @@ user-invocable: true
 ## Setup
 
 Install dependencies once with `pnpm install`. The harness pulls the correct
-`@paniolo/lasso-<platform>-<arch>` binary for the current platform, so no global
-qmd install is needed. Set `QMD_LASSO_BIN` only when using a locally built
+`@paniolo/cli-<platform>-<arch>` binary for the current platform through the `@paniolo/cli`
+wrapper, so no global qmd install is needed. Set `PANIOLO_BIN` only when using a locally built
 binary.
 
 - **Windows (PowerShell):** run `pnpm run qmd:reindex` to build the BM25 index and,

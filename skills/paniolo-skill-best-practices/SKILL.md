@@ -27,7 +27,7 @@ user-invocable: true
 
 ## Core Rules
 
-1. **Skills must be ≤ 500 lines.** Enforced by `@paniolo/scan` (configurable via
+1. **Skills must be ≤ 500 lines.** Enforced by `paniolo scan` (via `@paniolo/cli`; configurable via
    `paniolo.config.json` `skill.maxLines`).
 2. **Skills are pointers, not encyclopedias.** Tell the agent _what to do_ and _where to look_.
    Defer detail to `sharp-shooter-wiki/wiki/` leaves.
@@ -122,7 +122,7 @@ tags:
 1. Read the current skill and the doc it points to.
 2. Add new patterns to the **doc** first.
 3. Update the skill with deep links (e.g. `sharp-shooter-wiki:<topic>` in prose).
-4. Run `npx @paniolo/scan` to verify ≤ 500 lines.
+4. Run `npx @paniolo/cli scan` to verify ≤ 500 lines.
 
 **Output format for agents:**
 
@@ -170,7 +170,7 @@ skill-composition.
 
 - Full design guide: skill-authoring
 - Skill composition: skill-composition
-- Line-count check: `@paniolo/scan` (`skill-line-count` rule)
+- Line-count check: `paniolo scan` (`skill-line-count` rule)
 - Workflows: [`.agents/workflows/`](/.agents/workflows/)
 
 ## Do Not

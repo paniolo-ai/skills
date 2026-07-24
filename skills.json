@@ -205,9 +205,9 @@
     },
     {
       "name": "paniolo-markdown-lint-best-practices",
-      "description": "Pre-authoring checklist and validation workflow for writing lint-clean markdown in this repo. Use when creating or editing any .md file to pass paniolo-scan and wiki-io checks on the first try.",
+      "description": "Pre-authoring checklist and validation workflow for writing lint-clean markdown in this repo. Use when creating or editing any .md file to pass paniolo scan and paniolo wiki checks on the first try.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "markdown",
         "lint"

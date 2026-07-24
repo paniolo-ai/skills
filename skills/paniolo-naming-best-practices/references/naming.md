@@ -21,7 +21,7 @@ Repo hub: `docs/naming-best-practices.md` (thin router during wiki migration).
 
 - File Naming
 - React Component Naming
-- Scanner and CLI packages (paniolo-scan)
+- Paniolo CLI packages (`@paniolo/cli`)
 - Type and Interface Naming
 - use\\_ vs compute\\_ — The Most Common Mistake
 - Variable Naming
