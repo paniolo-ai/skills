@@ -32,7 +32,7 @@ for
 test structure, API handler execution, and general tradeoffs.
 
 **Paniolo scan:** see
-scan-vitest
+[[paniolo-wiki:scan-vitest-what-to-assert]]
 
 [vitest-mock](references/vitest-mock.md) —
 load on demand for mocking patterns, data-client stubs, API handler mock setup, or helper
