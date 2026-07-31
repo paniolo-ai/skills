@@ -4,7 +4,7 @@ description: |
   Find relevant skills, docs, and repo-specific guidance with the Paniolo qmd workspace search. Use before task-shaped work, when qmd results mention a repo-local skill, or when maintaining the qmd index. Do not use for editing qmd implementation code; use script, TypeScript, or test guidance for that.
 license: MIT
 metadata:
-  version: 0.5.0
+  version: 0.5.14
 tags:
 - qmd
 - lasso
@@ -95,7 +95,7 @@ hyde: The vitest skill explains mocking a hook and asserting state transitions w
 
 If you genuinely have only one rare token or a verbatim phrase, that's a job
 for `qmd search`, not a bare `qmd query`. Inspect ranking with
-`pnpm run qmd -- query --format json --explain "$query"`.
+`pnpm run qmd -- query --json "$query"`.
 
 ### MCP `query` tool
 
@@ -125,11 +125,16 @@ collection name = repo name) when a broad search pulls the wrong corpus:
 
 ```bash
 pnpm run qmd -- search "auth flow" -c paniolo
-pnpm run qmd -- query  "deployment runbook" -c my-app -c paniolo.ai
+pnpm run qmd -- query  "deployment runbook" -c my-app
 ```
 
-`qmd context list` shows each collection's context tree (root plus `/.agents/skills/`,
-`sharp-shooter-wiki/wiki/`, etc.) — those context lines come back with results to help you pick.
+The CLI takes **one** `-c` (a second occurrence overrides the first, it does not
+add). Only the MCP `query` tool accepts a plural `collections` array. When you
+need two repos from the CLI, run unscoped or search each in turn.
+
+`pnpm run qmd -- doctor` lists every configured and indexed collection with its
+document count, so use it when you are unsure what a `-c` name should be. Result
+lines also carry the collection's context description to help you pick.
 
 ## Retrieve sources — by docid, with line ranges
 
@@ -153,8 +158,10 @@ Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
 - Search: `pnpm run qmd -- search "<task description>"`
 - Hybrid query (GPU on Windows): `pnpm run qmd -- query "<query or structured fields>"`
 - Retrieve: `pnpm run qmd -- get <#docid|path[:from:count]>` / `multi-get <glob|list>`
-- Discover: `pnpm run qmd -- ls [collection]`, `status`, `context list`
-- Re-index: `pnpm run qmd -- reindex`
+- Diagnose: `pnpm run qmd -- doctor` (add `--json`, or `--models` for GPU offload)
+- Re-index: `pnpm run qmd -- reindex` (add `--prune` to drop orphaned collections)
+- Warm sidecar: `pnpm run qmd -- serve --ensure | --stop | --restart`
+- Add `-v` to any command for llama.cpp's model-loading diagnostics.
 
 ---
 
@@ -167,10 +174,13 @@ Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
   and spans the harness plus its sibling repos.
 - Harness skills are shared baseline guidance; repo-local skills are the
   operating procedures for that repo's own files, validators, and workflows.
-- `-c <repo>` scoping does not include the harness skill collection. Dot-prefixed
-  directories are indexed separately, so `.agents/skills/` is its own collection
-  (`harness-agents-skills`). Use an unscoped search to search both a repo and
-  its skills.
+- Dot-prefixed subtrees are indexed as their own collection, so a repo's
+  `.agents/skills/` is `<repo>-agents-skills` and is excluded from `<repo>`.
+  `-c <repo>` therefore does not reach that repo's skills — scope to both, or
+  search unscoped, when you want a repo and its skills together.
+- When `query` misbehaves but `search` is fine, run `doctor` first: it checks
+  vector coverage and asks the warm sidecar to answer a real query, rather than
+  only checking that it is listening. `serve --restart` is the recovery.
 - qmd failure is not blocking. Inspect `.agents/skills/` and the wiki directories configured in
   `paniolo.config.json` across the workspace directly and continue.
 
@@ -193,3 +203,5 @@ Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
 - Do not copy repo-specific skills into harness only for visibility.
 - Do not load every qmd result; choose the smallest useful context set.
 - Do not stop task work solely because qmd search or query failed.
+- Do not kill the `paniolo` process family to recover the warm sidecar — that
+  also kills the MCP server. Use `serve --stop` or `serve --restart`.

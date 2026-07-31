@@ -4,7 +4,7 @@ description: |
   Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).
 license: MIT
 metadata:
-  version: 0.5.0
+  version: 0.5.14
 tags:
 - wiki
 - llm-wiki
@@ -16,8 +16,16 @@ user-invocable: true
 
 # Maintaining a wiki
 
-A pointer skill. The canonical schema lives in your repo's `AGENTS.md` and wiki
-conventions; this skill is the operating procedure, not a restatement of the rules.
+A pointer skill — the operating procedure, not a restatement of the rules. The
+validator is the canonical schema: it enumerates the permitted values in its own
+findings, so run it rather than guessing.
+
+- `type:` — `entity`, `concept`, `summary`, `comparison`, `synthesis`,
+  `decision`, `index`.
+- `wiki/log.md` verbs — `ingest`, `query`, `lint`, `research`, `roadmap`,
+  `decide`, `delete`, `rename`, `move`.
+- Wikis, known repos, and thresholds — the `wiki` section of
+  `paniolo.config.json`.
 
 ## Use When
 
@@ -31,8 +39,8 @@ conventions; this skill is the operating procedure, not a restatement of the rul
 Every factual claim must trace to a file you have snapshotted under `raw/`. If you
 read it from another repo on disk, **snapshot it into `raw/` first** (and add it to
 that directory's `SOURCES.md`) or do not claim it. The validator enforces that every
-cited `raw/` path exists — it cannot catch a fact you invented, so this discipline is
-on you.
+cited snapshot resolves — both `raw/<path>` entries and bare slugs — but it cannot
+catch a fact you invented, so this discipline is on you.
 
 Document anything that makes an AI agent more reliable across a long session:
 harness structure, instruction-authoring techniques, enforcement/correction loops,
@@ -79,7 +87,8 @@ markdown path references (`source-wiki/wiki/slug.md`) in any form.
    root `*.md`, and sibling repos.
 2. Update every reference: remove index list entries, replace inline references with
    the best alternative, remove markdown path references.
-3. Remove the entry from `all-pages.md` and any parent index.
+3. Remove the entry from every index that lists it — the alphabetical index
+   (`all-pages.md`, where the wiki keeps one) and any parent/domain index.
 4. Delete the file.
 5. Append to `wiki/log.md`: `## [YYYY-MM-DD] delete | <domain> | <title>` with 1-2 bullets.
 6. Run `pnpm run check:wiki` and fix remaining issues.
@@ -92,7 +101,8 @@ markdown path references (`source-wiki/wiki/slug.md`) in any form.
    `source-wiki:old-slug` become `source-wiki:new-slug`, and markdown paths like
    `source-wiki/wiki/old-slug.md` become `source-wiki/wiki/new-slug.md`.
 3. Rename the file; update frontmatter `title` if the title changes.
-4. Update `all-pages.md` and parent indexes.
+4. Update every index that lists it (`all-pages.md` where present, plus parent
+   and domain indexes).
 5. Log: `## [YYYY-MM-DD] rename | <domain> | <old> → <new>`.
 6. Run `pnpm run check:wiki`.
 
@@ -113,13 +123,14 @@ markdown path references (`source-wiki/wiki/slug.md`) in any form.
 
 ## Markdown lint best practices
 
-Apply while writing so pages pass `pnpm run lint:md` and `pnpm run check:wiki` on the first try.
+Apply while writing so pages pass `pnpm run check:wiki` (and the harness `pnpm run lint`) on the first try.
 
 - Blank line before AND after every heading, list, and fenced block.
 - Unordered lists use `-`; ordered lists use `1.` for every item.
 - Every fenced block has a language tag (`ts`, `bash`, `text`).
 - Internal links resolve in your wiki; use backticks for cross-repo paths.
-- Skills ≤ 200 lines; other linted pages ≤ 350 lines.
+- Prose pages on the capped surface stay under the `wiki.lineCap` budget (350 by
+  default). `type: index` pages are exempt — split them by domain when they grow.
 
 ## Do Not
 
@@ -129,11 +140,11 @@ Apply while writing so pages pass `pnpm run lint:md` and `pnpm run check:wiki` o
 - Do not finish while `pnpm run check:wiki` is red.
 - Do not delete, rename, or move a file before updating its references.
 - Do not move `raw/` sources without updating `SOURCES.md` in both wikis.
-- Do not leave orphaned entries in `all-pages.md` or parent indexes.
+- Do not leave orphaned entries in any index that listed the page.
 - Do not silently drop a reference — if no alternative exists, ask the human.
 - Do not omit blank lines around headings, lists, or fences.
 - Do not use bare URLs — always `[text](url)`.
-- Do not exceed the skill (200) or page (350) line budgets.
+- Do not exceed the configured line budgets (`skill.maxLines`, `wiki.lineCap`).
 
 ## References
 
