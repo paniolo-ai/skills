@@ -80,46 +80,51 @@ name as it appears in `paniolo.config.json`:
 Inside the wiki the page lives in, the prefix can be omitted. Do **not** use
 markdown path references (`source-wiki/wiki/slug.md`) in any form.
 
-### Delete
+**Do not grep-and-edit these by hand.** `paniolo wiki` performs all four, and
+every one takes `--dry-run` to print the exact edits before writing:
 
-1. Grep all reference patterns for the slug across all configured wikis,
-   `.agents/skills/`, `.agents/agents/`, `.github/`, `.devin/`, `.cursor/rules/`,
-   root `*.md`, and sibling repos.
-2. Update every reference: remove index list entries, replace inline references with
-   the best alternative, remove markdown path references.
-3. Remove the entry from every index that lists it — the alphabetical index
-   (`all-pages.md`, where the wiki keeps one) and any parent/domain index.
-4. Delete the file.
-5. Append to `wiki/log.md`: `## [YYYY-MM-DD] delete | <domain> | <title>` with 1-2 bullets.
-6. Run `pnpm run check:wiki` and fix remaining issues.
+```bash
+paniolo wiki refs <slug> --config paniolo.config.json
+paniolo wiki rename <old> <new> --config paniolo.config.json --dry-run
+paniolo wiki move <slug> --to <wiki> --config paniolo.config.json --dry-run
+paniolo wiki delete <slug> --config paniolo.config.json --dry-run
+```
 
-### Rename (same wiki)
+### Start with `refs`
 
-1. Grep all reference patterns for the old slug.
-2. Update every matching wikilink and markdown path, preserving any `|Display Text`.
-   For a page in `source-wiki` this means local links and cross-wiki links like
-   `source-wiki:old-slug` become `source-wiki:new-slug`, and markdown paths like
-   `source-wiki/wiki/old-slug.md` become `source-wiki/wiki/new-slug.md`.
-3. Rename the file; update frontmatter `title` if the title changes.
-4. Update every index that lists it (`all-pages.md` where present, plus parent
-   and domain indexes).
-5. Log: `## [YYYY-MM-DD] rename | <domain> | <old> → <new>`.
-6. Run `pnpm run check:wiki`.
+It lists every reference and classifies each one:
 
-### Move (between wikis)
+- **index** — a bullet that exists only to point at the page. Removed for you.
+- **prose** — the slug in a sentence. Blocks a delete; only you can pick what
+  replaces it.
+- **non-actionable** — generated or cached files (`generatedPaths` in config)
+  and `wiki/log.md`, which is append-only history and is never rewritten.
 
-1. Grep all reference patterns for the slug.
-2. Update every matching wikilink and markdown path, preserving any `|Display Text`:
-   - In the source wiki change local links to `target-wiki:<slug>`.
-   - In the target wiki change `source-wiki:<slug>` to local links.
-   - In other wikis change `source-wiki:<slug>` to `target-wiki:<slug>`.
-   - Markdown paths update similarly.
-3. Copy the file to the target wiki, delete from source.
-4. Update indexes in both wikis.
-5. If `sources:` cites `raw/<path>`, copy those into the target wiki's `raw/` tree
-   and update `SOURCES.md` in both wikis.
-6. Log in both wikis: `## [YYYY-MM-DD] move | <domain> | <title> → <target-wiki>`.
-7. Run `pnpm run check:wiki`.
+### Rename and move are fully automatic
+
+Both rewrite every reference across all configured repos: display aliases
+survive, cross-wiki links keep their prefix through a rename, and a move
+retargets by where the link lives (source wiki qualifies, destination localizes,
+everyone else repoints). A move also carries the page's cited `raw/` snapshots
+into the target wiki — move their `SOURCES.md` rows yourself, which the command
+names in a note.
+
+Then log it and validate:
+
+- `## [YYYY-MM-DD] rename | <domain> | <old> → <new>`
+- `## [YYYY-MM-DD] move | <domain> | <title> → <target-wiki>` (in both wikis)
+
+### Delete refuses rather than deciding
+
+With prose references outstanding it exits non-zero and names them. Resolve each
+one — pick the replacement page and rewrite the sentence — then run it again. It
+removes index entries and the file itself.
+
+Log it (`## [YYYY-MM-DD] delete | <domain> | <title>`, 1-2 bullets), then run
+`pnpm run check:wiki`.
+
+Before deleting, check whether the page holds a still-valid fact absent from its
+replacement. The command cannot know that; rescuing it is on you.
 
 ## Markdown lint best practices
 
@@ -138,9 +143,11 @@ Apply while writing so pages pass `pnpm run check:wiki` (and the harness `pnpm r
 - Do not duplicate a fact across two pages — link to one canonical page.
 - Do not leave a page out of its index (orphan) or skip the `wiki/log.md` entry.
 - Do not finish while `pnpm run check:wiki` is red.
-- Do not delete, rename, or move a file before updating its references.
+- Do not hand-edit references for a delete, rename, or move — use the commands.
+- Do not force a delete past its refusal; resolve the prose references it names.
+- Do not rewrite `wiki/log.md` entries for a renamed or deleted page — the log
+  records what happened on a date.
 - Do not move `raw/` sources without updating `SOURCES.md` in both wikis.
-- Do not leave orphaned entries in any index that listed the page.
 - Do not silently drop a reference — if no alternative exists, ask the human.
 - Do not omit blank lines around headings, lists, or fences.
 - Do not use bare URLs — always `[text](url)`.
