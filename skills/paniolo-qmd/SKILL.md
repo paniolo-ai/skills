@@ -162,8 +162,9 @@ Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
 
 - Use the harness launcher instead of calling `qmd` directly so each platform
   gets the correct binary and native-disk index.
-- The workspace index is generated from `harness.code-workspace` and spans
-  harness plus sibling Paniolo repos.
+- The workspace index is generated from the harness workspace manifest — the
+  `.code-workspace` file named by `workspace.file` in `paniolo.config.json` —
+  and spans the harness plus its sibling repos.
 - Harness skills are shared baseline guidance; repo-local skills are the
   operating procedures for that repo's own files, validators, and workflows.
 - `-c <repo>` scoping does not include the harness skill collection. Dot-prefixed
