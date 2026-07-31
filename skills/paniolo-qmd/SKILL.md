@@ -97,6 +97,21 @@ If you genuinely have only one rare token or a verbatim phrase, that's a job
 for `qmd search`, not a bare `qmd query`. Inspect ranking with
 `pnpm run qmd -- query --json "$query"`.
 
+### Why did this rank here?
+
+`query --explain` prints the per-stage breakdown behind each hit: where the BM25
+and vector arms each placed it, what each contributed to the fused RRF total, and
+the cross-encoder score when reranking reached it.
+
+```bash
+pnpm run qmd -- query --explain "wiki validator sources" -n 3
+```
+
+Read it to tell *why* a result surfaced. `bm25 no match` with a vector rank means
+pure semantic recall — reach for `search` instead if you wanted the keyword. Two
+hits with near-identical rerank scores but different RRF totals mean fusion, not
+the reranker, decided their order.
+
 ### MCP `query` tool
 
 On Windows (GPU tier), qmd may also be exposed as an MCP server. Prefer the MCP
@@ -158,10 +173,18 @@ Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
 - Search: `pnpm run qmd -- search "<task description>"`
 - Hybrid query (GPU on Windows): `pnpm run qmd -- query "<query or structured fields>"`
 - Retrieve: `pnpm run qmd -- get <#docid|path[:from:count]>` / `multi-get <glob|list>`
+- Inspect ranking: `pnpm run qmd -- query --explain "<query>"`
 - Diagnose: `pnpm run qmd -- doctor` (add `--json`, or `--models` for GPU offload)
 - Re-index: `pnpm run qmd -- reindex` (add `--prune` to drop orphaned collections)
+  — `update` (text index only) and `embed` (vectors only) are its two halves
 - Warm sidecar: `pnpm run qmd -- serve --ensure | --stop | --restart`
+- GPU preference: `pnpm run qmd -- gpu` writes the per-machine `.qmd-local.json`
 - Add `-v` to any command for llama.cpp's model-loading diagnostics.
+
+Two more exist and are not part of normal task work: `mcp` (the MCP server, which
+your editor starts for you) and `hook` (vendor hook plumbing). `eval` and `tune`
+replay logged hook queries to score retrieval variants — reach for `--explain`
+when the question is about one query you just ran.
 
 ---
 
