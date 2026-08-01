@@ -80,14 +80,17 @@ name as it appears in `paniolo.config.json`:
 Inside the wiki the page lives in, the prefix can be omitted. Do **not** use
 markdown path references (`source-wiki/wiki/slug.md`) in any form.
 
-**Do not grep-and-edit these by hand.** `paniolo wiki` performs all four, and
-every one takes `--dry-run` to print the exact edits before writing:
+**Do not grep-and-edit these by hand.** `paniolo wiki` performs all four.
+`rename` and `move` write unless you pass `--dry-run`; `delete` is the reverse
+and plans unless you pass `--apply`, because it is the one that destroys
+information:
 
 ```bash
 paniolo wiki refs <slug> --config paniolo.config.json
 paniolo wiki rename <old> <new> --config paniolo.config.json --dry-run
 paniolo wiki move <slug> --to <wiki> --config paniolo.config.json --dry-run
-paniolo wiki delete <slug> --config paniolo.config.json --dry-run
+paniolo wiki delete <slug> --config paniolo.config.json            # plan only
+paniolo wiki delete <slug> --config paniolo.config.json --apply
 ```
 
 ### Start with `refs`
@@ -114,11 +117,19 @@ Then log it and validate:
 - `## [YYYY-MM-DD] rename | <domain> | <old> → <new>`
 - `## [YYYY-MM-DD] move | <domain> | <title> → <target-wiki>` (in both wikis)
 
-### Delete refuses rather than deciding
+### Delete plans, and holds the page back rather than deciding
 
-With prose references outstanding it exits non-zero and names them. Resolve each
-one — pick the replacement page and rewrite the sentence — then run it again. It
-removes index entries and the file itself.
+Without `--apply` it writes nothing and prints the whole plan: the mechanical
+edits, the prose references it will not touch, the hits it suppressed as
+generated or historical, and any declared repo it could not search. Read the last
+two — a wrong ignore glob or a stale `repoPaths` entry both look like "nothing
+else points at it".
+
+With `--apply` and prose outstanding, it removes the index entries but **keeps
+the page** and exits non-zero, so the second run has a shorter list rather than
+the same one. Resolve each prose site — pick the replacement page and rewrite the
+sentence — then apply again; that run removes the file and validates what it
+touched. `--json` emits the same plan for a caller to act on.
 
 Log it (`## [YYYY-MM-DD] delete | <domain> | <title>`, 1-2 bullets), then run
 `pnpm run check:wiki`.
