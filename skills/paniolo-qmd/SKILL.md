@@ -42,8 +42,8 @@ WSL indexes never collide.
 
 ## Execution Workflow
 
-1. **Search** for candidates with `pnpm run qmd -- search` (BM25) or
-   `pnpm run qmd -- query` (hybrid, GPU on Windows).
+1. **Search** for candidates with `pnpm run qmd -- search` (BM25),
+   `vsearch` (vector-only), or `query` (hybrid, GPU on Windows).
 2. **Load** only the clearly relevant returned files (or fetch with
    `qmd get`/`multi-get`).
 3. If a result points to another repo's `.agents/skills/<name>/SKILL.md`, read that
@@ -54,16 +54,28 @@ WSL indexes never collide.
 
 ## Pick the right mode
 
+Three modes, differing in cost as much as quality:
+
 - **`search` (BM25)** — exact words, titles, code symbols, rare phrases. Fast,
   any platform, no model. Reach for this first when you know the term.
-- **`query` (hybrid)** — conceptual recall: the task is described indirectly or
-  uses different words than the guidance. GPU-accelerated on Windows; on WSL it
-  falls back to BM25. Don't overuse semantic search when a keyword would do.
+- **`vsearch` (vector)** — semantic recall for one model's cost instead of
+  three. Use when you are describing a concept rather than naming it, but do not
+  need the hybrid stack's ranking quality. Needs embeddings: it fails with a
+  clear message on an index that has none.
+- **`query` (hybrid)** — best quality: BM25 + vector fused, then reranked.
+  GPU-accelerated on Windows; on WSL it falls back to BM25. Don't overuse
+  semantic search when a keyword would do.
 
 ```bash
-pnpm run qmd -- search "zustand store hook"
-pnpm run qmd -- query  "how do we structure effect-ts error handling"
+pnpm run qmd -- search  "zustand store hook"
+pnpm run qmd -- vsearch "how does the warm sidecar avoid double-spawning"
+pnpm run qmd -- query   "how do we structure effect-ts error handling"
 ```
+
+`vsearch` earns its place where `search` returns nothing and `query` is more
+than you need — a natural-language phrasing that shares no keywords with the
+guidance. On the measured workspace that exact case gave `search` **zero
+results** while `vsearch` answered it at roughly half `query`'s cost.
 
 ## Author the query yourself — don't lean on expansion
 
