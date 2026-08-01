@@ -178,6 +178,7 @@ Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
 - Re-index: `pnpm run qmd -- reindex` (add `--prune` to drop orphaned collections)
   — `update` (text index only) and `embed` (vectors only) are its two halves
 - Warm sidecar: `pnpm run qmd -- serve --ensure | --stop | --restart`
+  — add `--all` to `--stop` to also reclaim servers that record no harness root
 - GPU preference: `pnpm run qmd -- gpu` writes the per-machine `.qmd-local.json`
 - Add `-v` to any command for llama.cpp's model-loading diagnostics.
 
@@ -204,6 +205,13 @@ when the question is about one query you just ran.
 - When `query` misbehaves but `search` is fine, run `doctor` first: it checks
   vector coverage and asks the warm sidecar to answer a real query, rather than
   only checking that it is listening. `serve --restart` is the recovery.
+- `query` answers from the warm sidecar when a ready one exists, and loads the
+  models itself otherwise — the difference is seconds against a minute. So
+  `serve --ensure` before a run of queries is worth it. `--explain` always
+  loads in-process, because the per-stage placements only exist there.
+- `doctor` lists warm-server *processes*, including ones no discovery file
+  names and ones belonging to other harness checkouts, with the memory each
+  holds. That is the report to read when a machine feels heavy.
 - qmd failure is not blocking. Inspect `.agents/skills/` and the wiki directories configured in
   `paniolo.config.json` across the workspace directly and continue.
 
@@ -227,4 +235,5 @@ when the question is about one query you just ran.
 - Do not load every qmd result; choose the smallest useful context set.
 - Do not stop task work solely because qmd search or query failed.
 - Do not kill the `paniolo` process family to recover the warm sidecar — that
-  also kills the MCP server. Use `serve --stop` or `serve --restart`.
+  also kills the MCP server. Use `serve --stop` (or `--stop --all`), which
+  waits for the process to exit and tells you when one did not.
