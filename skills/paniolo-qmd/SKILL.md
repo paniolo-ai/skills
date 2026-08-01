@@ -77,6 +77,30 @@ than you need — a natural-language phrasing that shares no keywords with the
 guidance. On the measured workspace that exact case gave `search` **zero
 results** while `vsearch` answered it at roughly half `query`'s cost.
 
+### Shaping the results
+
+All three modes take the same flags:
+
+```bash
+-n <num>           # max results (default 5; 20 for --json/--files)
+--all              # every match, not just the first -n
+--min-score <num>  # drop results below this, on the 0..1 scale shown as a percent
+--full             # print whole document bodies instead of snippets
+--line-numbers     # number those bodies
+--full-path        # filesystem paths instead of qmd:// URIs
+--intent "<text>"  # disambiguation context, e.g. "web page load times"
+--format <kind>    # cli | json | csv | md | xml | files
+```
+
+`--format files` prints one path per line, which is what you want when piping
+into another command. `query` also takes `--no-rerank` (drops the 0.6B reranker
+from the load — the difference that matters on a CPU-only machine) and
+`-C <n>` to bound rerank cost.
+
+Note that `--explain`, `--no-rerank`, and `-C` force the in-process path,
+because the warm sidecar serves one fixed pipeline and cannot vary it per
+caller. The command says so on stderr when it happens.
+
 ## Author the query yourself — don't lean on expansion
 
 **You are a better query expander than the built-in model.** Prefer a
