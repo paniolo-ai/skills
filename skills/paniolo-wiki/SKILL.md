@@ -110,12 +110,21 @@ opened looks exactly like a repo with no hits.
 
 ### Rename and move are fully automatic
 
-Both rewrite every reference across all configured repos: display aliases
-survive, cross-wiki links keep their prefix through a rename, and a move
-retargets by where the link lives (source wiki qualifies, destination localizes,
-everyone else repoints). A move also carries the page's cited `raw/` snapshots
-into the target wiki — move their `SOURCES.md` rows yourself, which the command
-names in a note.
+Both rewrite every *link* across all configured repos: display aliases survive,
+cross-wiki links keep their prefix through a rename, and a move retargets by
+where the link lives (source wiki qualifies, destination localizes, everyone else
+repoints). A move also carries the page's cited `raw/` snapshots into the target
+wiki, and moves their `SOURCES.md` rows across verbatim — falling back to a note
+when the row is ambiguous or the target table has a different shape.
+
+Neither rewrites everything, and both say what they left:
+
+- A **bare mention** — the slug in a sentence with no link syntax — survives a
+  rename untouched, because `old-page` in prose may be a word rather than a
+  reference. It is reported; deciding is yours.
+- A **markdown path** survives a *move* untouched: the directory changed, and the
+  right replacement depends on the referencing file's own depth. Reported too.
+  (A rename does rewrite these — only the filename changes there.)
 
 Then log it and validate:
 
