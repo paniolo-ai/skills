@@ -103,6 +103,11 @@ It lists every reference and classifies each one:
 - **non-actionable** — generated or cached files (`generatedPaths` in config)
   and `wiki/log.md`, which is append-only history and is never rewritten.
 
+All four operations also name any declared repo they could not search — a
+`knownRepos` entry with no `repoPaths` mapping, or a mapping whose path no longer
+resolves. Read that list before trusting an empty result: a repo that was never
+opened looks exactly like a repo with no hits.
+
 ### Rename and move are fully automatic
 
 Both rewrite every reference across all configured repos: display aliases
