@@ -30,7 +30,8 @@ user-invocable: true
 1. **Skills must be ≤ 500 lines.** Enforced by `paniolo scan` (via `@paniolo/cli`; configurable via
    `paniolo.config.json` `skill.maxLines`).
 2. **Skills are pointers, not encyclopedias.** Tell the agent _what to do_ and _where to look_.
-   Defer detail to `sharp-shooter-wiki/wiki/` leaves.
+   Defer detail to the skill's own `references/` leaves, or to a page in a wiki
+   declared under `wiki.wikis` in `paniolo.config.json`.
 3. **Docs are canonical.** Update the doc first; then update the skill to point at it.
 4. **No secrets.** Never embed credentials or PII in a skill or examples.
 5. **Naming:** harness first-party catalog skills use generic slugs (e.g.
@@ -39,19 +40,19 @@ user-invocable: true
    slug. Repo-local skills live under `.agents/skills/repos/<repo>/<slug>/` —
    the path namespaces them, so slugs need not repeat the repo prefix. The `name` frontmatter must
    match the directory name. Sibling repos should not copy catalog skills — load the harness
-   skill plus that repo's supplement under `sharp-shooter-wiki/wiki/`.
+   skill plus that repo's supplement in your wiki.
 
 ---
 
 ## What Goes Where
 
-| Content type                              | Where it lives                             |
-| ----------------------------------------- | ------------------------------------------ |
-| Step-by-step task workflow                | `.agents/workflows/<name>.md`              |
-| Full pattern reference with many examples | `sharp-shooter-wiki/wiki/`                 |
-| Quick lookup table / rule summary         | wiki authoring leaf or repo `docs/`        |
-| "Use this when X, do Y, see Z"            | `SKILL.md`                                 |
-| Project background / motivation           | `sharp-shooter-wiki/wiki/` or repo `docs/` |
+| Content type                              | Where it lives                       |
+| ----------------------------------------- | ------------------------------------ |
+| Step-by-step task workflow                | `.agents/workflows/<name>.md`        |
+| Full pattern reference with many examples | a wiki page, bundled as `references/`|
+| Quick lookup table / rule summary         | wiki authoring leaf or repo `docs/`  |
+| "Use this when X, do Y, see Z"            | `SKILL.md`                           |
+| Project background / motivation           | a wiki page or repo `docs/`          |
 
 ---
 
@@ -121,7 +122,8 @@ tags:
 
 1. Read the current skill and the doc it points to.
 2. Add new patterns to the **doc** first.
-3. Update the skill with deep links (e.g. `sharp-shooter-wiki:<topic>` in prose).
+3. Update the skill with deep links (e.g. `<wiki-name>:<topic>` in prose, using the
+   wiki's name from `paniolo.config.json`).
 4. Run `npx @paniolo/cli scan` to verify ≤ 500 lines.
 
 **Output format for agents:**
@@ -134,8 +136,10 @@ tags:
 
 ## Deep Linking
 
-Use cross-wiki wikilinks to reference wiki pages (for example
-`sharp-shooter-wiki:<topic>`). Do not add `<a id="..."></a>` tags in `SKILL.md`.
+Use cross-wiki wikilinks to reference wiki pages — `[[<wiki-name>:<topic>]]`, where
+`<wiki-name>` is the name that wiki carries in `paniolo.config.json`. A wikilink is
+what `paniolo wiki rename` and `paniolo wiki move` rewrite; a markdown path is not.
+Do not add `<a id="..."></a>` tags in `SKILL.md`.
 Use root-relative links only for non-wiki files (skills, agents, docs).
 
 ## Skill-to-Skill Linking
@@ -148,8 +152,7 @@ path is discoverable to an agent but not clickable for a human, so prefer the fu
 Avoid deep reference chains; prefer one cohesive skill over micro-skills unless each part is
 genuinely reusable alone. `skill-link-style` (configurable via `linkStyle` in
 `paniolo.config.json`) enforces this root-relative convention across all `SKILL.md` files;
-`skill-link-integrity` separately checks that every link actually resolves. Full detail:
-skill-composition.
+`skill-link-integrity` separately checks that every link actually resolves.
 
 ---
 
@@ -168,9 +171,8 @@ skill-composition.
 
 ## References
 
-- Full design guide: skill-authoring
-- Skill composition: skill-composition
 - Line-count check: `paniolo scan` (`skill-line-count` rule)
+- Link checks: `paniolo scan` (`skill-link-style`, `skill-link-integrity` rules)
 - Workflows: [`.agents/workflows/`](/.agents/workflows/)
 
 ## Do Not

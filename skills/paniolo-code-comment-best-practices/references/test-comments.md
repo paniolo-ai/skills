@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: test-comments
 source-hash: 12ab309d1af16c04d21bf8f3a5c01be91f16ad7c2a23b8dcde8fc907391dcc68
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Test file comments
 type: concept
 tags:

@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: jsdoc-params-returns
 source-hash: e51b98e40d05fefc61dea09d353e99b00d5fe3f062ca8df375d21f76d35d66a8
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: JSDoc — params and returns
 type: concept
 tags:

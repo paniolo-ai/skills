@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: react
-source-hash: 3fb4a6c0fdee1eb712c16ff7019d490fc8c2563a19792b484e938ec953bb18b8
-bundled: 2026-07-24
+source-hash: 2e63f081bc28bedf8fca8d264573b90215a50573a5302bcd18bfeb92c0cca590
+bundled: 2026-08-01
 title: Authoring — React
 type: index
 tags:
@@ -15,7 +15,6 @@ updated: 2026-06-18
 # React (authoring)
 
 Operational reference for react — loaded from skills and agents.
-Repo hub: `docs/client/react-best-practices.md` (thin router during wiki migration).
 
 ## Pages
 
@@ -50,4 +49,3 @@ Repo hub: `docs/client/react-best-practices.md` (thin router during wiki migrati
 ## See also
 
 - Authoring index
-- Repo hub: `docs/client/react-best-practices.md`

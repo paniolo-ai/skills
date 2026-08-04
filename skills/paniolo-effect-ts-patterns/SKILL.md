@@ -93,7 +93,9 @@ See also:
 
 ## Validation Commands
 
+Use the repo's own scripts — `lint:ts` where it exists, otherwise `lint`:
+
 ```bash
-pnpm run lint:ts
+pnpm run lint
 pnpm test
 ```

@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-lint
-source-hash: 77ee2ed5861c12b5356cbf91dc3ecea9d7d51265c97264e09a6320726ae3689e
-bundled: 2026-07-24
+source-hash: 2495190ca242a17d853e6e9aba85b6a2868d606e8d55e283b4ad98f76d2893d3
+bundled: 2026-08-01
 title: Authoring — TypeScript lint
 type: index
 tags:
@@ -15,7 +15,6 @@ updated: 2026-06-18
 # TypeScript lint (authoring)
 
 Operational reference for typescript lint — loaded from skills and agents.
-Repo hub: `docs/repos/paniolo/typescript-lint-best-practices.md` (thin router during wiki migration).
 
 ## Pages
 
@@ -24,7 +23,6 @@ Repo hub: `docs/repos/paniolo/typescript-lint-best-practices.md` (thin router du
 - Commands and Workflow
 - `consistent-type-imports` — type-only imports
 - Execution Workflow
-- General rules
 - `--isolatedDeclarations` — explicit type annotations on exports
 - Lint Command Policy
 - `no-unsafe-assignment` / dynamic tables
@@ -45,4 +43,3 @@ Repo hub: `docs/repos/paniolo/typescript-lint-best-practices.md` (thin router du
 ## See also
 
 - Authoring index
-- Repo hub: `docs/repos/paniolo/typescript-lint-best-practices.md`

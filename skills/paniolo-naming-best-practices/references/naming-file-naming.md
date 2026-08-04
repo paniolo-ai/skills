@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: naming-file-naming
 source-hash: 9ff07b45eaa925f7e5cef9420b65e700465a33c7796f58fe06826c7d5f96d543
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: File Naming
 type: concept
 tags:

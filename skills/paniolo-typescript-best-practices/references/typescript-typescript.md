@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-typescript
-source-hash: 7b9b5dbcb06f84cad3aed6a2e322e87994b8ac31462a2ff1f89b86c71b65ba76
-bundled: 2026-07-24
+source-hash: db589d6f9acd0a84b2b3f936b3769527e5142fe15ebf351f26917748009520c6
+bundled: 2026-08-01
 title: Authoring — TypeScript
 type: index
 tags:
@@ -15,7 +15,6 @@ updated: 2026-06-18
 # TypeScript (authoring)
 
 Operational reference for typescript — loaded from skills and agents.
-Repo hub: `docs/typescript-best-practices.md` (thin router during wiki migration).
 
 ## Pages
 
@@ -62,4 +61,3 @@ Repo hub: `docs/typescript-best-practices.md` (thin router during wiki migration
 ## See also
 
 - Authoring index
-- Repo hub: `docs/typescript-best-practices.md`

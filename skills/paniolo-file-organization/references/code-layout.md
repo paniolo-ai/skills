@@ -1,24 +1,24 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: code-layout
-source-hash: 76c924dfa1fd58e978570ea2d10073101e46739dc5c75221b54251609dbef872
-bundled: 2026-07-24
+source-hash: f2e7ea461759f3010a56bf522574218e87afc6b46837b375c1e9808a66d14545
+bundled: 2026-08-01
 title: Authoring — Code layout
 type: index
 tags:
 - index
 - authoring
 - code-layout
-updated: 2026-06-18
+updated: 2026-07-24
 ---
 
 # Code layout (authoring)
 
 Operational reference for code layout — loaded from skills and agents.
-Repo hub: `docs/code-layout.md` (thin router during wiki migration).
 
 ## Pages
 
+- Feature folders
 - Forbidden feature-folder names
 - How to group
 - Validation
@@ -27,4 +27,3 @@ Repo hub: `docs/code-layout.md` (thin router during wiki migration).
 ## See also
 
 - Authoring index
-- Repo hub: `docs/code-layout.md`

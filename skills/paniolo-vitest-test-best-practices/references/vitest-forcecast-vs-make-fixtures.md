@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-forcecast-vs-make-fixtures
 source-hash: 066555ce8bcc39af399c00f20f038b398c5f5eafac93f516952bad59d8c2eca0
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: forceCast vs make\* Test Fixtures
 type: concept
 tags:

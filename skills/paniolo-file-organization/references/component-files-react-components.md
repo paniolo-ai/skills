@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: component-files-react-components
 source-hash: 2f7c2c37f1a39e3701ae2b0571f179a558d69b1e1f5661997b6e6477bfb004dd
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Component Files (React Components)
 type: concept
 tags:

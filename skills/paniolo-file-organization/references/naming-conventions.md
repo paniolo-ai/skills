@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: naming-conventions
-source-hash: f89ebf3fdd62bf55fbf17831ea183197d5865cb17d62d32d60f496b37d5afd23
-bundled: 2026-07-24
+source-hash: 8dd1fb6df7567ce659af138460f7690299017a60e4e43739870162805b9f2f38
+bundled: 2026-08-01
 title: Naming Conventions
 type: concept
 tags:
@@ -21,8 +21,8 @@ components in a single `.tsx`; split into sibling files in the same feature fold
 
 ```text
 src/components/
-├── SongCard.tsx          # Main export: export function SongCard
-├── SongCard.test.tsx     # Colocated test
+├── ItemCard.tsx          # Main export: export function ItemCard
+├── ItemCard.test.tsx     # Colocated test
 ├── UserMenu.tsx
 ├── UserMenu.test.tsx
 └── PlaybackControls.tsx
@@ -50,7 +50,7 @@ src/utils/
 ├── formatDate.test.ts
 ├── parseDuration.ts
 ├── calculatePlaybackTime.ts
-└── validateSongInput.ts
+└── validateItemInput.ts
 ```
 
 **Pattern:** basename matches the default export (`formatDate.ts` → `formatDate`). **`verb` +
@@ -58,15 +58,15 @@ src/utils/
 
 #### Avoid multi-function `*Helpers.ts` modules
 
-Do **not** create application modules such as `activePublicSongSubscriptionHelpers.ts` that export
+Do **not** create application modules such as `activePublicItemSubscriptionHelpers.ts` that export
 several named functions. That pattern is legacy; new work should use **one file per function**:
 
 ```text
-src/song/active-songs/
-├── mergeActivePublicSongIds.ts
-├── mergeActivePublicSongIds.test.ts
-├── ensureActivePublicSongSubscription.ts
-└── ensureActivePublicSongSubscription.test.ts
+src/item/active-items/
+├── mergeActivePublicItemIds.ts
+├── mergeActivePublicItemIds.test.ts
+├── ensureActivePublicItemSubscription.ts
+└── ensureActivePublicItemSubscription.test.ts
 ```
 
 If you touch an existing multi-export helper file, prefer splitting it (see
@@ -97,7 +97,7 @@ when **all** exports are types but there are **multiple** symbols (see `.agents/
 
 ```text
 src/types/
-├── song.ts               # export type Song, type SongLibrary, ...
+├── item.ts               # export type Item, type ItemLibrary, ...
 ├── api.ts                # export type ApiResponse, type ErrorResponse, ...
 └── ui.ts                 # export type ButtonProps, type ModalProps, ...
 
@@ -112,8 +112,8 @@ react/src/auth/
 
 ```text
 src/hooks/
-├── useSongLibrary.ts     # export function useSongLibrary() ...
-├── useSongLibrary.test.ts
+├── useItemLibrary.ts     # export function useItemLibrary() ...
+├── useItemLibrary.test.ts
 ├── usePlaybackState.ts
 └── useAuth.ts
 ```
@@ -126,13 +126,13 @@ component exactly) and **colocate** it as a sibling file in the same feature fol
 in a generic/shared folder. The colocated `.test.tsx` mirrors the hook name.
 
 ```text
-src/tools/tabs/content/song-details/
-├── BroadcastSongButton.tsx         # export default function BroadcastSongButton
-├── BroadcastSongButton.test.tsx
-├── useBroadcastSongButton.ts       # paired hook for BroadcastSongButton
-├── useBroadcastSongButton.test.tsx
-├── SongDetailToolsPanelBody.tsx
-└── useSongDetailToolsPanelBody.ts  # paired hook for SongDetailToolsPanelBody
+src/tools/tabs/content/item-details/
+├── BroadcastItemButton.tsx         # export default function BroadcastItemButton
+├── BroadcastItemButton.test.tsx
+├── useBroadcastItemButton.ts       # paired hook for BroadcastItemButton
+├── useBroadcastItemButton.test.tsx
+├── ItemDetailToolsPanelBody.tsx
+└── useItemDetailToolsPanelBody.ts  # paired hook for ItemDetailToolsPanelBody
 ```
 
 A hook reused by **multiple** components is not a paired hook — name it for its behavior
@@ -150,10 +150,10 @@ src/
 │   ├── useAuth.ts
 │   ├── useAuth.test.ts
 │   └── types.ts
-├── song-library/         # Song library feature
-│   ├── SongLibrary.tsx
-│   ├── SongLibrary.test.tsx
-│   ├── useSongLibrary.ts
+├── item-library/         # Item library feature
+│   ├── ItemLibrary.tsx
+│   ├── ItemLibrary.test.tsx
+│   ├── useItemLibrary.ts
 │   └── constants.ts
 └── playback/             # Playback feature
     ├── PlaybackControls.tsx

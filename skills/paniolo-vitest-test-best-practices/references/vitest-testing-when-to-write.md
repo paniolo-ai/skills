@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-testing-when-to-write
-source-hash: 18a5682932ac6ccceb57439d850c37115cd1a0ed9b60c2ae434bd3fd5d39527a
-bundled: 2026-07-24
+source-hash: 786b4a9ec399d6bb13cd96021f4531eb558543d523c865cefd6a3903f608ef4b
+bundled: 2026-08-01
 title: When to Write a Test (and When NOT to)
 type: concept
 tags:
@@ -61,4 +61,3 @@ that depends on that mock.
 ## See also
 
 - Vitest unit testing (authoring) index
-- Low-value unit test purge

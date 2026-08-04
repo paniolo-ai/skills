@@ -4,7 +4,7 @@ description: |
   Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).
 license: MIT
 metadata:
-  version: 0.5.14
+  version: 0.5.15
 tags:
 - wiki
 - llm-wiki
@@ -22,10 +22,32 @@ findings, so run it rather than guessing.
 
 - `type:` — `entity`, `concept`, `summary`, `comparison`, `synthesis`,
   `decision`, `index`.
-- `wiki/log.md` verbs — `ingest`, `query`, `lint`, `research`, `roadmap`,
-  `decide`, `delete`, `rename`, `move`.
+- `wiki/log.md` verbs — see [Choosing a log verb](#choosing-a-log-verb).
 - Wikis, known repos, and thresholds — the `wiki` section of
   `paniolo.config.json`.
+
+## Choosing a log verb
+
+Nine verbs, and the validator only rejects one it does not recognize — it cannot
+tell you the verb you picked is the vaguest one that fits. Pick the narrowest:
+
+| Verb | Use it when the entry records |
+| --- | --- |
+| `ingest` | A source was snapshotted into `raw/` and written up as page(s). |
+| `research` | You investigated a question and filed what you learned. |
+| `query` | You answered a question *from* the existing wiki. |
+| `decide` | A choice was made, with its rationale and what it rules out. |
+| `roadmap` | Planned or sequenced work that has not happened yet. |
+| `lint` | Pages were corrected in place — contradictions, stale claims, orphans. |
+| `delete` | A page was removed. |
+| `rename` | A page's slug changed. |
+| `move` | A page changed wikis. |
+
+`lint` is the one that over-attracts, because "I fixed the wiki" describes a
+delete, a rename, and a move too. If the entry's title names a page that stopped
+existing, changed slug, or changed wiki, the verb is `delete`, `rename`, or
+`move` — even though the work also involved cleanup. Reach for `lint` only when
+the page set is unchanged and the content inside it was corrected.
 
 ## Use When
 
@@ -172,6 +194,8 @@ Apply while writing so pages pass `pnpm run check:wiki` (and the harness `pnpm r
 - Do not force a delete past its refusal; resolve the prose references it names.
 - Do not rewrite `wiki/log.md` entries for a renamed or deleted page — the log
   records what happened on a date.
+- Do not log a page operation as `lint` — a title with `→` in it, or ending in
+  "removed", is a `rename`, `move`, or `delete`.
 - Do not move `raw/` sources without updating `SOURCES.md` in both wikis.
 - Do not silently drop a reference — if no alternative exists, ask the human.
 - Do not omit blank lines around headings, lists, or fences.

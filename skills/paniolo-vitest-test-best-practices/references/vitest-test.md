@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-test
-source-hash: 952ad641428f146b5c16d8f94b50f0c6ff611f207e69adba9258f7c727ee058e
-bundled: 2026-07-24
+source-hash: 3f2805cb8817d7ff893f3a922b9c994ba8963d856adc96e4e8489dbf3c05211b
+bundled: 2026-08-01
 title: Authoring — Vitest unit testing
 type: index
 tags:
@@ -15,7 +15,6 @@ updated: 2026-06-18
 # Vitest unit testing (authoring)
 
 Operational reference for vitest unit testing — loaded from skills and agents.
-Repo hub: `docs/testing/vitest-test-best-practices.md` (thin router during wiki migration).
 
 ## Pages
 
@@ -65,4 +64,3 @@ Repo hub: `docs/testing/vitest-test-best-practices.md` (thin router during wiki 
 ## See also
 
 - Authoring index
-- Repo hub: `docs/testing/vitest-test-best-practices.md`

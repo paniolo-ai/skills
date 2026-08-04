@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-shared-mock-helper-infrastructure
 source-hash: b03557b803ba87741e4333c0b6546ff89e8c40406cd5de1e69ab11f8f0bbc2db
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Shared Mock Helper Infrastructure
 type: concept
 tags:

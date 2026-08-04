@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-one-canonical-make-helper
 source-hash: 3d0c54dde875acc8edf077c4f5dca9c5ba0e646df32b6cf0326e37293a9f0731
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: One canonical `make*` per fixture type
 type: concept
 tags:

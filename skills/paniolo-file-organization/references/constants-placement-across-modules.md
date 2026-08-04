@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: constants-placement-across-modules
 source-hash: 45e58841b7b17b46bd86dc6dc5634436d69aa6d2270399580e2c99489aaa6875
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Constants placement across modules
 type: concept
 tags:

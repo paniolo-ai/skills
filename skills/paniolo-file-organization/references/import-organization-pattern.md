@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: import-organization-pattern
 source-hash: 6cf2c30f6b05a4bb093cae9617c6a01fe534d66262905a4fb9f3295e93d9f409
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Import Organization Pattern
 type: concept
 tags:

@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: jsdoc-when
 source-hash: 0d76639986f769e96d0500a468e400e82f2f2abf719c0e498d5a36783e8a903b
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: JSDoc — when to use
 type: concept
 tags:

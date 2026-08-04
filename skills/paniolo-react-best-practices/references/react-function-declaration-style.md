@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react-function-declaration-style
 source-hash: b5e2c4a1856b18318870a0e06ee581568e78c7b1913ba222d9c144e364655d54
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Function Declaration Style
 type: concept
 tags:

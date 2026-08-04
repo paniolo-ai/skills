@@ -31,8 +31,8 @@ references:
 for
 test structure, API handler execution, and general tradeoffs.
 
-**Paniolo scan:** see
-[[paniolo-wiki:scan-vitest-what-to-assert]]
+**Paniolo scan:** run `paniolo scan` to check test files against the vitest rules;
+each finding names the rule and what it expects you to assert.
 
 [vitest-mock](references/vitest-mock.md) —
 load on demand for mocking patterns, data-client stubs, API handler mock setup, or helper

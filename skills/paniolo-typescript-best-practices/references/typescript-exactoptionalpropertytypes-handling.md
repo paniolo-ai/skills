@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-exactoptionalpropertytypes-handling
 source-hash: 6dbe8957673d78e308d8a8d4a991a6aa3187451114dd50d1a7aa8b4534bdb146
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: exactOptionalPropertyTypes Handling
 type: concept
 tags:

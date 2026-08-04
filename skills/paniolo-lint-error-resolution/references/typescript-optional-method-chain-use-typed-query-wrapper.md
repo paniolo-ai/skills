@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-optional-method-chain-use-typed-query-wrapper
 source-hash: cf3fe0108970e98833e04d82aefd4ab1b0764b31e6e855df8298aa260037ec4a
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Query-builder optional chains — use a typed wrapper
 type: concept
 tags:

@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-avoiding-redundant-type-assertions
 source-hash: dfd3db4cca18e83b016444dacc24d8273a6e7e88986ea2ce7dc60e304b3f96ea
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Avoiding Redundant Type Assertions
 type: concept
 tags:

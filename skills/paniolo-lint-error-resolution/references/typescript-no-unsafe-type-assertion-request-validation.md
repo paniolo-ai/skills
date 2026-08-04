@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-no-unsafe-type-assertion-request-validation
 source-hash: a61add85dfee99a4a45b3c1ef49e04a6d90a6f88f5d6807472580fcbe424cf77
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: '`no-unsafe-type-assertion` — request validation'
 type: concept
 tags:

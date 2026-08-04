@@ -84,14 +84,12 @@ Apply before writing — see the catalog doc for the full lookup table.
 2. Match surrounding structure, naming, and imports.
 3. `pnpm run lint:fix` (if available) → full lint entrypoint → format if needed.
 
-| Repo               | Lint entrypoint      |
-| ------------------ | -------------------- |
-| harness            | `pnpm run lint:ts`   |
-| paniolo            | `pnpm run lint`      |
-| app repo           | `pnpm run lint`      |
-| sharp-shooter-wiki | `pnpm run lint:code` |
+Use the repo's own lint script rather than a remembered one: read its
+`package.json` `scripts` and prefer the most specific entrypoint that covers
+TypeScript — commonly `lint:ts`, falling back to `lint`.
 
-Do not substitute bare `npx eslint` for the repo's lint script.
+Do not substitute bare `npx eslint` for the repo's lint script, and do not invoke
+a script name you have not seen in that repo's `package.json`.
 
 ---
 

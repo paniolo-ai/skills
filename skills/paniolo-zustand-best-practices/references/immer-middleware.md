@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: immer-middleware
 source-hash: 6792952769e8f70fddcd76fc07b7b84d9b86b077eba9b7082ebaa665bb5de300
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Immer Middleware (Mutable Updates)
 type: concept
 tags:

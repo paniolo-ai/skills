@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: writing-style-writing-style
-source-hash: d7a1d1e3bb98eb726ae09ad333057076c69d70657228a1f691c0b319067881dd
-bundled: 2026-07-24
+source-hash: af41524ad1a36dcc07013058351b3735e487d58e1b70abc2cd62ce19ba490e0f
+bundled: 2026-08-01
 title: Authoring — Writing style
 type: index
 tags:
@@ -15,7 +15,6 @@ updated: 2026-06-18
 # Writing style (authoring)
 
 Operational reference for writing style — loaded from skills and agents.
-Repo hub: `docs/writing-style-best-practices.md` (thin router during wiki migration).
 
 ## Pages
 
@@ -27,4 +26,3 @@ Repo hub: `docs/writing-style-best-practices.md` (thin router during wiki migrat
 ## See also
 
 - Authoring index
-- Repo hub: `docs/writing-style-best-practices.md`

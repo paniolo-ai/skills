@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-effect-mixing-promises-and-effects
 source-hash: 0af9a8c396656cf0146a6cab4dc390020214e6fa5eece48ba9c1019f241841a5
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Mixing Promises and Effects
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 name: paniolo-doc-best-practices
 description: |
-  Documentation standards for this project — file naming, structure, writing style, formatting, skill+doc pairs, placement, and maintenance. Use when creating, updating, reviewing, or auditing any Markdown doc in sharp-shooter-wiki `wiki/`, `README.md`, or `CONTRIBUTING.md`. Also use when deciding whether a new topic needs a doc, a skill, or both. Do NOT use for in-code JSDoc/TSDoc comments — load code-comment-best-practices instead.
+  Documentation standards for this project — file naming, structure, writing style, formatting, skill+doc pairs, placement, and maintenance. Use when creating, updating, reviewing, or auditing any Markdown doc in a configured wiki's `wiki/`, `README.md`, or `CONTRIBUTING.md`. Also use when deciding whether a new topic needs a doc, a skill, or both. Do NOT use for in-code JSDoc/TSDoc comments — load code-comment-best-practices instead.
 license: MIT
 metadata:
   version: 0.1.0
@@ -36,7 +36,8 @@ on demand for full formatting rules, ✅/❌ examples, rationale, and edge cases
 
 - **Defaults (proceed without asking):** assume the task is creating a new wiki authoring page
   unless an existing path is mentioned; place new practice docs under
-  `sharp-shooter-wiki/wiki/<category>/` unless context suggests README or CONTRIBUTING.
+  `<wiki-root>/<category>/` unless context suggests README or CONTRIBUTING. Your wiki
+  roots are the `wiki.wikis` entries in `paniolo.config.json`.
 - **Always ask:** topic and purpose if creating and not provided; file path if
   reviewing/updating and not provided. Ask one focused question at a time.
 - State assumptions when proceeding: "Creating a new wiki authoring page — let me
@@ -62,8 +63,8 @@ on demand for full formatting rules, ✅/❌ examples, rationale, and edge cases
 
 ```text
 ├─ General project info (setup, contributing) → Root README.md
-├─ Coding standards & patterns               → sharp-shooter-wiki/wiki/<topic>/
-├─ Feature or architecture deep dive         → sharp-shooter-wiki/wiki/ or repo `docs/`
+├─ Coding standards & patterns               → <wiki-root>/<topic>/
+├─ Feature or architecture deep dive         → <wiki-root>/ or repo `docs/`
 ├─ Code-level implementation details         → Inline JSDoc/TSDoc comments
 └─ Skill definitions for AI agents           → /.agents/skills/[name]/SKILL.md
 ```
@@ -82,7 +83,7 @@ skill-and-doc-pairing.
 
 ### Required structure
 
-Every **wiki authoring page** (`sharp-shooter-wiki/wiki/*.md`) should have:
+Every **wiki authoring page** (`<wiki-root>/*.md`) should have:
 
 1. **H1 title** — one per document, at the top
 2. **Brief intro** — 1–3 sentences: what is this, who should read it

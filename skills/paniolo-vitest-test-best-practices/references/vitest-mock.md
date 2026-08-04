@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-mock
-source-hash: fcf102598293726d68c2691a730ea2313aeef2420f370cc91a1af333989194a0
-bundled: 2026-07-24
+source-hash: 3b0e650d03d2a746401af1467b17a6291cb0b25d5f7b32215f6a15e7a48ea662
+bundled: 2026-08-01
 title: Authoring — Vitest mocking
 type: index
 tags:
@@ -15,7 +15,6 @@ updated: 2026-06-18
 # Vitest mocking (authoring)
 
 Operational reference for vitest mocking — loaded from skills and agents.
-Repo hub: `docs/testing/vitest-test-mock-best-practices.md` (thin router during wiki migration).
 
 ## Pages
 
@@ -175,4 +174,3 @@ Use `vi.spyOn()` as an escape hatch, not the baseline pattern.
 ## See also
 
 - Authoring index
-- Repo hub: `docs/testing/vitest-test-mock-best-practices.md`

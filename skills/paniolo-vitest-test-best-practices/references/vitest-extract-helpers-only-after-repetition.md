@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-extract-helpers-only-after-repetition
 source-hash: 4017353e0d828d2a62ee87d6d2e3dd430d9bc5116754f6780078910aab846309
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Extract Helpers Only After Repetition
 type: concept
 tags:

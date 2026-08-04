@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-quick-lookup
 source-hash: adf9ef1394cb5f20dbedf727527a97d3992b596ce5b360615539fcbeb5f6cccb
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Quick Lookup — Common Errors
 type: concept
 tags:

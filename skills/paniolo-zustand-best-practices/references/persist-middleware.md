@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: persist-middleware
 source-hash: dfb595795b0b972dd520b9270ba0bce5f0ca9bf0fae0178c5810e07dbc18898d
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Persist Middleware
 type: concept
 tags:

@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: react-file-and-import-conventions
 source-hash: b8044c2a6364717f5eda8726f9a1dc2a123739abbe77c58a00e0f586ee772030
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: File and Import Conventions
 type: concept
 tags:

@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-effect-logic-module-pattern
 source-hash: e11437e2e8dc788e112365713e58f48f7560fb18770b9c67caf37b9587957c14
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Logic module pattern
 type: concept
 tags:

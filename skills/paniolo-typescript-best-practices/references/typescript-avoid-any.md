@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-avoid-any
 source-hash: 138e7963fbab074bc09358c30ccf40351a6a961e77bd8972dd6cecf46acb639b
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Avoid `any`
 type: concept
 tags:

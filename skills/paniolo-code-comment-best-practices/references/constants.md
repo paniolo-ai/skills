@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: constants
 source-hash: c3396f73668a24980f3937aaa451b9c2c178a895f7ec877fbf79b43270ba9535
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Constants and grouped symbols
 type: concept
 tags:

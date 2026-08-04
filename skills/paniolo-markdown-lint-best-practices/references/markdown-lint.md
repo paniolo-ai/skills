@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: markdown-lint
-source-hash: 4c8c5e23a5274986cdbac1c97004e97609197af512e914bf00025b1b676b91bc
-bundled: 2026-07-24
+source-hash: b79939ca6ea2040ffd9ffa178a3f957a07f3c493e1227c4b2996503b14d0008a
+bundled: 2026-08-01
 title: Authoring — Markdown lint
 type: index
 tags:
@@ -15,7 +15,6 @@ updated: 2026-06-18
 # Markdown lint (authoring)
 
 Operational reference for markdown lint — loaded from skills and agents.
-Repo hub: `docs/repos/llm-wiki/markdown-lint-best-practices.md` (thin router during wiki migration).
 
 ## Pages
 
@@ -61,4 +60,3 @@ Repo hub: `docs/repos/llm-wiki/markdown-lint-best-practices.md` (thin router dur
 ## See also
 
 - Authoring index
-- Repo hub: `docs/repos/llm-wiki/markdown-lint-best-practices.md`

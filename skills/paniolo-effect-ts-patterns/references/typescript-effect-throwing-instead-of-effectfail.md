@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-effect-throwing-instead-of-effectfail
 source-hash: 7d7e822ced2d225431451eff83b2e0fd9e120e44f35b2852d1bffe1e373aa20a
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Throwing Instead of Effect.fail
 type: concept
 tags:

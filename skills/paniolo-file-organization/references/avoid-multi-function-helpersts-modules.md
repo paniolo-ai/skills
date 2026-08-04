@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: avoid-multi-function-helpersts-modules
 source-hash: 9241e15a78df46025f85db866e5bd766675b802e3bc02e92c357164efe9ccd67
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Avoid multi-function `*Helpers.ts` modules
 type: concept
 tags:

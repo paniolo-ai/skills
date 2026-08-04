@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: avoid-jargon-unless-necessary
 source-hash: 3517f752a9596c9b832b50a892ba3e8158623d964a2b757b9a07f4d69b599527
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Avoid Jargon Unless Necessary
 type: concept
 tags:

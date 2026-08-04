@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: forbidden-feature-folder-names
 source-hash: 723241326f5bd97d48fd7c1313642ec1eed2845a4249ddf5c4dc354ede5c6c15
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Forbidden feature-folder names
 type: concept
 tags:

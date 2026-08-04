@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: zustand
-source-hash: 78821c3300e4fa0b8150cd80884bafb544e096ce09cd853b7370b295f4f3e46a
-bundled: 2026-07-24
+source-hash: 186606d71180737f5b26953c270449b80f490b8a0c1e3a66d82b71ebd96bfd9f
+bundled: 2026-08-01
 title: Authoring — Zustand
 type: index
 tags:
@@ -15,14 +15,12 @@ updated: 2026-06-18
 # Zustand (authoring)
 
 Operational reference for zustand — loaded from skills and agents.
-Repo hub: `docs/client/zustand-best-practices.md` (thin router during wiki migration).
 
 ## Pages
 
 - Async Actions with Loading States
 - Basic Selector Pattern
 - Basic Store Pattern
-- Combining Middleware
 - Component Integration Testing
 - DevTools
 - Immer Middleware (Mutable Updates)
@@ -39,4 +37,3 @@ Repo hub: `docs/client/zustand-best-practices.md` (thin router during wiki migra
 ## See also
 
 - Authoring index
-- Repo hub: `docs/client/zustand-best-practices.md`

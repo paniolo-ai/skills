@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: markdown-anchor-links
 source-hash: c9e1dba8030903b222970ebd67e8c114fc1a120067333779661aefa9370f3ae7
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Anchor Links
 type: concept
 tags:

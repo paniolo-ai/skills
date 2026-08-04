@@ -69,7 +69,7 @@
     },
     {
       "name": "paniolo-doc-best-practices",
-      "description": "Documentation standards for this project — file naming, structure, writing style, formatting, skill+doc pairs, placement, and maintenance. Use when creating, updating, reviewing, or auditing any Markdown doc in sharp-shooter-wiki `wiki/`, `README.md`, or `CONTRIBUTING.md`. Also use when deciding whether a new topic needs a doc, a skill, or both. Do NOT use for in-code JSDoc/TSDoc comments — load code-comment-best-practices instead.",
+      "description": "Documentation standards for this project — file naming, structure, writing style, formatting, skill+doc pairs, placement, and maintenance. Use when creating, updating, reviewing, or auditing any Markdown doc in a configured wiki's `wiki/`, `README.md`, or `CONTRIBUTING.md`. Also use when deciding whether a new topic needs a doc, a skill, or both. Do NOT use for in-code JSDoc/TSDoc comments — load code-comment-best-practices instead.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [
@@ -208,7 +208,7 @@
       "name": "paniolo-qmd",
       "description": "Find relevant skills, docs, and repo-specific guidance with the Paniolo qmd workspace search. Use before task-shaped work, when qmd results mention a repo-local skill, or when maintaining the qmd index. Do not use for editing qmd implementation code; use script, TypeScript, or test guidance for that.",
       "license": "MIT",
-      "version": "0.5.14",
+      "version": "0.5.15",
       "tags": [
         "qmd",
         "lasso"
@@ -348,7 +348,7 @@
       "name": "paniolo-wiki",
       "description": "Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).",
       "license": "MIT",
-      "version": "0.5.14",
+      "version": "0.5.15",
       "tags": [
         "wiki",
         "llm-wiki"

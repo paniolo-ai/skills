@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: doc-structure
-source-hash: 159131216d34242ca3bd72ee129ac2d0b14ad88e219734219d472cdf752d92a8
-bundled: 2026-07-24
+source-hash: 69c68ae8f8fd6b83ff68b953d375afae246d0621d1c9eb2095549eb8cc6e797d
+bundled: 2026-08-01
 title: Authoring — Doc structure and formatting
 type: index
 tags:
@@ -15,7 +15,6 @@ updated: 2026-06-18
 # Doc structure and formatting (authoring)
 
 Operational reference for doc structure and formatting — loaded from skills and agents.
-Repo hub: `docs/doc-structure-and-formatting.md` (thin router during wiki migration).
 
 ## Pages
 
@@ -72,4 +71,3 @@ Brief introduction explaining what this document covers.
 ## See also
 
 - Authoring index
-- Repo hub: `docs/doc-structure-and-formatting.md`

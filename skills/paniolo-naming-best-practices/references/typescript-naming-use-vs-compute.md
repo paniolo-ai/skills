@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: typescript-naming-use-vs-compute
 source-hash: 8d7251c54f0e4f9b55898909cbd869720ca62c5074ea73f95ee5c9bb0b0f75d4
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: use\* vs compute\* — The Most Common Mistake
 type: concept
 tags:

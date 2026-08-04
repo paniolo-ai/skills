@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: anti-patterns
 source-hash: dc05cf3d28287b12bc22814433c96c0481ca03a6712018793b65277b2015a513
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Anti-patterns
 type: concept
 tags:

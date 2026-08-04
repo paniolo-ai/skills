@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: doc-content
-source-hash: b298f16618e20c9a8a7996caef3c3b499e1347ef82768cac520b853f0f4b4f92
-bundled: 2026-07-24
+source-hash: 991b0dfbd7b3624052e3fb783f8ff545d98e381e83b95041c9fea8f77a43ff04
+bundled: 2026-08-01
 title: Authoring — Doc content organization
 type: index
 tags:
@@ -15,14 +15,12 @@ updated: 2026-06-18
 # Doc content organization (authoring)
 
 Operational reference for doc content organization — loaded from skills and agents.
-Repo hub: `docs/doc-best-practices.md` (thin router during wiki migration).
 
 ## Pages
 
 - Advanced: Handling Edge Case Y
 - Cross-Reference Pattern
 - Decision Trees for Guidance
-- Detailed Guides
 - Document Layout Pattern
 - Minimum Viable Documentation
 - Progressive Disclosure
@@ -35,4 +33,3 @@ Repo hub: `docs/doc-best-practices.md` (thin router during wiki migration).
 ## See also
 
 - Authoring index
-- Repo hub: `docs/doc-best-practices.md`

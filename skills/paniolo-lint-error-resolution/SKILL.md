@@ -36,13 +36,12 @@ references:
 
 **Lint command policy:**
 
-| Repo     | Entrypoint         |
-| -------- | ------------------ |
-| harness  | `pnpm run lint:ts` |
-| paniolo  | `pnpm run lint`    |
-| app repo | `pnpm run lint`    |
+Read the repo's `package.json` `scripts` and use the most specific entrypoint that
+covers the files you changed — commonly `lint:ts`, falling back to `lint`. A
+generated Paniolo harness defines `lint` (and `scan`), not `lint:ts`.
 
-Do not substitute bare `npx eslint` for the repo lint script.
+Do not substitute bare `npx eslint` for the repo lint script, and do not invoke a
+script name you have not seen in that repo's `package.json`.
 
 **Error handling:**
 

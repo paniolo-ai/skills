@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: philosophy
 source-hash: 1d3f1bc80899ea0292c155f106bd5ae106a1369f223ba8315af7e6316c4118d0
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Philosophy
 type: concept
 tags:

@@ -2,7 +2,7 @@
 source-wiki: sharp-shooter-wiki
 source-slug: entry-point-vs-logic-module-pattern
 source-hash: fa9a0ca1c4b595a62d1640c1ba478fb698893ce8d82d0b555abd0ab8c883e881
-bundled: 2026-07-24
+bundled: 2026-08-01
 title: Entry-point vs logic-module pattern
 type: concept
 tags:

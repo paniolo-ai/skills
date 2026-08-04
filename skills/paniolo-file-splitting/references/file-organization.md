@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: file-organization
-source-hash: f5a257ebbbf51a6b380355a28fd55f54e453fe14d3749b225415dc881adf16c8
-bundled: 2026-07-24
+source-hash: 679d2e416f39bae6c8e3d539eccb2fb5999195902072b71855462ec1f475ca94
+bundled: 2026-08-01
 title: Authoring — File organization
 type: index
 tags:
@@ -15,7 +15,6 @@ updated: 2026-06-18
 # File organization (authoring)
 
 Operational reference for file organization — loaded from skills and agents.
-Repo hub: `docs/file-splitting-reference.md` (thin router during wiki migration).
 
 ## Pages
 
@@ -35,4 +34,3 @@ Repo hub: `docs/file-splitting-reference.md` (thin router during wiki migration)
 ## See also
 
 - Authoring index
-- Repo hub: `docs/file-splitting-reference.md`
