@@ -69,12 +69,89 @@ harness structure, instruction-authoring techniques, enforcement/correction loop
 memory patterns, and distribution/remediation patterns. Prefer one concept per page;
 split rather than sprawl.
 
+## Naming the page
+
+The leading token of a slug names the page's **kind** — a plan, a decision, a
+paper digest, a blog digest, a third-party repo digest. Pick it before you
+write: the slug is what wikilinks, file lists, and search results carry, and
+changing it later costs a rename across every repo.
+
+**The validator does not check this.** `check:wiki` passes a mis-prefixed page,
+so a wrong slug survives until a human reads the directory listing. The prefix
+table is authored per wiki, on that wiki's own naming-conventions page — read
+it before naming a new page. If the wiki has no such page, match the sibling
+pages already in that domain and say which ones you matched.
+
+Three ways it goes wrong:
+
+- **Prefixing by topic instead of kind.** A page *about* planning technique is
+  a concept page, not a plan; a page digesting a paper about blogging is a
+  paper digest. Ask what the page **is**, not what it discusses.
+- **Stacking two kind prefixes.** A page has one kind. When a source is both a
+  repo and a paper, the prefix follows the thing the page actually digests.
+- **Prefixing a catalog.** An index listing many papers is not a paper digest
+  and keeps its own descriptive slug. `type: index` is usually the tell.
+
+A rename must land on a correctly prefixed slug. `paniolo wiki rename` rewrites
+links to whatever target you hand it and will not tell you the target is wrong.
+
+## Creating a page
+
+`paniolo wiki new` stamps the page, its frontmatter, the `wiki/log.md` entry, and
+one index link in a single deterministic step. Use it instead of hand-writing a
+file — the log entry and index link are the two things hand-creation forgets.
+
+```bash
+paniolo wiki new <slug> --config paniolo.config.json \
+  --type synthesis --verb roadmap --tags a,b --source raw/<domain>/<file>.md \
+  --index <index-slug>
+```
+
+**Prefer `--kind`** when the wiki declares kinds under its own entry in the
+config's `wiki.wikis[].pagePrefixes`. Kinds are declared per wiki, not
+workspace-wide — one corpus may file plans and decisions while another files
+neither. One flag supplies the slug prefix, the `type:`, the log verb, the
+starting `status:`, and the indexes to link into:
+
+```bash
+paniolo wiki new cli-auth --kind plan --config paniolo.config.json
+# → plan-cli-auth.md, type/verb/status from the kind, indexes wired
+```
+
+A slug that already carries a known prefix resolves its kind on its own, so
+`new decision-cli-auth` is equivalent to `new cli-auth --kind decision`. Any
+explicit flag still beats the kind.
+
+Without a kind the defaults are `--type concept` and `--verb ingest`, **which
+are wrong for every prefixed kind** — pass the type and log verb yourself, or you
+get a `concept`/`ingest` page with the right name and the wrong metadata. It
+writes frontmatter and an H1 and stops; the body is yours.
+
+## Recording status
+
+Kinds that track a lifecycle declare their vocabulary in that wiki's config
+entry, and `status:` must come from it. Use the wiki's own values; do not invent
+a synonym. The four
+words for "finished" and three for "underway" that a corpus accumulates are not
+a style problem — they make the field unsearchable, and the validator only
+catches them once the vocabulary is declared.
+
+The value that matters most is the one for a page no longer worth acting on. A
+plan that was shipped or abandoned with no way to say so reads as live guidance,
+and an agent retrieving it will act on work that is already over.
+
+Set it at creation (`--kind` supplies the starting value, `--status` overrides)
+and update it when the state changes — a `status:` that stopped being true is
+worse than none, because it is believed.
+
 ## Ingest workflow
 
 1. Copy the source verbatim into `raw/<domain>/<subdir>/` and add a row to that
    directory's `SOURCES.md` (File | Origin path | Repo commit | Date fetched).
-2. Write or update the relevant `wiki/<domain>/` page(s). One concept per page;
-   split rather than sprawl. Use wikilinks between wiki pages.
+2. Write or update the relevant `wiki/<domain>/` page(s). Name new pages by kind
+   (see [Naming the page](#naming-the-page)) and stamp them with `paniolo wiki
+   new` (see [Creating a page](#creating-a-page)). One concept per page; split
+   rather than sprawl. Use wikilinks between wiki pages.
 3. Add every required frontmatter field (`title`, `type`, `tags`, `updated`, and
    `sources` unless it is an `index` page). Use a real `YYYY-MM-DD` `updated` date.
 4. List the new/changed page in the relevant category index, or in
@@ -187,6 +264,9 @@ Apply while writing so pages pass `pnpm run check:wiki` (and the harness `pnpm r
 ## Do Not
 
 - Do not cite a `raw/` path you have not actually snapshotted.
+- Do not name a page without checking the wiki's prefix convention — the
+  validator is green either way, so a wrong slug is invisible to `check:wiki`.
+- Do not rename onto an unprefixed slug; the rename command accepts any target.
 - Do not duplicate a fact across two pages — link to one canonical page.
 - Do not leave a page out of its index (orphan) or skip the `wiki/log.md` entry.
 - Do not finish while `pnpm run check:wiki` is red.
