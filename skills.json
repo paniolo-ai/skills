@@ -233,10 +233,13 @@
         "react-common-prop-types",
         "react-file-and-import-conventions",
         "react-function-declaration-style",
+        "react-observer-snapshots-and-late-mounts",
         "react-optional-render-nothing",
+        "react-overlay-inside-scroll-container",
         "react-paired-hook-for-non-display-logic",
         "react-prefer-required-props",
-        "react-useeffect-rules"
+        "react-useeffect-rules",
+        "react-windowed-list-estimated-size"
       ]
     },
     {
@@ -258,16 +261,19 @@
     },
     {
       "name": "paniolo-safety-and-git-best-practices",
-      "description": "Repository-wide safety guardrails for command execution, environment management, and git usage.",
+      "description": "Repository-wide safety guardrails for command execution, environment management, git usage, database migrations, and honest completion reporting. Use before running deploys or migrations, before git write operations, and before reporting a task complete. Do NOT use for code-authoring conventions — load the language skill instead.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "tags": [
         "git",
         "safety"
       ],
       "sourceSkill": "safety-and-git-best-practices",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-safety-and-git-best-practices",
-      "references": []
+      "references": [
+        "applied-migrations-are-immutable",
+        "completion-means-the-gate-ran"
+      ]
     },
     {
       "name": "paniolo-skill-best-practices",
@@ -301,7 +307,7 @@
       "name": "paniolo-typescript-best-practices",
       "description": "TypeScript conventions for any repo — no `any`, explicit return types, JSDoc, exactOptionalPropertyTypes, ambient types, import style. Use when authoring or editing `.ts`/`.tsx`, resolving strictness errors, or fixing type-related lint failures. Do NOT use for React-specific typing (see paniolo-react-best-practices) or JSDoc-only changes (see paniolo-code-comment-best-practices).",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "tags": [
         "typescript"
       ],
@@ -314,11 +320,13 @@
         "typescript-consistent-type-imports-type-only-imports",
         "typescript-default-export-functions",
         "typescript-exactoptionalpropertytypes-handling",
+        "typescript-exhaustive-switch-over-unions",
         "typescript-explicit-return-types",
         "typescript-function-parameters",
         "typescript-strict-null-checks",
         "typescript-type-vs-interface",
         "typescript-typescript",
+        "typescript-update-guards-cover-every-gated-field",
         "vitest-colocate-make-fixtures",
         "vitest-forcecast-vs-make-fixtures"
       ]

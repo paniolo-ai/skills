@@ -13,11 +13,13 @@ references:
 - 'wiki: sharp-shooter-wiki:typescript-consistent-type-imports-type-only-imports → references/typescript-consistent-type-imports-type-only-imports.md'
 - 'wiki: sharp-shooter-wiki:typescript-default-export-functions → references/typescript-default-export-functions.md'
 - 'wiki: sharp-shooter-wiki:typescript-exactoptionalpropertytypes-handling → references/typescript-exactoptionalpropertytypes-handling.md'
+- 'wiki: sharp-shooter-wiki:typescript-exhaustive-switch-over-unions → references/typescript-exhaustive-switch-over-unions.md'
 - 'wiki: sharp-shooter-wiki:typescript-explicit-return-types → references/typescript-explicit-return-types.md'
 - 'wiki: sharp-shooter-wiki:typescript-function-parameters → references/typescript-function-parameters.md'
 - 'wiki: sharp-shooter-wiki:typescript-strict-null-checks → references/typescript-strict-null-checks.md'
 - 'wiki: sharp-shooter-wiki:typescript-type-vs-interface → references/typescript-type-vs-interface.md'
 - 'wiki: sharp-shooter-wiki:typescript-typescript → references/typescript-typescript.md'
+- 'wiki: sharp-shooter-wiki:typescript-update-guards-cover-every-gated-field → references/typescript-update-guards-cover-every-gated-field.md'
 - 'wiki: sharp-shooter-wiki:vitest-colocate-make-fixtures → references/vitest-colocate-make-fixtures.md'
 - 'wiki: sharp-shooter-wiki:vitest-forcecast-vs-make-fixtures → references/vitest-forcecast-vs-make-fixtures.md'
 ---
@@ -90,6 +92,16 @@ references:
   `as unknown as TheType` (no `any`) and justify it with a comment; never use lint-disable comments
   as a substitute for a proper type fix.
 
+- **Exhaustive `switch` over unions** — give every `switch` on a discriminated or string-literal
+  union a `default` that assigns to `never`. Without it, an unhandled variant compiles, runs, and
+  silently does nothing.
+  [typescript-exhaustive-switch-over-unions](references/typescript-exhaustive-switch-over-unions.md)
+
+- **Update guards must compare every field they gate** — a predicate deciding whether to apply an
+  incoming update has to cover the whole payload. Adding a synced field means editing that
+  predicate; a monotonic `sequence`/`version` only proves what it is bumped by.
+  [typescript-update-guards-cover-every-gated-field](references/typescript-update-guards-cover-every-gated-field.md)
+
 ## Defaults (proceed without asking)
 
 - Strict mode and `exactOptionalPropertyTypes: true` are always on.
@@ -123,6 +135,10 @@ npm run test:unit  # when behavior is non-trivial
 - Do not add inline `as` casts without a justification comment.
   Prefer `as unknown as TheType` over `as any`.
 - Do not suppress lint rules without explicit justification.
+- Do not write a `switch` over a union without an exhaustiveness `default` — `default: break` to
+  quiet a lint rule makes the dropped-variant bug permanent.
+- Do not add a field to a synced payload without adding it to the guard that decides whether to
+  apply the update.
 
 ## References
 

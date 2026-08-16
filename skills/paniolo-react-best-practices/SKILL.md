@@ -13,10 +13,13 @@ references:
 - 'wiki: sharp-shooter-wiki:react-common-prop-types → references/react-common-prop-types.md'
 - 'wiki: sharp-shooter-wiki:react-file-and-import-conventions → references/react-file-and-import-conventions.md'
 - 'wiki: sharp-shooter-wiki:react-function-declaration-style → references/react-function-declaration-style.md'
+- 'wiki: sharp-shooter-wiki:react-observer-snapshots-and-late-mounts → references/react-observer-snapshots-and-late-mounts.md'
 - 'wiki: sharp-shooter-wiki:react-optional-render-nothing → references/react-optional-render-nothing.md'
+- 'wiki: sharp-shooter-wiki:react-overlay-inside-scroll-container → references/react-overlay-inside-scroll-container.md'
 - 'wiki: sharp-shooter-wiki:react-paired-hook-for-non-display-logic → references/react-paired-hook-for-non-display-logic.md'
 - 'wiki: sharp-shooter-wiki:react-prefer-required-props → references/react-prefer-required-props.md'
 - 'wiki: sharp-shooter-wiki:react-useeffect-rules → references/react-useeffect-rules.md'
+- 'wiki: sharp-shooter-wiki:react-windowed-list-estimated-size → references/react-windowed-list-estimated-size.md'
 ---
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.
@@ -99,6 +102,19 @@ references:
   presentation-focused (hook once, destructure, render).
   [react-paired-hook-for-non-display-logic](references/react-paired-hook-for-non-display-logic.md)
 
+- **Observers report changes; measure geometry now** — `IntersectionObserverEntry`'s rect is a
+  snapshot from threshold-crossing time and goes stale on scroll. An observer also only watches the
+  nodes it was given, so lazily mounted items are never reported unless the set is re-synced.
+  [react-observer-snapshots-and-late-mounts](references/react-observer-snapshots-and-late-mounts.md)
+
+- **Interactive overlays go inside the scroll container** — a sibling positioned over a scroller
+  swallows drag, wheel, and pointer events, and the scroller's own handlers never fire.
+  [react-overlay-inside-scroll-container](references/react-overlay-inside-scroll-container.md)
+
+- **Windowed placeholders need an estimated size, never zero** — an item that has never mounted has
+  no measurement; a `0px` spacer removes the scroll extent needed to reach and mount it.
+  [react-windowed-list-estimated-size](references/react-windowed-list-estimated-size.md)
+
 - **Direct imports** — no barrel `index.ts` re-exports; import from source files.
   [react-file-and-import-conventions](references/react-file-and-import-conventions.md)
 
@@ -150,6 +166,9 @@ not this one.
   enables the React Compiler. Load `paniolo-react-compiler`.
 - Do not use `React.FC` — use an explicit prop type with `): ReactElement` return annotation.
 - Do not write hook tests with this skill — load `vitest-test-hook-best-practices` instead.
+- Do not read `IntersectionObserverEntry.boundingClientRect` as current geometry.
+- Do not position an interactive overlay as a sibling of the element it covers when that element
+  scrolls.
 
 ## References
 
