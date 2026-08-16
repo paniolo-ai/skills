@@ -7,7 +7,6 @@ metadata:
   version: 0.5.15
 tags:
 - qmd
-- lasso
 references: []
 user-invocable: true
 ---

@@ -210,8 +210,7 @@
       "license": "MIT",
       "version": "0.5.15",
       "tags": [
-        "qmd",
-        "lasso"
+        "qmd"
       ],
       "sourceSkill": "harness-qmd",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-qmd",
