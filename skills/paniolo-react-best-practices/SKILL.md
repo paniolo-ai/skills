@@ -1,18 +1,16 @@
 ---
 name: paniolo-react-best-practices
 description: |
-  React 18+ conventions for this project — React Compiler (no manual memoization), ReactElement ambient type, useEffect comment rule, plain function declarations, file and import conventions. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead.
+  React 18+ conventions for this project — ReactElement ambient type, useEffect comment rule, plain function declarations, prop and file/import conventions, paired hooks. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead. For React Compiler constraints (no useCallback/useMemo, no render side effects), load paniolo-react-compiler.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.2.0
 tags:
 - react
 references:
 - 'wiki: sharp-shooter-wiki:react → references/react.md'
 - 'wiki: sharp-shooter-wiki:react-avoid-react-fc → references/react-avoid-react-fc.md'
 - 'wiki: sharp-shooter-wiki:react-common-prop-types → references/react-common-prop-types.md'
-- 'wiki: sharp-shooter-wiki:react-compiler → references/react-compiler.md'
-- 'wiki: sharp-shooter-wiki:react-compiler-control-flow → references/react-compiler-control-flow.md'
 - 'wiki: sharp-shooter-wiki:react-file-and-import-conventions → references/react-file-and-import-conventions.md'
 - 'wiki: sharp-shooter-wiki:react-function-declaration-style → references/react-function-declaration-style.md'
 - 'wiki: sharp-shooter-wiki:react-optional-render-nothing → references/react-optional-render-nothing.md'
@@ -25,8 +23,13 @@ references:
 
 **Full reference:** [react](references/react.md)
 
-**Companion skill (load on demand):**
+**Companion skills (load on demand):**
 
+- **React Compiler enabled in this repo?** (check `vite.config.ts` or `package.json` for
+  `babel-plugin-react-compiler`) → also load
+  [react-compiler/SKILL.md](../paniolo-react-compiler/SKILL.md). It forbids `useCallback` /
+  `useMemo` and render-phase side effects. This skill is compiler-independent and deliberately says
+  nothing about memoization.
 - Zustand store selectors/slices →
   [zustand-best-practices/SKILL.md](../paniolo-zustand-best-practices/SKILL.md)
 
@@ -74,17 +77,10 @@ references:
   instead.
   [react-useeffect-rules](references/react-useeffect-rules.md)
 
-- **No manual memoization** — React Compiler handles optimization. Do **not** add `useCallback` or
-  `useMemo`; use plain `function handle(): void {}` handlers and plain `const` / locals for derived
-  values. Avoid `memo` unless there is a documented exception (perf trace, third-party API requiring
-  stable refs, etc.).
-  [react-compiler](references/react-compiler.md)
-
-- **Compiler-safe control flow in hooks/components** — do not use `try/finally` in compiled hooks;
-  avoid ternaries / `&&` / optional chaining and similar “value blocks” _inside_ a `try` (hoist
-  logic above `try`, or move async work to a plain sibling `.ts` helper). Dev build uses
-  `panicThreshold: "all_errors"` — these mistakes fail Vite, not only lint.
-  [react-compiler-control-flow](references/react-compiler-control-flow.md)
+- **Memoization is out of scope here** — whether `useCallback` / `useMemo` are appropriate depends
+  on whether the repo enables the React Compiler. Load
+  [react-compiler/SKILL.md](../paniolo-react-compiler/SKILL.md) when it does; that skill forbids
+  them outright.
 
 - **Strong preference: one component per `.tsx` file** — colocate tests in the same directory.
   [react-file-and-import-conventions](references/react-file-and-import-conventions.md)
@@ -116,7 +112,8 @@ inline code.
 
 - If `npm run lint` or `npx tsc -b .` fails after changes, report verbatim and fix before declaring
   success.
-- If the task would require memoization, flag it and ask the user to confirm before adding it.
+- If the task turns on whether memoization is allowed, stop and load `paniolo-react-compiler` (or
+  confirm the repo does not enable the compiler) before deciding.
 
 ## Validation
 
@@ -127,12 +124,12 @@ npm run lint
 ## Evaluations (I/O examples)
 
 **Input:** "Remove the useCallback from this event handler in `MyComponent.tsx`"
-**Expected:** Reads the file, removes `useCallback` wrapper, converts to `function handle(): void
-{}`, runs lint and tsc, reports what changed and that React Compiler handles memoization.
+**Expected:** Loads `paniolo-react-compiler` (the rule lives there), then removes the wrapper and
+converts to `function handle(): void {}` per this skill's declaration-style rule. Runs lint and tsc.
 
 **Input:** "Add a useEffect that syncs `selectedId` to localStorage"
 **Expected:** Adds `useEffect` with a `//` comment above it explaining why, includes `selectedId` in
-the dep array, runs lint. Does not add `useCallback`.
+the dep array, runs lint.
 
 **Input:** "Write tests for `useMyHook.ts`"
 **Expected:** Loads `vitest-test-hook-best-practices` skill and proceeds per that skill's guidance,
@@ -140,6 +137,8 @@ not this one.
 
 ## Skill handoffs
 
+- React Compiler constraints (memoization, render purity, compiled-hook control flow) → load
+  `paniolo-react-compiler`.
 - Hook tests → load `vitest-test-hook-best-practices`.
 - TypeScript-only files → load `paniolo-typescript-best-practices` instead.
 
@@ -147,9 +146,8 @@ not this one.
 
 - Do not use for general TypeScript-only utilities with no React imports.
   Load `paniolo-typescript-best-practices` instead.
-- Do not add `useCallback` or `useMemo` — React Compiler handles memoization.
-- Do not use `try/finally` inside compiled hooks.
-  Hoist logic above `try` or move to a sibling `.ts` helper.
+- Do not rule on `useCallback` / `useMemo` from this skill — that depends on whether the repo
+  enables the React Compiler. Load `paniolo-react-compiler`.
 - Do not use `React.FC` — use an explicit prop type with `): ReactElement` return annotation.
 - Do not write hook tests with this skill — load `vitest-test-hook-best-practices` instead.
 
@@ -157,5 +155,6 @@ not this one.
 
 - [react](references/react.md) — full reference
 - Repo-wide rules: rules
+- [paniolo-react-compiler/SKILL.md](../paniolo-react-compiler/SKILL.md)
 - [zustand-best-practices/SKILL.md](../paniolo-zustand-best-practices/SKILL.md)
 - [paniolo-typescript-best-practices/SKILL.md](../paniolo-typescript-best-practices/SKILL.md)

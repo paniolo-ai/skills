@@ -219,9 +219,9 @@
     },
     {
       "name": "paniolo-react-best-practices",
-      "description": "React 18+ conventions for this project — React Compiler (no manual memoization), ReactElement ambient type, useEffect comment rule, plain function declarations, file and import conventions. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead.",
+      "description": "React 18+ conventions for this project — ReactElement ambient type, useEffect comment rule, plain function declarations, prop and file/import conventions, paired hooks. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead. For React Compiler constraints (no useCallback/useMemo, no render side effects), load paniolo-react-compiler.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "tags": [
         "react"
       ],
@@ -231,14 +231,29 @@
         "react",
         "react-avoid-react-fc",
         "react-common-prop-types",
-        "react-compiler",
-        "react-compiler-control-flow",
         "react-file-and-import-conventions",
         "react-function-declaration-style",
         "react-optional-render-nothing",
         "react-paired-hook-for-non-display-logic",
         "react-prefer-required-props",
         "react-useeffect-rules"
+      ]
+    },
+    {
+      "name": "paniolo-react-compiler",
+      "description": "React Compiler (babel-plugin-react-compiler) constraints — no useCallback/useMemo/memo, no ref writes or other side effects during render, no try/finally or value blocks inside compiled hooks. Use when authoring or editing React components and hooks in a project that enables the React Compiler, or when diagnosing a ReactCompilerError or a dev-build panic. Do NOT use for projects without the compiler enabled — manual memoization is legitimate there; load paniolo-react-best-practices for compiler-independent React conventions.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "react",
+        "react-compiler"
+      ],
+      "sourceSkill": "react-compiler",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-react-compiler",
+      "references": [
+        "react-compiler",
+        "react-compiler-control-flow",
+        "react-compiler-no-render-side-effects"
       ]
     },
     {
