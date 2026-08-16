@@ -1,0 +1,6 @@
+# Normalize line endings to LF in the repo on every platform. This registry is
+# a byte-compared artifact: `paniolo skills bundle --check` diffs it against the
+# wiki source, and consumers verify each SKILL.md against the `computedHash` in
+# their skills-lock.json. A CRLF file authored on Windows changes both without
+# changing a single rendered character.
+* text=auto eol=lf
