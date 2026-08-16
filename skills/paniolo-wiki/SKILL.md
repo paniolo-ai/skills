@@ -114,12 +114,12 @@ neither. One flag supplies the slug prefix, the `type:`, the log verb, the
 starting `status:`, and the indexes to link into:
 
 ```bash
-paniolo wiki new cli-auth --kind plan --config paniolo.config.json
-# → plan-cli-auth.md, type/verb/status from the kind, indexes wired
+paniolo wiki new <slug> --kind plan --config paniolo.config.json
+# → plan-<slug>.md, type/verb/status from the kind, indexes wired
 ```
 
 A slug that already carries a known prefix resolves its kind on its own, so
-`new decision-cli-auth` is equivalent to `new cli-auth --kind decision`. Any
+passing `decision-<slug>` is equivalent to `<slug> --kind decision`. Any
 explicit flag still beats the kind.
 
 Without a kind the defaults are `--type concept` and `--verb ingest`, **which
