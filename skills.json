@@ -271,7 +271,8 @@
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-safety-and-git-best-practices",
       "references": [
         "applied-migrations-are-immutable",
-        "completion-means-the-gate-ran"
+        "completion-means-the-gate-ran",
+        "line-endings"
       ]
     },
     {

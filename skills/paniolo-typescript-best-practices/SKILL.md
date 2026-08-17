@@ -3,7 +3,7 @@ name: paniolo-typescript-best-practices
 description: TypeScript conventions for any repo — no `any`, explicit return types, JSDoc, exactOptionalPropertyTypes, ambient types, import style. Use when authoring or editing `.ts`/`.tsx`, resolving strictness errors, or fixing type-related lint failures. Do NOT use for React-specific typing (see paniolo-react-best-practices) or JSDoc-only changes (see paniolo-code-comment-best-practices).
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.2.0
 tags:
 - typescript
 references:
