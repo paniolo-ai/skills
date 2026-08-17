@@ -1,7 +1,7 @@
 ---
 name: paniolo-zustand-best-practices
 description: |
-  Zustand state management patterns for this project — store creation, selectors, Immer middleware, async actions with loading states, devtools, persist, and testing. Use when authoring or editing Zustand stores (use*Store files) or components that subscribe to stores. Do NOT use for React component structure or TypeScript-only utilities.
+  Zustand state management patterns — store creation, selectors, Immer middleware, async actions with loading states, devtools, persist, and testing. Use when authoring or editing Zustand stores (use*Store files) or components that subscribe to stores. Do NOT use for React component structure or TypeScript-only utilities.
 license: MIT
 metadata:
   version: 0.1.0
@@ -67,12 +67,12 @@ and which validation commands were run.
 
 ## Error handling
 
-If `npm run lint` fails after changes, report verbatim and fix before declaring success.
+If the project's lint script fails after changes, report verbatim and fix before declaring success.
 
 ## Validation
 
 ```bash
-npm run lint
+<your lint command>
 ```
 
 ## References

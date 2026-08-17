@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-shared-mock-helper-infrastructure
-source-hash: b03557b803ba87741e4333c0b6546ff89e8c40406cd5de1e69ab11f8f0bbc2db
-bundled: 2026-08-01
+source-hash: 97d79b32d1431b7640cedac8e968233866b6f022433459e3b6b45a3fcc67812a
+bundled: 2026-08-16
 title: Shared Mock Helper Infrastructure
 type: concept
 tags:
@@ -23,7 +23,7 @@ Three patterns exist; pick the right one upfront:
 | Multiple test files mock the same module             | Callable `mockFoo()` function               | `*.test-util.ts` |
 | Multiple helper files share the same mock state      | `vi.hoisted()` state + `mockFoo()` + getter | `*.test-util.ts` |
 
-Treat `vi.hoisted()` as a code smell by default in this repo. Most tests should use top-level
+Treat `vi.hoisted()` as a code smell by default. Most tests should use top-level
 `vi.mock("path")` plus per-test `vi.mocked(...)` setup. Reach for `vi.hoisted()` only when hoist
 timing is required for shared mock state across helper modules.
 

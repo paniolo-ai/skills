@@ -7,8 +7,8 @@ metadata:
   version: 0.5.15
 tags:
 - qmd
-references: []
 user-invocable: true
+references: []
 ---
 
 # QMD
@@ -29,9 +29,9 @@ Install dependencies once with `pnpm install`. The harness pulls the correct
 wrapper, so no global qmd install is needed. Set `PANIOLO_BIN` only when using a locally built
 binary.
 
-- **Windows (PowerShell):** run `pnpm run qmd:reindex` to build the BM25 index and,
+- **Windows (PowerShell):** run `paniolo qmd reindex` to build the BM25 index and,
   on a GPU-capable machine, generate the hybrid query embeddings.
-- **WSL (bash):** run `pnpm run qmd:reindex` to build the BM25 index. GPU embedding
+- **WSL (bash):** run `paniolo qmd reindex` to build the BM25 index. GPU embedding
   stays on the Windows side; WSL uses fast BM25 `search`.
 
 Each platform keeps its own SQLite index on native local disk so Windows and
@@ -41,13 +41,13 @@ WSL indexes never collide.
 
 ## Execution Workflow
 
-1. **Search** for candidates with `pnpm run qmd -- search` (BM25),
+1. **Search** for candidates with `paniolo qmd search` (BM25),
    `vsearch` (vector-only), or `query` (hybrid, GPU on Windows).
 2. **Load** only the clearly relevant returned files (or fetch with
    `qmd get`/`multi-get`).
 3. If a result points to another repo's `.agents/skills/<name>/SKILL.md`, read that
    repo-local skill for work in that repo.
-4. After adding or editing markdown guidance, run `pnpm run qmd -- reindex`.
+4. After adding or editing markdown guidance, run `paniolo qmd reindex`.
 
 ---
 
@@ -66,9 +66,9 @@ Three modes, differing in cost as much as quality:
   semantic search when a keyword would do.
 
 ```bash
-pnpm run qmd -- search  "zustand store hook"
-pnpm run qmd -- vsearch "how does the warm sidecar avoid double-spawning"
-pnpm run qmd -- query   "how do we structure effect-ts error handling"
+paniolo qmd search  "zustand store hook"
+paniolo qmd vsearch "how does the warm sidecar avoid double-spawning"
+paniolo qmd query   "how do we structure effect-ts error handling"
 ```
 
 `vsearch` earns its place where `search` returns nothing and `query` is more
@@ -122,7 +122,7 @@ A structured query uses one or more of the following fields. The first line gets
 Write at least `intent:` plus one of `lex:`/`vec:`.
 
 ```bash
-pnpm run qmd -- query $'intent: find the harness vitest setup, not playwright e2e
+paniolo qmd query $'intent: find the harness vitest setup, not playwright e2e
 lex: vitest mock hook test best-practices
 vec: how to unit test a react hook with vitest
 hyde: The vitest skill explains mocking a hook and asserting state transitions with renderHook.'
@@ -130,7 +130,7 @@ hyde: The vitest skill explains mocking a hook and asserting state transitions w
 
 If you genuinely have only one rare token or a verbatim phrase, that's a job
 for `qmd search`, not a bare `qmd query`. Inspect ranking with
-`pnpm run qmd -- query --json "$query"`.
+`paniolo qmd query --json "$query"`.
 
 ### Why did this rank here?
 
@@ -139,7 +139,7 @@ and vector arms each placed it, what each contributed to the fused RRF total, an
 the cross-encoder score when reranking reached it.
 
 ```bash
-pnpm run qmd -- query --explain "wiki validator sources" -n 3
+paniolo qmd query --explain "wiki validator sources" -n 3
 ```
 
 Read it to tell *why* a result surfaced. `bm25 no match` with a vector rank means
@@ -174,15 +174,15 @@ Searches span every workspace repo by default. Narrow with `-c <repo>` (the
 collection name = repo name) when a broad search pulls the wrong corpus:
 
 ```bash
-pnpm run qmd -- search "auth flow" -c paniolo
-pnpm run qmd -- query  "deployment runbook" -c my-app
+paniolo qmd search "auth flow" -c paniolo
+paniolo qmd query  "deployment runbook" -c my-app
 ```
 
 The CLI takes **one** `-c` (a second occurrence overrides the first, it does not
 add). Only the MCP `query` tool accepts a plural `collections` array. When you
 need two repos from the CLI, run unscoped or search each in turn.
 
-`pnpm run qmd -- doctor` lists every configured and indexed collection with its
+`paniolo qmd doctor` lists every configured and indexed collection with its
 document count, so use it when you are unsure what a `-c` name should be. Result
 lines also carry the collection's context description to help you pick.
 
@@ -193,10 +193,10 @@ Results carry a `#docid` and a `qmd://` path, and `get`/`multi-get` output is
 `:from:count` suffix instead of piping through `sed`/`head`/`tail`:
 
 ```bash
-pnpm run qmd -- get "#abc123"                 # whole doc
-pnpm run qmd -- get "#abc123:120:40"          # 40 lines from line 120
-pnpm run qmd -- multi-get "#abc123,#def456"   # compare several hits
-pnpm run qmd -- get "#abc123" --full-path     # on-disk path for Read/Edit
+paniolo qmd get "#abc123"                 # whole doc
+paniolo qmd get "#abc123:120:40"          # 40 lines from line 120
+paniolo qmd multi-get "#abc123,#def456"   # compare several hits
+paniolo qmd get "#abc123" --full-path     # on-disk path for Read/Edit
 ```
 
 Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
@@ -205,16 +205,16 @@ Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
 
 ## Commands
 
-- Search: `pnpm run qmd -- search "<task description>"`
-- Hybrid query (GPU on Windows): `pnpm run qmd -- query "<query or structured fields>"`
-- Retrieve: `pnpm run qmd -- get <#docid|path[:from:count]>` / `multi-get <glob|list>`
-- Inspect ranking: `pnpm run qmd -- query --explain "<query>"`
-- Diagnose: `pnpm run qmd -- doctor` (add `--json`, or `--models` for GPU offload)
-- Re-index: `pnpm run qmd -- reindex` (add `--prune` to drop orphaned collections)
+- Search: `paniolo qmd search "<task description>"`
+- Hybrid query (GPU on Windows): `paniolo qmd query "<query or structured fields>"`
+- Retrieve: `paniolo qmd get <#docid|path[:from:count]>` / `multi-get <glob|list>`
+- Inspect ranking: `paniolo qmd query --explain "<query>"`
+- Diagnose: `paniolo qmd doctor` (add `--json`, or `--models` for GPU offload)
+- Re-index: `paniolo qmd reindex` (add `--prune` to drop orphaned collections)
   — `update` (text index only) and `embed` (vectors only) are its two halves
-- Warm sidecar: `pnpm run qmd -- serve --ensure | --stop | --restart`
+- Warm sidecar: `paniolo qmd serve --ensure | --stop | --restart`
   — add `--all` to `--stop` to also reclaim servers that record no harness root
-- GPU preference: `pnpm run qmd -- gpu` writes the per-machine `.qmd-local.json`
+- GPU preference: `paniolo qmd gpu` writes the per-machine `.qmd-local.json`
 - Add `-v` to any command for llama.cpp's model-loading diagnostics.
 
 Two more exist and are not part of normal task work: `mcp` (the MCP server, which

@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: jsdoc-when
-source-hash: 0d76639986f769e96d0500a468e400e82f2f2abf719c0e498d5a36783e8a903b
-bundled: 2026-08-01
+source-hash: cf04fc26fa7aea4e32d4bc7654d416dd07452ae49725b1b6048a3594a2834532
+bundled: 2026-08-16
 title: JSDoc — when to use
 type: concept
 tags:
@@ -22,7 +22,7 @@ Use `/** */` above:
 - Every exported function and any non-trivial internal function (complex logic, side effects, or
   multiple branches) should include JSDoc describing purpose, side-effects, and usage.
 - In tests and helper-heavy files, named local helpers and local guards should also get JSDoc when
-  they are reused, injected, or do more than a trivial one-liner. Common examples in this repo are
+  they are reused, injected, or do more than a trivial one-liner. Common examples are
   `installMockBody`, `makeProps`, `LocationProbe`, `noop`, `noopAsync`, `noopUnsubscribe`, and
   type guards added to satisfy strict typing.
 

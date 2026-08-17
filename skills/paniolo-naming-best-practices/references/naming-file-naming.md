@@ -27,7 +27,7 @@ updated: 2026-06-18
 | Doc files                        | kebab-case `.md`                   | `authentication-system.md`                          |
 
 For complete file organization rules see
-[`/skills/file-organization/SKILL.md`](../../paniolo-file-organization/SKILL.md).
+`/skills/file-organization/SKILL.md`.
 
 ## See also
 

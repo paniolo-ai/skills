@@ -82,7 +82,7 @@ Apply before writing — see the catalog doc for the full lookup table.
 
 1. Load this skill + the repo supplement when applicable.
 2. Match surrounding structure, naming, and imports.
-3. `pnpm run lint:fix` (if available) → full lint entrypoint → format if needed.
+3. the project's lint autofix script (if available) → full lint entrypoint → format if needed.
 
 Use the repo's own lint script rather than a remembered one: read its
 `package.json` `scripts` and prefer the most specific entrypoint that covers

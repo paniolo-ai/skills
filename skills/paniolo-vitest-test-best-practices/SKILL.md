@@ -1,7 +1,7 @@
 ---
 name: paniolo-vitest-test-best-practices
 description: |
-  Vitest unit test authoring for this repo — setup, mocking, API handler testing, and common pitfalls for non-hook code. Use when the user asks to add, update, fix, or review unit tests for utilities, components, API handlers, or scripts. Do NOT use for React hook tests — load vitest-test-hook-best-practices instead.
+  Vitest unit test authoring — setup, mocking, API handler testing, and common pitfalls for non-hook code. Use when the user asks to add, update, fix, or review unit tests for utilities, components, API handlers, or scripts. Do NOT use for React hook tests — load vitest-test-hook-best-practices instead.
 license: MIT
 metadata:
   version: 0.1.0
@@ -56,7 +56,7 @@ architecture.
 
 **Error handling:**
 
-- If `npm run test:unit` fails, report the error output verbatim, diagnose
+- If the project's unit-test script fails, report the error output verbatim, diagnose
   the root cause, and fix before declaring success.
 - If the source file to test does not exist, stop and ask for the correct path.
 - Do not skip or hide test failures — always report them.
@@ -114,8 +114,8 @@ architecture.
   over `vi.fn<...>()`, `Parameters<...>`, or unsafe raw `mock.calls` indexing.
 - Use block-bodied event handlers in JSX mocks and bracket syntax for dataset
   access when needed to satisfy lint rules.
-- After creating or changing tests, run `npm run lint` in addition to targeted
-  test execution. Passing Vitest alone is not sufficient in this repo.
+- After creating or changing tests, run the project's lint script in addition to targeted
+  test execution. Passing Vitest alone is not sufficient.
 
 ## Mocking strategy (details in docs)
 
@@ -138,7 +138,7 @@ one-off overrides, `vi.doMock` for per-test runtime setup, factory patterns for 
 - Do not mock `react-router-dom` when a `MemoryRouter` render exercises the
   behavior directly.
 - Do not stop after a targeted Vitest run when a new or edited test file still
-  needs `npm run lint` validation.
+  needs lint validation.
 - Do not add colocated unit tests for constants-only modules (`*-constants.ts` and similar files
   that export literals only). Test behavior in the functions that use those constants.
 - Do not add runtime tests for type-only modules or tests that only assert a dynamic import
@@ -156,15 +156,15 @@ the full lint checklist, `it.each`, and normalization guidance.
 ## Validation commands
 
 ```bash
-npm run test:unit -- path/to/file.test.ts   # targeted (fastest)
-npm run test:unit                            # all tests (before PR)
-npm run lint                                 # required for new/edited test files
+<your unit-test command> path/to/file.test.ts  # targeted (fastest)
+<your unit-test command>                       # all tests (before PR)
+<your lint command>                            # required for new/edited test files
 ```
 
 ## Success criteria
 
 - All targeted tests pass.
-- `npm run lint` passes for new or edited test files, or any skip is explained.
+- the project's lint script passes for new or edited test files, or any skip is explained.
 - Changes follow this skill's conventions and project rules.
 - Test commands are run and results reported (or skip is explicitly justified).
 - Results clearly summarize behavior impact and remaining risks.

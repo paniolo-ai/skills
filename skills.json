@@ -45,7 +45,7 @@
     },
     {
       "name": "paniolo-deployment-operations",
-      "description": "Cloudflare deployment rollback, health monitoring, and production troubleshooting. Use when recovering from a failed deployment, checking deployment health, or diagnosing production issues.",
+      "description": "Deployment rollback, health monitoring, and production troubleshooting. Use when recovering from a failed deployment, checking deployment health, or diagnosing production issues.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [
@@ -57,7 +57,7 @@
     },
     {
       "name": "paniolo-deployment-strategies",
-      "description": "Core Cloudflare Pages/Workers deployment workflow, environment variable configuration, and secrets management. Use when deploying code, configuring environments, or managing secrets.",
+      "description": "Core deployment workflow, environment variable configuration, and secrets management. Use when deploying code, configuring environments, or managing secrets.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [
@@ -69,7 +69,7 @@
     },
     {
       "name": "paniolo-doc-best-practices",
-      "description": "Documentation standards for this project — file naming, structure, writing style, formatting, skill+doc pairs, placement, and maintenance. Use when creating, updating, reviewing, or auditing any Markdown doc in a configured wiki's `wiki/`, `README.md`, or `CONTRIBUTING.md`. Also use when deciding whether a new topic needs a doc, a skill, or both. Do NOT use for in-code JSDoc/TSDoc comments — load code-comment-best-practices instead.",
+      "description": "Documentation standards — file naming, structure, writing style, formatting, skill+doc pairs, placement, and maintenance. Use when creating, updating, reviewing, or auditing any Markdown doc in a configured wiki's `wiki/`, `README.md`, or `CONTRIBUTING.md`. Also use when deciding whether a new topic needs a doc, a skill, or both. Do NOT use for in-code JSDoc/TSDoc comments — load code-comment-best-practices instead.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [
@@ -171,7 +171,7 @@
     },
     {
       "name": "paniolo-markdown-lint-best-practices",
-      "description": "Pre-authoring checklist and validation workflow for writing lint-clean markdown in this repo. Use when creating or editing any .md file to pass paniolo scan and paniolo wiki checks on the first try.",
+      "description": "Pre-authoring checklist and validation workflow for writing lint-clean markdown. Use when creating or editing any .md file to pass paniolo scan and paniolo wiki checks on the first try.",
       "license": "MIT",
       "version": "0.1.1",
       "tags": [
@@ -218,7 +218,7 @@
     },
     {
       "name": "paniolo-react-best-practices",
-      "description": "React 18+ conventions for this project — ReactElement ambient type, useEffect comment rule, plain function declarations, prop and file/import conventions, paired hooks. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead. For React Compiler constraints (no useCallback/useMemo, no render side effects), load paniolo-react-compiler.",
+      "description": "React 18+ conventions — ReactElement ambient type, useEffect comment rule, plain function declarations, prop and file/import conventions, paired hooks. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead. For React Compiler constraints (no useCallback/useMemo, no render side effects), load paniolo-react-compiler.",
       "license": "MIT",
       "version": "0.2.0",
       "tags": [
@@ -276,7 +276,7 @@
     },
     {
       "name": "paniolo-skill-best-practices",
-      "description": "How to write, update, split, or review SKILL.md files in this repo. Use when creating a new skill, updating an existing one, or auditing for quality and conventions.",
+      "description": "How to write, update, split, or review SKILL.md files. Use when creating a new skill, updating an existing one, or auditing for quality and conventions.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [
@@ -347,7 +347,7 @@
     },
     {
       "name": "paniolo-vitest-test-best-practices",
-      "description": "Vitest unit test authoring for this repo — setup, mocking, API handler testing, and common pitfalls for non-hook code. Use when the user asks to add, update, fix, or review unit tests for utilities, components, API handlers, or scripts. Do NOT use for React hook tests — load vitest-test-hook-best-practices instead.",
+      "description": "Vitest unit test authoring — setup, mocking, API handler testing, and common pitfalls for non-hook code. Use when the user asks to add, update, fix, or review unit tests for utilities, components, API handlers, or scripts. Do NOT use for React hook tests — load vitest-test-hook-best-practices instead.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [
@@ -381,7 +381,7 @@
     },
     {
       "name": "paniolo-writing-style-best-practices",
-      "description": "Writing style standards for documentation in this project — clarity, conciseness, audience, tone, active vs passive voice, and jargon handling. Use when writing or reviewing prose in wiki authoring pages, README.md, CONTRIBUTING.md, SKILL.md, or inline code comments. Do NOT use for structural/formatting questions (file naming, ToC, headers, code blocks) — load doc-best-practices instead.",
+      "description": "Writing style standards for documentation — clarity, conciseness, audience, tone, active vs passive voice, and jargon handling. Use when writing or reviewing prose in wiki authoring pages, README.md, CONTRIBUTING.md, SKILL.md, or inline code comments. Do NOT use for structural/formatting questions (file naming, ToC, headers, code blocks) — load doc-best-practices instead.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [
@@ -400,7 +400,7 @@
     },
     {
       "name": "paniolo-zustand-best-practices",
-      "description": "Zustand state management patterns for this project — store creation, selectors, Immer middleware, async actions with loading states, devtools, persist, and testing. Use when authoring or editing Zustand stores (use*Store files) or components that subscribe to stores. Do NOT use for React component structure or TypeScript-only utilities.",
+      "description": "Zustand state management patterns — store creation, selectors, Immer middleware, async actions with loading states, devtools, persist, and testing. Use when authoring or editing Zustand stores (use*Store files) or components that subscribe to stores. Do NOT use for React component structure or TypeScript-only utilities.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [

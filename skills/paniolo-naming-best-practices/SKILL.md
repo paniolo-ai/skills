@@ -33,7 +33,7 @@ Execution workflow:
 1. Choose names based on behavioral intent (fetch, compute, subscribe, run, etc.).
 2. Ensure hook names (`use*`) only apply when React hooks are called internally.
 3. Keep file and symbol names aligned with nearby project patterns.
-4. Recheck references/imports after renames and validate with `npm run lint`.
+4. Recheck references/imports after renames and validate with the project's lint script.
 
 **Output:** call out key symbol/file renames and rationale; note any convention exceptions.
 
@@ -106,7 +106,7 @@ Tests: `source.test.ts`. Directories: `kebab-case`.
 - Do not use `get*` for non-trivial derivations — use `compute*` instead.
 - Do not use this skill for file organization or import decisions.
   Load `file-organization` instead.
-- Do not rename symbols without updating all import sites and running `npm run lint`.
+- Do not rename symbols without updating all import sites and running the project's lint script.
 
 ## References
 

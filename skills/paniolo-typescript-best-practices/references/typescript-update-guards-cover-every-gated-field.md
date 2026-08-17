@@ -100,5 +100,5 @@ new field has no row in the table and the omission is visible in review.
 
 ## See also
 
-- [Exhaustive Switch Over Unions](typescript-exhaustive-switch-over-unions.md)
-- [TypeScript (authoring) index](index.md)
+- Exhaustive Switch Over Unions
+- TypeScript (authoring) index

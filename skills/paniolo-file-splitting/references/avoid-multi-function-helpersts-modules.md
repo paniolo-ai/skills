@@ -27,7 +27,7 @@ src/song/active-songs/
 ```
 
 If you touch an existing multi-export helper file, prefer splitting it (see
-[`file-splitting`](../../paniolo-file-splitting/SKILL.md)) over adding another export.
+`file-splitting`) over adding another export.
 
 ## See also
 

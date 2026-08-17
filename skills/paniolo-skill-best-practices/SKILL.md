@@ -1,15 +1,15 @@
 ---
 name: paniolo-skill-best-practices
 description: |
-  How to write, update, split, or review SKILL.md files in this repo. Use when creating a new skill, updating an existing one, or auditing for quality and conventions.
+  How to write, update, split, or review SKILL.md files. Use when creating a new skill, updating an existing one, or auditing for quality and conventions.
 license: MIT
 metadata:
   version: 0.1.0
 tags:
 - skills
 - authoring
-references: []
 user-invocable: true
+references: []
 ---
 
 **Requires:** file-read. No terminal or network access needed.

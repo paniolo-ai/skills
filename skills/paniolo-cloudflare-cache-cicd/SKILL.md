@@ -62,16 +62,15 @@ Set in the `_headers` file at project root:
 When users report seeing an old version:
 
 ```bash
-# Purge automatically via deploy:full
-npm run deploy:full
-
-# Manual purge only
-npm run cache:purge
-
-# Or: Cloudflare dashboard → Caching → Purge Cache → Purge Everything
+<your ship-and-purge command>   # push the build, then invalidate the CDN cache
+<your cache-purge command>      # invalidate without pushing again
 ```
 
-Always use `npm run deploy:full` (not bare `deploy`) for any user-facing change.
+Or purge from the Cloudflare dashboard: **Caching → Purge Cache → Purge Everything**.
+
+Use the path that also purges for any user-facing change. The plain path
+updates the build but leaves the edge cache serving the old one, which looks
+identical to success until users report stale behavior.
 
 ---
 
@@ -111,22 +110,22 @@ Always use `npm run deploy:full` (not bare `deploy`) for any user-facing change.
 **Lint failed:**
 
 ```bash
-npm run lint:fix
+<your lint --fix command>
 git add . && git commit -m "fix: lint issues"
 ```
 
 **Tests failed:**
 
 ```bash
-npm run test:unit -- --reporter=verbose
-npm run test:e2e:dev   # interactive Playwright
+<your unit-test command> --reporter=verbose
+<your end-to-end test command>
 ```
 
 **Deploy failed:**
 
 - Check `wrangler.toml` for syntax errors
 - Verify all required secrets are set (`wrangler secret list --env production`)
-- Check if build step timed out (run `npm run build:all` locally to reproduce)
+- Check whether the build step timed out (reproduce with your build command locally)
 
 ---
 

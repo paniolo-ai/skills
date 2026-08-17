@@ -8,11 +8,11 @@ metadata:
 tags:
 - wiki
 - llm-wiki
-references: []
 user-invocable: true
+references: []
 ---
 
-**Requires:** file-read, file-write, terminal (to run `pnpm run check:wiki` from harness).
+**Requires:** file-read, file-write, terminal (to run `paniolo wiki` from harness).
 
 # Maintaining a wiki
 
@@ -157,7 +157,7 @@ worse than none, because it is believed.
 4. List the new/changed page in the relevant category index, or in
    `wiki/<domain>/index.md` for small domains (avoids an orphan).
 5. Append a `wiki/log.md` entry: `## [YYYY-MM-DD] <verb> | <domain> | <title>`.
-6. **Run `pnpm run check:wiki` from the harness repo and fix everything it reports.**
+6. **Run `paniolo wiki` from the harness repo and fix everything it reports.**
    Do not finish red.
 
 ## Before contradicting an existing page
@@ -245,14 +245,14 @@ sentence — then apply again; that run removes the file and validates what it
 touched. `--json` emits the same plan for a caller to act on.
 
 Log it (`## [YYYY-MM-DD] delete | <domain> | <title>`, 1-2 bullets), then run
-`pnpm run check:wiki`.
+`paniolo wiki`.
 
 Before deleting, check whether the page holds a still-valid fact absent from its
 replacement. The command cannot know that; rescuing it is on you.
 
 ## Markdown lint best practices
 
-Apply while writing so pages pass `pnpm run check:wiki` (and the harness `pnpm run lint`) on the first try.
+Apply while writing so pages pass `paniolo wiki` (and the harness the project's lint script) on the first try.
 
 - Blank line before AND after every heading, list, and fenced block.
 - Unordered lists use `-`; ordered lists use `1.` for every item.
@@ -269,7 +269,7 @@ Apply while writing so pages pass `pnpm run check:wiki` (and the harness `pnpm r
 - Do not rename onto an unprefixed slug; the rename command accepts any target.
 - Do not duplicate a fact across two pages — link to one canonical page.
 - Do not leave a page out of its index (orphan) or skip the `wiki/log.md` entry.
-- Do not finish while `pnpm run check:wiki` is red.
+- Do not finish while `paniolo wiki` is red.
 - Do not hand-edit references for a delete, rename, or move — use the commands.
 - Do not force a delete past its refusal; resolve the prose references it names.
 - Do not rewrite `wiki/log.md` entries for a renamed or deleted page — the log
@@ -284,5 +284,5 @@ Apply while writing so pages pass `pnpm run check:wiki` (and the harness `pnpm r
 
 ## References
 
-- Validator: `pnpm run check:wiki` in harness (`paniolo wiki` via `@paniolo/cli`).
+- Validator: `paniolo wiki` in harness (`paniolo wiki` via `@paniolo/cli`).
 - Wiki config: `paniolo.config.json` — lists all wiki roots and known repos.

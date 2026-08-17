@@ -83,10 +83,10 @@ useEffect(() => {
 Holding the caller's callback in a ref to keep it out of the dependency array is the usual way to
 stop this effect rebuilding every render. Under the React Compiler, assign that ref inside
 `useLayoutEffect` — a render-phase write is a build error. See
-[Compiler-rejected render side effects](react-compiler-no-render-side-effects.md).
+Compiler-rejected render side effects.
 
 ## See also
 
-- [Windowed lists need an estimated size](react-windowed-list-estimated-size.md)
-- [useEffect Rules](react-useeffect-rules.md)
-- [React (authoring) index](index.md)
+- Windowed lists need an estimated size
+- useEffect Rules
+- React (authoring) index

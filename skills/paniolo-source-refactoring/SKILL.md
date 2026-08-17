@@ -28,7 +28,7 @@ Execution workflow:
 1. Extract one coherent symbol/group at a time with minimal behavior change.
 2. Keep exports/imports aligned with repo conventions and avoid barrel files.
 3. Update colocated tests or add targeted tests for extracted logic.
-4. Validate with targeted tests first, then `npm run lint`.
+4. Validate with targeted tests first, then the project's lint script.
 
 Output requirements:
 
@@ -129,7 +129,7 @@ Search the codebase for all occurrences of the moved symbol and update their imp
 4. **Locate tests**: Find the existing tests for the symbol (usually in `OriginalFile.test.ts`).
 5. **Split tests**: Move the tests to `NewFile.test.ts`.
 6. **Update imports**: Use `grep*search` or `semantic*search` to find all usages and update imports.
-7. **Verify**: Run `npm run lint` and `npm run test:unit -- <NewFile>.test.ts` to confirm the change
+7. **Verify**: Run the project's lint script and `the project's unit-test script -- <NewFile>.test.ts` to confirm the change
    is correct.
 
 ## Do Not

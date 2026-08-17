@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: audience-and-tone
-source-hash: 081cb75ea4178d4dd502c9e70d30b33f8191903b0601df8c6a732998b8ca650d
-bundled: 2026-08-01
+source-hash: 0757c94ab30cf60f5d5b0f9b322029e8d24dec5858cb0285b155b722f03848c5
+bundled: 2026-08-16
 title: Audience and Tone
 type: concept
 tags:
@@ -15,7 +15,7 @@ updated: 2026-06-18
 
 # Audience and Tone
 
-Assume the reader is a competent developer but may be new to this project.
+Assume the reader is a competent developer but may be new to the project.
 
 **✅ Good tone:**
 

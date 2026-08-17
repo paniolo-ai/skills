@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: react-common-prop-types
-source-hash: 41554bc84ffc415a45cabca2110892c85f00d8c1f0e8c703a786352644dfedae
-bundled: 2026-08-01
+source-hash: 565ebe8705f66c3ee83608dfb0d467979e8d56626e3a813da3b1e5516ca70a51
+bundled: 2026-08-16
 title: Common Prop Types
 type: concept
 tags:
@@ -44,7 +44,7 @@ type ModalProps = {
 - `ReactElement` — for component return types
 - `string` — when only text is valid (e.g., `label`, `title`)
 
-**Import note:** `ReactElement` is ambient in this project (no import needed). `ReactNode` must be
+**Import note:** `ReactElement` is ambient in projects configured for it (no import needed). `ReactNode` must be
 imported:
 
 ```tsx

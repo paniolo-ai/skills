@@ -37,7 +37,7 @@ Execution workflow:
 1. Follow naming and placement conventions for file type and symbol type.
 2. Avoid barrel files and use direct imports.
 3. Keep test/docs naming conventions aligned with project rules.
-4. Validate with `npm run lint` after meaningful structure/import changes.
+4. Validate with the project's lint script after meaningful structure/import changes.
 
 Output requirements:
 
@@ -104,7 +104,7 @@ re-exports, no new multi-export `*Helpers.ts` in `react/` / `api/` / `shared/` (
 [avoid-multi-function-helpersts-modules](references/avoid-multi-function-helpersts-modules.md)), max
 3–4 nesting levels. When **any code directory** exceeds ~12 direct modules, split into
 behavior-named feature subfolders — see
-[code-layout](references/code-layout.md) (`pnpm run lint` runs the scan `code-layout` rule in
+[code-layout](references/code-layout.md) (the project's lint script runs the scan `code-layout` rule in
 harness). Never name feature subfolders `helpers/`, `constants/`, `types/`, `utils/`, or other junk
 drawers — see [forbidden-feature-folder-names](references/forbidden-feature-folder-names.md). Feature-specific
 `make*.test-util.ts` fixtures belong in the feature folder (not generic `test-utils/` unless
@@ -135,7 +135,7 @@ for the full example.
 ## Validation
 
 ```bash
-npm run lint                                          # Check all violations
+<your lint command>  # Check all violations
 find . -name "index.ts" -not -path "./node_modules"  # Detect barrel files
 find . -name "*.cjs" -not -path "./node_modules"     # Detect CommonJS config
 ```

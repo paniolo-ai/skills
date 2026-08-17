@@ -75,7 +75,7 @@ validation command was run.
 ## Validation
 
 ```bash
-npm run lint
+<your lint command>
 ```
 
 ## Evaluations (I/O examples)

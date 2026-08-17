@@ -64,5 +64,5 @@ vitest run src/user src/session src/live
 
 ## See also
 
-- [Update Guards Cover Every Gated Field](typescript-update-guards-cover-every-gated-field.md)
-- [Authoring](index.md)
+- Update Guards Cover Every Gated Field
+- Authoring

@@ -1,12 +1,13 @@
 ---
 name: paniolo-doc-best-practices
 description: |
-  Documentation standards for this project — file naming, structure, writing style, formatting, skill+doc pairs, placement, and maintenance. Use when creating, updating, reviewing, or auditing any Markdown doc in a configured wiki's `wiki/`, `README.md`, or `CONTRIBUTING.md`. Also use when deciding whether a new topic needs a doc, a skill, or both. Do NOT use for in-code JSDoc/TSDoc comments — load code-comment-best-practices instead.
+  Documentation standards — file naming, structure, writing style, formatting, skill+doc pairs, placement, and maintenance. Use when creating, updating, reviewing, or auditing any Markdown doc in a configured wiki's `wiki/`, `README.md`, or `CONTRIBUTING.md`. Also use when deciding whether a new topic needs a doc, a skill, or both. Do NOT use for in-code JSDoc/TSDoc comments — load code-comment-best-practices instead.
 license: MIT
 metadata:
   version: 0.1.0
 tags:
 - documentation
+user-invocable: true
 references:
 - 'wiki: sharp-shooter-wiki:doc-content → references/doc-content.md'
 - 'wiki: sharp-shooter-wiki:doc-structure → references/doc-structure.md'
@@ -14,7 +15,6 @@ references:
 - 'wiki: sharp-shooter-wiki:markdown-file-naming → references/markdown-file-naming.md'
 - 'wiki: sharp-shooter-wiki:markdown-required-elements → references/markdown-required-elements.md'
 - 'wiki: sharp-shooter-wiki:writing-style-writing-style → references/writing-style-writing-style.md'
-user-invocable: true
 ---
 
 **Requires:** file-read. No terminal needed unless validating after edits.
@@ -109,7 +109,7 @@ Every **wiki authoring page** (`<wiki-root>/*.md`) should have:
 ### Writing style
 
 - Active voice; short sentences (<25 words preferred)
-- Audience: competent developer, new to this project
+- Audience: competent developer, new to the project
 - Explain the "why" when rules might seem arbitrary
 - Use decision trees for multi-path choices
 

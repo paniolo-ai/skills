@@ -1,7 +1,7 @@
 ---
 name: paniolo-deployment-operations
 description: |
-  Cloudflare deployment rollback, health monitoring, and production troubleshooting. Use when recovering from a failed deployment, checking deployment health, or diagnosing production issues.
+  Deployment rollback, health monitoring, and production troubleshooting. Use when recovering from a failed deployment, checking deployment health, or diagnosing production issues.
 license: MIT
 metadata:
   version: 0.1.0
@@ -9,8 +9,7 @@ tags:
 - deployment
 references: []
 ---
-
-**Requires:** file-read, terminal (Wrangler/Cloudflare CLI). No network access needed.
+**Requires:** file-read, terminal (your platform's deploy CLI). No network access needed.
 
 # Deployment Operations Skill
 
@@ -35,114 +34,103 @@ Output requirements:
 
 ## Rollback Procedures
 
+Prefer the option highest in this list that your setup supports. Each is faster
+to reason about than the one below it, and none require diagnosing the fault
+first — that is the point.
+
 ### Rollback via Git Revert (recommended)
 
+Works wherever CI deploys on push, and leaves the revert in history:
+
 ```bash
-# Revert the last commit and push — GitHub Actions auto-deploys the reversion
 git revert HEAD
 git push origin main
-# Wait ~2 minutes for deployment
 ```
 
-### Manual Rollback (faster if CI is slow)
+Then wait for the deployment pipeline to finish before judging the result.
+
+### Platform-Native Rollback (fastest, when available)
+
+Many hosts keep previous deployments addressable and can repoint traffic without
+a rebuild. Check whether yours offers one — it is usually the quickest recovery
+and does not depend on CI being healthy.
+
+### Manual Rollback (when CI is slow or broken)
+
+Build the previous commit and deploy it directly:
 
 ```bash
-# Build and deploy the previous commit directly
 git checkout main~1
-npm run build:all
-npm run deploy:production
+<your build command>
+<your deploy command>
 
-# Reset HEAD back to current state
-git checkout main
-```
-
-### API-Only Rollback (if only the Worker broke)
-
-```bash
-wrangler rollback --env production
+git checkout main   # reset your working tree afterwards
 ```
 
 ### Verify Rollback Succeeded
 
+Confirm recovery from outside the deploy tooling — a green pipeline is not
+evidence that users are served working code:
+
 ```bash
-npm run health:check
 curl https://<your-domain>/api/health
-wrangler tail --env production
 ```
 
----
+Then watch live logs for the first minutes of traffic, and confirm the deployed
+revision is the one you intended.
 
 ## Monitoring & Health Checks
 
-### Health Check Endpoint
+A health endpoint should report status, environment, and a timestamp, so a
+stale-but-healthy response is distinguishable from a fresh one:
 
 ```bash
 curl https://<your-domain>/api/health
 # Expected: { "status": "ok", "environment": "production", "timestamp": "..." }
 ```
 
-```bash
-npm run health:check   # automated — checks API, frontend, DB, realtime
-npm run status:deployment
-wrangler tail --env production   # live log stream
-```
-
-### Cloudflare Analytics
-
-Go to **Analytics → Traffic** in the Cloudflare dashboard to check for 5xx error spikes or response
-time regressions after deploy.
-
----
+Alongside it, check whatever your platform offers for live log streaming and for
+error-rate and latency trends. After any deploy, look specifically for a 5xx
+spike or a response-time regression rather than only for total failure.
 
 ## Troubleshooting
 
 ### Users Still See Old Version After Deploy
 
-```bash
-# 1. Try hard refresh in browser (Ctrl+Shift+R) — if that works, it's a cache issue
-# 2. Open incognito window — if that works, it's browser cache only
+Establish where the staleness lives before acting:
 
-npm run cache:purge         # purge Cloudflare CDN
-npm run status:deployment   # confirm correct commit is deployed
-```
+1. Hard refresh. If that fixes it, the problem is caching, not the deploy.
+2. Open a private window. If that fixes it, it is browser cache only.
 
-If still broken after 5 minutes, manually purge in the Cloudflare dashboard: **Caching → Purge Cache
-→ Purge Everything**.
+If neither does, the CDN or edge cache is still serving the old build — purge it,
+then confirm the deployed revision matches the commit you expect. If it persists
+several minutes after a purge, purge from the provider's dashboard directly.
 
 ### Deployment Hangs or Times Out
 
-```bash
-# Reproduce locally
-npm run build:all
-
-# Check Node version (must be 20+)
-node --version
-
-# Clear build cache and retry
-npm run clean
-npm run build:all
-```
-
-Then check `wrangler tail --env production` for runtime startup errors.
-
-### Environment Variables Not Working
+Reproduce the build locally first, since a hang in CI and a hang locally have
+very different causes:
 
 ```bash
-# List what's deployed
-wrangler secret list --env production
-
-# If missing, set and redeploy
-wrangler secret put KEY_NAME --env production
-npm run deploy
+<your build command>
 ```
 
----
+Check that your runtime version matches what the deploy environment provides —
+a mismatch here is a common cause of hangs that only appear remotely. If the
+build succeeds locally, clear the build cache and retry, then check runtime
+startup errors in the platform's logs.
+
+### Environment Variables or Secrets Not Working
+
+List what the deployed environment actually holds rather than what the config
+file claims, set anything missing through your platform's secret mechanism, and
+redeploy. Secrets usually apply only to deployments created after they are set.
 
 ## Do Not
 
 - Do not attempt root-cause code fixes during an active incident — stabilize first, fix after.
 - Do not deploy to production without running the pre-deploy checklist.
-- Do not commit secrets to git — use `wrangler secret put` instead.
+- Do not commit secrets to git — use your platform's secret storage.
 - Do not use for planning new deployment workflows — load `deployment-strategies` instead.
 
 ## References

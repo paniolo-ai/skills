@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-mock
-source-hash: 3b0e650d03d2a746401af1467b17a6291cb0b25d5f7b32215f6a15e7a48ea662
-bundled: 2026-08-01
+source-hash: 228ead1dec8323bc4f3513a618778f4cc88b0d06384376367d50560a0e279eac
+bundled: 2026-08-16
 title: Authoring — Vitest mocking
 type: index
 tags:
@@ -133,7 +133,7 @@ specific test scenario (rare).
 
 ### Default-export function components (app source)
 
-When the SUT imports a **default-export function component** from this repo (not `forwardRef` from a
+When the SUT imports a **default-export function component** from the project (not `forwardRef` from a
 dependency), register the module with a bare `vi.mock("path")`, import that default binding, and
 set the stub with `vi.mocked(Component).mockImplementation(...)` inside each `it` (or a small helper
 the test calls after any `vi.resetAllMocks()`). Do **not** use a `vi.mock("path", () => ({ default:

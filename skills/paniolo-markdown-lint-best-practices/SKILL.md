@@ -1,7 +1,7 @@
 ---
 name: paniolo-markdown-lint-best-practices
 description: |
-  Pre-authoring checklist and validation workflow for writing lint-clean markdown in this repo. Use when creating or editing any .md file to pass paniolo scan and paniolo wiki checks on the first try.
+  Pre-authoring checklist and validation workflow for writing lint-clean markdown. Use when creating or editing any .md file to pass paniolo scan and paniolo wiki checks on the first try.
 license: MIT
 metadata:
   version: 0.1.1
@@ -24,7 +24,7 @@ scan-markdown-lint
 
 ## Use When
 
-- Creating or editing any `.md` file in this repo.
+- Creating or editing any `.md` file in the repository.
 - Writing skills, agents, docs, or instruction files.
 - Choosing the repository's current Markdown, wiki, and lint entry points without
   relying on retired script aliases.
@@ -74,16 +74,16 @@ portable or guaranteed entry point.
 
 | Scope | Command | What it checks |
 | --- | --- | --- |
-| Paniolo wiki page | `pnpm run check:wiki` from the harness | Whole-wiki schema, sources, links, indexes, and orphans |
-| Harness Markdown or prose not covered by the wiki gate | `pnpm run lint` | Repository lint entry point, including `paniolo scan` guidance checks |
+| Paniolo wiki page | `paniolo wiki` from the harness | Whole-wiki schema, sources, links, indexes, and orphans |
+| Harness Markdown or prose not covered by the wiki gate | the project's lint script | Repository lint entry point, including `paniolo scan` guidance checks |
 
 For a Paniolo wiki edit, run the whole-wiki gate first. If it does not cover
 the edited page's prose checks, run the edited repository's lint entry point.
 For the harness, the current sequence is:
 
 ```bash
-pnpm run check:wiki
-pnpm run lint
+paniolo wiki
+<your lint command>
 ```
 
 Do not treat a missing script as a successful validation step. Record it as
@@ -96,7 +96,7 @@ not run, select a current repository entry point, and execute that command.
 ```text
 Read the repository's Markdown lint skill before writing any .md file.
 Apply the pre-authoring checklist: structure, anchors (wiki authoring only), links, and line limits.
-After writing a Paniolo wiki page, run pnpm run check:wiki from the harness.
+After writing a Paniolo wiki page, run paniolo wiki from the harness.
 If that gate does not cover the edited prose, run the edited repository's current lint entry point.
 Do not assume a lint:md script exists; inspect the repository scripts first.
 Do not finish with red validation.
@@ -117,5 +117,5 @@ Do not finish with red validation.
   `.agents/rules.md`.
 - Do not omit blank lines around headings.
 - Do not use bare URLs in prose — always `[text](url)`.
-- Do not skip `pnpm run check:wiki` when editing wiki pages.
+- Do not skip `paniolo wiki` when editing wiki pages.
 - Do not exceed the file size limits for skills and instruction files.

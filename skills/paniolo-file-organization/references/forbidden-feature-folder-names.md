@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: forbidden-feature-folder-names
-source-hash: 723241326f5bd97d48fd7c1313642ec1eed2845a4249ddf5c4dc354ede5c6c15
-bundled: 2026-08-01
+source-hash: 6cdecd2d0786b2a42589cbdb934275d2e7c2ce6147e52e76fb647c4133c54850
+bundled: 2026-08-16
 title: Forbidden feature-folder names
 type: concept
 tags:
@@ -42,7 +42,7 @@ Top-level `scripts/` (and the repo root) are exempt — cross-cutting script dir
 `scripts/shared/` (shared helpers and `test-utils/` for script tests) may live there. The rule
 applies under `packages/*/src/**`, nested `scripts/<tool>/…`, and other feature areas.
 
-`pnpm run check:code-layout` warns on forbidden names (same `--strict` flag as flat-module
+`paniolo scan` warns on forbidden names (same `--strict` flag as flat-module
 warnings).
 
 ## See also

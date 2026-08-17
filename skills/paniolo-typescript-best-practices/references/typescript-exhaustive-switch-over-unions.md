@@ -81,4 +81,4 @@ how long it takes someone to notice that a feature quietly does nothing.
 
 ## See also
 
-- [TypeScript (authoring) index](index.md)
+- TypeScript (authoring) index

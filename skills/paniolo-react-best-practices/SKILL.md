@@ -1,7 +1,7 @@
 ---
 name: paniolo-react-best-practices
 description: |
-  React 18+ conventions for this project — ReactElement ambient type, useEffect comment rule, plain function declarations, prop and file/import conventions, paired hooks. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead. For React Compiler constraints (no useCallback/useMemo, no render side effects), load paniolo-react-compiler.
+  React 18+ conventions — ReactElement ambient type, useEffect comment rule, plain function declarations, prop and file/import conventions, paired hooks. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead. For React Compiler constraints (no useCallback/useMemo, no render side effects), load paniolo-react-compiler.
 license: MIT
 metadata:
   version: 0.2.0
@@ -28,7 +28,7 @@ references:
 
 **Companion skills (load on demand):**
 
-- **React Compiler enabled in this repo?** (check `vite.config.ts` or `package.json` for
+- **React Compiler enabled?** (check your build config or `package.json` for
   `babel-plugin-react-compiler`) → also load
   [react-compiler/SKILL.md](../paniolo-react-compiler/SKILL.md). It forbids `useCallback` /
   `useMemo` and render-phase side effects. This skill is compiler-independent and deliberately says
@@ -126,7 +126,7 @@ inline code.
 
 ## Error handling
 
-- If `npm run lint` or `npx tsc -b .` fails after changes, report verbatim and fix before declaring
+- If the project's lint script or TypeScript build fails after changes, report verbatim and fix before declaring
   success.
 - If the task turns on whether memoization is allowed, stop and load `paniolo-react-compiler` (or
   confirm the repo does not enable the compiler) before deciding.
@@ -134,7 +134,7 @@ inline code.
 ## Validation
 
 ```bash
-npm run lint
+<your lint command>
 ```
 
 ## Evaluations (I/O examples)

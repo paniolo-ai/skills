@@ -74,5 +74,5 @@ and only one of them is correct.
 
 ## See also
 
-- [Observer Snapshots and Late Mounts](react-observer-snapshots-and-late-mounts.md)
-- [React (authoring) index](index.md)
+- Observer Snapshots and Late Mounts
+- React (authoring) index

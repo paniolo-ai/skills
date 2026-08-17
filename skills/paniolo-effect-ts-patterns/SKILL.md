@@ -96,6 +96,6 @@ See also:
 Use the repo's own scripts — `lint:ts` where it exists, otherwise `lint`:
 
 ```bash
-pnpm run lint
+<your lint command>
 pnpm test
 ```

@@ -1,12 +1,13 @@
 ---
 name: paniolo-writing-style-best-practices
 description: |
-  Writing style standards for documentation in this project — clarity, conciseness, audience, tone, active vs passive voice, and jargon handling. Use when writing or reviewing prose in wiki authoring pages, README.md, CONTRIBUTING.md, SKILL.md, or inline code comments. Do NOT use for structural/formatting questions (file naming, ToC, headers, code blocks) — load doc-best-practices instead.
+  Writing style standards for documentation — clarity, conciseness, audience, tone, active vs passive voice, and jargon handling. Use when writing or reviewing prose in wiki authoring pages, README.md, CONTRIBUTING.md, SKILL.md, or inline code comments. Do NOT use for structural/formatting questions (file naming, ToC, headers, code blocks) — load doc-best-practices instead.
 license: MIT
 metadata:
   version: 0.1.0
 tags:
 - writing
+user-invocable: true
 references:
 - 'wiki: sharp-shooter-wiki:active-vs-passive-voice → references/active-vs-passive-voice.md'
 - 'wiki: sharp-shooter-wiki:audience-and-tone → references/audience-and-tone.md'
@@ -14,7 +15,6 @@ references:
 - 'wiki: sharp-shooter-wiki:doc-content → references/doc-content.md'
 - 'wiki: sharp-shooter-wiki:writing-style-clarity-and-conciseness → references/writing-style-clarity-and-conciseness.md'
 - 'wiki: sharp-shooter-wiki:writing-style-writing-style → references/writing-style-writing-style.md'
-user-invocable: true
 ---
 
 **Requires:** file-read. No terminal needed.
@@ -81,7 +81,7 @@ any kind of renderable content, you should use the `ReactNode` type.
 
 ### Audience and tone
 
-- Assume: competent developer, new to this project
+- Assume: competent developer, new to the project
 - Skip basics TypeScript developers already know
 - Avoid condescending phrases: `"Obviously..."`, `"Simply..."`
 - Explain the "why" when rules might seem arbitrary

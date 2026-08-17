@@ -88,7 +88,7 @@ split includes broader behavior-preserving refactor work.
 
   ```bash
   git grep -n "\\`\w\\+\\` moved to" || true
-  npm run lint
+  <your lint command>
   ```
 
   to ensure no leftover "moved" comments remain and lint passes.
@@ -120,8 +120,8 @@ split includes broader behavior-preserving refactor work.
 ## Validation
 
 ```bash
-npm run test:unit -- path/to/changed.test.ts
-npm run lint
+<your unit-test command> path/to/changed.test.ts
+<your lint command>
 ```
 
 ## Evaluations (I/O examples)

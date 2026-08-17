@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: vitest-one-canonical-make-helper
-source-hash: 3d0c54dde875acc8edf077c4f5dca9c5ba0e646df32b6cf0326e37293a9f0731
-bundled: 2026-08-01
+source-hash: 672d9d760b5023f405951b23d4a54f3fdc76787dd4b2366683bd480eb880d950
+bundled: 2026-08-16
 title: One canonical `make*` per fixture type
 type: concept
 tags:
@@ -22,7 +22,7 @@ helper; they do not reimplement the same field list in another file.
 
 ```bash
 rg "makeFoo|function make.*Participant|function make.*LoadedEvent" --glob "*.test-util.ts" --glob "*test*"
-npm run qmd -- search "make EventParticipant test fixture"
+paniolo qmd search "make EventParticipant test fixture"
 ```
 
 | Do                                                                          | Do not                                                                                    |

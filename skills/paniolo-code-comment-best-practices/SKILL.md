@@ -118,7 +118,7 @@ Core philosophy: explain the "why," not the "what."
 ## Validation
 
 ```bash
-npm run lint
+<your lint command>
 ```
 
 ## Do not

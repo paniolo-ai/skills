@@ -35,7 +35,7 @@ references:
 
 1. Apply relevant rules below (each links to the full doc for examples).
 2. Keep changes minimal and local to the problem area.
-3. Run `npm run lint` after meaningful TS changes.
+3. Run the project's lint script after meaningful TS changes.
 
 ## Key rules
 
@@ -117,8 +117,8 @@ references:
 ## Validation
 
 ```bash
-npm run lint       # lint (always from project root)
-npm run test:unit  # when behavior is non-trivial
+<your lint command>       # lint (always from project root)
+<your unit-test command>  # when behavior is non-trivial
 ```
 
 ## Skill handoffs

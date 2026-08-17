@@ -49,7 +49,7 @@ stale value.
 The "latest callback in a ref" pattern exists to keep an expensive subscription — an
 `IntersectionObserver`, a `MutationObserver`, an event listener — out of a dependency array. Putting
 the callback in the deps instead is correct but tears the subscription down and rebuilds it on every
-render, because [the compiler does not stabilise props you did not memoise](react-compiler.md) and
+render, because [the compiler does not stabilise props you did not memoise](./react-compiler.md) and
 memoisation is forbidden.
 
 So the ordering is:
@@ -71,6 +71,6 @@ is rejected or produces wrong output under the compiler's re-execution assumptio
 
 ## See also
 
-- [React Compiler](react-compiler.md)
-- [Compiler-compatible control flow](react-compiler-control-flow.md)
-- [useEffect rules](react-useeffect-rules.md)
+- React Compiler
+- Compiler-compatible control flow
+- useEffect rules

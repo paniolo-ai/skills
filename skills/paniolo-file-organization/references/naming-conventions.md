@@ -70,7 +70,7 @@ src/item/active-items/
 ```
 
 If you touch an existing multi-export helper file, prefer splitting it (see
-[`file-splitting`](../../paniolo-file-splitting/SKILL.md)) over adding another export.
+`file-splitting`) over adding another export.
 
 ### Playwright E2E util modules (`*.e2e-util.ts`)
 

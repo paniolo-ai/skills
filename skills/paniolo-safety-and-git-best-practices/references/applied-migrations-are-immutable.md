@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: applied-migrations-are-immutable
-source-hash: 3c92eaf601a877ab5c85378172408d6d2d9a2b07f7fae0be64c12d5ad39a543e
-bundled: 2026-08-15
+source-hash: 63ff609efc30b1fd98ff85aed9507f81e3800474fbc978b5c4f808b62187d25b
+bundled: 2026-08-16
 title: Applied Migrations Are Immutable
 type: concept
 tags:
@@ -46,8 +46,8 @@ Migration commands are frequently environment-suffixed, and the **unsuffixed one
 production**:
 
 ```bash
-pnpm run supabase:migrate:staging   # explicit target
-pnpm run supabase:migrate           # often production — check before running
+<migrate command>:staging   # environment-suffixed: explicit target
+<migrate command>            # unsuffixed: often production — check before running
 ```
 
 Read the script definition rather than inferring the target from the name. Run the staging path,
@@ -55,4 +55,4 @@ confirm it is green, and report before promoting.
 
 ## See also
 
-- [Authoring](index.md)
+- Authoring

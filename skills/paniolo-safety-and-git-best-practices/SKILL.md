@@ -11,15 +11,16 @@ tags:
 references:
 - 'wiki: sharp-shooter-wiki:applied-migrations-are-immutable → references/applied-migrations-are-immutable.md'
 - 'wiki: sharp-shooter-wiki:completion-means-the-gate-ran → references/completion-means-the-gate-ran.md'
+- 'wiki: sharp-shooter-wiki:line-endings → references/line-endings.md'
 ---
 
 ## Command Execution Safety
 
 - Safe defaults:
-  - `npm run test:unit` (targeted files preferred)
-  - `npm run lint`
-  - `npm run lint:md`
-  - `npm run format`
+  - the project's unit-test script (targeted files preferred)
+  - the project's lint script
+  - the project's markdown lint script
+  - the project's format script
 - Never auto-run without explicit user ask:
   - git write operations
   - deployments or production migrations
@@ -59,6 +60,9 @@ references:
 - No git write operations by default.
 - Read-only git commands are allowed.
 - Do not prompt users to commit or open PRs unless they explicitly request PR help.
+- **Write LF, and verify it.** `.gitattributes` normalizes on commit, not on write, so a
+  CRLF file sits in the working tree where `git status` reports nothing and byte
+  comparisons fail anyway. [line-endings](references/line-endings.md)
 
 ## Do Not
 
@@ -76,3 +80,4 @@ references:
 - Repo-wide rules: rules
 - [applied-migrations-are-immutable](references/applied-migrations-are-immutable.md)
 - [completion-means-the-gate-ran](references/completion-means-the-gate-ran.md)
+- [line-endings](references/line-endings.md)

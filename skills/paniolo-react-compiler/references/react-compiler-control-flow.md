@@ -1,8 +1,8 @@
 ---
 source-wiki: sharp-shooter-wiki
 source-slug: react-compiler-control-flow
-source-hash: 4a031506391592b1e5ff81078965d6f6f3c977aff2d101e1ceece1c2a00d8ed6
-bundled: 2026-08-01
+source-hash: b50bb9ba2c449705c5c1938b1db20dd086526605d2695290df858cbb4bb55e3c
+bundled: 2026-08-16
 title: Compiler-compatible control flow
 type: concept
 tags:
@@ -33,7 +33,7 @@ and **`use*` hook** bodies.
   a separate file (returns a result discriminant or throws) so the hook does not embed a large
   `try/catch` surface.
 
-After editing hooks with async saves or `try/catch`, **verify with `npm run lint` or a dev build** —
+After editing hooks with async saves or `try/catch`, **verify with lint or a dev build** —
 typecheck alone will not catch compiler panics.
 
 ---
