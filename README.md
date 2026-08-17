@@ -1,8 +1,23 @@
 # paniolo-ai/skills
 
-Source registry for Paniolo-vendored authoring skills.
+Distribution registry for Paniolo-vendored authoring skills.
 
 [![Install with skills.sh](https://skills.sh/b/paniolo-ai/skills)](https://skills.sh/paniolo-ai/skills)
+
+## This repo is generated — do not edit it
+
+Every `SKILL.md` and every file under `references/` is compiled output. The
+source of truth is one page per skill in `sharp-shooter-wiki/wiki/skills/`,
+named `paniolo-<name>.md`; `paniolo skills bundle` compiles those pages into the
+directories here.
+
+Edit the wiki page and re-bundle. A hand edit here survives only until the next
+bundle, and until then it is invisible: the page it came from never learns about
+it, so the change is silently reverted rather than reported.
+
+`references/` files are compiled from the flat wiki pages named in each page's
+`references:` list, which is why they carry `source-wiki` / `source-slug` /
+`source-hash` provenance in their frontmatter.
 
 ## Layout
 
