@@ -1,6 +1,6 @@
 {
   "$schema": "https://paniolo.ai/schemas/paniolo-skills.v1.json",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "source": "https://github.com/paniolo-ai/skills",
   "skills": [
     {
@@ -202,6 +202,31 @@
         "type-and-interface-naming",
         "typescript-naming-use-vs-compute",
         "typescript-naming-variable-naming"
+      ]
+    },
+    {
+      "name": "paniolo-playwright-test-best-practices",
+      "description": "Playwright E2E test conventions for this project — AAA pattern, translation-aware selectors, hydration waits, mock auth, staging DB sessions, two-user flows, debugging, and CI setup. Use when authoring or editing any Playwright spec, test helper, or E2E configuration. Do NOT use for unit tests or hook tests — load paniolo-vitest-test-best-practices instead.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "sourceSkill": "playwright-test-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-playwright-test-best-practices",
+      "references": [
+        "playwright-aaa-pattern",
+        "playwright-debugging",
+        "playwright-hydration-waits",
+        "playwright-mock-auth-in-tests",
+        "playwright-mock-auth-troubleshooting",
+        "playwright-multiple-users-mock",
+        "playwright-session-expiry",
+        "playwright-staging-db-setup",
+        "playwright-test",
+        "playwright-test-organization",
+        "playwright-translation-aware-tests"
       ]
     },
     {
