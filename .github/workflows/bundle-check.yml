@@ -1,0 +1,40 @@
+name: Bundle check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out skills registry
+        uses: actions/checkout@v4
+        with:
+          path: skills
+
+      - name: Check out harness
+        uses: actions/checkout@v4
+        with:
+          repository: paniolo-ai/paniolo-harness
+          path: paniolo-harness
+
+      - name: Check out source wiki
+        uses: actions/checkout@v4
+        with:
+          repository: paniolo-ai/sharp-shooter-wiki
+          path: sharp-shooter-wiki
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify bundle matches committed artifacts
+        run: |
+          npx -y @paniolo/cli skills bundle \
+            --harness paniolo-harness \
+            --wiki sharp-shooter-wiki \
+            --out skills/skills \
+            --check
