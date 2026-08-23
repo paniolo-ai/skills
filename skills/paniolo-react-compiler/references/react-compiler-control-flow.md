@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: react-compiler-control-flow
 source-hash: b50bb9ba2c449705c5c1938b1db20dd086526605d2695290df858cbb4bb55e3c
 bundled: 2026-08-16

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: playwright-multiple-users-mock
 source-hash: 425af29ae9b0be8dcc1e7e03222bc6fd7ecb751cbeb9d2bec9d2afc11f1c6069
 bundled: 2026-08-17

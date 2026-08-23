@@ -1,8 +1,7 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: playwright-hydration-waits
-source-hash: 0c8ed2620acc2b5e8cce086cdbf14a48dacfe30baee9bd95a3eac5d1ec2add40
-bundled: 2026-08-17
+source-hash: 0135a3181aac7240f40d5aa3dbb0b743581d5e1b7a426b88c3681fedb6efed04
+bundled: 2026-08-20
 title: Hydration Waits
 type: concept
 tags:
@@ -10,7 +9,7 @@ tags:
 - playwright
 - testing
 - e2e
-updated: 2026-06-18
+updated: 2026-08-20
 ---
 
 # Hydration Waits
@@ -19,16 +18,16 @@ Default to web-first assertions and locator retries. They are faster to read and
 sleeps.
 
 The one documented exception in this repo is a short post-navigation hydration settle using a named
-`HYDRATION*WAIT*MS` constant. Use it only when the page is known to need React hydration time after
+`HYDRATION_WAIT_MS` constant. Use it only when the page is known to need React hydration time after
 `page.goto()` and a plain assertion is not enough.
 
 ```typescript
-const HYDRATION*WAIT*MS = 2000;
+const HYDRATION_WAIT_MS = 2000;
 
 // Arrange
 await authenticateTestUser(page);
 await page.goto("/en/dashboard");
-await page.waitForTimeout(HYDRATION*WAIT*MS);
+await page.waitForTimeout(HYDRATION_WAIT_MS);
 
 // Assert
 await expect(page.getByTestId("dashboard-root")).toBeVisible();
@@ -36,7 +35,7 @@ await expect(page.getByTestId("dashboard-root")).toBeVisible();
 
 Guidelines:
 
-- ✅ Keep the wait in a named constant such as `HYDRATION*WAIT*MS`
+- ✅ Keep the wait in a named constant such as `HYDRATION_WAIT_MS`
 - ✅ Use it immediately after navigation, not as a generic "fix flake" tool
 - ✅ Prefer assertions and locator waiting for everything after the initial hydrate
 - ❌ Add new magic-number sleeps inline

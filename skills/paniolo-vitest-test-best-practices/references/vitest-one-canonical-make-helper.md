@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: vitest-one-canonical-make-helper
 source-hash: 672d9d760b5023f405951b23d4a54f3fdc76787dd4b2366683bd480eb880d950
 bundled: 2026-08-16

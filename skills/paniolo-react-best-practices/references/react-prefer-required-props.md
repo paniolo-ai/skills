@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: react-prefer-required-props
 source-hash: 35257fa8cae3cf6351c7ad473713aeec846c8c07c770a87f3b80ad0f01b3b1b2
 bundled: 2026-08-01

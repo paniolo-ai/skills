@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: code-layout
 source-hash: f2e7ea461759f3010a56bf522574218e87afc6b46837b375c1e9808a66d14545
 bundled: 2026-08-01

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: react-compiler-no-render-side-effects
 source-hash: da9fb8090de66b24c63bd55feec94fa61643dd582e5c6e39662c8a7cd167d9a7
 bundled: 2026-08-15

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: react-component-naming
 source-hash: b1fe423b2433ddd6c57d9af1c770430572a67beffd547938d6128125058d83f3
 bundled: 2026-08-01

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: zustand
 source-hash: 186606d71180737f5b26953c270449b80f490b8a0c1e3a66d82b71ebd96bfd9f
 bundled: 2026-08-01

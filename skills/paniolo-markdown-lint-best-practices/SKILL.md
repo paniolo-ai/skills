@@ -9,8 +9,8 @@ tags:
 - markdown
 - lint
 references:
-- 'wiki: sharp-shooter-wiki:doc-content → references/doc-content.md'
-- 'wiki: sharp-shooter-wiki:markdown-lint → references/markdown-lint.md'
+- references/doc-content.md
+- references/markdown-lint.md
 ---
 
 **Requires:** file-read, terminal (markdown linting).

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: playwright-test-organization
 source-hash: 4eb177973aca85d0d89beffb07ba6f2e4ffc292ed9405341d441b61213a71ae0
 bundled: 2026-08-17

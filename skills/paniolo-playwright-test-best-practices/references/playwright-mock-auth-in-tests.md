@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: playwright-mock-auth-in-tests
 source-hash: 5131388b24a4c57f02b645c189824cdc8fa24c85a6fc898732bcca0c2919e4b6
 bundled: 2026-08-17

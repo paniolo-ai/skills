@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: memoized-selectors
 source-hash: 3a14e4bf6aa0467efdb577800515bdab79e5c9e8a57b91338a0bd2ce8e9046ef
 bundled: 2026-08-01

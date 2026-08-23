@@ -9,8 +9,8 @@ tags:
 - files
 - refactoring
 references:
-- 'wiki: sharp-shooter-wiki:avoid-multi-function-helpersts-modules → references/avoid-multi-function-helpersts-modules.md'
-- 'wiki: sharp-shooter-wiki:file-organization → references/file-organization.md'
+- references/avoid-multi-function-helpersts-modules.md
+- references/file-organization.md
 ---
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.

@@ -9,7 +9,7 @@ tags:
 - typescript
 - lint
 references:
-- 'wiki: sharp-shooter-wiki:typescript-lint → references/typescript-lint.md'
+- references/typescript-lint.md
 ---
 
 **Requires:** file-read, terminal (linting).

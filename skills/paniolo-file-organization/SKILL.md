@@ -9,16 +9,16 @@ tags:
 - files
 - structure
 references:
-- 'wiki: sharp-shooter-wiki:avoid-multi-function-helpersts-modules → references/avoid-multi-function-helpersts-modules.md'
-- 'wiki: sharp-shooter-wiki:code-layout → references/code-layout.md'
-- 'wiki: sharp-shooter-wiki:component-files-react-components → references/component-files-react-components.md'
-- 'wiki: sharp-shooter-wiki:constants-placement-across-modules → references/constants-placement-across-modules.md'
-- 'wiki: sharp-shooter-wiki:file-organization → references/file-organization.md'
-- 'wiki: sharp-shooter-wiki:forbidden-feature-folder-names → references/forbidden-feature-folder-names.md'
-- 'wiki: sharp-shooter-wiki:import-organization-pattern → references/import-organization-pattern.md'
-- 'wiki: sharp-shooter-wiki:naming-conventions → references/naming-conventions.md'
-- 'wiki: sharp-shooter-wiki:project-structure-example → references/project-structure-example.md'
-- 'wiki: sharp-shooter-wiki:vitest-colocate-make-fixtures → references/vitest-colocate-make-fixtures.md'
+- references/avoid-multi-function-helpersts-modules.md
+- references/code-layout.md
+- references/component-files-react-components.md
+- references/constants-placement-across-modules.md
+- references/file-organization.md
+- references/forbidden-feature-folder-names.md
+- references/import-organization-pattern.md
+- references/naming-conventions.md
+- references/project-structure-example.md
+- references/vitest-colocate-make-fixtures.md
 ---
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.

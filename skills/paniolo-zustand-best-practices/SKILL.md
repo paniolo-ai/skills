@@ -9,16 +9,16 @@ tags:
 - zustand
 - state
 references:
-- 'wiki: sharp-shooter-wiki:async-actions-with-loading-states → references/async-actions-with-loading-states.md'
-- 'wiki: sharp-shooter-wiki:basic-selector-pattern → references/basic-selector-pattern.md'
-- 'wiki: sharp-shooter-wiki:devtools → references/devtools.md'
-- 'wiki: sharp-shooter-wiki:immer-middleware → references/immer-middleware.md'
-- 'wiki: sharp-shooter-wiki:memoized-selectors → references/memoized-selectors.md'
-- 'wiki: sharp-shooter-wiki:persist-middleware → references/persist-middleware.md'
-- 'wiki: sharp-shooter-wiki:selector-factory-pattern → references/selector-factory-pattern.md'
-- 'wiki: sharp-shooter-wiki:store-composition → references/store-composition.md'
-- 'wiki: sharp-shooter-wiki:testing-zustand-unit-testing → references/testing-zustand-unit-testing.md'
-- 'wiki: sharp-shooter-wiki:zustand → references/zustand.md'
+- references/async-actions-with-loading-states.md
+- references/basic-selector-pattern.md
+- references/devtools.md
+- references/immer-middleware.md
+- references/memoized-selectors.md
+- references/persist-middleware.md
+- references/selector-factory-pattern.md
+- references/store-composition.md
+- references/testing-zustand-unit-testing.md
+- references/zustand.md
 ---
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.

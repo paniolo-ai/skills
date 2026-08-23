@@ -9,9 +9,10 @@ tags:
 - git
 - safety
 references:
-- 'wiki: sharp-shooter-wiki:applied-migrations-are-immutable → references/applied-migrations-are-immutable.md'
-- 'wiki: sharp-shooter-wiki:completion-means-the-gate-ran → references/completion-means-the-gate-ran.md'
-- 'wiki: sharp-shooter-wiki:line-endings → references/line-endings.md'
+- references/applied-migrations-are-immutable.md
+- references/completion-means-the-gate-ran.md
+- references/line-endings.md
+- references/plan-acceptance-evidence.md
 ---
 
 ## Command Execution Safety
@@ -52,6 +53,9 @@ references:
   passing proves nothing about callers asserting the old shape. Scope the run by what the change
   reaches, not by what you edited.
 - Plan and checklist markers describe what landed, not what was attempted.
+- Record plan verification as passed, failed, inconclusive, or not run. Trace each card from its
+  contract through implementation and a behavior-level test.
+  [plan-acceptance-evidence](references/plan-acceptance-evidence.md)
 - If a test fails and you believe it is a flake, say it failed and why, then re-run it in isolation.
   [completion-means-the-gate-ran](references/completion-means-the-gate-ran.md)
 
@@ -81,3 +85,4 @@ references:
 - [applied-migrations-are-immutable](references/applied-migrations-are-immutable.md)
 - [completion-means-the-gate-ran](references/completion-means-the-gate-ran.md)
 - [line-endings](references/line-endings.md)
+- [plan-acceptance-evidence](references/plan-acceptance-evidence.md)

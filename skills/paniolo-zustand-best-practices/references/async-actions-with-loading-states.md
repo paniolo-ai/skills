@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: async-actions-with-loading-states
 source-hash: b2d4c61a261e441bd42802fd2f9be03e5eccacb5d8a91735b5f3ac0b7bca27d5
 bundled: 2026-08-01

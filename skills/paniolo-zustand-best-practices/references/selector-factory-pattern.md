@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: selector-factory-pattern
 source-hash: 89b0a6699bb02c3f7e013636d2fdefff11d8719756042382d2adad8161eab511
 bundled: 2026-08-01

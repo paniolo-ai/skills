@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: jsdoc-formatting
 source-hash: 9ae1447f5921ae5185e935489f7871dd8c3dad54ff529df0a7da73da91d6ccf1
 bundled: 2026-08-01

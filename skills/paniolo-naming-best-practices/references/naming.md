@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: naming
 source-hash: b93b4e06c183679154c6215e9e875319bf8b7707fc9cb384d92dc9abb3fd7b56
 bundled: 2026-08-01

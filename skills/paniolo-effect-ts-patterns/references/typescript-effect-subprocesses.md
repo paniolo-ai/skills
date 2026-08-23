@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: typescript-effect-subprocesses
 source-hash: d51d1e3f5ce6ce7aceb661ad849c98f2fe5cdda393af88dc9b41be23dabae734
 bundled: 2026-08-01

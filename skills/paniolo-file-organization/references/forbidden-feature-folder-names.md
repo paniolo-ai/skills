@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: forbidden-feature-folder-names
 source-hash: 6cdecd2d0786b2a42589cbdb934275d2e7c2ce6147e52e76fb647c4133c54850
 bundled: 2026-08-16

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: spacing-placement
 source-hash: 76b222324e91cbde9983188559d62816d720898d4ac50bdd3386a47750671de0
 bundled: 2026-08-01

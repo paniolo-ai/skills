@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: typescript-type-vs-interface
 source-hash: 669379749ab79c9b44ace7cfae72b0fe20c5e4c3399fbe3f6d7cdfb213fd13ea
 bundled: 2026-08-01

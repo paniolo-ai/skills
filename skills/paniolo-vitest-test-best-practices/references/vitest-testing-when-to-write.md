@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: vitest-testing-when-to-write
 source-hash: 786b4a9ec399d6bb13cd96021f4531eb558543d523c865cefd6a3903f608ef4b
 bundled: 2026-08-01

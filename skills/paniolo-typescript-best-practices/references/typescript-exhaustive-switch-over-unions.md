@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: typescript-exhaustive-switch-over-unions
 source-hash: c2e8b1e59f14a8abb8c77f4002a967b83acd1100ce92af10de6ba0818bcf2bfe
 bundled: 2026-08-15

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: audience-and-tone
 source-hash: 0757c94ab30cf60f5d5b0f9b322029e8d24dec5858cb0285b155b722f03848c5
 bundled: 2026-08-16

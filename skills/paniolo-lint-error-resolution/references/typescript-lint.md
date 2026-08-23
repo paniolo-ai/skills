@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: typescript-lint
 source-hash: 2495190ca242a17d853e6e9aba85b6a2868d606e8d55e283b4ad98f76d2893d3
 bundled: 2026-08-01

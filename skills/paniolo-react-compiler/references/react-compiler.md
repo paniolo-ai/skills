@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: react-compiler
 source-hash: c3efefa30544cb40cf356840f74f70e1ab743136495cee29a15313bdad2773b3
 bundled: 2026-08-01

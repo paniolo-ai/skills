@@ -1,8 +1,7 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: playwright-mock-auth-troubleshooting
-source-hash: 1a2ef80fe825587bbe4f902baa727ab9f5aa80404c737b38c80150207d0e6096
-bundled: 2026-08-17
+source-hash: 965e1008877b9c716be7fc98a2ae50a08d9217368689e602ab7f3908b518235f
+bundled: 2026-08-20
 title: Mock Auth Troubleshooting
 type: concept
 tags:
@@ -11,7 +10,7 @@ tags:
 - testing
 - e2e
 - auth
-updated: 2026-06-18
+updated: 2026-08-20
 ---
 
 # Mock Auth Troubleshooting
@@ -19,7 +18,7 @@ updated: 2026-06-18
 **Test fails with "Not authenticated"** — call `authenticateTestUser(page)` before `page.goto()`.
 
 **User data not showing up** — use web-first assertions first. If the page has a known
-post-navigation hydration delay, use the documented `HYDRATION*WAIT*MS` pattern instead of an
+post-navigation hydration delay, use the documented `HYDRATION_WAIT_MS` pattern instead of an
 arbitrary sleep:
 
 ```typescript

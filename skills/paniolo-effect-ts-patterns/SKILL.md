@@ -9,13 +9,14 @@ tags:
 - effect-ts
 - typescript
 references:
-- 'wiki: sharp-shooter-wiki:entry-point-vs-logic-module-pattern → references/entry-point-vs-logic-module-pattern.md'
-- 'wiki: sharp-shooter-wiki:typescript-effect-defining-tagged-errors → references/typescript-effect-defining-tagged-errors.md'
-- 'wiki: sharp-shooter-wiki:typescript-effect-logic-module-pattern → references/typescript-effect-logic-module-pattern.md'
-- 'wiki: sharp-shooter-wiki:typescript-effect-mixing-promises-and-effects → references/typescript-effect-mixing-promises-and-effects.md'
-- 'wiki: sharp-shooter-wiki:typescript-effect-refactoring-promise-to-effect → references/typescript-effect-refactoring-promise-to-effect.md'
-- 'wiki: sharp-shooter-wiki:typescript-effect-subprocesses → references/typescript-effect-subprocesses.md'
-- 'wiki: sharp-shooter-wiki:typescript-effect-throwing-instead-of-effectfail → references/typescript-effect-throwing-instead-of-effectfail.md'
+- references/entry-point-vs-logic-module-pattern.md
+- references/typescript-bun-script-portability.md
+- references/typescript-effect-defining-tagged-errors.md
+- references/typescript-effect-logic-module-pattern.md
+- references/typescript-effect-mixing-promises-and-effects.md
+- references/typescript-effect-refactoring-promise-to-effect.md
+- references/typescript-effect-subprocesses.md
+- references/typescript-effect-throwing-instead-of-effectfail.md
 ---
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.
@@ -69,6 +70,12 @@ See [typescript-effect-defining-tagged-errors](references/typescript-effect-defi
 
 See [typescript-effect-refactoring-promise-to-effect](references/typescript-effect-refactoring-promise-to-effect.md).
 
+### 6. Portable Bun orchestration
+
+Use direct argv arrays, an explicit working directory and environment, and a thin `.bun.ts`
+entrypoint. Do not hide subprocesses behind shell-quoted command strings. See
+[typescript-bun-script-portability](references/typescript-bun-script-portability.md).
+
 ## Common Pitfalls
 
 Avoid mixing Promise and Effect in the same call chain, throwing inside `Effect.gen`, and bare
@@ -90,6 +97,7 @@ See also:
 | [typescript-effect-refactoring-promise-to-effect](references/typescript-effect-refactoring-promise-to-effect.md) | Promise → Effect refactor |
 | [typescript-effect-mixing-promises-and-effects](references/typescript-effect-mixing-promises-and-effects.md) | Mixing Promise and Effect |
 | [typescript-effect-throwing-instead-of-effectfail](references/typescript-effect-throwing-instead-of-effectfail.md) | Throwing vs Effect.fail   |
+| [typescript-bun-script-portability](references/typescript-bun-script-portability.md) | Portable Bun scripts |
 
 ## Validation Commands
 

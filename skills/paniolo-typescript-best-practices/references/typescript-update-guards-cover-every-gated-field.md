@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: typescript-update-guards-cover-every-gated-field
 source-hash: 8a70d27e520d265e9a2eca8cc289b6e0b8683a96fb51c905accae3fc467554fd
 bundled: 2026-08-15

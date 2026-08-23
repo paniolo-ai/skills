@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: typescript-naming-variable-naming
 source-hash: 2ae3f35eae111f81151a4ebaa7c211a703a018a54c08a20d2e1c41f1ff04344c
 bundled: 2026-08-01

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: active-vs-passive-voice
 source-hash: 07db4198af441195f4d22fff8ea53e2b9a9f44eadfc21eb8ff73064cb53110b2
 bundled: 2026-08-01

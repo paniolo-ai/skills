@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: naming-conventions
 source-hash: 8dd1fb6df7567ce659af138460f7690299017a60e4e43739870162805b9f2f38
 bundled: 2026-08-01

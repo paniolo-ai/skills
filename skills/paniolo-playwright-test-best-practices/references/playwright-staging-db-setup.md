@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: playwright-staging-db-setup
 source-hash: 15faf988dbecd7d474260356d6195160596fbdb9c7c1caeaa4602a8f01ea839f
 bundled: 2026-08-17

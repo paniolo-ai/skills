@@ -9,12 +9,12 @@ tags:
 - documentation
 user-invocable: true
 references:
-- 'wiki: sharp-shooter-wiki:doc-content → references/doc-content.md'
-- 'wiki: sharp-shooter-wiki:doc-structure → references/doc-structure.md'
-- 'wiki: sharp-shooter-wiki:markdown-anchor-links → references/markdown-anchor-links.md'
-- 'wiki: sharp-shooter-wiki:markdown-file-naming → references/markdown-file-naming.md'
-- 'wiki: sharp-shooter-wiki:markdown-required-elements → references/markdown-required-elements.md'
-- 'wiki: sharp-shooter-wiki:writing-style-writing-style → references/writing-style-writing-style.md'
+- references/doc-content.md
+- references/doc-structure.md
+- references/markdown-anchor-links.md
+- references/markdown-file-naming.md
+- references/markdown-required-elements.md
+- references/writing-style-writing-style.md
 ---
 
 **Requires:** file-read. No terminal needed unless validating after edits.

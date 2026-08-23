@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: typescript-all-if-else-branches-contain-same-code-shared-error-check
 source-hash: 3d4839bba8e4e038836bb174bfd673f0bde618d79b23ac87009420f17b59955a
 bundled: 2026-08-01

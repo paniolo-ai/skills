@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: inline-comments
 source-hash: 7e9c1958642b8eb1f78866c27210ce01ee47edea4e702b47e4a4c3f1d7f85598
 bundled: 2026-08-01

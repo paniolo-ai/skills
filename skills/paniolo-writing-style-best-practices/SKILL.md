@@ -9,12 +9,12 @@ tags:
 - writing
 user-invocable: true
 references:
-- 'wiki: sharp-shooter-wiki:active-vs-passive-voice → references/active-vs-passive-voice.md'
-- 'wiki: sharp-shooter-wiki:audience-and-tone → references/audience-and-tone.md'
-- 'wiki: sharp-shooter-wiki:avoid-jargon-unless-necessary → references/avoid-jargon-unless-necessary.md'
-- 'wiki: sharp-shooter-wiki:doc-content → references/doc-content.md'
-- 'wiki: sharp-shooter-wiki:writing-style-clarity-and-conciseness → references/writing-style-clarity-and-conciseness.md'
-- 'wiki: sharp-shooter-wiki:writing-style-writing-style → references/writing-style-writing-style.md'
+- references/active-vs-passive-voice.md
+- references/audience-and-tone.md
+- references/avoid-jargon-unless-necessary.md
+- references/doc-content.md
+- references/writing-style-clarity-and-conciseness.md
+- references/writing-style-writing-style.md
 ---
 
 **Requires:** file-read. No terminal needed.

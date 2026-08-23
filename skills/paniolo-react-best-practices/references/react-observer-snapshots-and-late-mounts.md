@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: react-observer-snapshots-and-late-mounts
 source-hash: ece92a159ca842088dca034598d815b5c21e31c513eee7d7377ee4fb10a1cc9a
 bundled: 2026-08-15

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: markdown-required-elements
 source-hash: 92ccf46493c3274674d82292881a5ba4f254813408327374797004735a93c86a
 bundled: 2026-08-01

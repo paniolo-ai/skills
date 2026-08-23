@@ -1,8 +1,7 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: playwright-translation-aware-tests
-source-hash: 9cbb4e995f7b7768d676441eae16e9913e0c45a44cb4e2e42d1081b87fbf5524
-bundled: 2026-08-17
+source-hash: 3ad23ac43d4bd1a124c6c4718655749c041b85d8001974c8a8c519c66ffbce11
+bundled: 2026-08-20
 title: Translation-Aware Tests
 type: concept
 tags:
@@ -10,7 +9,7 @@ tags:
 - playwright
 - testing
 - e2e
-updated: 2026-06-18
+updated: 2026-08-20
 ---
 
 # Translation-Aware Tests
@@ -52,8 +51,8 @@ await expect(alert).toHaveAttribute("data-variant", "success");
 ```typescript
 export const ALERT_TYPES = {
 	DELETE_SUCCESS: "deleteSuccess",
-	SIGN*OUT*SUCCESS: "signOutSuccess",
-	SIGN*IN*SUCCESS: "signedInSuccess",
+	SIGN_OUT_SUCCESS: "signOutSuccess",
+	SIGN_IN_SUCCESS: "signedInSuccess",
 } as const;
 ```
 

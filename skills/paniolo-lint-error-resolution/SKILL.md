@@ -9,14 +9,14 @@ tags:
 - lint
 - typescript
 references:
-- 'wiki: sharp-shooter-wiki:typescript-all-if-else-branches-contain-same-code-shared-error-check → references/typescript-all-if-else-branches-contain-same-code-shared-error-check.md'
-- 'wiki: sharp-shooter-wiki:typescript-isolateddeclarations-explicit-type-annotations-on-exports → references/typescript-isolateddeclarations-explicit-type-annotations-on-exports.md'
-- 'wiki: sharp-shooter-wiki:typescript-lint → references/typescript-lint.md'
-- 'wiki: sharp-shooter-wiki:typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna → references/typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna.md'
-- 'wiki: sharp-shooter-wiki:typescript-no-unsafe-type-assertion-request-validation → references/typescript-no-unsafe-type-assertion-request-validation.md'
-- 'wiki: sharp-shooter-wiki:typescript-optional-method-chain-use-typed-query-wrapper → references/typescript-optional-method-chain-use-typed-query-wrapper.md'
-- 'wiki: sharp-shooter-wiki:typescript-quick-lookup → references/typescript-quick-lookup.md'
-- 'wiki: sharp-shooter-wiki:typescript-require-useeffect-comment-comment-before-useeffect → references/typescript-require-useeffect-comment-comment-before-useeffect.md'
+- references/typescript-all-if-else-branches-contain-same-code-shared-error-check.md
+- references/typescript-isolateddeclarations-explicit-type-annotations-on-exports.md
+- references/typescript-lint.md
+- references/typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna.md
+- references/typescript-no-unsafe-type-assertion-request-validation.md
+- references/typescript-optional-method-chain-use-typed-query-wrapper.md
+- references/typescript-quick-lookup.md
+- references/typescript-require-useeffect-comment-comment-before-useeffect.md
 ---
 
 **Requires:** file-read, terminal (linter). No network access needed.

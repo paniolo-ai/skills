@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: writing-style-writing-style
 source-hash: af41524ad1a36dcc07013058351b3735e487d58e1b70abc2cd62ce19ba490e0f
 bundled: 2026-08-01

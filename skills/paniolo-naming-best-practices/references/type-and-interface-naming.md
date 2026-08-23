@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: type-and-interface-naming
 source-hash: 8707ff609ad5c424a2bc86df66a4418e0026074c89648a3c477369dccf165332
 bundled: 2026-08-01

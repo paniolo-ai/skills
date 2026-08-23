@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: vitest-mock
 source-hash: 228ead1dec8323bc4f3513a618778f4cc88b0d06384376367d50560a0e279eac
 bundled: 2026-08-16

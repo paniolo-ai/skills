@@ -8,18 +8,18 @@ metadata:
 tags:
 - react
 references:
-- 'wiki: sharp-shooter-wiki:react → references/react.md'
-- 'wiki: sharp-shooter-wiki:react-avoid-react-fc → references/react-avoid-react-fc.md'
-- 'wiki: sharp-shooter-wiki:react-common-prop-types → references/react-common-prop-types.md'
-- 'wiki: sharp-shooter-wiki:react-file-and-import-conventions → references/react-file-and-import-conventions.md'
-- 'wiki: sharp-shooter-wiki:react-function-declaration-style → references/react-function-declaration-style.md'
-- 'wiki: sharp-shooter-wiki:react-observer-snapshots-and-late-mounts → references/react-observer-snapshots-and-late-mounts.md'
-- 'wiki: sharp-shooter-wiki:react-optional-render-nothing → references/react-optional-render-nothing.md'
-- 'wiki: sharp-shooter-wiki:react-overlay-inside-scroll-container → references/react-overlay-inside-scroll-container.md'
-- 'wiki: sharp-shooter-wiki:react-paired-hook-for-non-display-logic → references/react-paired-hook-for-non-display-logic.md'
-- 'wiki: sharp-shooter-wiki:react-prefer-required-props → references/react-prefer-required-props.md'
-- 'wiki: sharp-shooter-wiki:react-useeffect-rules → references/react-useeffect-rules.md'
-- 'wiki: sharp-shooter-wiki:react-windowed-list-estimated-size → references/react-windowed-list-estimated-size.md'
+- references/react-avoid-react-fc.md
+- references/react-common-prop-types.md
+- references/react-file-and-import-conventions.md
+- references/react-function-declaration-style.md
+- references/react-observer-snapshots-and-late-mounts.md
+- references/react-optional-render-nothing.md
+- references/react-overlay-inside-scroll-container.md
+- references/react-paired-hook-for-non-display-logic.md
+- references/react-prefer-required-props.md
+- references/react-useeffect-rules.md
+- references/react-windowed-list-estimated-size.md
+- references/react.md
 ---
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.

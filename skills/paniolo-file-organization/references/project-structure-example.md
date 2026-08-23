@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: project-structure-example
 source-hash: 820ef97a03291f713b8b0900c54709cd84e9eac08a32a1c3d53c3ce2f161dea2
 bundled: 2026-08-01

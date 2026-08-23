@@ -1,8 +1,7 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: playwright-debugging
-source-hash: d5f105ca58afe6275284f0d292383d4b53582f7300d72ac9b1bae8b78f5c547b
-bundled: 2026-08-17
+source-hash: 52412a1e2f25edd98a56b40ae418e51ffcb21a778b22ac1856ac5cdb63f62511
+bundled: 2026-08-20
 title: Debugging
 type: concept
 tags:
@@ -10,36 +9,46 @@ tags:
 - playwright
 - testing
 - e2e
-updated: 2026-06-18
+updated: 2026-08-20
 ---
 
 # Debugging
 
-Recommended order:
+Isolate one Playwright failure and classify it before changing application behavior. Start with the
+repository's native package script so the documented environment and runner lifecycle still apply.
 
-1. Run one spec, one browser with verbose browser console output:
+## Focused Windows Run
 
-   ```bash
-   PLAYWRIGHT_VERBOSE=true npm run test:e2e:dev:staging-db:file -- e2e/specs/sharing/song-sharing.spec.ts --project=chromium 2>&1 > out.txt
-   ```
+In PowerShell, set environment variables through PowerShell and invoke the package script directly:
 
-   `PLAYWRIGHT_VERBOSE=true` enables full verbose output: every browser `console.*` call (prefixed
-   with `[label:type]`, e.g. `[viewer:error]`, `[presenter:log]`), `e2eDebug(…)` calls in test
-   files, and the wrangler env-var bindings table. Without it, all of those are suppressed to keep
-   output readable.
+```powershell
+$env:PLAYWRIGHT_VERBOSE = "true"
+pnpm run <single-spec-script> --project=chromium path/to/example.spec.ts
+Remove-Item Env:PLAYWRIGHT_VERBOSE
+```
 
-2. Fix the narrow failure first.
-3. Re-run that same spec.
-4. Broaden to the surrounding suite.
-5. Re-run the full command only after the focused case is stable.
+Read the package script before adding a literal `--`. Some wrappers already forward arguments, so
+that token can change Playwright's project or file selection. Confirm the banner reports the
+intended project, spec count, and worker count.
 
-When a test fails, check:
+Use the wrapper's operating-system temporary directory for logs and PID metadata. Do not assume
+that `/tmp` exists on Windows, and do not depend on shell redirection for required diagnostics.
 
-- Did the wrapper reach `PLAYWRIGHT_WRAPPER: READY`?
-- Did the failure happen in Chromium only, or in Firefox/WebKit too?
-- Was the failure a real assertion, a timeout, or a connection refusal?
-- Do `/tmp/playwright-dev-client.log` and `/tmp/playwright-dev-api.log` show a server-side error?
+## Diagnosis Order
 
-## See also
+1. Confirm the wrapper printed its readiness marker and intended test selection.
+1. Validate the session, roles, identifiers, relationships, and domain values in the fixture.
+1. Find the first failed assertion or failed request with its response status and body.
+1. Inspect owned server logs for an earlier child exit or backend error.
+1. Confirm teardown removed owned rows, descendants, and listeners.
+1. Re-run the focused case before broadening to the surrounding suite.
 
+An outer timeout, forced process termination, or reporter pipe error is inconclusive unless a test
+assertion already established a product failure.
+
+## See Also
+
+- E2E Fixture Contract Validation
+- Playwright Failure Classification
+- Native Runner Process Ownership
 - Playwright e2e testing (authoring) index

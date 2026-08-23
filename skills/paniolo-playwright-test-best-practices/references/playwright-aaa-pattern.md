@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: playwright-aaa-pattern
 source-hash: e3c9c9e513c5e4543f38022a98b84ba4a42c200838e23667f7b8a990094bc14a
 bundled: 2026-08-17

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: vitest-colocate-make-fixtures
 source-hash: faf148d85a65cd53ad9c5b361b860d6f3ac8fa08a8861472268988b16be9d0d7
 bundled: 2026-08-01

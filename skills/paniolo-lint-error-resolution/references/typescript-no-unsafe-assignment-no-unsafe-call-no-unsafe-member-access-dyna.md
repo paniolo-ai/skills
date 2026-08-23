@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna
 source-hash: 778631c73cf159664da49089365901f5bd85c7c3bffda192d220176e9a633fde
 bundled: 2026-08-01

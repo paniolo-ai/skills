@@ -4,22 +4,28 @@ description: |
   Playwright E2E test conventions for this project — AAA pattern, translation-aware selectors, hydration waits, mock auth, staging DB sessions, two-user flows, debugging, and CI setup. Use when authoring or editing any Playwright spec, test helper, or E2E configuration. Do NOT use for unit tests or hook tests — load paniolo-vitest-test-best-practices instead.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - playwright
 - testing
+user-invocable: true
 references:
-- 'wiki: sharp-shooter-wiki:playwright-test → references/playwright-test.md'
-- 'wiki: sharp-shooter-wiki:playwright-aaa-pattern → references/playwright-aaa-pattern.md'
-- 'wiki: sharp-shooter-wiki:playwright-translation-aware-tests → references/playwright-translation-aware-tests.md'
-- 'wiki: sharp-shooter-wiki:playwright-hydration-waits → references/playwright-hydration-waits.md'
-- 'wiki: sharp-shooter-wiki:playwright-mock-auth-in-tests → references/playwright-mock-auth-in-tests.md'
-- 'wiki: sharp-shooter-wiki:playwright-multiple-users-mock → references/playwright-multiple-users-mock.md'
-- 'wiki: sharp-shooter-wiki:playwright-mock-auth-troubleshooting → references/playwright-mock-auth-troubleshooting.md'
-- 'wiki: sharp-shooter-wiki:playwright-staging-db-setup → references/playwright-staging-db-setup.md'
-- 'wiki: sharp-shooter-wiki:playwright-session-expiry → references/playwright-session-expiry.md'
-- 'wiki: sharp-shooter-wiki:playwright-debugging → references/playwright-debugging.md'
-- 'wiki: sharp-shooter-wiki:playwright-test-organization → references/playwright-test-organization.md'
+- references/plan-acceptance-evidence.md
+- references/playwright-aaa-pattern.md
+- references/playwright-debugging.md
+- references/playwright-e2e-fixture-contract-validation.md
+- references/playwright-failure-classification.md
+- references/playwright-hydration-waits.md
+- references/playwright-mock-auth-in-tests.md
+- references/playwright-mock-auth-troubleshooting.md
+- references/playwright-multiple-users-mock.md
+- references/playwright-native-runner-process-ownership.md
+- references/playwright-session-expiry.md
+- references/playwright-staging-db-setup.md
+- references/playwright-test-organization.md
+- references/playwright-test-owned-entities.md
+- references/playwright-test.md
+- references/playwright-translation-aware-tests.md
 ---
 
 **Requires:** file-read, terminal. No network access needed.
@@ -37,7 +43,7 @@ references:
 - Apply all key rules below; edit the file already open or mentioned.
 - **Always ask:** which spec file if not specified and cannot be inferred.
 
-## Key rules
+## Key Rules
 
 - **AAA pattern** — every test must have `// Arrange`, `// Act`, `// Assert` comments. For
   multi-step flows, use inline phase comments rather than collapsing everything.
@@ -48,7 +54,7 @@ references:
   [playwright-translation-aware-tests](references/playwright-translation-aware-tests.md)
 
 - **Hydration waits are a narrow exception** — prefer web-first assertions, but when a page has a
-  known React hydration settle after navigation, use the shared `HYDRATION*WAIT*MS` pattern instead
+  known React hydration settle after navigation, use the shared `HYDRATION_WAIT_MS` pattern instead
   of ad hoc sleeps.
   [playwright-hydration-waits](references/playwright-hydration-waits.md)
 
@@ -78,22 +84,43 @@ references:
   when you see `401 Not authenticated`.
   [playwright-session-expiry](references/playwright-session-expiry.md)
 
-- **Single-spec debugging** — use `test:e2e:dev:staging-db:file -- <spec> --project=chromium` to
-  isolate failures before broadening.
+- **Single-spec debugging** — read the package script before placing forwarded arguments. A literal
+  `--` can become a Playwright positional separator instead of being consumed by the package
+  manager. Confirm the banner reports the intended project, spec count, and worker count.
   [playwright-debugging](references/playwright-debugging.md)
+
+- **Classify failures before changing product code** — check runner readiness, fixture validity,
+  product behavior, then cleanup. Capture HTTP status and response body for failed API waits.
+  [playwright-failure-classification](references/playwright-failure-classification.md)
+
+- **Validate the fixture contract first** — inspect identifiers, dimensions, relationships,
+  permissions, lifecycle state, ownership, and cleanup recognition before weakening product
+  validation.
+  [playwright-e2e-fixture-contract-validation](references/playwright-e2e-fixture-contract-validation.md)
+
+- **Own native runner processes exactly** — record roots and ready-state descendants, use OS-temp
+  logs, terminate only owned trees, and verify expected ports independently after cleanup. A missing
+  PID registry alone is not cleanup evidence.
+  [playwright-native-runner-process-ownership](references/playwright-native-runner-process-ownership.md)
+
+- **Own test data completely** — use collision-resistant identifiers for every created entity,
+  local `try/finally` cleanup, and global teardown as a failure-safe. Shared-state gates should pass
+  twice consecutively.
+  [playwright-test-owned-entities](references/playwright-test-owned-entities.md)
 
 - **E2E util filenames** — `e2e/**/*.e2e-util.ts` that default-export a single function use
   **camelCase** basenames matching the export (for example `runEffect.e2e-util.ts`), not kebab-case.
   [playwright-test-organization](references/playwright-test-organization.md)
 
-## Output format
+## Output Format
 
 Write code changes directly. After edits, output a brief bullet list of which conventions were
 applied and which validation commands were run.
 
-## Error handling
+## Error Handling
 
-- If `npm run lint` fails after changes, report verbatim and fix before declaring success.
+- If the repository's lint command fails after changes, report it verbatim and fix scoped findings
+  before declaring success.
 - If a test fails due to a missing session file, instruct the user to run the matching
   `e2e:create-session:*` command rather than attempting to fix it in code.
 
@@ -105,10 +132,10 @@ applied and which validation commands were run.
 <your lint command>                            # lint check
 ```
 
-## Skill handoffs
+## Skill Handoffs
 
-- Unit or hook tests → load `paniolo-vitest-test-best-practices`.
-- TypeScript errors in spec files → load `paniolo-typescript-best-practices`.
+- Unit or hook tests → load [the Vitest skill](../paniolo-vitest-test-best-practices/SKILL.md).
+- TypeScript spec errors → load [the TypeScript skill](../paniolo-typescript-best-practices/SKILL.md).
 
 ## Do Not
 
@@ -121,5 +148,5 @@ applied and which validation commands were run.
 
 - Full reference: [playwright-test](references/playwright-test.md)
 - Repo-wide rules: rules
-- `paniolo-vitest-test-best-practices`
-- `paniolo-typescript-best-practices`
+- [Vitest skill](../paniolo-vitest-test-best-practices/SKILL.md)
+- [TypeScript skill](../paniolo-typescript-best-practices/SKILL.md)

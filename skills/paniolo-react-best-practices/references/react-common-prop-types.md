@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: react-common-prop-types
 source-hash: 565ebe8705f66c3ee83608dfb0d467979e8d56626e3a813da3b1e5516ca70a51
 bundled: 2026-08-16

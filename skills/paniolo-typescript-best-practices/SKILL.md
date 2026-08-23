@@ -7,21 +7,21 @@ metadata:
 tags:
 - typescript
 references:
-- 'wiki: sharp-shooter-wiki:typescript-ambient-types → references/typescript-ambient-types.md'
-- 'wiki: sharp-shooter-wiki:typescript-avoid-any → references/typescript-avoid-any.md'
-- 'wiki: sharp-shooter-wiki:typescript-avoiding-redundant-type-assertions → references/typescript-avoiding-redundant-type-assertions.md'
-- 'wiki: sharp-shooter-wiki:typescript-consistent-type-imports-type-only-imports → references/typescript-consistent-type-imports-type-only-imports.md'
-- 'wiki: sharp-shooter-wiki:typescript-default-export-functions → references/typescript-default-export-functions.md'
-- 'wiki: sharp-shooter-wiki:typescript-exactoptionalpropertytypes-handling → references/typescript-exactoptionalpropertytypes-handling.md'
-- 'wiki: sharp-shooter-wiki:typescript-exhaustive-switch-over-unions → references/typescript-exhaustive-switch-over-unions.md'
-- 'wiki: sharp-shooter-wiki:typescript-explicit-return-types → references/typescript-explicit-return-types.md'
-- 'wiki: sharp-shooter-wiki:typescript-function-parameters → references/typescript-function-parameters.md'
-- 'wiki: sharp-shooter-wiki:typescript-strict-null-checks → references/typescript-strict-null-checks.md'
-- 'wiki: sharp-shooter-wiki:typescript-type-vs-interface → references/typescript-type-vs-interface.md'
-- 'wiki: sharp-shooter-wiki:typescript-typescript → references/typescript-typescript.md'
-- 'wiki: sharp-shooter-wiki:typescript-update-guards-cover-every-gated-field → references/typescript-update-guards-cover-every-gated-field.md'
-- 'wiki: sharp-shooter-wiki:vitest-colocate-make-fixtures → references/vitest-colocate-make-fixtures.md'
-- 'wiki: sharp-shooter-wiki:vitest-forcecast-vs-make-fixtures → references/vitest-forcecast-vs-make-fixtures.md'
+- references/typescript-ambient-types.md
+- references/typescript-avoid-any.md
+- references/typescript-avoiding-redundant-type-assertions.md
+- references/typescript-consistent-type-imports-type-only-imports.md
+- references/typescript-default-export-functions.md
+- references/typescript-exactoptionalpropertytypes-handling.md
+- references/typescript-exhaustive-switch-over-unions.md
+- references/typescript-explicit-return-types.md
+- references/typescript-function-parameters.md
+- references/typescript-strict-null-checks.md
+- references/typescript-type-vs-interface.md
+- references/typescript-typescript.md
+- references/typescript-update-guards-cover-every-gated-field.md
+- references/vitest-colocate-make-fixtures.md
+- references/vitest-forcecast-vs-make-fixtures.md
 ---
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.

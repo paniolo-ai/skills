@@ -8,8 +8,8 @@ metadata:
 tags:
 - refactoring
 references:
-- 'wiki: sharp-shooter-wiki:file-organization → references/file-organization.md'
-- 'wiki: sharp-shooter-wiki:vitest-shared-mock-helper-infrastructure → references/vitest-shared-mock-helper-infrastructure.md'
+- references/file-organization.md
+- references/vitest-shared-mock-helper-infrastructure.md
 ---
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.

@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: typescript-function-parameters
 source-hash: c83006f2082ecd20aa6f9c49a78d374661d9605781a022d6c064bf424e83401e
 bundled: 2026-08-01

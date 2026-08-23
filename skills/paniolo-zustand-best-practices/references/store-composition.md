@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: store-composition
 source-hash: b88f13fbd67f83fca1bc346370ec6a2d20f33c07ecef2593418406373e5d2fd8
 bundled: 2026-08-01

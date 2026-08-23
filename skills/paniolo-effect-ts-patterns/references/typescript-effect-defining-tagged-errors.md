@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: typescript-effect-defining-tagged-errors
 source-hash: f66960132639ca92aed3f3941c599b5aff9d99d46e94ea23dcb5e3030c47f5eb
 bundled: 2026-08-01

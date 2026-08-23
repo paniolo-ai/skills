@@ -99,6 +99,7 @@
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-effect-ts-patterns",
       "references": [
         "entry-point-vs-logic-module-pattern",
+        "typescript-bun-script-portability",
         "typescript-effect-defining-tagged-errors",
         "typescript-effect-logic-module-pattern",
         "typescript-effect-mixing-promises-and-effects",
@@ -205,10 +206,51 @@
       ]
     },
     {
+      "name": "paniolo-plan-best-practices",
+      "description": "Author or review executable implementation plans with dependency-ordered cards, observable acceptance criteria, verification gates, explicit deferrals, and safety boundaries. Use when creating or improving a plan before implementation begins. Do NOT use to execute an existing approved plan; load paniolo-plan-execution instead.",
+      "license": "MIT",
+      "version": "0.1.1",
+      "tags": [
+        "plans",
+        "authoring"
+      ],
+      "sourceSkill": "plan-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-plan-best-practices",
+      "references": [
+        "completion-means-the-gate-ran",
+        "cross-layer-data-flow-verification",
+        "plan-acceptance-evidence",
+        "plan-authoring-best-practices",
+        "playwright-e2e-fixture-contract-validation"
+      ]
+    },
+    {
+      "name": "paniolo-plan-execution",
+      "description": "Execute or audit an existing implementation plan by revalidating its claims against current code, tracking card-to-behavior evidence, diagnosing failures before patching, running required gates, and updating status honestly. Use when implementing a plan or reviewing another agent's plan execution. Do NOT use to author a new plan from scratch; load paniolo-plan-best-practices instead.",
+      "license": "MIT",
+      "version": "0.1.1",
+      "tags": [
+        "plans",
+        "implementation",
+        "verification"
+      ],
+      "sourceSkill": "plan-execution",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-plan-execution",
+      "references": [
+        "completion-means-the-gate-ran",
+        "cross-layer-data-flow-verification",
+        "plan-acceptance-evidence",
+        "plan-execution-workflow",
+        "playwright-e2e-fixture-contract-validation",
+        "playwright-failure-classification",
+        "playwright-test-owned-entities"
+      ]
+    },
+    {
       "name": "paniolo-playwright-test-best-practices",
       "description": "Playwright E2E test conventions for this project — AAA pattern, translation-aware selectors, hydration waits, mock auth, staging DB sessions, two-user flows, debugging, and CI setup. Use when authoring or editing any Playwright spec, test helper, or E2E configuration. Do NOT use for unit tests or hook tests — load paniolo-vitest-test-best-practices instead.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "playwright",
         "testing"
@@ -216,16 +258,21 @@
       "sourceSkill": "playwright-test-best-practices",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-playwright-test-best-practices",
       "references": [
+        "plan-acceptance-evidence",
         "playwright-aaa-pattern",
         "playwright-debugging",
+        "playwright-e2e-fixture-contract-validation",
+        "playwright-failure-classification",
         "playwright-hydration-waits",
         "playwright-mock-auth-in-tests",
         "playwright-mock-auth-troubleshooting",
         "playwright-multiple-users-mock",
+        "playwright-native-runner-process-ownership",
         "playwright-session-expiry",
         "playwright-staging-db-setup",
         "playwright-test",
         "playwright-test-organization",
+        "playwright-test-owned-entities",
         "playwright-translation-aware-tests"
       ]
     },
@@ -297,7 +344,8 @@
       "references": [
         "applied-migrations-are-immutable",
         "completion-means-the-gate-ran",
-        "line-endings"
+        "line-endings",
+        "plan-acceptance-evidence"
       ]
     },
     {

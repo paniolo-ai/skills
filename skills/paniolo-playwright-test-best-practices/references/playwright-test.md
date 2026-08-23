@@ -1,15 +1,14 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: playwright-test
-source-hash: e9875ec12a5cfaf1e54b2030ea90cc0de8af933244815ad864d6641346bbf93f
-bundled: 2026-08-17
+source-hash: 15a7dd1ba646b8214f817c85ad18b353c4ecce4a80277fe136d14a1046dfe5cb
+bundled: 2026-08-20
 title: Authoring — Playwright e2e testing
 type: index
 tags:
 - index
 - authoring
 - playwright-test
-updated: 2026-06-18
+updated: 2026-08-20
 ---
 
 # Playwright e2e testing (authoring)
@@ -29,9 +28,11 @@ Operational reference for playwright e2e testing — loaded from skills and agen
 - Debugging
 - Deployed environment runs
 - Edge cases
+- E2E Fixture Contract Validation
 - Environment
 - Environment Variables
 - Everyday local runs
+- Failure Classification
 - High-Level Model
 - Hydration Waits
 - Lighthouse commands
@@ -39,6 +40,7 @@ Operational reference for playwright e2e testing — loaded from skills and agen
 - Lighthouse Recommendations
 - Lighthouse Troubleshooting
 - Local runner wrappers
+- Native Runner Process Ownership
 - Logs and Temp Files
 - macOS Notes
 - Navigation patterns

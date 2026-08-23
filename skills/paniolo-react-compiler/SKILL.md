@@ -9,9 +9,9 @@ tags:
 - react
 - react-compiler
 references:
-- 'wiki: sharp-shooter-wiki:react-compiler → references/react-compiler.md'
-- 'wiki: sharp-shooter-wiki:react-compiler-control-flow → references/react-compiler-control-flow.md'
-- 'wiki: sharp-shooter-wiki:react-compiler-no-render-side-effects → references/react-compiler-no-render-side-effects.md'
+- references/react-compiler-control-flow.md
+- references/react-compiler-no-render-side-effects.md
+- references/react-compiler.md
 ---
 
 **Requires:** file-read, terminal (lint / dev build). No network access needed.

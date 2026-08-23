@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: react-overlay-inside-scroll-container
 source-hash: 2dd51323905fb8d2fbb260c80f76baf76b7e8cd73f3ddababbf5a11c9b95f100
 bundled: 2026-08-15

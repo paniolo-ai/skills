@@ -9,19 +9,19 @@ tags:
 - code-comments
 - documentation
 references:
-- 'wiki: sharp-shooter-wiki:anti-patterns → references/anti-patterns.md'
-- 'wiki: sharp-shooter-wiki:code-comments → references/code-comments.md'
-- 'wiki: sharp-shooter-wiki:constants → references/constants.md'
-- 'wiki: sharp-shooter-wiki:inline-comments → references/inline-comments.md'
-- 'wiki: sharp-shooter-wiki:jsdoc-formatting → references/jsdoc-formatting.md'
-- 'wiki: sharp-shooter-wiki:jsdoc-params-returns → references/jsdoc-params-returns.md'
-- 'wiki: sharp-shooter-wiki:jsdoc-when → references/jsdoc-when.md'
-- 'wiki: sharp-shooter-wiki:links-in-comments → references/links-in-comments.md'
-- 'wiki: sharp-shooter-wiki:philosophy → references/philosophy.md'
-- 'wiki: sharp-shooter-wiki:spacing-placement → references/spacing-placement.md'
-- 'wiki: sharp-shooter-wiki:test-comments → references/test-comments.md'
-- 'wiki: sharp-shooter-wiki:what-not-to-comment → references/what-not-to-comment.md'
-- 'wiki: sharp-shooter-wiki:writing-style → references/writing-style.md'
+- references/anti-patterns.md
+- references/code-comments.md
+- references/constants.md
+- references/inline-comments.md
+- references/jsdoc-formatting.md
+- references/jsdoc-params-returns.md
+- references/jsdoc-when.md
+- references/links-in-comments.md
+- references/philosophy.md
+- references/spacing-placement.md
+- references/test-comments.md
+- references/what-not-to-comment.md
+- references/writing-style.md
 ---
 
 **Requires:** file-read. No terminal needed unless validating after edits.

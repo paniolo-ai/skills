@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: line-endings
 source-hash: 246d83ad2b6662f3c0becfaf43e158dd757fda90980679b89e6f3d4da5ccae92
 bundled: 2026-08-16

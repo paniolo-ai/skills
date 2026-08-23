@@ -9,13 +9,13 @@ tags:
 - vitest
 - testing
 references:
-- 'wiki: sharp-shooter-wiki:vitest-colocate-make-fixtures → references/vitest-colocate-make-fixtures.md'
-- 'wiki: sharp-shooter-wiki:vitest-extract-helpers-only-after-repetition → references/vitest-extract-helpers-only-after-repetition.md'
-- 'wiki: sharp-shooter-wiki:vitest-forcecast-vs-make-fixtures → references/vitest-forcecast-vs-make-fixtures.md'
-- 'wiki: sharp-shooter-wiki:vitest-mock → references/vitest-mock.md'
-- 'wiki: sharp-shooter-wiki:vitest-one-canonical-make-helper → references/vitest-one-canonical-make-helper.md'
-- 'wiki: sharp-shooter-wiki:vitest-test → references/vitest-test.md'
-- 'wiki: sharp-shooter-wiki:vitest-testing-when-to-write → references/vitest-testing-when-to-write.md'
+- references/vitest-colocate-make-fixtures.md
+- references/vitest-extract-helpers-only-after-repetition.md
+- references/vitest-forcecast-vs-make-fixtures.md
+- references/vitest-mock.md
+- references/vitest-one-canonical-make-helper.md
+- references/vitest-test.md
+- references/vitest-testing-when-to-write.md
 ---
 
 **Requires:** file-read, terminal (test runner). No network access needed.

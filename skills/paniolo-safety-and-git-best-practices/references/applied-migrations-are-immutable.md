@@ -1,5 +1,4 @@
 ---
-source-wiki: sharp-shooter-wiki
 source-slug: applied-migrations-are-immutable
 source-hash: 63ff609efc30b1fd98ff85aed9507f81e3800474fbc978b5c4f808b62187d25b
 bundled: 2026-08-16

@@ -8,12 +8,12 @@ metadata:
 tags:
 - naming
 references:
-- 'wiki: sharp-shooter-wiki:naming → references/naming.md'
-- 'wiki: sharp-shooter-wiki:naming-file-naming → references/naming-file-naming.md'
-- 'wiki: sharp-shooter-wiki:react-component-naming → references/react-component-naming.md'
-- 'wiki: sharp-shooter-wiki:type-and-interface-naming → references/type-and-interface-naming.md'
-- 'wiki: sharp-shooter-wiki:typescript-naming-use-vs-compute → references/typescript-naming-use-vs-compute.md'
-- 'wiki: sharp-shooter-wiki:typescript-naming-variable-naming → references/typescript-naming-variable-naming.md'
+- references/naming-file-naming.md
+- references/naming.md
+- references/react-component-naming.md
+- references/type-and-interface-naming.md
+- references/typescript-naming-use-vs-compute.md
+- references/typescript-naming-variable-naming.md
 ---
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.
