@@ -1,7 +1,7 @@
 ---
 source-slug: entry-point-vs-logic-module-pattern
-source-hash: fa9a0ca1c4b595a62d1640c1ba478fb698893ce8d82d0b555abd0ab8c883e881
-bundled: 2026-08-01
+source-hash: 83c69d67c5877059d46f11ee2b98ea44a58495d8e06f1010f6f90400dbcb4a46
+bundled: 2026-08-30
 title: Entry-point vs logic-module pattern
 type: concept
 tags:

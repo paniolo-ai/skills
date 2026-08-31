@@ -114,9 +114,26 @@ neither. One flag supplies the slug prefix, the `type:`, the log verb, the
 starting `status:`, and the indexes to link into:
 
 ```bash
-paniolo wiki new <slug> --kind plan --config paniolo.config.json
+paniolo wiki new <slug> --kind plan --config paniolo.config.json   --tags a,b --domain <domain> --source raw/<domain>/<file>.md
 # → plan-<slug>.md, type/verb/status from the kind, indexes wired
 ```
+
+A kind supplies type, verb, status and indexes — **not tags, and not the log
+domain.** Those are per page rather than per kind, so pass them:
+
+- **Always pass `--tags`.** A page needs them, and from 0.5.41 the command
+  refuses without them: `frontmatter-required` reads an empty list as absent,
+  so a tagless page fails the gate. Every page in both corpora carries tags.
+- **Always pass `--domain`.** It must be one of `authoring`, `business`,
+  `harness-eng`, `meta`, `rust` — joined with ` + ` for a page drawing on two.
+  **On 0.5.40 and earlier it defaults to the wiki's name**, which is never a
+  valid domain, so omitting it writes a `log.md` entry that `check:wiki` then
+  rejects.
+
+From **0.5.41** the domain is derived from `--source` when omitted —
+`raw/<domain>/…` supplies it — and the command stops rather than guessing when
+nothing derives. Passing it explicitly works on every version and always
+wins.
 
 A slug that already carries a known prefix resolves its kind on its own, so
 passing `decision-<slug>` is equivalent to `<slug> --kind decision`. Any

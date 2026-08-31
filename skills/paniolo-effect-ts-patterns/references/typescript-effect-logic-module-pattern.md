@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-effect-logic-module-pattern
-source-hash: e11437e2e8dc788e112365713e58f48f7560fb18770b9c67caf37b9587957c14
-bundled: 2026-08-01
+source-hash: c91dbfa7ffcb3e812a173c754e3606cae2dba1f90edd6926fc22e4cc3bfcc5b0
+bundled: 2026-08-30
 title: Logic module pattern
 type: concept
 tags:

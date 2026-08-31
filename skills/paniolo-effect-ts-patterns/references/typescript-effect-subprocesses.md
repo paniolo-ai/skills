@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-effect-subprocesses
-source-hash: d51d1e3f5ce6ce7aceb661ad849c98f2fe5cdda393af88dc9b41be23dabae734
-bundled: 2026-08-01
+source-hash: 6c44ad7728cdc460efd1bb8ef92d23e6b7bad70c0e6f6a7ac39be1d129d52a0b
+bundled: 2026-08-30
 title: Subprocesses
 type: concept
 tags:
