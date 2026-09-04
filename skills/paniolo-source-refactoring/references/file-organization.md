@@ -1,7 +1,7 @@
 ---
 source-slug: file-organization
-source-hash: 679d2e416f39bae6c8e3d539eccb2fb5999195902072b71855462ec1f475ca94
-bundled: 2026-08-01
+source-hash: 397874966bf0d33c0a87379ec852aca5b0c7d918564271fe7e83ef6661aea842
+bundled: 2026-09-03
 title: Authoring — File organization
 type: index
 tags:
@@ -25,10 +25,13 @@ Operational reference for file organization — loaded from skills and agents.
 - File Organization Checklist
 - Import Antipatterns & How to Fix
 - Import Organization Pattern
+- Import Patterns
+- Imports
 - Planning
 - Project Structure Example
 - Refactoring Imports Step-by-Step
 - Testing extracted modules
+- Troubleshooting
 
 ## See also
 

@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-typescript
-source-hash: db589d6f9acd0a84b2b3f936b3769527e5142fe15ebf351f26917748009520c6
-bundled: 2026-08-01
+source-hash: b7e6833ded7cae00a26ec2fcfa86748801114b3927b046fe7a3019465917fbb0
+bundled: 2026-09-03
 title: Authoring — TypeScript
 type: index
 tags:
@@ -52,6 +52,7 @@ Operational reference for typescript — loaded from skills and agents.
 - Database client integration
 - Type Extraction from Effect Schema
 - Type-Only Imports
+- Type-Only Imports (app conventions)
 - Type vs Interface
 - Underscore Prefix for Unused Variables
 - Union Types from `as const` Arrays
