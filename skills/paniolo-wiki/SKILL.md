@@ -124,11 +124,22 @@ domain.** Those are per page rather than per kind, so pass them:
 - **Always pass `--tags`.** A page needs them, and from 0.5.41 the command
   refuses without them: `frontmatter-required` reads an empty list as absent,
   so a tagless page fails the gate. Every page in both corpora carries tags.
-- **Always pass `--domain`.** It must be one of `authoring`, `business`,
-  `harness-eng`, `meta`, `rust` — joined with ` + ` for a page drawing on two.
-  **On 0.5.40 and earlier it defaults to the wiki's name**, which is never a
-  valid domain, so omitting it writes a `log.md` entry that `check:wiki` then
-  rejects.
+- **Always pass `--domain`.** It must be one the corpus accepts, joined with
+  ` + ` for a page drawing on two. **On 0.5.40 and earlier it defaults to the
+  wiki's name**, which is never a valid domain, so omitting it writes a
+  `log.md` entry that `check:wiki` then rejects.
+
+**Which domains a corpus accepts is per wiki**, declared as
+`wiki.wikis[].domains` in `paniolo.config.json`. A wiki that declares none
+inherits Paniolo's own five — `authoring`, `business`, `harness-eng`, `meta`,
+`rust` — which is a fallback, not a vocabulary to adopt. Before 0.5.52 the five
+were hardcoded and no corpus could say otherwise.
+
+So a rejected `--domain` has two fixes, and the right one depends on whose
+wiki it is: pick a listed domain, or add yours to that wiki's `domains`. The
+error names the list the corpus is actually being held to, and `wiki new` and
+`log-entry-format` read the same one — a domain the command accepts is a domain
+the validator accepts.
 
 From **0.5.41** the domain is derived from `--source` when omitted —
 `raw/<domain>/…` supplies it — and the command stops rather than guessing when
