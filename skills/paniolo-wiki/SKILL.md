@@ -95,6 +95,25 @@ Three ways it goes wrong:
 A rename must land on a correctly prefixed slug. `paniolo wiki rename` rewrites
 links to whatever target you hand it and will not tell you the target is wrong.
 
+## Creating a new wiki repo
+
+`paniolo wiki init` is repo-level, not page-level — it stamps a brand-new customer
+wiki repo from the embedded template (`raw/`, `wiki/`, `wiki/log.md`, config
+scaffolding) into an empty directory. Use it once, before any `wiki new`, when
+the wiki repo itself does not exist yet; `paniolo init` (the top-level onboarding
+command) calls it for you during first-time setup. It needs no `--config` — there
+is nothing to register against yet:
+
+```bash
+paniolo wiki init --name Northwind --out northwind-wiki --register paniolo.config.json
+```
+
+`--register` adds the stamped wiki's `wiki.wikis[]` entry, `knownRepos`, and
+`repoPaths` to the named harness config in the same step; without it, the
+command prints what to add by hand. `--print-answers`/`--answers` round-trip
+the gathered answers for scripted or repeated stamps, and `--dry-run` reports
+what would be written without writing it.
+
 ## Creating a page
 
 `paniolo wiki new` stamps the page, its frontmatter, the `wiki/log.md` entry, and

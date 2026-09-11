@@ -210,17 +210,24 @@ Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
 - Retrieve: `paniolo qmd get <#docid|path[:from:count]>` / `multi-get <glob|list>`
 - Inspect ranking: `paniolo qmd query --explain "<query>"`
 - Diagnose: `paniolo qmd doctor` (add `--json`, or `--models` for GPU offload)
+- Status: `paniolo qmd status` — what's indexed and how much, no device probing
+  (lighter than `doctor`; add `--json`)
 - Re-index: `paniolo qmd reindex` (add `--prune` to drop orphaned collections)
   — `update` (text index only) and `embed` (vectors only) are its two halves
 - Warm sidecar: `paniolo qmd serve --ensure | --stop | --restart`
   — add `--all` to `--stop` to also reclaim servers that record no harness root
+- Shared model daemons: `paniolo qmd daemon` lists them; `--stop [<pool>]` stops
+  the named one, or the only one running
+- Reclaim disk: `paniolo qmd cleanup` releases cache/orphaned data (cheap);
+  `paniolo qmd vacuum` compacts the index file itself (exclusive-lock rewrite;
+  add `--dry-run` to either first)
 - GPU preference: `paniolo qmd gpu` writes the per-machine `.qmd-local.json`
 - Add `-v` to any command for llama.cpp's model-loading diagnostics.
 
 Two more exist and are not part of normal task work: `mcp` (the MCP server, which
-your editor starts for you) and `hook` (vendor hook plumbing). `eval` and `tune`
-replay logged hook queries to score retrieval variants — reach for `--explain`
-when the question is about one query you just ran.
+your editor starts for you) and `hook` (vendor hook plumbing). `bench`, `eval`,
+and `tune` score and replay retrieval against a fixture or logged hook queries —
+reach for `--explain` instead when the question is about one query you just ran.
 
 ---
 
