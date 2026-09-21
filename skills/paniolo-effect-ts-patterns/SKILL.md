@@ -7,7 +7,6 @@ metadata:
   version: 0.1.0
 tags:
 - effect-ts
-- typescript
 references:
 - references/entry-point-vs-logic-module-pattern.md
 - references/typescript-bun-script-portability.md

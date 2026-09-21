@@ -8,6 +8,7 @@ metadata:
 tags:
 - markdown
 - lint
+- wiki
 references:
 - references/doc-content.md
 - references/markdown-lint.md

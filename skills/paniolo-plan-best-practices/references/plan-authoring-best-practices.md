@@ -1,9 +1,10 @@
 ---
 source-slug: plan-authoring-best-practices
-source-hash: 81b087f3f951d9ee67a29eb81dfa10a3178193c6e3bb2aa8dab4c6b4be5108df
-bundled: 2026-08-20
+source-hash: 7514438f26eecc99faa2758476497ad841681827c5070d14ff854d7f5103daab
+bundled: 2026-09-20
 title: Plan Authoring Best Practices
 type: concept
+status: active
 tags:
 - authoring
 - plans

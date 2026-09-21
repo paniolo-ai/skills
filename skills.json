@@ -92,8 +92,7 @@
       "license": "MIT",
       "version": "0.1.0",
       "tags": [
-        "effect-ts",
-        "typescript"
+        "effect-ts"
       ],
       "sourceSkill": "effect-ts-patterns",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-effect-ts-patterns",
@@ -177,7 +176,8 @@
       "version": "0.1.1",
       "tags": [
         "markdown",
-        "lint"
+        "lint",
+        "wiki"
       ],
       "sourceSkill": "markdown-lint-best-practices",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-markdown-lint-best-practices",
