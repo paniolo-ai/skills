@@ -7,7 +7,6 @@ metadata:
   version: 0.5.15
 tags:
 - wiki
-- llm-wiki
 user-invocable: true
 references: []
 ---
