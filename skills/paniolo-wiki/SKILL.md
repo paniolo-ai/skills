@@ -13,6 +13,10 @@ references: []
 
 **Requires:** file-read, file-write, terminal (to run `paniolo wiki` from harness).
 
+Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package;
+`paniolo bootstrap` verifies the binary it links against it and refuses on a
+mismatch.
+
 # Maintaining a wiki
 
 A pointer skill — the operating procedure, not a restatement of the rules. The
