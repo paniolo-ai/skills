@@ -29,6 +29,15 @@ Install dependencies once with `pnpm install`. The harness pulls the correct
 wrapper, so no global qmd install is needed. Set `PANIOLO_BIN` only when using a locally built
 binary.
 
+**Binary provenance.** Released platform packages ship a `SHA256SUMS.txt`
+naming the published SHA-256 of their binary, inside the same npm tarball the
+binary arrives in. `paniolo bootstrap` verifies the binary it links into
+`node_modules/.paniolo/` against that manifest and refuses on a mismatch, so a
+tampered or stale binary cannot seed the hooks. To verify by hand, hash the
+resolved binary — `Get-FileHash node_modules/.paniolo/paniolo.exe -Algorithm SHA256`
+on Windows, `sha256sum` elsewhere — and compare it to the package's
+`SHA256SUMS.txt` entry.
+
 - **Windows (PowerShell):** run `paniolo qmd reindex` to build the BM25 index and,
   on a GPU-capable machine, generate the hybrid query embeddings.
 - **WSL (bash):** run `paniolo qmd reindex` to build the BM25 index. GPU embedding
