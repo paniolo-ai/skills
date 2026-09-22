@@ -1,0 +1,23 @@
+{
+	"name": "paniolo-scan",
+	"version": "0.2.0",
+	"description": "Score your repo's AI-agent harness - CLAUDE.md, AGENTS.md, skills, rules - then remediate the findings. Ships the full Paniolo skills catalog plus /paniolo-* slash commands.",
+	"author": { "name": "Paniolo", "url": "https://paniolo.ai/" },
+	"license": "MIT",
+	"homepage": "https://github.com/paniolo-ai/skills",
+	"repository": "https://github.com/paniolo-ai/skills",
+	"skills": ["./skills/"],
+	"commands": ["./.agents/commands/"],
+	"agents": ["./.agents/agents/adapter-sync.agent.md"],
+	"keywords": [
+		"agents",
+		"ai",
+		"harness",
+		"claude-code",
+		"cursor",
+		"copilot",
+		"codex",
+		"scan",
+		"audit"
+	]
+}

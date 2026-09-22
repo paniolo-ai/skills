@@ -1,0 +1,11 @@
+{
+	"name": "paniolo-ai",
+	"owner": { "name": "paniolo-ai" },
+	"plugins": [
+		{
+			"name": "paniolo-scan",
+			"source": "./",
+			"description": "Score your repo's AI-agent harness — CLAUDE.md, AGENTS.md, skills, rules — then remediate the findings. Ships the full Paniolo skills catalog plus /paniolo-* slash commands."
+		}
+	]
+}
