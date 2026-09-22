@@ -143,7 +143,7 @@ npx @paniolo/cli evolve config migrate --apply    # writes after confirmation
 
 ## References
 
-- Field-by-field config reference: <https://paniolo.ai/pages/config.html>
+- Field-by-field config reference: <https://paniolo.ai/docs/config.html>
 - JSON schema: <https://paniolo.ai/schemas/paniolo.config.v2.json>
 - CLI: `npx @paniolo/cli evolve config --help`
 
