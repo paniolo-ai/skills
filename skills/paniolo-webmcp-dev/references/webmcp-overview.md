@@ -60,5 +60,5 @@ layer.
 - [webmcp-security](./webmcp-security.md) — hints, origin gating, agent defenses
 - [webmcp-cross-origin](./webmcp-cross-origin.md) — cross-origin dual-consent gates
 - [webmcp-observability](./webmcp-observability.md) — production metrics without PII dumps
-- [blog-freshman-webmcp-practical-guide](./blog-freshman-webmcp-practical-guide.md) — end-to-end site guide
-- [blog-vietanh-webmcp-attack-surface](./blog-vietanh-webmcp-attack-surface.md) — production attack-surface notes
+- blog-freshman-webmcp-practical-guide — end-to-end site guide
+- blog-vietanh-webmcp-attack-surface — production attack-surface notes

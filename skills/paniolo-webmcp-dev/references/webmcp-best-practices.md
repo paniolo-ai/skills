@@ -32,7 +32,7 @@ mechanics on [webmcp-apis](./webmcp-apis.md).
 - **Trust the agent.** Describe what the tool does and when to use it — not a
   rigid multi-step script in the description text.
 - **Wrap existing app code.** `execute` should call the same path the UI uses
-  ([blog-damiangalarza-webmcp-without-mcp-server](./blog-damiangalarza-webmcp-without-mcp-server.md)). Feature-detect
+  (blog-damiangalarza-webmcp-without-mcp-server). Feature-detect
   `document.modelContext`, and poll briefly rather than checking once — see
   [webmcp-implementation-gotchas](./webmcp-implementation-gotchas.md) for why a single synchronous check can
   silently miss it.

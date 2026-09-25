@@ -37,7 +37,7 @@ way (all six Blink platforms listed as yes).
 
 Local development today: `chrome://flags/#enable-webmcp-testing` (or
 `--enable-features=WebMCPTesting`). OT token alone has not always been enough
-without the flag — see [blog-vietanh-webmcp-attack-surface](./blog-vietanh-webmcp-attack-surface.md).
+without the flag — see blog-vietanh-webmcp-attack-surface.
 
 **Edge:** origin trial live from **Edge 150** (Chromium-aligned; defer to Chrome
 platform notes for desktop/Android/WebView detail).

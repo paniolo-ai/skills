@@ -70,5 +70,5 @@ names/descriptions) and contaminated outputs (UGC carrying injection).
 
 ## Digests
 
-- [blog-vietanh-webmcp-attack-surface](./blog-vietanh-webmcp-attack-surface.md) — lived attack-surface walkthrough
-- [blog-damiangalarza-webmcp-without-mcp-server](./blog-damiangalarza-webmcp-without-mcp-server.md) — boundary vs MCP framing
+- blog-vietanh-webmcp-attack-surface — lived attack-surface walkthrough
+- blog-damiangalarza-webmcp-without-mcp-server — boundary vs MCP framing

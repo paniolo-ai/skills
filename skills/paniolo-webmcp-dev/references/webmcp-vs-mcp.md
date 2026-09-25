@@ -80,5 +80,5 @@ tool. Annotations and origin gating: [webmcp-security](./webmcp-security.md).
 - [webmcp-overview](./webmcp-overview.md) — what WebMCP is
 - [webmcp-proxy](./webmcp-proxy.md) — bridge an existing MCP server onto `document.modelContext`
 - [webmcp-best-practices](./webmcp-best-practices.md) — how to shape tools once you choose WebMCP
-- [blog-damiangalarza-webmcp-without-mcp-server](./blog-damiangalarza-webmcp-without-mcp-server.md) — longer product framing
-- [blog-freshman-webmcp-practical-guide](./blog-freshman-webmcp-practical-guide.md) — WebMCP vs MCP vs automation table
+- blog-damiangalarza-webmcp-without-mcp-server — longer product framing
+- blog-freshman-webmcp-practical-guide — WebMCP vs MCP vs automation table

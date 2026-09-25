@@ -10,9 +10,6 @@ tags:
 - browser
 - agents
 references:
-- references/blog-damiangalarza-webmcp-without-mcp-server.md
-- references/blog-freshman-webmcp-practical-guide.md
-- references/blog-vietanh-webmcp-attack-surface.md
 - references/webmcp-apis.md
 - references/webmcp-best-practices.md
 - references/webmcp-cross-origin.md
@@ -259,7 +256,4 @@ architecture for the whole product.
 - [webmcp-observability](references/webmcp-observability.md) — production signals without PII
 - [webmcp-timeline](references/webmcp-timeline.md) — browser/flag rollout status
 - [webmcp-implementation-gotchas](references/webmcp-implementation-gotchas.md) — silent-failure bugs seen in production
-- [blog-freshman-webmcp-practical-guide](references/blog-freshman-webmcp-practical-guide.md) — end-to-end site guide
-- [blog-vietanh-webmcp-attack-surface](references/blog-vietanh-webmcp-attack-surface.md) — lived attack-surface notes
-- [blog-damiangalarza-webmcp-without-mcp-server](references/blog-damiangalarza-webmcp-without-mcp-server.md) — product framing vs MCP
 - [paniolo-react-best-practices/SKILL.md](../paniolo-react-best-practices/SKILL.md)
