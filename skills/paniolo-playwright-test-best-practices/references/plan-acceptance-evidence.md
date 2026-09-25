@@ -1,10 +1,10 @@
 ---
 source-slug: plan-acceptance-evidence
-source-hash: 9ec5b87b9e62000111418d1183f0df5e8270b1c7dcf80f5b7fd18e5a9b994936
-bundled: 2026-09-20
+source-hash: 17f29b98877140a23634656baec27d23de602bc408257dde2f805f2b4c3a82a9
+bundled: 2026-09-25
 title: Plan Acceptance Evidence
 type: concept
-status: active
+status: completed
 tags:
 - authoring
 - plans

@@ -493,6 +493,38 @@
       ]
     },
     {
+      "name": "paniolo-webmcp-dev",
+      "description": "Implement, debug, test, or review WebMCP (document.modelContext) tools that expose a page's client-side actions to browser AI agents. Use when adding registerTool/declarative form tools, deciding WebMCP vs an MCP server, writing tool descriptions/schemas, handling cross-origin or security annotations, or diagnosing \"tools never register\" / \"modelContext is undefined\" bugs. Do NOT use for a backend MCP server with no browser page involved — that is plain MCP, not WebMCP.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "webmcp",
+        "browser",
+        "agents"
+      ],
+      "sourceSkill": "webmcp-dev",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-webmcp-dev",
+      "references": [
+        "blog-damiangalarza-webmcp-without-mcp-server",
+        "blog-freshman-webmcp-practical-guide",
+        "blog-vietanh-webmcp-attack-surface",
+        "webmcp-apis",
+        "webmcp-best-practices",
+        "webmcp-cross-origin",
+        "webmcp-evals",
+        "webmcp-implementation-gotchas",
+        "webmcp-observability",
+        "webmcp-overview",
+        "webmcp-proxy",
+        "webmcp-react",
+        "webmcp-security",
+        "webmcp-timeline",
+        "webmcp-user-journeys",
+        "webmcp-vs-automation",
+        "webmcp-vs-mcp"
+      ]
+    },
+    {
       "name": "paniolo-wiki",
       "description": "Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).",
       "license": "MIT",

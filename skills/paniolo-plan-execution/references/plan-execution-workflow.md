@@ -1,10 +1,10 @@
 ---
 source-slug: plan-execution-workflow
-source-hash: 1f4296cedf0079c1f14f17b8f2ef044503cb62997b0aa217ab932d9e0e8562ed
-bundled: 2026-09-20
+source-hash: 3d8ef76b1ace0cf15c1ee96598c5d16deeac6feb8733bfb9adcf44c22d326d38
+bundled: 2026-09-25
 title: Plan Execution Workflow
 type: concept
-status: active
+status: completed
 tags:
 - authoring
 - plans
