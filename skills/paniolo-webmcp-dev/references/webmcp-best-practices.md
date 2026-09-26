@@ -1,6 +1,6 @@
 ---
 source-slug: webmcp-best-practices
-source-hash: bcdcd736afe284095fb8c42d309e0369908ee01bbb11f31a4b94f6f24b4e7fa1
+source-hash: e5a016967b5d121b6320724eddf6321e1703ebca04455a13ff5c1436f743075a
 bundled: 2026-09-25
 title: WebMCP Best Practices
 type: concept
@@ -62,8 +62,11 @@ mechanics on [webmcp-apis](./webmcp-apis.md).
   hints; return actionable errors from `execute` so the agent can self-correct.
 - Handle rate limits and failures with clear messages, or tell the agent to hand
   the task back to the user in the UI.
-- Update visible UI state when a tool finishes — humans and agents share the
-  same screen.
+- **The browser does not sync the UI for you — `execute` must.** Nothing in
+  WebMCP repaints the page when a tool runs; if `execute` mutates state without
+  also updating the DOM the human sees, the human and the agent silently drift
+  out of sync. Update visible UI state yourself when a tool finishes — humans
+  and agents share the same screen.
 - Pass `signal` into long work (`fetch`, etc.) so cancel stops real work
   ([webmcp-apis](./webmcp-apis.md)).
 

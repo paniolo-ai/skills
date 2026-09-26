@@ -100,6 +100,12 @@ progressive enhancement, never a load-bearing feature.
   **Action** (medium: add to cart, save draft), or **Sensitive** (high: buy,
   publish, cancel — needs confirmation). Ship Answer tools first.
   [webmcp-user-journeys](references/webmcp-user-journeys.md)
+- **The browser does not sync the UI for you.** WebMCP runs `execute` in the
+  page, but nothing about the API repaints the DOM afterward — that's on your
+  code. If `execute` mutates state without also updating what the human sees,
+  the human and the agent silently drift out of sync. Update the same visible
+  UI a human action would.
+  [webmcp-best-practices](references/webmcp-best-practices.md)
 - **Schemas minimize model work.** Accept raw input and normalize in your own
   code — no mental math or string transforms required of the model. Prefer
   self-explanatory enum values (`"express"`) over opaque IDs (`1`).
