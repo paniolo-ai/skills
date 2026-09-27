@@ -1,6 +1,6 @@
 ---
 source-slug: stale-automation
-source-hash: d1de7ceed087e1b6f62c35253f8d420a3bbb855b62725dc3d908b445963f18b1
+source-hash: ee03f582d0f53bbb6371fcdc095ea63b14dcc601f963e11f092f4a9274b5d3d8
 bundled: 2026-09-27
 title: Stale Automation
 type: concept
@@ -84,7 +84,7 @@ configured scope, and metrics:
 | --- | --- | --- |
 | `wiki` | `declared-watch/1` | Registered wiki pages whose frontmatter declares watches |
 | `docs` | `docs-declared/1` | Ordinary repository Markdown docs carrying `staleness:` frontmatter |
-| `comment` | `comment-assoc/1` | Parser-owned code comments (tree-sitter; Rust and TypeScript/TSX/JS/JSX) bound to their owning symbol |
+| `comment` | `comment-assoc/1` | Parser-owned code comments (tree-sitter; Rust, TypeScript/TSX/JS/JSX, C#, PowerShell, shell, and Python) bound to their owning symbol; Python docstrings are included |
 
 A deleted file marks open allegations at that path `obsolete`; generated
 files and floating comments are skipped.
