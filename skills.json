@@ -421,7 +421,7 @@
       "name": "paniolo-skill-best-practices",
       "description": "How to write, update, split, or review SKILL.md files. Use when creating a new skill, updating an existing one, or auditing for quality and conventions.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "skills",
         "authoring"
