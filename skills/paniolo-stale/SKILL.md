@@ -45,9 +45,10 @@ is for or how it pairs with qmd.
 
 ## Workflow
 
-1. Scan a range without writing:
-   `paniolo stale --root <repo> scan --code <key>:<path> --base <sha> --head <sha> --dry-run`.
-   Add `--wiki <key>:<path>` for declared watches on wiki checkouts.
+1. Scan a range without writing with `paniolo stale scan`. Put the global
+   `--root <repo>` option before `scan`, then supply `--code <key>:<path>`,
+   `--base <sha>`, `--head <sha>`, and `--dry-run` to the scan. Add
+   `--wiki <key>:<path>` for declared watches on wiki checkouts.
 2. Inspect the queue with `list --actionable`, `next`, and `show <id>` —
    `show` prints the allegation plus its sealed observations by role.
 3. Read the deterministic dogfood report with `report` — per-surface

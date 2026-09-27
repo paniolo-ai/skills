@@ -32,7 +32,7 @@ from an existing keyring or project wrapper.
 
 ## Command Workflow
 
-1. Store a human-entered value with `paniolo secrets set NAME --service SERVICE`
+1. Store a human-entered value with `paniolo secrets set --service SERVICE NAME`
    so the prompt hides it. Use `--stdin` for a secure pipeline, and
    `--generate` only when creating a new random value that need not be
    preserved.
