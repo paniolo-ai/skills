@@ -401,6 +401,23 @@
       "references": []
     },
     {
+      "name": "paniolo-secrets",
+      "description": "Use the public paniolo secrets CLI to store, check, migrate, rotate, or inject project secrets into a child process. Applies to service names, names-only lists, local credential stores, CI variables, and Windows/WSL vault behavior. Do not use for paniolo-internal Cloudflare secrets operations.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "secrets",
+        "cli",
+        "keyring"
+      ],
+      "sourceSkill": "secrets",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-secrets",
+      "references": [
+        "secrets-migration",
+        "secrets-paniolo-cli"
+      ]
+    },
+    {
       "name": "paniolo-skill-best-practices",
       "description": "How to write, update, split, or review SKILL.md files. Use when creating a new skill, updating an existing one, or auditing for quality and conventions.",
       "license": "MIT",
