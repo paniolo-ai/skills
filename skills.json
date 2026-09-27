@@ -510,6 +510,33 @@
       ]
     },
     {
+      "name": "paniolo-web-component-dev",
+      "description": "Author, review, debug, or test web components — custom elements extending HTMLElement, usually with shadow DOM. Use when creating a custom element, choosing between attributes/properties/events/slots/CSS hooks, wiring form participation via formAssociated + ElementInternals, fixing cross-root ARIA or non-composed event bugs, styling with :host/::part/custom properties, choosing vanilla vs Lit vs Stencil, or making elements work inside React/Vue/Angular/Svelte apps. Do NOT use for components that only ever live inside one framework's render model with no cross-framework or no-JS requirement — that's framework component work, not custom element work.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "web-components",
+        "custom-elements",
+        "shadow-dom"
+      ],
+      "sourceSkill": "web-component-dev",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-web-component-dev",
+      "references": [
+        "web-component-accessibility",
+        "web-component-api-design",
+        "web-component-best-practices",
+        "web-component-events",
+        "web-component-forms",
+        "web-component-framework-interop",
+        "web-component-libraries",
+        "web-component-lifecycle",
+        "web-component-overview",
+        "web-component-shadow-dom",
+        "web-component-styling",
+        "web-component-testing"
+      ]
+    },
+    {
       "name": "paniolo-webmcp-dev",
       "description": "Implement, debug, test, or review WebMCP (document.modelContext) tools that expose a page's client-side actions to browser AI agents. Use when adding registerTool/declarative form tools, deciding WebMCP vs an MCP server, writing tool descriptions/schemas, handling cross-origin or security annotations, or diagnosing \"tools never register\" / \"modelContext is undefined\" bugs. Do NOT use for a backend MCP server with no browser page involved — that is plain MCP, not WebMCP.",
       "license": "MIT",
