@@ -449,7 +449,7 @@
       "name": "paniolo-stale",
       "description": "Operate the paniolo stale staleness ledger — scan a commit range for prose the code may have invalidated, inspect and triage allegations, manage the queue, and read the dogfood report. Use when asked to scan for stale docs, list or show staleness findings, check the staleness queue, or triage allegations. Read-mostly — for agent verification, remediation PRs, and the durable worker use paniolo-stale-remediate.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "staleness",
         "ledger",
@@ -465,6 +465,7 @@
         "stale-commands",
         "stale-configuration",
         "stale-ledger",
+        "stale-triggers",
         "stale-unique"
       ]
     },
@@ -472,7 +473,7 @@
       "name": "paniolo-stale-remediate",
       "description": "Drive the paniolo stale adjudication and remediation pipeline — run verifier/challenger agent phases, propose and merge remediation PRs, operate the durable worker, and calibrate detection with replay, shadow lanes, and canaries. Use when asked to run, adjudicate, remediate, propose, merge-sync, automate, or calibrate staleness work. To inspect the ledger without mutating, use paniolo-stale.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "staleness",
         "remediation",
@@ -487,7 +488,8 @@
         "stale-calibration",
         "stale-commands",
         "stale-configuration",
-        "stale-ledger"
+        "stale-ledger",
+        "stale-triggers"
       ]
     },
     {

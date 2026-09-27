@@ -1,6 +1,6 @@
 ---
 source-slug: stale-calibration
-source-hash: ad764cb20510ae1bc7035cf3c9784f499003208be2a350cdcec8b23bb65b7030
+source-hash: 34dfeff60521b35511ad3576ab6116a1fcced069e1fd0a91ae2d1ca8e83619ee
 bundled: 2026-09-27
 title: Stale Calibration
 type: concept
@@ -108,6 +108,11 @@ The shadow lane measures candidate retrieval without touching production:
    reports no fuzzy-lane admission rather than fabricating a measurement.
 3. `paniolo stale score-shadow <file>` validates and re-scores a
    shadow-observation file standalone — no agents, no ledger.
+
+The qmd lane is **not admitted to production today**. Its producer is
+implemented, but the earlier observation file has a superseded corpus
+fingerprint. A fresh complete holdout replay must pass every fuzzy-lane gate
+before production scan may use qmd nomination or reranking.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 source-slug: stale-automation
-source-hash: f2f894166b65422caf1f2d5395da72ef490355e44d33f9759276a63eeaa867cc
+source-hash: d1de7ceed087e1b6f62c35253f8d420a3bbb855b62725dc3d908b445963f18b1
 bundled: 2026-09-27
 title: Stale Automation
 type: concept
@@ -29,6 +29,7 @@ or set a disposition.
 ## Contents
 
 - [The Loop](#the-loop)
+- [What Starts The Loop](#what-starts-the-loop)
 - [Content Surfaces](#content-surfaces)
 - [Declared Watches](#declared-watches)
 - [Allegation Lifecycle](#allegation-lifecycle)
@@ -57,6 +58,18 @@ range into candidate allegations; agent roles adjudicate them through
 independent invocations; the merge gate decides what may land. A claim that
 cannot be grounded is retained as `insufficient-evidence`, never silently
 dropped.
+
+---
+
+<a id="what-starts-the-loop"></a>
+
+## What Starts The Loop
+
+The CLI does not schedule itself. Manual commands, a pull-request advisory,
+or an external scheduler invoking `worker` start the loop. Each invocation
+selects one configuration; an explicit workflow config is independent of the
+canonical config and its machine-local overlay. See [stale-triggers](./stale-triggers.md) for the
+trigger matrix and the exact boundary of `staleness.enabled`.
 
 ---
 

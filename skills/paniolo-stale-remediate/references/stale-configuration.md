@@ -1,6 +1,6 @@
 ---
 source-slug: stale-configuration
-source-hash: 5904e2969b09634bde76e2abc29194963cbc0b990b96ac965218349e8b43a4ff
+source-hash: 5fa8af5acd9911b91129a79986bd5349def839441e899a1839ef623d1e7d56c9
 bundled: 2026-09-27
 title: Stale Configuration
 type: concept
@@ -28,6 +28,7 @@ key inside it is validated as a whole. An absent section selects defaults;
 ## Contents
 
 - [Schema](#schema)
+- [Enablement And Local Overlay](#enablement-and-local-overlay)
 - [Agent Profiles And Roles](#agent-profiles-and-roles)
 - [Limits And Retrieval](#limits-and-retrieval)
 - [Content Surfaces](#content-surfaces)
@@ -46,13 +47,46 @@ All keys are camelCase.
 
 | Field | Type | Default | Notes |
 | --- | --- | --- | --- |
+| `enabled` | boolean | `true` | Gates `scan`, `run`, `propose`, and `worker` for this selected config; inspection and explicit maintenance remain available |
 | `ledgerPath` | string | `.paniolo/staleness` | Repo-relative durable ledger directory. Required when a `staleness` section is present — it has no per-field default. Validated: non-empty, relative, no `.`/`..`/drive-prefix components |
-| `agentProfiles` | map: name → `{adapter, model}` | `{default: {adapter: codex, model: default}}` | Named provider/model pairs. `adapter` must be `codex`, `claude`, or `cursor`; both fields must be non-empty |
+| `agentProfiles` | map: name → `{adapter, model}` | `{default: {adapter: codex, model: default}}` | Required when a `staleness` section is present. Named provider/model pairs; `adapter` must be `codex`, `claude`, or `cursor`; both fields must be non-empty |
 | `roles` | `{verifier, verdictChallenger, remediator, patchChallenger}` | every role → `default` | Each value names an `agentProfiles` key; unknown names fail validation |
-| `limits` | `{maxAllegationsPerPhase, timeoutMs, maxOutputBytes}` | `25` / `120000` / `262144` (256 KiB) | Per-phase work cap, per-invocation wall-clock timeout (ms), max normalized agent output bytes. All must be greater than zero |
+| `limits` | budget object | see [Limits And Retrieval](#limits-and-retrieval) | Phase, process, packet, repair, and total-invocation budgets |
 | `retrieval` | `{topK, maxImmediate}` | `4` / `50` | `topK` candidates per changed entity schedule immediately; `maxImmediate` caps materialized allegations per scan — overflow persists as deferred candidates in the `R-` run record. Both must be greater than zero |
 | `surfaces` | `{wikiPages, docs, codeComments}` | empty (admit all) | See [Content Surfaces](#content-surfaces) |
 | `autoMerge` | boolean | `false` | Request GitHub auto-merge only after the local merge gate authorizes the exact proposed head |
+
+---
+
+<a id="enablement-and-local-overlay"></a>
+
+## Enablement And Local Overlay
+
+`enabled: false` makes `scan`, `run`, `propose`, and `worker` return a
+successful JSON response with `"status": "disabled"` before the ledger
+opens. It does not disable inspection, queue maintenance, calibration, or an
+independent workflow that passes a different `--config`. See
+[stale-triggers](./stale-triggers.md) for the command and trigger matrix.
+
+The canonical `paniolo.config.json` may have a sibling
+`paniolo.config.local.json`. The local file recursively overlays the tracked
+file: nested objects preserve unspecified tracked values and arrays replace
+rather than append. The local file is machine-owned and should be gitignored.
+
+For a private owner override:
+
+```json
+{
+  "staleness": {
+    "enabled": true
+  }
+}
+```
+
+The overlay is loaded only when the selected file is canonically named
+`paniolo.config.json`. An explicit differently named file, such as
+`.github/staleness-advisory.json`, is independent and does not consume the
+local overlay.
 
 ---
 
@@ -92,6 +126,22 @@ runaway work without weakening any gate. `retrieval` bounds the candidate
 pool a scan materializes — overflow is recorded as `deferred`, never
 dismissed, so tightening `maxImmediate` delays work instead of dropping it.
 
+| Limit | Default | Meaning |
+| --- | --- | --- |
+| `maxAllegationsPerPhase` | `25` | Allegations processed in each phase |
+| `timeoutMs` | `120000` | Wall-clock timeout per agent invocation |
+| `maxOutputBytes` | `262144` | Maximum normalized agent output |
+| `maxRepairAttempts` | `1` | Validation-repair retries after the first role invocation; zero is allowed |
+| `maxPacketBytes` | `49152` | Maximum serialized evidence packet per role invocation |
+| `maxInvocationsPerAllegation` | `8` | Hard ceiling across all four roles and their repairs |
+
+`maxAllegationsPerPhase`, `timeoutMs`, `maxOutputBytes`,
+`maxPacketBytes`, and `maxInvocationsPerAllegation` must be greater than
+zero. The four roles require
+`(maxRepairAttempts + 1) * 4 <= maxInvocationsPerAllegation`; otherwise the
+configured repair policy could exceed its own hard ceiling and validation
+fails.
+
 ---
 
 <a id="content-surfaces"></a>
@@ -120,7 +170,10 @@ The whole block is validated on load; any violation aborts the command:
 
 - `ledgerPath` must be a non-empty repo-relative path without parent
   traversal or a drive prefix.
-- Every `limits` and `retrieval` value must be greater than zero.
+- Every positive-only `limits` value and both `retrieval` values must be
+  greater than zero; `maxRepairAttempts` may be zero.
+- Four times `maxRepairAttempts + 1` may not exceed
+  `maxInvocationsPerAllegation`.
 - `surfaces.*.repositories` may not contain blank keys; `include`/`exclude`
   must be valid repo-relative globs.
 - Every profile needs a non-empty `adapter` and `model`.
@@ -160,7 +213,9 @@ family and a Cursor remediator — and scoped surfaces:
 
 ```json
 "staleness": {
+  "enabled": false,
   "ledgerPath": ".paniolo/staleness",
+  "autoMerge": true,
   "agentProfiles": {
     "codex-gpt-5-5": { "adapter": "codex", "model": "gpt-5.5" },
     "cursor-swe-2-high": { "adapter": "cursor", "model": "swe-2-high" }
@@ -174,7 +229,10 @@ family and a Cursor remediator — and scoped surfaces:
   "limits": {
     "maxAllegationsPerPhase": 25,
     "timeoutMs": 120000,
-    "maxOutputBytes": 262144
+    "maxOutputBytes": 262144,
+    "maxRepairAttempts": 1,
+    "maxPacketBytes": 49152,
+    "maxInvocationsPerAllegation": 8
   },
   "retrieval": { "topK": 4, "maxImmediate": 50 },
   "surfaces": {

@@ -4,7 +4,7 @@ description: |
   Drive the paniolo stale adjudication and remediation pipeline — run verifier/challenger agent phases, propose and merge remediation PRs, operate the durable worker, and calibrate detection with replay, shadow lanes, and canaries. Use when asked to run, adjudicate, remediate, propose, merge-sync, automate, or calibrate staleness work. To inspect the ledger without mutating, use paniolo-stale.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - staleness
 - remediation
@@ -18,6 +18,7 @@ references:
 - references/stale-commands.md
 - references/stale-configuration.md
 - references/stale-ledger.md
+- references/stale-triggers.md
 ---
 
 # paniolo-stale-remediate — run the adjudication pipeline
@@ -41,6 +42,10 @@ adapter, disposition, and merge-gate contract.
   running them.
 - Prefer `--dry-run` on `propose`, `merge-sync`, and `worker` to read the
   plan before the first real run.
+- Check which config the invocation selects and whether
+  `staleness.enabled` permits the phase. A successful
+  `"status": "disabled"` response means no work ran; do not bypass it or
+  report completion. See [stale-triggers](references/stale-triggers.md).
 
 ## Workflow
 
@@ -92,6 +97,8 @@ adapter, disposition, and merge-gate contract.
   dispositions, merge gate, worker, CI advisory
 - [stale-automation](references/stale-automation.md) — the loop, surfaces,
   watches, and lifecycle
+- [stale-triggers](references/stale-triggers.md) — automation entry points,
+  enablement, config authority, and deployment recipes
 - [stale-calibration](references/stale-calibration.md) — corpus, gates,
   replay, shadow lanes, canaries, report
 - [stale-commands](references/stale-commands.md) — `run`, `propose`,

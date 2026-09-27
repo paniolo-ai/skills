@@ -4,7 +4,7 @@ description: |
   Operate the paniolo stale staleness ledger — scan a commit range for prose the code may have invalidated, inspect and triage allegations, manage the queue, and read the dogfood report. Use when asked to scan for stale docs, list or show staleness findings, check the staleness queue, or triage allegations. Read-mostly — for agent verification, remediation PRs, and the durable worker use paniolo-stale-remediate.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - staleness
 - ledger
@@ -18,6 +18,7 @@ references:
 - references/stale-commands.md
 - references/stale-configuration.md
 - references/stale-ledger.md
+- references/stale-triggers.md
 - references/stale-unique.md
 ---
 
@@ -39,6 +40,11 @@ is for or how it pairs with qmd.
   (defaults to `paniolo.config.json` under the root). The `staleness`
   section is documented in
   [stale-configuration](references/stale-configuration.md).
+- Check the effective `staleness.enabled` policy and which config the
+  invocation selects. A successful `"status": "disabled"` response means
+  the command did not run; never report it as an empty scan. Read
+  [stale-triggers](references/stale-triggers.md) for config and trigger
+  precedence.
 - Know whether you may mutate: this skill covers inspection and queue
   bookkeeping. Agent runs, proposals, merges, and the worker belong to
   `paniolo-stale-remediate`.
@@ -61,8 +67,10 @@ is for or how it pairs with qmd.
 
 ## Guardrails
 
-- `scan --dry-run`, `list`, `next`, `show`, `report`, and `score-shadow`
-  are read-only; everything else writes ledger records.
+- `list`, `next`, `show`, `report`, and `score-shadow` are read-only.
+  `scan --dry-run`, `propose --dry-run`, `merge-sync --dry-run`, and
+  `worker --dry-run` are plan-only. `prune` and `rebase` write only with
+  `--apply`; `shadow-qmd` writes its requested output file, not the ledger.
 - Allegations move through a checked state machine — use the verbs rather
   than editing `S-*.json` files by hand. See
   [stale-ledger](references/stale-ledger.md) for the layout.
@@ -86,6 +94,8 @@ is for or how it pairs with qmd.
 
 - [stale-automation](references/stale-automation.md) — the loop, surfaces,
   declared watches, and lifecycle
+- [stale-triggers](references/stale-triggers.md) — manual, CI, worker, retry,
+  and calibration triggers plus enablement precedence
 - [stale-commands](references/stale-commands.md) — every subcommand, flag,
   and output convention
 - [stale-configuration](references/stale-configuration.md) — the

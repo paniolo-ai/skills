@@ -1,6 +1,6 @@
 ---
 source-slug: stale-commands
-source-hash: 47ab4a31f5316a57fa2b030c57781cf3b325e8cc4ab0804baac8ce83dd7ffa38
+source-hash: 84abb4ff5277aa7461f2fd99bb4f1767aebd0a85646ad0d10f11dfceb8d20227
 bundled: 2026-09-27
 title: Stale Commands
 type: concept
@@ -26,7 +26,9 @@ The command is gated behind the `stale` cargo feature (part of
 ## Contents
 
 - [Global Flags](#global-flags)
-- [Read-Only Verbs](#read-only-verbs)
+- [Automation Gate](#automation-gate)
+- [Inspection Verbs](#inspection-verbs)
+- [Detection Verb](#detection-verb)
 - [Queue-Management Verbs](#queue-management-verbs)
 - [Agent And Publication Verbs](#agent-and-publication-verbs)
 - [Calibration Verbs](#calibration-verbs)
@@ -52,20 +54,45 @@ key, so a file holding only the bare block is treated as no section.
 
 ---
 
-<a id="read-only-verbs"></a>
+<a id="automation-gate"></a>
 
-## Read-Only Verbs
+## Automation Gate
+
+`staleness.enabled: false` disables `scan`, `run`, `propose`, and
+`worker` for the selected config. Each returns exit zero with
+`{"status":"disabled",...}` before opening the ledger. That response
+means **not run**, not an empty scan or completed cycle.
+
+Other commands remain available. A command using a differently named explicit
+`--config` has independent policy and does not inherit the canonical config
+or its machine-local overlay. See [stale-triggers](./stale-triggers.md) for the full trigger and
+configuration-authority matrix.
+
+---
+
+<a id="inspection-verbs"></a>
+
+## Inspection Verbs
 
 These write nothing to the ledger.
 
 | Command | Arguments and flags | Behavior |
 | --- | --- | --- |
-| `scan` | `--code key:path` (repeatable), `--wiki key:path` (repeatable), `--base <sha>`, `--head <sha>`, `--dry-run` | Detect allegations over `base..head`; `--dry-run` computes the report without touching the ledger |
 | `list` | `--actionable` | List allegations as `{id, state, section_id, claim, revision}` rows; `--actionable` keeps `pending-verification`, `confirmed-stale`, `remediation-proposed` |
 | `next` | — | Print the first actionable allegation in deterministic id order |
 | `show <id>` | `S-` id or unique prefix | Show one allegation plus its sealed observations by role; an ambiguous prefix is an error |
 | `report` | — | Deterministic per-surface dogfood report: outcomes, sealed observations by role, canary hits/misses, false-resolution budget, `automerge_recommended` |
 | `score-shadow` | `<input>` JSON file | Validate and score a complete shadow-observation file without running verifier or remediation agents |
+
+---
+
+<a id="detection-verb"></a>
+
+## Detection Verb
+
+| Command | Arguments and flags | Behavior |
+| --- | --- | --- |
+| `scan` | `--code key:path` (repeatable), `--wiki key:path` (repeatable), `--base <sha>`, `--head <sha>`, `--dry-run` | Detect allegations over `base..head`; a normal run writes allegation and retrieval-run records, while `--dry-run` computes the report without touching the ledger |
 
 ---
 
@@ -127,6 +154,9 @@ and `gh` on PATH with GitHub authentication.
   an id is.
 - `--dry-run` on `scan`, `propose`, `merge-sync`, and `worker` reports the
   plan without writing ledger records, touching git, or calling agents.
+- `prune` and `rebase` are plan-only until `--apply` is present.
+- `shadow-qmd` writes its requested JSON output and temporary index artifacts,
+  but it does not open the ledger or invoke adjudication agents.
 - Preflight failure inside `run` is not an error: the report carries
   `stopped: "preflight <role>: …"` and the queue is untouched.
 - Evidence content is read at the recorded commit via `git show`; `--repo`

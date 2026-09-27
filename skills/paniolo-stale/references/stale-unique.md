@@ -1,6 +1,6 @@
 ---
 source-slug: stale-unique
-source-hash: 0062cf3e733b12ae1b719b8db4f8971ef39e360c51810a8c74601ea493e938ef
+source-hash: 72364bbf81d2a9f6d6bb41d304414101d53f6a6fd771698eec44a982f2d50910
 bundled: 2026-09-27
 title: Why Stale Is Unique
 type: synthesis
@@ -89,28 +89,28 @@ auditable dispositions. That is the stale ledger.
 
 ## How It Combines With qmd
 
-qmd is the recall layer; stale is the maintenance layer. qmd makes the
-corpus findable — BM25, embeddings, reranking over pages and sections.
-Stale keeps it true — and *uses* qmd to do it, carefully:
+qmd is the intended recall layer; stale is the maintenance layer. qmd makes
+the corpus findable through BM25, embeddings, and reranking over pages and
+sections. The production staleness path currently uses declared watches;
+qmd retrieval and reranking remain a measured shadow lane until a refreshed
+holdout replay clears every admission gate.
 
-- **Retrieval as nomination, reranking as routing.** After a diff, each
-  detection lane — declared watches, lexical search, vector search —
-  produces a bounded candidate pool. The qmd reranker orders the pool's
-  sections and schedules the top K per changed entity for verification. It
-  is a routing stage only: a rerank score cannot create an allegation, set
-  a disposition, corroborate a verdict, or feed merge confidence — and a
-  low score defers a candidate to a durable queue rather than declaring the
-  prose fresh.
+- **Target contract: retrieval nominates and reranking routes.** After
+  admission, lexical and vector retrieval will produce a bounded candidate
+  pool. The qmd reranker will order its sections and schedule the top K per
+  changed entity for verification. It remains routing only: a score cannot
+  set a disposition, corroborate a verdict, or feed merge confidence. A low
+  rank will defer a candidate rather than declare the prose fresh.
 - **Two separately measured stages.** Document recall (did retrieval find
   the page at all) and section recall (did reranking surface the right
   passage) are evaluated independently, because a reranker cannot recover
   a document absent from the pool. `stale shadow-qmd` measures both over
   the committed holdout corpus and feeds `replay --full`.
 - **Shadow-first, never assumed.** Fuzzy lanes are shadow-only until a
-  measured replay against the frozen gates admits them — the design even
-  records how an earlier replay's oracle baseline was invalidated and had
-  to be re-measured against the current corpus fingerprint. qmd earns its
-  place in the pipeline with evidence.
+  measured replay against the frozen gates admits them. The earlier replay's
+  corpus fingerprint predates the current non-oracle baseline, so it cannot
+  authorize production. qmd must earn its place again against the current
+  fingerprint.
 - **Clean separation in storage.** The default ledger lives at
   `.paniolo/staleness`, deliberately outside the content roots, so
   candidates never enter the qmd corpus they protect.
@@ -130,12 +130,12 @@ of the model — and it is the one that survived contact with measurement.
 
 ## The Compounding Asset
 
-Every run records the full funnel — candidates, ranks, verdicts, patches,
-merge outcomes, and later reopenings — into the ledger's `R-`/`O-`/`B-`
-records. Accumulated change-to-section rankings, verdicts, corrections, and
-delayed outcomes are the compounding retrieval asset: they sharpen query
-templates, reranker choice, top-K scheduling, and tail exploration over
-time, and they are what a fresh install cannot download.
+Declared production runs record candidates, scheduling, verdicts, patches,
+merge outcomes, and reopenings in the ledger's `R-`/`O-`/`B-` records.
+Shadow qmd runs separately record complete retrieval funnels for admission.
+Once admitted, accumulated change-to-section rankings can join verdicts,
+corrections, and delayed outcomes as the compounding asset that sharpens query
+templates, reranker choice, top-K scheduling, and tail exploration.
 
 That is the business position too: audits deliver the wiki and harness with
 a visible maintenance queue, and every resolved allegation is durable

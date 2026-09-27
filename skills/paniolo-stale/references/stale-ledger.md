@@ -1,6 +1,6 @@
 ---
 source-slug: stale-ledger
-source-hash: 44ca8a4a6b732339ae86cb64c94d0470e5bdb907b78bb7d2717e6fad8833a2d7
+source-hash: f3ed61f0add11794f7396130643c1ce7dd97b48ec0ab43575a8a093baa36dbd9
 bundled: 2026-09-27
 title: Stale Ledger
 type: concept
@@ -88,7 +88,7 @@ with `0x1f`. The prefix names the record kind:
 | `E-` | Evidence | source repo + commit + changed entity + detector version + allegation id |
 | `X-` | Excerpt | cited evidence slice |
 | `C-` | Change | detected change record |
-| `L-` | Label | human/agent gold label |
+| `L-` | Label | Evaluation fact with provenance-constrained gold, silver, or outcome strength |
 | `R-` | Retrieval run | one scan's candidate pool |
 | `O-` | Observation | one sealed agent response |
 | `B-` | Remediation bundle | verifier, challenger, remediator, patch-challenger observation ids + patch hash |
