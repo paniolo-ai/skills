@@ -89,3 +89,7 @@ feature-detect at script load can miss it and silently register nothing.
 Deployment can drop the registration script entirely with no error (an SPA
 fallback masks it as a 200). See [webmcp-implementation-gotchas](./webmcp-implementation-gotchas.md) before
 trusting a "no errors, tools just don't appear" result.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

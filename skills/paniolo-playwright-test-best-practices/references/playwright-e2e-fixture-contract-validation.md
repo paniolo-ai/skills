@@ -85,10 +85,4 @@ grant broader permissions, add polling, or reuse unrelated shared data just to m
 
 ---
 
-<a id="see-also"></a>
-
-## See Also
-
-- Playwright Failure Classification
-- Test-Owned Entities
-- Plan Acceptance Evidence
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

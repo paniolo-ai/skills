@@ -20,6 +20,6 @@ structured approach.
 **Identify scope:** Start with service functions (not HTTP handlers, which use `handleHttpEndpoint`
 directly). Prioritize functions with complex async boundaries or multiple error paths.
 
-## See also
+---
 
-- Effect-TS (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

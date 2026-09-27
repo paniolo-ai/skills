@@ -15,24 +15,6 @@ updated: 2026-06-18
 
 Operational reference for zustand — loaded from skills and agents.
 
-## Pages
+---
 
-- Async Actions with Loading States
-- Basic Selector Pattern
-- Basic Store Pattern
-- Component Integration Testing
-- DevTools
-- Immer Middleware (Mutable Updates)
-- Memoized Selectors
-- Optimistic Updates
-- Persist Middleware
-- Quick Checklist
-- Real-World Example
-- Selector Factory Pattern
-- Store Composition (Multiple Stores)
-- Store Slicing (Large Stores)
-- Unit Testing
-
-## See also
-
-- Authoring index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

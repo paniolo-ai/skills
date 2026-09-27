@@ -30,6 +30,6 @@ const getName = (user: User | undefined): string => {
 const getName = (user: User | undefined): string => user?.name ?? "Unknown";
 ```
 
-## See also
+---
 
-- TypeScript (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -65,3 +65,7 @@ For an in-app editor: outcome = successful edit the user accepts; Answer =
 read draft/sections; Action = apply content/structure changes; Sensitive =
 publish/save-commit if irreversible. Prefer co-browsing tools wrapping the
 editor UI ([webmcp-vs-mcp](./webmcp-vs-mcp.md)).
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

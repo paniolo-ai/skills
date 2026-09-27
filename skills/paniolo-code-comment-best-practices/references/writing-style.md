@@ -21,6 +21,6 @@ updated: 2026-06-18
 - **No filler words** — avoid "basically", "simply", "just", "obviously"
 - **One space after `//`** — `// comment`, not `//comment`
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

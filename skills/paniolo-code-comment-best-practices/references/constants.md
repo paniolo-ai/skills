@@ -36,6 +36,6 @@ For a single non-obvious constant, prefer single-line JSDoc:
 const MIN*SLIDE*INDEX = 0;
 ```
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

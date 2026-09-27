@@ -44,6 +44,6 @@ applies under `packages/*/src/**`, nested `scripts/<tool>/…`, and other featur
 `paniolo scan` warns on forbidden names (same `--strict` flag as flat-module
 warnings).
 
-## See also
+---
 
-- Code layout (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

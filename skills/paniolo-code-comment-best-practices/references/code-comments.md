@@ -15,23 +15,6 @@ updated: 2026-06-18
 
 Operational reference for code comments — loaded from skills and agents.
 
-## Pages
+---
 
-- Anti-patterns
-- Constants and grouped symbols
-- Inline `//` comments
-- JSDoc — formatting rules
-- JSDoc — params and returns
-- JSDoc — what to document
-- JSDoc — when to use
-- Links in comments
-- Maintenance
-- Philosophy
-- Spacing and placement
-- Test file comments
-- What NOT to comment
-- Writing style
-
-## See also
-
-- Authoring index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

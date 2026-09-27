@@ -15,13 +15,6 @@ updated: 2026-06-18
 
 Operational reference for writing style — loaded from skills and agents.
 
-## Pages
+---
 
-- Active vs Passive Voice
-- Audience and Tone
-- Avoid Jargon Unless Necessary
-- Clarity and Conciseness
-
-## See also
-
-- Authoring index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -150,3 +150,7 @@ applied and which validation commands were run.
 - Repo-wide rules: rules
 - [Vitest skill](../paniolo-vitest-test-best-practices/SKILL.md)
 - [TypeScript skill](../paniolo-typescript-best-practices/SKILL.md)
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -14,28 +14,6 @@ updated: 2026-06-18
 # Markdown lint (authoring)
 
 Operational reference for markdown lint — loaded from skills and agents.
-
-## Pages
-
-- AI Agents: First-Pass Markdown
-- Auto-fixing mechanical issues
-- Internal Link Validation
-- Link Style and Conventions
-- Link Validation (`remark`)
-- Links (remark)
-- Markdownlint and Textlint Split
-- Anchors (`docs/**/*.md` only)
-- Pre-Authoring Checklist
-- File size limits (textlint enforced)
-- Links
-- Structure (markdownlint)
-- Size limits
-- Structural Consistency (`markdownlint`)
-- Structure (markdownlint)
-- Text and Content Validation (`textlint`)
-- The three linters
-- Validation Commands
-
 ## Reference
 
 ### Heading Anchor Rule
@@ -56,6 +34,6 @@ Operational reference for markdown lint — loaded from skills and agents.
   and lines up the lint pipeline with the repo's existing documentation
   standards.
 
-## See also
+---
 
-- Authoring index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -84,3 +84,7 @@ working but would wipe SSR'd content; hence the check.
   [web-component-events](./web-component-events.md).
 - Page CSS can't reach in except via custom properties / `::part`:
   [web-component-styling](./web-component-styling.md).
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

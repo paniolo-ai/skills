@@ -32,6 +32,6 @@ export const useCounterStore = create<CounterState>()(
 );
 ```
 
-## See also
+---
 
-- Zustand (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

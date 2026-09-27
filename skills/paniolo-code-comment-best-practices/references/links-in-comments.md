@@ -59,6 +59,6 @@ its own line:
  */
 ```
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -109,3 +109,7 @@ production-grade output.
 
 `paniolo.config.json` is how a repo tells `paniolo scan` (via `@paniolo/cli`) which harnesses it
 supports and how to weigh its rules. This skill scaffolds that file; the scanner reads it.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

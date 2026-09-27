@@ -20,10 +20,6 @@ updated: 2026-06-18
 
 Rationale: keeps API surface minimal, reduces unnecessary indirection.
 
-## See also
+---
 
-- File organization (authoring) index
-
-## See also
-
-- File organization (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -78,6 +78,6 @@ test("sender shares a song and recipient accepts", async ({ browser }) => {
 });
 ```
 
-## See also
+---
 
-- Playwright e2e testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

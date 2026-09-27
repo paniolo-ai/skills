@@ -49,3 +49,7 @@ constraints above.
 - Distinguish cancel (`AbortSignal`) from failure in metrics.
 - Tie dashboards to tool layers (Answer / Action / Sensitive) so risk is
   visible.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

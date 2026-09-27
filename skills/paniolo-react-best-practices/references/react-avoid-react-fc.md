@@ -29,6 +29,6 @@ export function MyComponent({ value }: MyComponentProps): ReactElement {
 `React.FC` implicitly widens the return type and historically added implicit `children` to all
 components. Explicit types make the contract clear and consistent with the rest of the codebase.
 
-## See also
+---
 
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

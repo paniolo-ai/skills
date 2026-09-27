@@ -120,3 +120,7 @@ conventions; this skill only adds that no memoization is introduced.
 - [react-compiler-control-flow](references/react-compiler-control-flow.md) — `try`/`catch` and
   value-block constraints
 - [paniolo-react-best-practices/SKILL.md](../paniolo-react-best-practices/SKILL.md)
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

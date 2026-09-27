@@ -53,7 +53,6 @@ const { exitCode, output } = yield* runProcess(["pnpm", "run", "lint:md"], repoR
 For inherited stdio (interactive CLI), keep `spawnSync` or a dedicated helper; do not duplicate
 spawn logic across the codebase.
 
-## See also
+---
 
-- Logic module pattern
-- Refactoring Promise to Effect
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

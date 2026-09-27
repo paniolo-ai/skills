@@ -27,6 +27,6 @@ const count = useCounterStore((state) => state.count);
 const increment = useCounterStore((state) => state.increment);
 ```
 
-## See also
+---
 
-- Zustand (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

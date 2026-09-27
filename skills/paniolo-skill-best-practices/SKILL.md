@@ -188,3 +188,7 @@ genuinely reusable alone. `skill-link-style` (configurable via `linkStyle` in
 - Do not duplicate content between a skill and a doc — the doc is canonical.
 - For Paniolo work, do not add Python validation when the Rust CLI covers the check.
 - Never ask the user whether to commit code changes or open a PR.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

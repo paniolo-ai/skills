@@ -15,14 +15,6 @@ updated: 2026-07-24
 
 Operational reference for code layout — loaded from skills and agents.
 
-## Pages
+---
 
-- Feature folders
-- Forbidden feature-folder names
-- How to group
-- Validation
-- When to use feature folders
-
-## See also
-
-- Authoring index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

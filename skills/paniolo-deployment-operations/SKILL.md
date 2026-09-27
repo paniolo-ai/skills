@@ -143,3 +143,7 @@ redeploy. Secrets usually apply only to deployments created after they are set.
 
 - If modifying deployment configuration/workflows, also load `deployment-strategies`.
 - If cache invalidation or CI cache behavior is involved, also load `cloudflare-cache-cicd`.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -15,15 +15,6 @@ updated: 2026-06-18
 
 Operational reference for naming conventions — loaded from skills and agents.
 
-## Pages
+---
 
-- File Naming
-- React Component Naming
-- Scanner and CLI packages (paniolo-scan)
-- Type and Interface Naming
-- use\\_ vs compute\\_ — The Most Common Mistake
-- Variable Naming
-
-## See also
-
-- Authoring index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

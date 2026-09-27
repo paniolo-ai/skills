@@ -17,6 +17,6 @@ updated: 2026-06-18
 import type getDbServerClient from "@api/db/getDbServerClient";
 ```
 
-## See also
+---
 
-- TypeScript lint (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

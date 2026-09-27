@@ -57,6 +57,6 @@ If a function or its result is mocked in a test, avoid adding a separate unit te
 the mocked function's own implementation; instead, assert the behavior of the system under test
 that depends on that mock.
 
-## See also
+---
 
-- Vitest unit testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

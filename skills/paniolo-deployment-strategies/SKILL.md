@@ -125,3 +125,7 @@ holds rather than trusting the config file.
 
 - If active production recovery is required, also load `deployment-operations`.
 - If CDN cache behavior must change with deploy, also load `cloudflare-cache-cicd`.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

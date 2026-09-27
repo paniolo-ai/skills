@@ -227,3 +227,7 @@ adding an attr/prop/event translation layer.
 - [web-component-framework-interop](references/web-component-framework-interop.md) — per-framework binding
 - [web-component-libraries](references/web-component-libraries.md) — vanilla vs Lit vs Stencil
 - [web-component-testing](references/web-component-testing.md) — open-wc fixtures, semantic diffs
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -37,6 +37,6 @@ interface AudioTrack extends MediaStreamTrack {
 }
 ```
 
-## See also
+---
 
-- TypeScript (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

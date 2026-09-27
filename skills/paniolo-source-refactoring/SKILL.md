@@ -156,3 +156,7 @@ Search the codebase for all occurrences of the moved symbol and update their imp
 - Repo-wide rules: rules
 - [file-splitting/SKILL.md](../paniolo-file-splitting/SKILL.md)
 - [naming-best-practices/SKILL.md](../paniolo-naming-best-practices/SKILL.md)
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

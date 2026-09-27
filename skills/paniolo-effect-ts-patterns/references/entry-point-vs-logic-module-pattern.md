@@ -73,7 +73,6 @@ process.exit(exitCode);
 Do not put orchestration logic in the entry-point file — keep it in a default-export function in a
 sibling module. See [Logic module pattern](./typescript-effect-logic-module-pattern.md).
 
-## See also
+---
 
-- Logic module pattern
-- Refactoring Promise to Effect
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

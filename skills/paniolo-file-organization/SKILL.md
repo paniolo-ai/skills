@@ -162,3 +162,7 @@ find . -name "*.cjs" -not -path "./node_modules"     # Detect CommonJS config
 - If symbol naming decisions are part of the reorg, also load `naming-best-practices`.
 - **Constants placement (cross-file):** see
   [constants-placement-across-modules](references/constants-placement-across-modules.md).
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -146,3 +146,7 @@ references:
 - [paniolo-react-best-practices/SKILL.md](../paniolo-react-best-practices/SKILL.md)
 - [paniolo-code-comment-best-practices/SKILL.md](../paniolo-code-comment-best-practices/SKILL.md)
 - [paniolo-lint-error-resolution/SKILL.md](../paniolo-lint-error-resolution/SKILL.md)
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

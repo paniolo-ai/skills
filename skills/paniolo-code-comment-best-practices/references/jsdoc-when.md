@@ -31,6 +31,6 @@ Do **not** use JSDoc:
 - To comment on more than one symbol at a time (see [§7](./constants.md))
 - When a single-line `//` above a non-exported helper is sufficient
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

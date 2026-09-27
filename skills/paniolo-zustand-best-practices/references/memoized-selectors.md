@@ -27,6 +27,6 @@ const titles = useTodoStore((state) => state.todos.map((t) => t.title));
 const titles = useTodoStore(useShallow((state) => state.todos.map((t) => t.title)));
 ```
 
-## See also
+---
 
-- Zustand (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -96,3 +96,7 @@ const legacy = thirdParty.getData();
 
 - Do not suppress rules without justification and `-- reason`.
 - Do not expand scope beyond the requested task.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

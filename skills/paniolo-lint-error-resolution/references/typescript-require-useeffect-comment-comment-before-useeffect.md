@@ -23,6 +23,6 @@ useEffect(() => {
 - No `useCallback` / `useMemo` — React Compiler project (see `react-best-practices` skill).
 - No lint-disable in test files.
 
-## See also
+---
 
-- TypeScript lint (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

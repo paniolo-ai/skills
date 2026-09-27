@@ -44,7 +44,6 @@ export default function checkFiles(repoRoot: string): Effect.Effect<CheckResult,
 Convert existing `async function …(): Promise<T>` using the steps in
 [Refactoring Promise-Returning Functions to Effect](./typescript-effect-refactoring-promise-to-effect.md).
 
-## See also
+---
 
-- Subprocesses
-- Refactoring Promise to Effect
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -44,3 +44,7 @@ requirement but not the structured contract.
 
 Real workflows often combine: WebMCP on cooperating pages, automation elsewhere,
 MCP for headless service work.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

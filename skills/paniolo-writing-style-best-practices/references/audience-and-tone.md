@@ -25,6 +25,6 @@ Use `vi.mocked()` to cast mocked functions with proper types.
 **❌ Avoid:** Condescending tone (`"Obviously..."`) or over-explaining basics that TypeScript
 developers already know.
 
-## See also
+---
 
-- Writing style (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

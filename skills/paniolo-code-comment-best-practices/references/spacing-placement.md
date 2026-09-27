@@ -37,6 +37,6 @@ function f() {}
 **No blank lines between JSDoc and its symbol.** The JSDoc must attach directly to what it
 documents.
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

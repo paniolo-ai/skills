@@ -14,21 +14,6 @@ updated: 2026-06-18
 # Doc structure and formatting (authoring)
 
 Operational reference for doc structure and formatting — loaded from skills and agents.
-
-## Pages
-
-- Anchor Links
-- Code Blocks
-- component-props
-- Emphasis
-- File Length
-- File Naming
-- Header 2
-- Line Length
-- Lists
-- Required Elements
-- Tables
-
 ## Reference
 
 ### Headers
@@ -67,6 +52,6 @@ Brief introduction explaining what this document covers.
 ...
 ```
 
-## See also
+---
 
-- Authoring index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

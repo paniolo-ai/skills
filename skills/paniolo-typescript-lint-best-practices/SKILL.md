@@ -105,3 +105,7 @@ a script name you have not seen in that repo's `package.json`.
 - Do not use `any` or unsafe casts without justification.
 - Do not import from barrel files.
 - Do not stop after `lint:fix` — re-run the full lint entrypoint.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -84,3 +84,7 @@ These matter for "will anyone call my tools?" more than engine ship dates:
   paths on them.
 - Keep integrations thin ([webmcp-overview](./webmcp-overview.md), [webmcp-apis](./webmcp-apis.md)) so milestone
   churn stays cheap.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

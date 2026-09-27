@@ -66,6 +66,6 @@ share mock state across helper files. See the helper modules in your own `test-u
 3. Keep such examples beside the feature that owns them (for example a form `test-util.ts`
    and a `getDbClient.test-util.ts` in the data-access layer).
 
-## See also
+---
 
-- Vitest mocking (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

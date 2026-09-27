@@ -42,6 +42,6 @@ See also:
 - TypeScript (authoring) index
 - [Effect-TS — useEffect boundaries](effect-ts#react-useeffect-boundaries)
 
-## See also
+---
 
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

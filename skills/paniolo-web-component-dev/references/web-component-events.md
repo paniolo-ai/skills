@@ -61,3 +61,7 @@ this.dispatchEvent(new CustomEvent('item-selected', {
   ([web-component-api-design](./web-component-api-design.md)): name, when it fires, `detail` shape.
 - Prefer events over callback props (`onChange={fn}` attributes) — TAG:
   avoid callbacks; events compose through the tree for free.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

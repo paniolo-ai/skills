@@ -34,6 +34,6 @@ Rules:
   (`@api/...` / `@react/...`) when calling from another package area (see file-organization skill
   for cross-module paths).
 
-## See also
+---
 
-- Vitest unit testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

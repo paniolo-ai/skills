@@ -35,6 +35,6 @@ export const useThemeStore = create<ThemeState>()(
 );
 ```
 
-## See also
+---
 
-- Zustand (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

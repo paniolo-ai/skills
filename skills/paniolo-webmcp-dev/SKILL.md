@@ -263,3 +263,7 @@ architecture for the whole product.
 - [webmcp-timeline](references/webmcp-timeline.md) — browser/flag rollout status
 - [webmcp-implementation-gotchas](references/webmcp-implementation-gotchas.md) — silent-failure bugs seen in production
 - [paniolo-react-best-practices/SKILL.md](../paniolo-react-best-practices/SKILL.md)
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

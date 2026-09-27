@@ -113,3 +113,7 @@ refuse to weaken product validation unless evidence shows the product contract i
 - [playwright-failure-classification](references/playwright-failure-classification.md)
 - [playwright-test-owned-entities](references/playwright-test-owned-entities.md)
 - [completion-means-the-gate-ran](references/completion-means-the-gate-ran.md)
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

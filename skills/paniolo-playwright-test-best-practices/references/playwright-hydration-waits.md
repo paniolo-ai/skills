@@ -42,6 +42,6 @@ Guidelines:
 - ❌ Scatter `waitForTimeout` calls through interaction steps
 - ❌ Replace ordinary web-first assertions with sleeps
 
-## See also
+---
 
-- Playwright e2e testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

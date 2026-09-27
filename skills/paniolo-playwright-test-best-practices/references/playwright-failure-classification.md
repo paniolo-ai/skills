@@ -38,9 +38,6 @@ invalid test pass.
 If an outer timeout kills an otherwise unfinished test process, report the gate as inconclusive. A
 reporter `EPIPE` after forced termination describes the broken output pipe, not a failed assertion.
 
-## See also
+---
 
-- Debugging
-- E2E Fixture Contract Validation
-- Native Runner Process Ownership
-- Test-Owned Entities
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

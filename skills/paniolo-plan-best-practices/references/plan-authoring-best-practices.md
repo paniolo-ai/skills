@@ -114,12 +114,4 @@ Before handoff, confirm another agent can:
 
 ---
 
-<a id="see-also"></a>
-
-## See Also
-
-- Cross-Layer Data Flow Verification
-- Plan Acceptance Evidence
-- Completion Means the Gate Ran
-- E2E Fixture Contract Validation
-- Playwright Failure Classification
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

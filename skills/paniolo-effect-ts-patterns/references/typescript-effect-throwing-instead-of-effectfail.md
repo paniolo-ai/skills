@@ -28,6 +28,6 @@ if (!record) {
 }
 ```
 
-## See also
+---
 
-- Effect-TS (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

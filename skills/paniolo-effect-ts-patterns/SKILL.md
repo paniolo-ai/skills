@@ -106,3 +106,7 @@ Use the repo's own scripts — `lint:ts` where it exists, otherwise `lint`:
 <your lint command>
 pnpm test
 ```
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

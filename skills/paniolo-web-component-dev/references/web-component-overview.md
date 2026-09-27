@@ -71,3 +71,7 @@ subtree-local tag definitions.
 - [web-component-libraries](./web-component-libraries.md) — vanilla vs Lit vs Stencil
 - [web-component-testing](./web-component-testing.md) — fixture/shadow-DOM-aware assertions
 - blog-cianfrani-web-component-best-practices — practitioner field notes
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

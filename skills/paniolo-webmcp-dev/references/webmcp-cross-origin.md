@@ -62,3 +62,7 @@ partner product.
 - [webmcp-apis](./webmcp-apis.md) — `registerTool` / `getTools` options
 - [webmcp-security](./webmcp-security.md) — hints and agent-side defenses
 - [webmcp-user-journeys](./webmcp-user-journeys.md) — when co-browsing needs partner capabilities
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

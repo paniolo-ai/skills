@@ -85,3 +85,7 @@ details on [webmcp-security](./webmcp-security.md).
   prompt patches for one model's quirks.
 - Use Chrome's Model Context inspector / CDP and Lighthouse's registered-tools
   audit while iterating.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -71,7 +71,6 @@ and only one of them is correct.
 - If parts of the overlay should not take the pointer at all, `pointer-events-none` on those parts
   is the fix — not moving the whole layer outside.
 
-## See also
+---
 
-- Observer Snapshots and Late Mounts
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

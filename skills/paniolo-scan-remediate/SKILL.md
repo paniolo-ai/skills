@@ -93,3 +93,7 @@ the structural patterns that turn generated code into production-grade output.
 agent act on the report.
 [Paniolo's professional services](https://paniolo.ai/#contact) go further — designing, tuning, and
 evolving that infrastructure with your team.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

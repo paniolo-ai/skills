@@ -34,6 +34,6 @@ export default function useEventManageView() {
 }
 ```
 
-## See also
+---
 
-- Naming conventions (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

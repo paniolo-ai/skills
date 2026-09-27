@@ -78,3 +78,7 @@ open-wc scaffolds the whole setup (`npm init @open-wc`). In a Playwright
 world, prefer component tests that mount the element in a real page over
 jsdom — jsdom has partial shadow DOM support and no upgrade semantics
 worth trusting.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

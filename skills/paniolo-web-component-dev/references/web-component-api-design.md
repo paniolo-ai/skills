@@ -107,3 +107,7 @@ before inventing terms; a `web-component-` prefixed skill or library should
 read like it shipped with HTML. The hyphen in the tag name is mandatory —
 it's the namespace reservation mechanism, so pick a library prefix
 (`shoelace-` → `sl-`) deliberately.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

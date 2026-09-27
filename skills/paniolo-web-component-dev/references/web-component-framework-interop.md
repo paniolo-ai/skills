@@ -58,3 +58,7 @@ Your element is the contract; frameworks are clients. If you follow the
 attribute/property/event conventions in [web-component-best-practices](./web-component-best-practices.md),
 every modern framework binds correctly without shims — and testing one
 framework row of custom-elements-everywhere is a cheap regression check.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

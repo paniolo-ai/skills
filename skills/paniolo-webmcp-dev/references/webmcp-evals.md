@@ -58,3 +58,7 @@ Use paraphrases of the same goal — one passing phrasing proves little.
 - [webmcp-best-practices](./webmcp-best-practices.md) — naming, schemas, reliability
 - [webmcp-security](./webmcp-security.md) — injection via tool output
 - [webmcp-observability](./webmcp-observability.md) — production signals that grow the eval set
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

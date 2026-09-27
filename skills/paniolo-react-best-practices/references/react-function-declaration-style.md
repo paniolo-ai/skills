@@ -37,6 +37,6 @@ export function MyComponent({ value }: MyComponentProps): ReactElement {
 Function declarations are hoisted, show up cleanly in stack traces, and are consistent with the
 project's hook and utility file style.
 
-## See also
+---
 
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

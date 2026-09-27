@@ -94,10 +94,4 @@ integration. Shared unit coverage does not prove that every consumer calls the s
 
 ---
 
-<a id="see-also"></a>
-
-## See Also
-
-- Plan Acceptance Evidence
-- Plan Authoring Best Practices
-- Plan Execution Workflow
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

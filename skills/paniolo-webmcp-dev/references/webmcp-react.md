@@ -42,3 +42,7 @@ Use when the app only needs `registerTool` ergonomics:
 - [webmcp-apis](./webmcp-apis.md) — imperative API details
 - [webmcp-proxy](./webmcp-proxy.md) — React `<WebMCPProxy />` for remote MCP bridging
 - [webmcp-evals](./webmcp-evals.md) — include the full state-relevant tool list in isolation tests
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

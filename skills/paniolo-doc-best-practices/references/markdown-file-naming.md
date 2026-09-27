@@ -38,6 +38,6 @@ content (e.g., GitHub). Lowercase avoids case-sensitivity issues across operatin
 **Retrieval (qmd):** the filename is qmd's Title fallback and part of the indexed path,
 so use descriptive, searchable slugs with the real terms an agent would query.
 
-## See also
+---
 
-- Doc structure and formatting (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

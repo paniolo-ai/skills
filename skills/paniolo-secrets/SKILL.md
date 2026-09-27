@@ -89,3 +89,7 @@ invent, print, or silently replace it.
   precedence, CI, and child environment
 - [secrets-migration](references/secrets-migration.md) — keyring migration,
   WSL vaults, wrappers, and public/internal boundaries
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

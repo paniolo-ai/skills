@@ -18,6 +18,6 @@ updated: 2026-06-18
 The app uses OAuth with HttpOnly cookies. Instead of going through full OAuth flows in tests (slow,
 requires test accounts), lighter tests mock the `/api/me` endpoint using `page.route()`.
 
-## See also
+---
 
-- Playwright auth testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

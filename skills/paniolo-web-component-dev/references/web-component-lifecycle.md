@@ -78,3 +78,7 @@ no side effects); `connectedCallback` triggers the first update and
 `disconnectedCallback` pauses it — but updates continue for a
 previously-connected element regardless of connection state. When extending
 Lit callbacks, always call `super` ([web-component-libraries](./web-component-libraries.md)).
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -155,3 +155,7 @@ element that also toggles `hidden`.
 - [webmcp-best-practices](./webmcp-best-practices.md) — tool design once registration itself works
 - [webmcp-timeline](./webmcp-timeline.md) — which browsers/flags expose `document.modelContext` today
 - [webmcp-observability](./webmcp-observability.md) — telling registration failures apart from model mistakes in production
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

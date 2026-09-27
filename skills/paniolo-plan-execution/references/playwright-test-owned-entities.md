@@ -41,8 +41,6 @@ does not consume leftovers from the first.
 Repositories must define their exact disposable prefixes, protected fixtures, owner boundaries,
 and cascade behavior in repo-local guidance. Generic skills must not guess those values.
 
-## See Also
+---
 
-- E2E Fixture Contract Validation
-- Playwright Failure Classification
-- Playwright e2e testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

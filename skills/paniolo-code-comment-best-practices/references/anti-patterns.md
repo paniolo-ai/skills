@@ -29,6 +29,6 @@ constructive. Never vent frustration or blame others.
 **❌ Stale TODOs with no context** — review during planning; remove TODOs that have been superseded
 or are no longer actionable.
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

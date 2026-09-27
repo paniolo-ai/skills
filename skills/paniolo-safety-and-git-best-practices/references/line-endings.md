@@ -72,7 +72,6 @@ rather than guessing from the current file's contents. Sampling existing files
 gets the wrong answer exactly when it matters most: in a repo that has already
 drifted.
 
-## See also
+---
 
-- git-commit-format-and-style — commit message conventions.
-- rules — hook and CI enforcement.
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

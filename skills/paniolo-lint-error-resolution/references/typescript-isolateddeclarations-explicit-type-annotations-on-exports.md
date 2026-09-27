@@ -21,6 +21,6 @@ export const mySchema: Schema.Schema<"a" | "b" | "c", "a" | "b" | "c"> = Schema.
 );
 ```
 
-## See also
+---
 
-- TypeScript lint (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

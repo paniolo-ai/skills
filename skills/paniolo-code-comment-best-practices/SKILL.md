@@ -152,3 +152,7 @@ never on the same line. References [inline-comments](references/inline-comments.
 
 **Input:** "Add comments" (no file specified)
 **Expected:** Agent asks which file before proceeding.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

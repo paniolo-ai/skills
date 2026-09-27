@@ -39,6 +39,6 @@ improves IDE autocomplete and documentation, and is more idiomatic in modern Typ
 linter flags too many parameters, this approach satisfies the max-parameters rule while keeping
 code readable.
 
-## See also
+---
 
-- TypeScript (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

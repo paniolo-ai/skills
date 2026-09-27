@@ -33,6 +33,6 @@ describe("subscribeToActiveItems", () => {
 Use JSDoc in test files only for shared utility functions that are exported or reused across test
 files.
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -50,7 +50,6 @@ render(<Player {...props} />);
 - Do not extract one-off setup or use a factory to conceal the values that define the assertion.
   Tests should still make their distinguishing inputs explicit.
 
-## See also
+---
 
-- Vitest unit testing (authoring) index
-- Prefer shared `make*` helpers
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

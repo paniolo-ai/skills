@@ -50,6 +50,6 @@ imported:
 import type { ReactNode } from "react";
 ```
 
-## See also
+---
 
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

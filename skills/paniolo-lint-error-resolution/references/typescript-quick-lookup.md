@@ -32,6 +32,6 @@ updated: 2026-06-18
 | `require-aaa-pattern`                | Add `// Arrange`, `// Act`, `// Assert` markers.         |
 | `no-assert-mocked-return`            | `expect(mock).toHaveBeenCalled()`, not `expect(mock())`. |
 
-## See also
+---
 
-- TypeScript lint (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

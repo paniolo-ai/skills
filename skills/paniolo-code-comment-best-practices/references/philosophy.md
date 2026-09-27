@@ -35,6 +35,6 @@ refactored.
 **Professionalism.** Never use comments to vent frustration, blame others, or use unprofessional
 language.
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

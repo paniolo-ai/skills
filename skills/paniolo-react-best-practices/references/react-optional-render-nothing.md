@@ -29,6 +29,6 @@ export default function SongSections({ songId }: SongSectionsProps): ReactElemen
 }
 ```
 
-## See also
+---
 
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

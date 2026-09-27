@@ -35,6 +35,6 @@ function MyComponent({ optionalProp }: { optionalProp?: string }) {
 For UI-specific best-practices (component props, prop patterns, and React conventions), see
 your repo's React best-practices guidance.
 
-## See also
+---
 
-- TypeScript (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

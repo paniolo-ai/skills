@@ -162,3 +162,7 @@ Docs are indexed by qmd; structure changes whether it surfaces your content.
   full reference (load on demand)
 - skill-authoring
   — for authoring skill files
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

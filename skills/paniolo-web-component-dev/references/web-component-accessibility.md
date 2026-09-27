@@ -82,3 +82,7 @@ shadow root, use `internals.ariaLabel` or an `aria-label` attribute the
 author sets on the host (forward it), and let `<label for>`/`for` work only
 where you control both ends. Test with a real screen reader — automated
 checks don't cover AT traversal across shadow boundaries.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

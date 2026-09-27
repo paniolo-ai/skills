@@ -97,7 +97,6 @@ it.each([
 A table like this fails loudly when a field is added to the row and not to the guard, because the
 new field has no row in the table and the omission is visible in review.
 
-## See also
+---
 
-- Exhaustive Switch Over Unions
-- TypeScript (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

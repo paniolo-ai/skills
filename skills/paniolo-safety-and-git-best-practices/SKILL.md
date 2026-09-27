@@ -86,3 +86,7 @@ references:
 - [completion-means-the-gate-ran](references/completion-means-the-gate-ran.md)
 - [line-endings](references/line-endings.md)
 - [plan-acceptance-evidence](references/plan-acceptance-evidence.md)
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

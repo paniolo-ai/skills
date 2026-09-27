@@ -81,3 +81,7 @@ non-element logic.
 - Labeling: `<label for>` can't reach into shadow, but a `<label>` wrapping
   the host, or `internals.ariaLabel`/`labels` API, covers it — details in
   [web-component-accessibility](./web-component-accessibility.md).
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

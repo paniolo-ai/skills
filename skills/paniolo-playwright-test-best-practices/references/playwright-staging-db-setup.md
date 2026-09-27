@@ -23,6 +23,6 @@ actual DB rows, or RLS enforcement.
 | **Local site + staging DB** | `localhost:5173`   | `localhost:8787`       | staging  |
 | **Staging site**            | `<staging-domain>` | `<staging-domain>/api` | staging  |
 
-## See also
+---
 
-- Playwright auth testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

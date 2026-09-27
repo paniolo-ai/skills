@@ -65,6 +65,6 @@ export const ALERT_TYPES = {
 - ❌ Use CSS class selectors that may change
 - ❌ Test translation accuracy (that is a separate concern)
 
-## See also
+---
 
-- Playwright e2e testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

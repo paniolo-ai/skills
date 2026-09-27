@@ -30,6 +30,6 @@ The test is failed when `undefined` is returned by the mock.
 
 Use passive only when the actor is unknown or irrelevant.
 
-## See also
+---
 
-- Writing style (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

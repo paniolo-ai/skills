@@ -27,6 +27,6 @@ Use explicit `<a id="...">` tags for all headings that appear in the Table of Co
 anchors, but they can change if heading text is modified. Explicit anchors are stable and
 renderer-agnostic.
 
-## See also
+---
 
-- Doc structure and formatting (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

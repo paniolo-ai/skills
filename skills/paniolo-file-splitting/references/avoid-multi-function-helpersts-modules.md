@@ -28,10 +28,6 @@ src/song/active-songs/
 If you touch an existing multi-export helper file, prefer splitting it (see
 `file-splitting`) over adding another export.
 
-## See also
+---
 
-- File organization (authoring) index
-
-## See also
-
-- File organization (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

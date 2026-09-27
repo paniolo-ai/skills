@@ -153,3 +153,7 @@ validation, and does not create a barrel re-export.
 - Repo-wide rules: rules
 - [file-organization/SKILL.md](../paniolo-file-organization/SKILL.md)
 - [source-refactoring/SKILL.md](../paniolo-source-refactoring/SKILL.md)
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

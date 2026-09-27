@@ -71,3 +71,7 @@ setup/teardown — Lit's pause/resume doesn't remove listeners for you.
 Whatever the library, the public contract is identical — attributes,
 properties, events, slots, CSS hooks ([web-component-api-design](./web-component-api-design.md)) — and
 [web-component-framework-interop](./web-component-framework-interop.md) results apply unchanged.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

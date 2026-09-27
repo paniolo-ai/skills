@@ -38,6 +38,6 @@ const fallbackRef = useRef<HTMLTextAreaElement | null>(null);
 This also avoids `foo?: T` vs `T | undefined` confusion under `exactOptionalPropertyTypes` — see
 typescript-exactoptionalpropertytypes-handling.
 
-## See also
+---
 
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -27,6 +27,6 @@ embeds with _every_ chunk (`title: {title} | text: {content}`), so make it speci
 keyword-rich — not `Overview` or `Notes`. A vague title weakens semantic matching for
 the whole file.
 
-## See also
+---
 
-- Doc structure and formatting (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

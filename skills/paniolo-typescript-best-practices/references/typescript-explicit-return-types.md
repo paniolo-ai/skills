@@ -41,6 +41,6 @@ import type { ReactElement } from "react"; // unnecessary
 function MyComponent(): JSX.Element { ... }
 ```
 
-## See also
+---
 
-- TypeScript (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

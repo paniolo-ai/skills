@@ -95,6 +95,6 @@ description. List returned properties explicitly:
  */
 ```
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

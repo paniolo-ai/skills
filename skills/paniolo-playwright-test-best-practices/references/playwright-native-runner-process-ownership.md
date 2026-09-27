@@ -72,8 +72,6 @@ Test root and descendant registration, an already-dead root with a surviving rec
 an unowned listener, repeated cleanup, and signal handling. Run the real wrapper on every supported
 host family because process-tree discovery and termination are host-sensitive.
 
-## See Also
+---
 
-- Local Runner Wrappers
-- Startup Failures
-- TypeScript Bun Script Portability
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -94,13 +94,4 @@ for an unrun broad suite.
 
 ---
 
-<a id="see-also"></a>
-
-## See Also
-
-- Cross-Layer Data Flow Verification
-- Plan Authoring Best Practices
-- Plan Acceptance Evidence
-- E2E Fixture Contract Validation
-- Playwright Failure Classification
-- Test-Owned Entities
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

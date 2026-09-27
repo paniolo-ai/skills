@@ -35,6 +35,6 @@ interfacing with non-React code. When adding manual memoization (e.g. `memo`) fo
 include a comment explaining why and link to the performance trace or issue. **`useCallback`
 and `useMemo` remain forbidden even in these cases.**
 
-## See also
+---
 
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

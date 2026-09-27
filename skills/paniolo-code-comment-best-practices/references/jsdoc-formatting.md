@@ -56,6 +56,6 @@ const MIN*SLIDE*INDEX = 0;
 
 **Max 100 characters per line.** Use multi-line JSDoc when a description exceeds that.
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

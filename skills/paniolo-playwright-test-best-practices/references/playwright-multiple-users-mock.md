@@ -37,6 +37,6 @@ test("different users see their own data", async ({ browser }) => {
 });
 ```
 
-## See also
+---
 
-- Playwright auth testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

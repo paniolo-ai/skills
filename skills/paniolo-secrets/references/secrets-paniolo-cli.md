@@ -126,10 +126,4 @@ operations that are outside this public command.
 
 ---
 
-<a id="see-also"></a>
-
-## See Also
-
-- Migrating to Paniolo Secrets
-- Secrets Management
-- Cross-platform keyring notes
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

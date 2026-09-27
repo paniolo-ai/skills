@@ -75,3 +75,7 @@ this page is the checklist that ties them together.
   Standard's a11y section is non-optional — [web-component-accessibility](./web-component-accessibility.md).
 - **Test in a real browser** with shadow-aware assertions —
   [web-component-testing](./web-component-testing.md).
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

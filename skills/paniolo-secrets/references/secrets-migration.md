@@ -133,10 +133,4 @@ its own deployment and production safeguards.
 
 ---
 
-<a id="see-also"></a>
-
-## See Also
-
-- Paniolo Secrets CLI
-- Secrets Management
-- Cross-platform keyring notes
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

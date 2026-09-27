@@ -82,3 +82,7 @@ tool. Annotations and origin gating: [webmcp-security](./webmcp-security.md).
 - [webmcp-best-practices](./webmcp-best-practices.md) — how to shape tools once you choose WebMCP
 - blog-damiangalarza-webmcp-without-mcp-server — longer product framing
 - blog-freshman-webmcp-practical-guide — WebMCP vs MCP vs automation table
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

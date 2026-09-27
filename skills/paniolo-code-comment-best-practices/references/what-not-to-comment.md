@@ -38,6 +38,6 @@ consider renaming, extracting a function, or simplifying first. Only add the com
 is genuinely unavoidable due to a technical constraint. **"No hazard lights"** — don't apologize for
 messy code; fix it.
 
-## See also
+---
 
-- Code comments (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

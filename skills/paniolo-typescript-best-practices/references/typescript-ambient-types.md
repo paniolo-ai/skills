@@ -26,6 +26,6 @@ function MyComponent({ children }: { children: ReactNode }): ReactElement {
 }
 ```
 
-## See also
+---
 
-- TypeScript (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

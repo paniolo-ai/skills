@@ -53,6 +53,6 @@ export class AuthenticationError extends Data.TaggedError("AuthenticationError")
 `Effect.catchTag` for targeted recovery. They also produce actionable error messages instead
 of generic `"Something went wrong"` strings.
 
-## See also
+---
 
-- Effect-TS (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -14,47 +14,6 @@ updated: 2026-08-20
 # Playwright e2e testing (authoring)
 
 Operational reference for playwright e2e testing — loaded from skills and agents.
-
-## Pages
-
-- AAA Pattern
-- Best practices
-- Auth/session helpers
-- Authentication
-- Base URL Rules
-- Browser Projects
-- CI Browser Caching
-- Config
-- Debugging
-- Deployed environment runs
-- Edge cases
-- E2E Fixture Contract Validation
-- Environment
-- Environment Variables
-- Everyday local runs
-- Failure Classification
-- High-Level Model
-- Hydration Waits
-- Lighthouse commands
-- Lighthouse Environment Variables
-- Lighthouse Recommendations
-- Lighthouse Troubleshooting
-- Local runner wrappers
-- Native Runner Process Ownership
-- Logs and Temp Files
-- macOS Notes
-- Navigation patterns
-- Routes that stay as pages
-- Running the example
-- Session/auth failures
-- Staging DB runs
-- Startup failures
-- Test Organization
-- Test-Owned Entities
-- Translation-Aware Tests
-- VS Code Integration
-- What Happens During a Local Run
-
 ## Reference
 
 ### Clicks silently ignored on backgrounded pages
@@ -88,6 +47,6 @@ This is required for the `webkit` project as well.
 The top-level `use` block does not automatically cascade into project-level
 `use` blocks, so the option must be repeated per project.
 
-## See also
+---
 
-- Authoring index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

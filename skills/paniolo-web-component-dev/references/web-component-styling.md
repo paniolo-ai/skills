@@ -68,3 +68,7 @@ appearance knob you intend to offer must be deliberately exposed.
   systems.
 - **Global page resets don't apply inside shadow** — set your own
   `box-sizing`, margins, fonts inside the root.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

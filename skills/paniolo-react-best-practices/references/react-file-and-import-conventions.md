@@ -48,6 +48,6 @@ import useSongForm from "@/song/song-form/use-song-form/useSongForm";
 
 Direct imports make the dependency graph explicit and prevent circular import issues.
 
-## See also
+---
 
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

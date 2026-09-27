@@ -61,7 +61,6 @@ vitest run src/user src/session src/live
 - A pre-commit hook is a backstop, not the verification step. Work handed over before the hook runs
   has not been verified.
 
-## See also
+---
 
-- Update Guards Cover Every Gated Field
-- Authoring
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

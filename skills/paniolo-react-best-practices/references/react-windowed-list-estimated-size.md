@@ -62,7 +62,6 @@ it.
 - Jumping directly to a late item works, but scrolling to it does not — the strongest signal, since
   it shows the item renders fine and only the path to it is missing.
 
-## See also
+---
 
-- Observer Snapshots and Late Mounts
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

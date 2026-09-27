@@ -15,6 +15,6 @@ updated: 2026-06-18
 
 Use the right tool for **typed domain rows** vs **intentional type bypasses**.
 
-## See also
+---
 
-- Vitest unit testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

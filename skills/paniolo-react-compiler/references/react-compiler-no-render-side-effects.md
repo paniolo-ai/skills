@@ -68,8 +68,6 @@ is rejected or produces wrong output under the compiler's re-execution assumptio
 - Assigning to a module-level `let` from render.
 - Calling a store's setter during render.
 
-## See also
+---
 
-- React Compiler
-- Compiler-compatible control flow
-- useEffect rules
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

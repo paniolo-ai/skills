@@ -26,6 +26,6 @@ export default function AuthProvider({ children }: { children: ReactNode }) { ..
 function ParticipantRow({ participant }: ParticipantRowProps) { ... }
 ```
 
-## See also
+---
 
-- Naming conventions (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

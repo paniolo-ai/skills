@@ -14,38 +14,6 @@ updated: 2026-06-18
 # Vitest mocking (authoring)
 
 Operational reference for vitest mocking — loaded from skills and agents.
-
-## Pages
-
-- Setup: Mock External Modules
-- ❌ `as any` Casts on Mocked Functions
-- At A Glance
-- Avoid Over-Mocking Pure Logic
-- Best Practices For Test Doubles
-- Choose One Mocking Seam
-- Choosing The Right Double
-- ❌ Collecting Mock Call Arguments in a Side-Effect Array
-- `vi.doMock()` - Runtime Exception Path
-- ESM & Effect Mocking
-- `forceCast` and the `installStore` Selector Dispatch Pattern
-- When to Use the `vi.mock` Factory Pattern (Required Guidance)
-- `vi.mock()` vs `vi.spyOn()` - Default to `vi.mock()`
-- Mocking Effect Functions
-- ❌ Mocking Modules the Code Doesn't Import
-- ❌ Mocking Node.js Built-ins (`node:fs/promises`, `node:path`, etc.)
-- Mocking Order
-- Module Cache Isolation
-- Never Mock an Entire Shared Library
-- Non-Factory `vi.mock` Pattern (Required)
-- `react-dom` mocking (`flushSync`)
-- References
-- Repo-specific defaults that prevent first-pass failures
-- Quick-Start Routing Guide
-- Shared Mock Helper Infrastructure
-- Stubs Vs Mocks
-- Database client mocking
-- Test Double Taxonomy
-
 ## Getting started
 
 Start with these pages when choosing a mocking approach:
@@ -170,6 +138,6 @@ vi.spyOn(mod, "default").mockReturnValue("2026-01-01T00:00:00Z");
 
 Use `vi.spyOn()` as an escape hatch, not the baseline pattern.
 
-## See also
+---
 
-- Authoring index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

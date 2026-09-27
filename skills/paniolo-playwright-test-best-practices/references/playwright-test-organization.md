@@ -34,6 +34,6 @@ Test styles used in this repo:
 - Accessibility checks with `@axe-core/playwright`
 - Lighthouse performance audits
 
-## See also
+---
 
-- Playwright e2e testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

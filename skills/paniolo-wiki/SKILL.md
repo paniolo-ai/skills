@@ -344,3 +344,7 @@ Apply while writing so pages pass `paniolo wiki` (and the harness the project's 
 
 - Validator: `paniolo wiki` in harness (`paniolo wiki` via `@paniolo/cli`).
 - Wiki config: `paniolo.config.json` — lists all wiki roots and known repos.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

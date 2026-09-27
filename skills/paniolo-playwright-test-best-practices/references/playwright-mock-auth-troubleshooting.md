@@ -35,6 +35,6 @@ await page.waitForTimeout(1375);
 **Route mock not working** — verify the pattern matches: `**/api/me` matches both
 `http://localhost:8787/api/me` and `https://localhost:5173/api/me`.
 
-## See also
+---
 
-- Playwright auth testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -283,3 +283,7 @@ reach for `--explain` instead when the question is about one query you just ran.
 - Do not kill the `paniolo` process family to recover the warm sidecar — that
   also kills the MCP server. Use `serve --stop` (or `--stop --all`), which
   waits for the process to exit and tells you when one did not.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

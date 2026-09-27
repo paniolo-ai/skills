@@ -102,3 +102,7 @@ acceptance behavior, and a test that fails against the old behavior.
 - [cross-layer-data-flow-verification](references/cross-layer-data-flow-verification.md)
 - [playwright-e2e-fixture-contract-validation](references/playwright-e2e-fixture-contract-validation.md)
 - [completion-means-the-gate-ran](references/completion-means-the-gate-ran.md)
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

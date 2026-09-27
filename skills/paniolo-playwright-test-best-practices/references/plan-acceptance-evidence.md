@@ -53,10 +53,6 @@ prevented it: a rule, skill, concept page, fixture helper, deterministic check, 
 product-specific guidance in that product's harness and put only reusable engineering guidance in
 shared documentation.
 
-## See also
+---
 
-- Cross-Layer Data Flow Verification
-- Completion Means the Gate Ran
-- E2E Fixture Contract Validation
-- Playwright Failure Classification
-- Test-Owned Entities
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

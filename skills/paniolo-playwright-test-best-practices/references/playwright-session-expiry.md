@@ -27,6 +27,6 @@ pnpm run e2e:create-session:staging-url
 
 The file path stays the same so no spec changes are needed.
 
-## See also
+---
 
-- Playwright auth testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -52,6 +52,6 @@ production**:
 Read the script definition rather than inferring the target from the name. Run the staging path,
 confirm it is green, and report before promoting.
 
-## See also
+---
 
-- Authoring
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

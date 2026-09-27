@@ -33,6 +33,6 @@ const handleClick = () => { ... };
 const currentEventIdRef = useRef<string | undefined>(undefined);
 ```
 
-## See also
+---
 
-- Naming conventions (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

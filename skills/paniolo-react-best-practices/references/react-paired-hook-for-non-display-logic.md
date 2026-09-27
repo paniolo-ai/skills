@@ -70,6 +70,6 @@ return shape is large enough to help call sites and tests.
 Pure helpers that do not need React APIs belong in separate modules; the paired hook is for
 **stateful / effectful** behavior tied to that screen or widget.
 
-## See also
+---
 
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

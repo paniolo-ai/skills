@@ -173,3 +173,7 @@ the full lint checklist, `it.each`, and normalization guidance.
 
 - Full test reference: [vitest-test](references/vitest-test.md)
 - Repo-wide rules: rules
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

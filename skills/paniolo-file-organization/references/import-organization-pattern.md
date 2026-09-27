@@ -41,6 +41,6 @@ import type { PageProps } from "./types";
 import styles from "./Page.module.css";
 ```
 
-## See also
+---
 
-- File organization (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -96,3 +96,7 @@ If the project's lint script fails after changes, report verbatim and fix before
 - Do not put UI or component logic inside the store — stores hold state and actions only.
 - Do not use for React component structure or TypeScript-only utilities.
   Load the relevant skill instead.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

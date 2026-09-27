@@ -36,6 +36,6 @@ any kind of renderable content, you should use the `ReactNode` type.
 - Break complex ideas into bulleted lists
 - Define acronyms on first use: `"GUI (Graphical User Interface)"`
 
-## See also
+---
 
-- Writing style (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

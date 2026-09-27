@@ -27,14 +27,4 @@ a factory function) for most cases.
 
 ---
 
-<a id="see-also"></a>
-
-## See Also
-
-- Documentation Best Practices — full doc standards reference
-- Code Comment Best Practices — JSDoc/TSDoc writing style
-- skill-authoring — writing style for SKILL.md files
-
-## See also
-
-- Writing style (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

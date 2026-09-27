@@ -152,3 +152,7 @@ git add . && git commit -m "fix: lint issues"
 
 - If incident response or rollback steps are needed, also load `deployment-operations`.
 - If task is release planning/configuration, also load `deployment-strategies`.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

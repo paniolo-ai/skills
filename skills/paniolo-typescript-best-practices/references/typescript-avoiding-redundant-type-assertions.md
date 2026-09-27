@@ -32,6 +32,6 @@ const raw: unknown = yield* $(Effect.tryPromise({ try: () => response.json(), ca
 Reserve `as SomeType` for genuine narrowings where TypeScript cannot infer the type (e.g. after a
 runtime discriminant check).
 
-## See also
+---
 
-- TypeScript (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

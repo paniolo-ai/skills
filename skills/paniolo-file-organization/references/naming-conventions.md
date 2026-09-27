@@ -183,6 +183,6 @@ tsconfig.json            # JSON (not .js)
 commitlint.config.js     # ESM: export default { ... }
 ```
 
-## See also
+---
 
-- File organization (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

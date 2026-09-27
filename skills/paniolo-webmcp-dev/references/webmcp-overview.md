@@ -62,3 +62,7 @@ layer.
 - [webmcp-observability](./webmcp-observability.md) — production metrics without PII dumps
 - blog-freshman-webmcp-practical-guide — end-to-end site guide
 - blog-vietanh-webmcp-attack-surface — production attack-surface notes
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

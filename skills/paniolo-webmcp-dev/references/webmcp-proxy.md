@@ -69,3 +69,7 @@ Page-native tools (session UI, declarative forms) still belong as local
 - [webmcp-vs-mcp](./webmcp-vs-mcp.md) — when MCP vs WebMCP vs both
 - [webmcp-overview](./webmcp-overview.md) — what WebMCP is
 - [webmcp-apis](./webmcp-apis.md) — native registration without a proxy
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -29,10 +29,6 @@ src/components/
 
 **Pattern:** Match filename exactly to main export name.
 
-## See also
+---
 
-- File organization (authoring) index
-
-## See also
-
-- File organization (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

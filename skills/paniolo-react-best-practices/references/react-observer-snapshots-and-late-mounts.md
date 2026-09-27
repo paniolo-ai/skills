@@ -84,8 +84,6 @@ stop this effect rebuilding every render. Under the React Compiler, assign that 
 `useLayoutEffect` — a render-phase write is a build error. See
 Compiler-rejected render side effects.
 
-## See also
+---
 
-- Windowed lists need an estimated size
-- useEffect Rules
-- React (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

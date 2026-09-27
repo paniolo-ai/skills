@@ -122,3 +122,7 @@ Tests: `source.test.ts`. Directories: `kebab-case`.
 
 - Rename work includes moving files/modules → also load `file-organization`.
 - Rename work is part of a larger refactor → also load `source-refactoring`.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

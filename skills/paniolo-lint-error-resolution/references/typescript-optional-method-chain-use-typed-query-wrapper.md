@@ -21,6 +21,6 @@ the builder's own interface.
 The wrapper gives the call site one concrete return type, so the optional chain
 disappears rather than being suppressed.
 
-## See also
+---
 
-- TypeScript lint (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

@@ -28,6 +28,6 @@ updated: 2026-06-18
 For complete file organization rules see
 `/skills/file-organization/SKILL.md`.
 
-## See also
+---
 
-- Naming conventions (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

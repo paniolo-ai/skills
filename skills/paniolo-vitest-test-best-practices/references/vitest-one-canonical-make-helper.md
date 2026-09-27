@@ -43,6 +43,6 @@ makeManageViewLoadedEvent({ ... })`).
 **Not allowed:** the same fixture type with two or more independent default implementations in
 different directories (merge into one canonical `*.test-util.ts` and update imports).
 
-## See also
+---
 
-- Vitest unit testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

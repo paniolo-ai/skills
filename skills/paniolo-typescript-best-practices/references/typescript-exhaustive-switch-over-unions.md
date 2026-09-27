@@ -78,6 +78,6 @@ how long it takes someone to notice that a feature quietly does nothing.
 - Do not cast the value in the default branch to make the error go away. If `assertNever` does not
   compile, a variant is genuinely unhandled.
 
-## See also
+---
 
-- TypeScript (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

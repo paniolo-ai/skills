@@ -177,3 +177,7 @@ not this one.
 - [paniolo-react-compiler/SKILL.md](../paniolo-react-compiler/SKILL.md)
 - [zustand-best-practices/SKILL.md](../paniolo-zustand-best-practices/SKILL.md)
 - [paniolo-typescript-best-practices/SKILL.md](../paniolo-typescript-best-practices/SKILL.md)
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

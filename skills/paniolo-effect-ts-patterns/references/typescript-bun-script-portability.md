@@ -48,9 +48,6 @@ propagated unchanged.
 Test argument parsing and environment transformations as pure functions. Run the real entrypoint on
 every supported host family when it performs host-sensitive process management.
 
-## See also
+---
 
-- Entry Point vs Logic Module Pattern
-- Effect Subprocesses
-- Native Runner Process Ownership
-- TypeScript Script Best Practices
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

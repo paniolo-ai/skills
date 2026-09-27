@@ -46,9 +46,6 @@ that `/tmp` exists on Windows, and do not depend on shell redirection for requir
 An outer timeout, forced process termination, or reporter pipe error is inconclusive unless a test
 assertion already established a product failure.
 
-## See Also
+---
 
-- E2E Fixture Contract Validation
-- Playwright Failure Classification
-- Native Runner Process Ownership
-- Playwright e2e testing (authoring) index
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*
