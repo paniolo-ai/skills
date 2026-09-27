@@ -1,7 +1,7 @@
 ---
 source-slug: secrets-paniolo-cli
-source-hash: f33c815b54cd7818d5615438c5ee81055b52ebbec502a207ffc2e42a0db79028
-bundled: 2026-09-26
+source-hash: 0b59404a93761fb8e9ecf04304eb595c39917fd242549184b1c7930fed2eb11f
+bundled: 2026-09-27
 title: Paniolo Secrets CLI
 type: concept
 tags:

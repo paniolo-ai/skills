@@ -1,7 +1,7 @@
 ---
 source-slug: secrets-migration
-source-hash: 639f43e80c07fbae92b987eecc2769cc79635c83510c5540d5c77aa86992edbc
-bundled: 2026-09-26
+source-hash: a499155a0fed0d85d01fe3245406400ce2948a88a54fc395b4fcdd167052802d
+bundled: 2026-09-27
 title: Migrating to Paniolo Secrets
 type: concept
 tags:

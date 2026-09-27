@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-framework-interop
-source-hash: c92d0d7d5918cb5dfac45fceb04ea3175fb5f29ccbe4f01584cf63df972febd1
-bundled: 2026-09-26
+source-hash: 9c3f211ade9c965688c5eec53d8f8ab0f999413082e3a9d917bb4b1419c07e3b
+bundled: 2026-09-27
 title: Web Component Framework Interop
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-api-design
-source-hash: 55fa0d645ee7a367002b8cc10f9482ae59ea12bd5d60c3d384b8e6551ec63a83
-bundled: 2026-09-26
+source-hash: d4a2ad15557a393e9b43617b6ddc926d54f2c27e93ae5747a0b8ec15a4bc04a8
+bundled: 2026-09-27
 title: Web Component API Design
 type: concept
 tags:

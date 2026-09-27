@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-lifecycle
-source-hash: aa04be7eed7fd53ec69940d19aad7a4c89164ef0c61ee7c0403b503a306c85a1
-bundled: 2026-09-26
+source-hash: 33ae4814143d086233ae40ce6171530ab473a491765bd6b030e688c63518fad4
+bundled: 2026-09-27
 title: Web Component Lifecycle
 type: concept
 tags:

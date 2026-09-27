@@ -4,7 +4,7 @@ description: |
   Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).
 license: MIT
 metadata:
-  version: 0.5.15
+  version: 0.5.16
 tags:
 - wiki
 user-invocable: true
@@ -66,6 +66,12 @@ read it from another repo on disk, **snapshot it into `raw/` first** (and add it
 that directory's `SOURCES.md`) or do not claim it. The validator enforces that every
 cited snapshot resolves — both `raw/<path>` entries and bare slugs — but it cannot
 catch a fact you invented, so this discipline is on you.
+
+`raw/` holds **reference documents, not source code.** Program-language files
+(`.ts`, `.tsx`, `.js`, `.rs`, `.py`, `.hs`, …), scripts (`.sh`, `.ps1`, `.cmd`),
+stylesheets (`.css`), and binaries do not belong under `raw/` — evidence for product
+code lives in page prose as commit IDs, file paths, and observed checks. Reference
+documents are fine: `.md`, `.html`, `.pdf`, images, and data files.
 
 Document anything that makes an AI agent more reliable across a long session:
 harness structure, instruction-authoring techniques, enforcement/correction loops,
@@ -314,6 +320,8 @@ Apply while writing so pages pass `paniolo wiki` (and the harness the project's 
 ## Do Not
 
 - Do not cite a `raw/` path you have not actually snapshotted.
+- Do not snapshot program source code, scripts, or binaries into `raw/` — cite
+  the upstream path and commit in prose instead.
 - Do not name a page without checking the wiki's prefix convention — the
   validator is green either way, so a wrong slug is invisible to `check:wiki`.
 - Do not rename onto an unprefixed slug; the rename command accepts any target.

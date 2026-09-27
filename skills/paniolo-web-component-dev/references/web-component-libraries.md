@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-libraries
-source-hash: bc6a3bd81c3e5baa80c89fb45b043e5e32b20913d7f63f244d39dc02df43e446
-bundled: 2026-09-26
+source-hash: 94d24e60826691b5e287f0b3588fcfa033e911d10bd395a6100efffa5af66a32
+bundled: 2026-09-27
 title: Web Component Libraries
 type: concept
 tags:

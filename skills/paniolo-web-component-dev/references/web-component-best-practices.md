@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-best-practices
-source-hash: 376ace377bcc04a3d8cfb24a23c77167e9452dcbf3d287e1726e6e174baffc31
-bundled: 2026-09-26
+source-hash: 1ed05f40b186a036ece9ece068038ffaab4ea80a1d89f62d62a35cf6591c0f68
+bundled: 2026-09-27
 title: Web Component Best Practices
 type: concept
 tags:

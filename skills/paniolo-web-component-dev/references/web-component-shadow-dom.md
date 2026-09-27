@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-shadow-dom
-source-hash: cd94b5fbd035355a44112c31fa8ad1502f42a259e69540873cc7cef4471a05ac
-bundled: 2026-09-26
+source-hash: 8eaa1980fcf3435eaf9cb426080f43dbadcc3813c54a87ed16c6fb18dbb71c91
+bundled: 2026-09-27
 title: Web Component Shadow DOM
 type: concept
 tags:

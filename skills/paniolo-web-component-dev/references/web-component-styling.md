@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-styling
-source-hash: 63771ff993ef933bbf31f5e83741f83ad158f63d8d7c913e27a0401b419d8456
-bundled: 2026-09-26
+source-hash: d3c11771483437f6d0baa81f5afc306b490042af092db3b5f09c6240246204c5
+bundled: 2026-09-27
 title: Web Component Styling
 type: concept
 tags:

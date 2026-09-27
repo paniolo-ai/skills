@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-forms
-source-hash: 8014405c552c1905ca18d3d4a07666a1a5d69867012f2bd129eae3a4f8e18a47
-bundled: 2026-09-26
+source-hash: 8a348d48f374a5283300a3841b54633998db27bfd5a1258a5493f0d02c64956d
+bundled: 2026-09-27
 title: Form-Associated Custom Elements
 type: concept
 tags:

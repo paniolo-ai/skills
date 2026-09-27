@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-events
-source-hash: 320aa3887e3bef6ebbda4798cf1449ca5bb2a65a1ef7f5dfab4393f497b293ff
-bundled: 2026-09-26
+source-hash: a37f60be62a51c6c1d97373fda7ddefe95c2c4c55a6faceb1dc40df907bb81a7
+bundled: 2026-09-27
 title: Web Component Events
 type: concept
 tags:

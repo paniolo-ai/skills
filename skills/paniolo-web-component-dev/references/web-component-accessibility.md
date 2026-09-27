@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-accessibility
-source-hash: fbc162f56e8ba2f7dfc271cc8e11dea03f420a604c073a42eda9bf22fbf18ea1
-bundled: 2026-09-26
+source-hash: 75dd8d2f68253889d2877a61d7a0c2927bc9251098cd498aaa32ec808e5600bc
+bundled: 2026-09-27
 title: Web Component Accessibility
 type: concept
 tags:

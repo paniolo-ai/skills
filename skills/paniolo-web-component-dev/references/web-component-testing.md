@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-testing
-source-hash: 276349f7711be596c7181f28688c77f037c29739ee09a089572f82fe22588086
-bundled: 2026-09-26
+source-hash: ef570be9a3e2900e2d8f68c99a11a2312fc7e63c0f2c9128ab02d029458e09ec
+bundled: 2026-09-27
 title: Web Component Testing
 type: concept
 tags:

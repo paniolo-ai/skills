@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-overview
-source-hash: a555e45f9e33aad2d9c99242d4cc2d17f8dd47620893b8a358bf528928e406e0
-bundled: 2026-09-26
+source-hash: d522c349c9389c5c5948f45e0fc25e113b37431ba72db382b50391c0c6481056
+bundled: 2026-09-27
 title: Web Components Overview
 type: concept
 tags:
