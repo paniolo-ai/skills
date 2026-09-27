@@ -101,7 +101,7 @@ is for or how it pairs with qmd.
 - [stale-configuration](references/stale-configuration.md) — the
   `staleness` config schema, validation, and CLI overrides
 - [stale-ledger](references/stale-ledger.md) — directory layout, record
-  ids, state machine, cursors, worktrees
+  ids, state machine, scan checkpoints, worktrees
 - [stale-adjudication](references/stale-adjudication.md) — agent roles,
   dispositions, merge gate, worker, CI advisory
 - [stale-calibration](references/stale-calibration.md) — corpus, gates,

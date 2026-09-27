@@ -1,6 +1,6 @@
 ---
 source-slug: stale-adjudication
-source-hash: dbb1ad3818d42859cfd31f812f08b2d2bd019973a0221a8a08120c61971c874f
+source-hash: 5d2a80e14bd1604d4c4a986309ed2302623131174eb659315b4fd767f4ac8f4d
 bundled: 2026-09-27
 title: Stale Adjudication
 type: concept
@@ -154,7 +154,7 @@ mechanics) and records a pending proposal. `merge-sync` reconciles against
 GitHub: `MERGED` heads run the merge gate and resolve the group; `CLOSED`
 PRs clear the proposal so work re-queues.
 
-`worker` is the durable runner — merge-sync → cursor-gated scan →
+`worker` is the durable runner — merge-sync → checkpoint-gated scan →
 adjudicate → propose → publish the ledger itself as a PR on
 `staleness/ledger`. One run per ledger via `run.lock`; a competing run
 prints `{"stopped": "run lock held"}` and exits 0.

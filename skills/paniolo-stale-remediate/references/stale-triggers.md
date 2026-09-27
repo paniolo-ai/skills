@@ -1,6 +1,6 @@
 ---
 source-slug: stale-triggers
-source-hash: e66b45264599f5f5b923b6dd4b81113dc881c670968a6f86e469ed3d86f4808e
+source-hash: 19f7997bd3908d47b9a3fc096251ff55827ea561124a4ba4d5b33ff1d5469def
 bundled: 2026-09-27
 title: Stale Triggers
 type: concept
@@ -116,13 +116,13 @@ policy as well as disabling the canonical config.
 ## Durable Worker
 
 `worker` is durable orchestration, not a daemon or scheduler. One invocation
-runs merge-sync, scans from per-repository cursors, adjudicates, proposes fixes,
-and publishes the ledger branch. Then it exits.
+runs merge-sync, scans each repository from its saved scan checkpoint to HEAD,
+adjudicates, proposes fixes, and publishes the ledger branch. Then it exits.
 
 A local task runner, self-hosted scheduler, or operator must invoke it again.
-Only a merged ledger PR advances cursors, so missed or failed invocations
-retain their range. `run.lock` prevents two worker invocations from owning the
-same ledger concurrently.
+Only a merged ledger PR advances scan checkpoints, so missed or failed
+invocations retain their range. `run.lock` prevents two worker invocations
+from owning the same ledger concurrently.
 
 Use `worker --bootstrap` once to record each repository's current HEAD without
 scanning its history. Use `--retry-retained` when a cycle should requeue

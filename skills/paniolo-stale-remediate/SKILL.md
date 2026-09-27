@@ -62,7 +62,7 @@ adapter, disposition, and merge-gate contract.
    clears closed proposals for re-queue.
 5. For continuous operation, use `worker --ledger-repo <key>:<path>
    --repo ... [--wiki ...] [--bootstrap]` — it merge-syncs, scans from
-   cursors, adjudicates, proposes, and publishes the ledger as a PR on
+   scan checkpoints, adjudicates, proposes, and publishes the ledger as a PR on
    `staleness/ledger`. One run per ledger via `run.lock`.
 
 ## Calibration

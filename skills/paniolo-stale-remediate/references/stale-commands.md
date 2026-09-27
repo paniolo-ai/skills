@@ -1,6 +1,6 @@
 ---
 source-slug: stale-commands
-source-hash: 84abb4ff5277aa7461f2fd99bb4f1767aebd0a85646ad0d10f11dfceb8d20227
+source-hash: dbbd4bcacaa8ecc525ff678eda0f0463bd8d79e49e6b898ef6a95db00fc4365d
 bundled: 2026-09-27
 title: Stale Commands
 type: concept
@@ -121,12 +121,12 @@ GitHub side effects.
 | `run` | `--adapter`, `--model`, `--challenger`, `--challenger-model`, `--remediator`, `--remediator-model`, `--patch-challenger`, `--patch-challenger-model`, `--repo key:path` (repeatable), `--max`, `--timeout-ms`, `--max-output-bytes` | Verify `pending-verification` allegations (verifier + verdict challenger), then remediate `confirmed-stale` ones (remediator + patch challenger). All role and limit flags are one-run overrides of config |
 | `propose` | `--repo key:path` (repeatable), `--dry-run` | Push each remote's `remediation-proposed` allegations as one PR on a `staleness/rem-*` branch via `gh pr create`, record the pending proposal, and request `gh pr merge --auto --squash --delete-branch` when `autoMerge` is set and the merge gate passes |
 | `merge-sync` | `--repo key:path` (repeatable), `--dry-run` | Reconcile pending proposals with `gh pr list`: merged heads run the merge gate and resolve the group; closed PRs clear the proposal for re-queue |
-| `worker` | `--ledger-repo key:path`, `--repo key:path` (repeatable), `--wiki key:path` (repeatable), the `run` role/limit flags, `--bootstrap`, `--retry-retained`, `--dry-run` | The durable runner: merge-sync → cursor-gated scan per repo → adjudicate → propose → publish the ledger itself as a candidate PR on branch `staleness/ledger`. One run at a time via `run.lock` |
+| `worker` | `--ledger-repo key:path`, `--repo key:path` (repeatable), `--wiki key:path` (repeatable), the `run` role/limit flags, `--bootstrap`, `--retry-retained`, `--dry-run` | The durable runner: merge-sync → checkpoint-gated scan per repo → adjudicate → propose → publish the ledger itself as a candidate PR on branch `staleness/ledger`. One run at a time via `run.lock` |
 
 `run` and `worker` admit the adapters `codex`, `claude`, and `cursor`; any
 other name is rejected before work starts. `--bootstrap` records each
-`--repo`'s HEAD as its cursor and skips scanning history — use it on first
-contact. `--retry-retained` requeues `insufficient-evidence` allegations
+`--repo`'s HEAD as its scan checkpoint and skips scanning history — use it
+on first contact. `--retry-retained` requeues `insufficient-evidence` allegations
 before adjudication. `propose`, `merge-sync`, and `worker` require `git`
 and `gh` on PATH with GitHub authentication.
 

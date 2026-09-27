@@ -1,6 +1,6 @@
 ---
 source-slug: stale-unique
-source-hash: 72364bbf81d2a9f6d6bb41d304414101d53f6a6fd771698eec44a982f2d50910
+source-hash: 3905c95e098211a38238053431a1236ae2d856ecc1b830a58ac52cb160845596
 bundled: 2026-09-27
 title: Why Stale Is Unique
 type: synthesis
@@ -71,8 +71,9 @@ auditable dispositions. That is the stale ledger.
   what lands ([stale-adjudication](./stale-adjudication.md)).
 - **The ledger is durable, git-native state.** Content-addressed
   allegations, evidence, observations, and bundles live beside the prose
-  they cover; cursors advance only when the ledger PR merges. Disagreement
-  retains work instead of inventing resolution ([stale-ledger](./stale-ledger.md)).
+  they cover; scan checkpoints advance only when the ledger PR merges.
+  Disagreement retains work instead of inventing resolution
+  ([stale-ledger](./stale-ledger.md)).
 - **Unknown is not negative.** Unverified pairs are excluded from
   denominators rather than counted as fresh — the system is built to not
   teach itself its own blind spots.

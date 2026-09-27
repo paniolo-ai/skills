@@ -1,6 +1,6 @@
 ---
 source-slug: stale-ledger
-source-hash: f3ed61f0add11794f7396130643c1ce7dd97b48ec0ab43575a8a093baa36dbd9
+source-hash: ae4f8b4f650f8704195bea2053d62b48902278f4778beae36d412a2f34071539
 bundled: 2026-09-27
 title: Stale Ledger
 type: concept
@@ -24,7 +24,7 @@ the code repository; workspace commands aggregate the local stores.
 - [Directory Layout](#directory-layout)
 - [Record Ids](#record-ids)
 - [State Machine](#state-machine)
-- [Cursors And Pending Scans](#cursors-and-pending-scans)
+- [Scan Checkpoints And Pending Scans](#scan-checkpoints-and-pending-scans)
 - [Worktrees And Branches](#worktrees-and-branches)
 - [Store Invariants](#store-invariants)
 - [See Also](#see-also)
@@ -45,7 +45,7 @@ Resolution order:
 
 The resolved path must stay inside the checkout — absolute paths, `..`
 segments, drive prefixes, and symlinked roots are rejected. Moving a ledger
-is an explicit migration: locks, cursors, observations, proposal records,
+is an explicit migration: locks, scan checkpoints, observations, proposal records,
 and git history form one durable whole.
 
 ---
@@ -63,7 +63,7 @@ and git history form one durable whole.
   observations/        O-<hash>.json   immutable sealed agent outputs by role
   remediation-bundles/ B-<hash>.json   pins the four observation ids + patch hash
   proposals/           <remote>.json   pending candidate-PR proposal per remote
-  cursor.json          per-repo last materialized scan heads
+  scan-checkpoints.json per-repo last materialized scan heads
   pending-scans.json   heads carried by an unmerged ledger PR
   state.lock           exclusive lock for every mutable read-modify-write
   run.lock             worker-only single-run mutex
@@ -120,16 +120,22 @@ verification on new evidence or `--retry-retained`, never abandoned.
 
 ---
 
-<a id="cursors-and-pending-scans"></a>
+<a id="scan-checkpoints-and-pending-scans"></a>
 
-## Cursors And Pending Scans
+## Scan Checkpoints And Pending Scans
 
-`cursor.json` maps each repository key to the last materialized scan head —
-the worker scans from cursor to HEAD each cycle. Scan heads recorded while
-a ledger PR is still open go to `pending-scans.json`; they promote to
-`cursor.json` only when the ledger PR carrying them merges. Remediation
-merges do not move cursors — only merged ledger PRs do. `worker
---bootstrap` seeds each `--repo` cursor at HEAD without scanning history.
+A **scan checkpoint** is the last source commit whose detection results were
+successfully materialized into a merged ledger. `scan-checkpoints.json` maps
+each repository key to that commit, and the worker scans the range
+`checkpoint..HEAD` each cycle. Scan heads recorded while a ledger PR is
+still open go to `pending-scans.json`; they become scan checkpoints only
+when the ledger PR carrying them merges. Remediation merges do not move scan
+checkpoints. `worker --bootstrap` seeds each `--repo` checkpoint at HEAD
+without scanning history.
+
+Stores created before this terminology change may contain `cursor.json`.
+The first checkpoint read migrates that file to `scan-checkpoints.json`
+without changing any repository's saved commit.
 
 ---
 
