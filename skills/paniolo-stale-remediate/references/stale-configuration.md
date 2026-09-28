@@ -1,6 +1,6 @@
 ---
 source-slug: stale-configuration
-source-hash: dbd973ec74e2266b2cf123dcc2c1073f21f710c3f5fae30d8fa6f3844dab8fcc
+source-hash: a05842629391fe02f0c05fc68d77c9007a612a45e1f3275c706b93161474bbed
 bundled: 2026-09-27
 title: Stale Configuration
 type: concept
@@ -110,10 +110,9 @@ A profile is `{adapter, model}`; a role is assigned a profile name.
 }
 ```
 
-Pairing a verifier family with a *different* remediator family keeps the
-challengers auditing across vendors rather than agreeing with themselves.
-The `devin` adapter exists in code but is not admitted by the CLI's adapter
-whitelist — naming it is an error.
+Pairing a verifier family with a *different* challenger family keeps the
+challenge independent rather than asking one vendor to audit itself. The
+admitted adapter names are `codex`, `claude`, `cursor`, and `devin`.
 
 ---
 

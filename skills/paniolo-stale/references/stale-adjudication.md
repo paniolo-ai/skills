@@ -1,6 +1,6 @@
 ---
 source-slug: stale-adjudication
-source-hash: 5d2a80e14bd1604d4c4a986309ed2302623131174eb659315b4fd767f4ac8f4d
+source-hash: 0b64357d74cd2b5701c8af426332f86a7dce252cf32f1db59013ae802ac14cfd
 bundled: 2026-09-27
 title: Stale Adjudication
 type: concept
@@ -60,11 +60,12 @@ invocation; after that the phase reports the failure instead of guessing.
 
 An adapter is a conformance-approved `ProcessSpec` — a fixed CLI
 invocation, not a shell template. Admitted adapters: `codex`, `claude`,
-`cursor`. A `devin` spec exists in code but is not admitted by the CLI.
+`cursor`, and `devin`.
 
 | Adapter | Invocation shape |
 | --- | --- |
 | `codex` | `codex exec --sandbox read-only --skip-git-repo-check --json --model <model> -` — payload on stdin, last `agent_message.text` JSONL entry is the response |
+| `devin` | `devin -p --prompt-file <file> --model <model> --respect-workspace-trust false --permission-mode auto` — payload in an exclusive temporary file, JSON on stdout |
 | `claude` | `claude -p --output-format json --model <model> --disallowedTools Bash,Write,Edit,NotebookEdit,Read,WebFetch,WebSearch` — stdin payload, `.result` envelope |
 | `cursor` | `cursor-agent -p --output-format json --mode ask --model <model> <input>` — payload as argv, `.result` envelope |
 
