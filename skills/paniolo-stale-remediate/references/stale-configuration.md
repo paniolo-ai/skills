@@ -1,6 +1,6 @@
 ---
 source-slug: stale-configuration
-source-hash: 5fa8af5acd9911b91129a79986bd5349def839441e899a1839ef623d1e7d56c9
+source-hash: dbd973ec74e2266b2cf123dcc2c1073f21f710c3f5fae30d8fa6f3844dab8fcc
 bundled: 2026-09-27
 title: Stale Configuration
 type: concept
@@ -52,7 +52,7 @@ All keys are camelCase.
 | `agentProfiles` | map: name → `{adapter, model}` | `{default: {adapter: codex, model: default}}` | Required when a `staleness` section is present. Named provider/model pairs; `adapter` must be `codex`, `claude`, or `cursor`; both fields must be non-empty |
 | `roles` | `{verifier, verdictChallenger, remediator, patchChallenger}` | every role → `default` | Each value names an `agentProfiles` key; unknown names fail validation |
 | `limits` | budget object | see [Limits And Retrieval](#limits-and-retrieval) | Phase, process, packet, repair, and total-invocation budgets |
-| `retrieval` | `{topK, maxImmediate}` | `4` / `50` | `topK` candidates per changed entity schedule immediately; `maxImmediate` caps materialized allegations per scan — overflow persists as deferred candidates in the `R-` run record. Both must be greater than zero |
+| `retrieval` | active and shadow retrieval object | active `4` / `50`; shadow off | `topK` and `maxImmediate` bound active scheduling. Optional `shadow` records non-authoritative qmd funnels; see [Limits And Retrieval](#limits-and-retrieval) |
 | `surfaces` | `{wikiPages, docs, codeComments}` | empty (admit all) | See [Content Surfaces](#content-surfaces) |
 | `autoMerge` | boolean | `false` | Request GitHub auto-merge only after the local merge gate authorizes the exact proposed head |
 
@@ -142,6 +142,28 @@ zero. The four roles require
 configured repair policy could exceed its own hard ceiling and validation
 fails.
 
+### Live qmd shadow measurement
+
+`retrieval.shadow` controls continuous measurement of fuzzy qmd retrieval
+during ordinary `scan` and `worker` runs:
+
+| Field | Default | Meaning |
+| --- | --- | --- |
+| `enabled` | `false` | Record qmd candidate funnels without creating allegations or invoking agents |
+| `documentPoolSize` | `20` | Maximum configured wiki or docs files retained after fusion per changed entity |
+| `sectionTopK` | `2` | Reranked sections marked as work that would be scheduled if the lane were admitted |
+| `maxEntitiesPerRun` | `25` | Maximum changed entities measured per scan, bounding model work and ledger growth |
+
+The live producer records separate `qmd-fusion`, `qmd-section-pool`, and
+`qmd-rerank` observations. It fingerprints the normalized query, query
+template, producer, and exact embedding and reranking models. The reranker
+can see only sections inside the retrieved document pool.
+
+This lane is measurement only. It cannot create an allegation, set a
+disposition, call an agent, or authorize a merge. A qmd failure appears in
+the command's `qmd_shadow` report while deterministic detection continues.
+Dry runs write no shadow records.
+
 ---
 
 <a id="content-surfaces"></a>
@@ -170,8 +192,9 @@ The whole block is validated on load; any violation aborts the command:
 
 - `ledgerPath` must be a non-empty repo-relative path without parent
   traversal or a drive prefix.
-- Every positive-only `limits` value and both `retrieval` values must be
-  greater than zero; `maxRepairAttempts` may be zero.
+- Every positive-only `limits` value, both active `retrieval` values, and
+  all three `retrieval.shadow` budgets must be greater than zero;
+  `maxRepairAttempts` may be zero.
 - Four times `maxRepairAttempts + 1` may not exceed
   `maxInvocationsPerAllegation`.
 - `surfaces.*.repositories` may not contain blank keys; `include`/`exclude`
@@ -234,7 +257,16 @@ family and a Cursor remediator — and scoped surfaces:
     "maxPacketBytes": 49152,
     "maxInvocationsPerAllegation": 8
   },
-  "retrieval": { "topK": 4, "maxImmediate": 50 },
+  "retrieval": {
+    "topK": 4,
+    "maxImmediate": 50,
+    "shadow": {
+      "enabled": true,
+      "documentPoolSize": 20,
+      "sectionTopK": 2,
+      "maxEntitiesPerRun": 25
+    }
+  },
   "surfaces": {
     "wikiPages": {
       "repositories": ["paniolo-wiki", "sharp-shooter-wiki"],

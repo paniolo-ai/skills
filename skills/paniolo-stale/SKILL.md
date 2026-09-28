@@ -4,7 +4,7 @@ description: |
   Operate the paniolo stale staleness ledger — scan a commit range for prose the code may have invalidated, inspect and triage allegations, manage the queue, and read the dogfood report. Use when asked to scan for stale docs, list or show staleness findings, check the staleness queue, or triage allegations. Read-mostly — for agent verification, remediation PRs, and the durable worker use paniolo-stale-remediate.
 license: MIT
 metadata:
-  version: 0.1.1
+  version: 0.1.2
 tags:
 - staleness
 - ledger
@@ -55,10 +55,15 @@ is for or how it pairs with qmd.
    `--root <repo>` option before `scan`, then supply `--code <key>:<path>`,
    `--base <sha>`, `--head <sha>`, and `--dry-run` to the scan. Add
    `--wiki <key>:<path>` for declared watches on wiki checkouts.
+   When `retrieval.shadow.enabled` is true, a live scan also reports
+   `qmd_shadow`; those records measure retrieval only and create no
+   allegations.
 2. Inspect the queue with `list --actionable`, `next`, and `show <id>` —
    `show` prints the allegation plus its sealed observations by role.
 3. Read the deterministic dogfood report with `report` — per-surface
-   outcomes, canary hits/misses, and `automerge_recommended`.
+   outcomes plus live lexical/hybrid overlap, lane-only document IDs, and
+   reranker scheduling counts when shadow collection is enabled, along with
+   canary hits/misses and `automerge_recommended`.
 4. Triage with the queue verbs: `retry <id>` requeues insufficient or
    dismissed work, `resolve <id> --note <ref>` closes a proposal whose fix
    landed elsewhere, `rebase` re-resolves locations, and `prune` removes

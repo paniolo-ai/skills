@@ -4,7 +4,7 @@ description: |
   Drive the paniolo stale adjudication and remediation pipeline — run verifier/challenger agent phases, propose and merge remediation PRs, operate the durable worker, and calibrate detection with replay, shadow lanes, and canaries. Use when asked to run, adjudicate, remediate, propose, merge-sync, automate, or calibrate staleness work. To inspect the ledger without mutating, use paniolo-stale.
 license: MIT
 metadata:
-  version: 0.1.1
+  version: 0.1.2
 tags:
 - staleness
 - remediation
@@ -74,6 +74,10 @@ adapter, disposition, and merge-gate contract.
 - `shadow-qmd <out.json>` measures the qmd retrieval lane over the holdout
   corpus; `replay --full --shadow-observations <file>` scores lane
   admission; `score-shadow <file>` re-validates a file standalone.
+- `staleness.retrieval.shadow.enabled: true` records qmd document and
+  section funnels during live `scan` and `worker` cycles. It remains
+  non-authoritative: no fuzzy allegation, agent call, disposition, or merge
+  authority.
 - `report` recomputes per-surface outcomes, canary hits/misses, and the
   false-resolution budget. See
   [stale-calibration](references/stale-calibration.md).

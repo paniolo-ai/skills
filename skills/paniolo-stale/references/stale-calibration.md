@@ -1,6 +1,6 @@
 ---
 source-slug: stale-calibration
-source-hash: 34dfeff60521b35511ad3576ab6116a1fcced069e1fd0a91ae2d1ca8e83619ee
+source-hash: d517f3b070bf9430d8f2e8ebc160f1c3f5fb4099be62961a6b1ac05e3d358f31
 bundled: 2026-09-27
 title: Stale Calibration
 type: concept
@@ -109,10 +109,32 @@ The shadow lane measures candidate retrieval without touching production:
 3. `paniolo stale score-shadow <file>` validates and re-scores a
    shadow-observation file standalone — no agents, no ledger.
 
+Live dogfood collection is separate from the frozen holdout replay. Set
+`staleness.retrieval.shadow.enabled: true` to make ordinary live `scan` and
+`worker` runs record qmd's document fusion pool, the complete section pool
+inside those documents, and the reranked section order. Each `R-` record
+includes the normalized query, query-template and producer versions, exact
+model references, ranks, scores, and the top K that would be scheduled.
+
+The live lane remains non-authoritative: it creates no allegations and sends
+nothing to the verifier. A candidate that overlaps a declared allegation can
+later be joined to independently produced outcomes by changed-entity and
+section IDs. A fuzzy-only candidate remains unknown, not negative, until a
+future preregistered tail sampler or known-answer case labels it.
+
+This uses one ledger rather than a second fuzzy ledger. Each live `R-` run
+records a lexical-only document lane and a hybrid lexical-plus-vector document
+lane for the same query. `paniolo stale report` compares them by canonical
+document ID, exposing overlap, hybrid-only discoveries, and lexical-only
+displacements. It also counts reranked sections and the top K that would have
+been scheduled. Those differences measure retrieval behavior; they are not
+recall or correctness claims until independent labels exist.
+
 The qmd lane is **not admitted to production today**. Its producer is
 implemented, but the earlier observation file has a superseded corpus
 fingerprint. A fresh complete holdout replay must pass every fuzzy-lane gate
-before production scan may use qmd nomination or reranking.
+before production scan may use qmd nomination or reranking to create work.
+Live shadow recording does not count as admission.
 
 ---
 
@@ -130,7 +152,8 @@ measurement. Seeds are idempotent because ids are content-addressed.
 report from the ledger: outcomes, sealed observations by role, conflicts, a
 10% tail sample, canary hits and misses, the false-resolution error budget
 (`MAX_FALSE_RESOLUTIONS = 0` — one false resolution recommends keeping
-automerge off), and `automerge_recommended`.
+automerge off), `automerge_recommended`, and the live lexical-versus-hybrid
+retrieval comparison.
 
 ---
 

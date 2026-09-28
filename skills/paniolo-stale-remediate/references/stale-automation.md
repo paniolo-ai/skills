@@ -1,6 +1,6 @@
 ---
 source-slug: stale-automation
-source-hash: ee03f582d0f53bbb6371fcdc095ea63b14dcc601f963e11f092f4a9274b5d3d8
+source-hash: 694f5fe132d9a8deffdb616465ac631d3d9fcbae8da264da926d6988b51f5db8
 bundled: 2026-09-27
 title: Stale Automation
 type: concept
@@ -151,7 +151,8 @@ transition table.
 - `ranch-hand/crates/staleness/` — the product-neutral engine: detection,
   the store, agent orchestration, remediation, merge gate, corpus, and eval.
 - `ranch-hand/crates/paniolo-cli/src/commands/stale.rs` — the
-  `paniolo stale` command surface; `stale_shadow.rs` holds `shadow-qmd`.
+  `paniolo stale` command surface; `stale_shadow.rs` holds the frozen
+  `shadow-qmd` replay producer and the opt-in live qmd measurement lane.
 - The `stale` cargo feature gates the command and is part of
   `release-core`, so every release lane builds it. A binary without the
   feature reports `unrecognized subcommand 'stale'`.
