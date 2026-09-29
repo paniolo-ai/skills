@@ -1,7 +1,7 @@
 ---
 source-slug: stale-triggers
-source-hash: 19f7997bd3908d47b9a3fc096251ff55827ea561124a4ba4d5b33ff1d5469def
-bundled: 2026-09-27
+source-hash: 6bf131674c368ece1974a3db5db401046a4715a2cb8c7aa9fa6461cd6548b37b
+bundled: 2026-09-28
 title: Stale Triggers
 type: concept
 tags:
@@ -9,7 +9,7 @@ tags:
 - harness-eng
 - automation
 - configuration
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 # Stale Triggers
@@ -41,6 +41,7 @@ invoke the command with an explicit configuration.
 | --- | --- | --- | --- | --- |
 | Manual advisory | Operator supplies `base` and `head` | `scan --dry-run` | No | None; JSON report only |
 | Manual detection | Operator supplies `base` and `head` | `scan` | No | Ledger allegations and retrieval runs |
+| Agent-observed filing | Working agent encounters contrary evidence during its own task and explicit config permits filing | `flag` | No new agent | One deduplicated `A-` report; no verification or repair |
 | Pull-request advisory | CI receives a PR event | `scan --dry-run` | No | CI summary and artifact only |
 | Manual adjudication | Operator elects to process the queue | `run` | Yes | Ledger observations, transitions, and bundles |
 | Proposal publication | Operator elects to publish accepted fixes | `propose` | No | Worktree, branch, push, PR, proposal record |
@@ -93,6 +94,12 @@ Inspection and explicit maintenance remain available while automation is off:
 `rebase`, `merge-sync`, `seed`, and `replay`. `shadow-qmd` runs before the
 ledger configuration is opened and is also unaffected by `enabled`.
 
+`flag` is a separate, opt-in entry point. It requires an **explicit**
+effective `staleness.enabled: true`; the default value alone is not enough.
+If disabled, it files nothing and returns `status: disabled`. The working
+agent should report only evidence it already encountered, then resume its
+original task. Dedicated ledger agents handle verification and repair.
+
 ---
 
 <a id="pull-request-advisory"></a>
@@ -100,8 +107,10 @@ ledger configuration is opened and is also unaffected by `enabled`.
 ## Pull-Request Advisory
 
 The Ranch Hand `staleness-advisory` workflow runs on each pull request. It
-scans `base..head` with `--dry-run`, publishes a bounded summary, and uploads
-`staleness-report`. It has read-only repository permissions, no agent
+scans `base..head` with `--dry-run`, publishes a bounded summary and watch
+coverage, and uploads `staleness-report` with scan outcome and elapsed time.
+It distinguishes a failed scan or missing report from zero candidates. It
+has read-only repository permissions, no agent
 credentials, and cannot block a merge.
 
 The workflow passes `.github/staleness-advisory.json`. That file currently
@@ -159,7 +168,7 @@ The controls are independent:
 
 | Control | Scope |
 | --- | --- |
-| `staleness.enabled` | Whether `scan`, `run`, `propose`, and `worker` execute for the selected config |
+| `staleness.enabled` | Whether `scan`, `run`, `propose`, and `worker` execute; `flag` requires an explicit effective `true` |
 | `--dry-run` | Whether that invocation may persist or call agents/GitHub, where supported |
 | `autoMerge` | Whether `propose` may request auto-merge after the evidence gate passes |
 | `<ledger>/automerge.disabled` | Emergency merge kill switch; scanning and adjudication continue |

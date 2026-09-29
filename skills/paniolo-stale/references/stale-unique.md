@@ -1,7 +1,7 @@
 ---
 source-slug: stale-unique
-source-hash: 3905c95e098211a38238053431a1236ae2d856ecc1b830a58ac52cb160845596
-bundled: 2026-09-27
+source-hash: 37f7821f6a0209a50027feccc5ab3063a3664e37c40ea1deae8a07f4d1ad32a5
+bundled: 2026-09-28
 title: Why Stale Is Unique
 type: synthesis
 tags:
@@ -9,7 +9,7 @@ tags:
 - qmd
 - harness-eng
 - retrieval
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 # Why Stale Is Unique
@@ -92,9 +92,10 @@ auditable dispositions. That is the stale ledger.
 
 qmd is the intended recall layer; stale is the maintenance layer. qmd makes
 the corpus findable through BM25, embeddings, and reranking over pages and
-sections. The production staleness path currently uses declared watches;
-qmd retrieval and reranking remain a measured shadow lane until a refreshed
-holdout replay clears every admission gate.
+sections. Production nomination uses declared watches and exact references
+to deleted or renamed sources, including unwatched prose. qmd retrieval
+and reranking remain a measured shadow lane until a refreshed holdout
+replay clears every admission gate.
 
 - **Target contract: retrieval nominates and reranking routes.** After
   admission, lexical and vector retrieval will produce a bounded candidate
@@ -111,7 +112,8 @@ holdout replay clears every admission gate.
   measured replay against the frozen gates admits them. The earlier replay's
   corpus fingerprint predates the current non-oracle baseline, so it cannot
   authorize production. qmd must earn its place again against the current
-  fingerprint.
+  fingerprint. A run with a missing, stale, or otherwise invalid qmd index
+  manifest cannot count toward that replay.
 - **Clean separation in storage.** The default ledger lives at
   `.paniolo/staleness`, deliberately outside the content roots, so
   candidates never enter the qmd corpus they protect.
@@ -144,6 +146,13 @@ evidence that the knowledge remains agent-ready. The commercial test is
 operational — does the queue catch meaningful drift early, stay bounded,
 and let inexpensive agents resolve the mechanical majority without routine
 human work — and the ledger is built to answer it with numbers, not vibes.
+
+Agents may also file one bounded observation they encounter while doing
+their assigned work, but only when the effective config explicitly opts
+in. They do not investigate or repair it. This `observed-in-use/1` shadow
+lane can measure which otherwise-missed claims people actually rely on,
+without treating report frequency as truth. See [stale-ledger](./stale-ledger.md) and
+[stale-calibration](./stale-calibration.md).
 
 ---
 

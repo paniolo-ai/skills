@@ -1,14 +1,14 @@
 ---
 source-slug: stale-adjudication
-source-hash: 0b64357d74cd2b5701c8af426332f86a7dce252cf32f1db59013ae802ac14cfd
-bundled: 2026-09-27
+source-hash: ad5cb87d8893318b2a0a4618ab1b2bf436ab63d364261654c93fe3bb068bf169
+bundled: 2026-09-28
 title: Stale Adjudication
 type: concept
 tags:
 - staleness
 - harness-eng
 - agents
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 # Stale Adjudication
@@ -51,6 +51,13 @@ or shared conversation:
 Config assigns each role an agent profile; CLI flags override per run
 ([stale-configuration](./stale-configuration.md)). One bounded repair retry is allowed per
 invocation; after that the phase reports the failure instead of guessing.
+
+Verifier and verdict challenger receive any explicit `as-of` date or
+product version with the allegation. When a version resolves as a Git
+revision, the packet includes a bounded source excerpt from that
+revision. They compare the claim against its stated scope, not merely
+today's code. If the scope cannot be grounded, they return insufficient
+evidence rather than a confident fresh or stale verdict.
 
 ---
 
@@ -175,8 +182,11 @@ feature, then runs
 --code ranch-hand:. --wiki paniolo-wiki:.staleness/paniolo-wiki
 --base <base> --head <head> --dry-run`.
 The scan is `continue-on-error` and summarized into `$GITHUB_STEP_SUMMARY`
-(capped at 8192 bytes) with the JSON uploaded as the `staleness-report`
-artifact. It can be inconclusive; it can never block a merge.
+(capped at 8192 bytes). The `staleness-report` artifact includes the scan
+JSON plus `staleness-meta.json` with success/failure and elapsed seconds.
+The summary includes watch coverage when the report contains it; a failed
+scan or missing report is not presented as zero candidates. The advisory
+can be inconclusive; it can never block a merge.
 
 ---
 

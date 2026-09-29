@@ -1,14 +1,14 @@
 ---
 source-slug: stale-configuration
-source-hash: a05842629391fe02f0c05fc68d77c9007a612a45e1f3275c706b93161474bbed
-bundled: 2026-09-27
+source-hash: ab3dba2c15ef5a3cc1a35361909ee2c567476e6e5e75f3a534a768f45f71524e
+bundled: 2026-09-28
 title: Stale Configuration
 type: concept
 tags:
 - staleness
 - harness-eng
 - configuration
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 # Stale Configuration
@@ -47,9 +47,9 @@ All keys are camelCase.
 
 | Field | Type | Default | Notes |
 | --- | --- | --- | --- |
-| `enabled` | boolean | `true` | Gates `scan`, `run`, `propose`, and `worker` for this selected config; inspection and explicit maintenance remain available |
+| `enabled` | boolean | `true` | Gates `scan`, `run`, `propose`, and `worker`; agent `flag` filing additionally requires an explicit effective `true` |
 | `ledgerPath` | string | `.paniolo/staleness` | Repo-relative durable ledger directory. Required when a `staleness` section is present — it has no per-field default. Validated: non-empty, relative, no `.`/`..`/drive-prefix components |
-| `agentProfiles` | map: name → `{adapter, model}` | `{default: {adapter: codex, model: default}}` | Required when a `staleness` section is present. Named provider/model pairs; `adapter` must be `codex`, `claude`, or `cursor`; both fields must be non-empty |
+| `agentProfiles` | map: name → `{adapter, model}` | `{default: {adapter: codex, model: default}}` | Required when a `staleness` section is present. Admitted adapters: `codex`, `claude`, `cursor`, `devin`; both fields must be non-empty |
 | `roles` | `{verifier, verdictChallenger, remediator, patchChallenger}` | every role → `default` | Each value names an `agentProfiles` key; unknown names fail validation |
 | `limits` | budget object | see [Limits And Retrieval](#limits-and-retrieval) | Phase, process, packet, repair, and total-invocation budgets |
 | `retrieval` | active and shadow retrieval object | active `4` / `50`; shadow off | `topK` and `maxImmediate` bound active scheduling. Optional `shadow` records non-authoritative qmd funnels; see [Limits And Retrieval](#limits-and-retrieval) |
@@ -67,6 +67,13 @@ successful JSON response with `"status": "disabled"` before the ledger
 opens. It does not disable inspection, queue maintenance, calibration, or an
 independent workflow that passes a different `--config`. See
 [stale-triggers](./stale-triggers.md) for the command and trigger matrix.
+
+Agent filing through `stale flag` is intentionally stricter: the
+effective selected config must **explicitly** contain `enabled: true`.
+The built-in default of `true` does not count. Missing, false, and absent
+sections return `status: disabled` with no report record. This lets a
+working agent report evidence it already encountered only when its owner
+has opted into that behavior; filing never launches a remediation agent.
 
 The canonical `paniolo.config.json` may have a sibling
 `paniolo.config.local.json`. The local file recursively overlays the tracked
@@ -180,6 +187,8 @@ takes:
 
 Patterns must be valid globs, repo-relative: no leading `/`, no `:`, no
 `..` segments. Backslashes are normalized to `/` before validation.
+The configured globs select which files are scanned; parser support for a
+language does not override an excluded or unselected path.
 
 ---
 
@@ -230,8 +239,9 @@ silently rewrite the saved configuration.
 
 ## Example
 
-The harness workspace runs with two profiles — a Codex verifier/challenger
-family and a Cursor remediator — and scoped surfaces:
+The tracked harness workspace config currently assigns Cursor Auto to
+verification and remediation and Devin SWE-2 High to both challengers.
+It keeps automation off by default and scopes the surfaces:
 
 ```json
 "staleness": {
@@ -239,14 +249,14 @@ family and a Cursor remediator — and scoped surfaces:
   "ledgerPath": ".paniolo/staleness",
   "autoMerge": true,
   "agentProfiles": {
-    "codex-gpt-5-5": { "adapter": "codex", "model": "gpt-5.5" },
-    "cursor-swe-2-high": { "adapter": "cursor", "model": "swe-2-high" }
+    "cursor-auto": { "adapter": "cursor", "model": "auto" },
+    "devin-swe-2-high": { "adapter": "devin", "model": "swe-2-high" }
   },
   "roles": {
-    "verifier": "codex-gpt-5-5",
-    "verdictChallenger": "codex-gpt-5-5",
-    "remediator": "cursor-swe-2-high",
-    "patchChallenger": "codex-gpt-5-5"
+    "verifier": "cursor-auto",
+    "verdictChallenger": "devin-swe-2-high",
+    "remediator": "cursor-auto",
+    "patchChallenger": "devin-swe-2-high"
   },
   "limits": {
     "maxAllegationsPerPhase": 25,

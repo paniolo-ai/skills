@@ -1,7 +1,7 @@
 ---
 source-slug: stale-automation
-source-hash: 694f5fe132d9a8deffdb616465ac631d3d9fcbae8da264da926d6988b51f5db8
-bundled: 2026-09-27
+source-hash: f2eca7c1374dd4be30b316f538deaca00a3a3a8eb134485fe7a9d1d005a8e283
+bundled: 2026-09-28
 title: Stale Automation
 type: concept
 tags:
@@ -9,7 +9,7 @@ tags:
 - harness-eng
 - agents
 - cli
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 # Stale Automation
@@ -32,6 +32,8 @@ or set a disposition.
 - [What Starts The Loop](#what-starts-the-loop)
 - [Content Surfaces](#content-surfaces)
 - [Declared Watches](#declared-watches)
+- [Additional Candidate Lanes](#additional-candidate-lanes)
+- [Historical And Versioned Claims](#historical-and-versioned-claims)
 - [Allegation Lifecycle](#allegation-lifecycle)
 - [Where The Code Lives](#where-the-code-lives)
 - [See Also](#see-also)
@@ -43,7 +45,7 @@ or set a disposition.
 ## The Loop
 
 ```text
-declared watch or admitted retrieval
+declared watch, exact deleted reference, or admitted retrieval
   → allegation and immutable evidence
   → verifier verdict
   → independent verdict challenger
@@ -86,6 +88,10 @@ configured scope, and metrics:
 | `docs` | `docs-declared/1` | Ordinary repository Markdown docs carrying `staleness:` frontmatter |
 | `comment` | `comment-assoc/1` | Parser-owned code comments (tree-sitter; Rust, TypeScript/TSX/JS/JSX, C#, PowerShell, shell, and Python) bound to their owning symbol; Python docstrings are included |
 
+The detector column names the declared-watch path. The exact-reference
+audit can also nominate unwatched text on these surfaces. Volatile-claim
+suggestions remain measurements, not allegations.
+
 A deleted file marks open allegations at that path `obsolete`; generated
 files and floating comments are skipped.
 
@@ -95,7 +101,7 @@ files and floating comments are skipped.
 
 ## Declared Watches
 
-Pages opt in through YAML frontmatter — nothing is inferred:
+Pages opt in to the declared-watch lane through YAML frontmatter:
 
 ```yaml
 staleness:
@@ -119,6 +125,61 @@ Breadth is bounded: more than 4 watches per page, or more than 8 paths or
 8 symbols per watch, produces warnings. Validation rejects `unknown-repo`,
 `empty-scope`, `escaping-path`, `invalid-symbol`, `invalid-section`, and
 `unknown-mode` declarations.
+
+---
+
+<a id="additional-candidate-lanes"></a>
+
+## Additional Candidate Lanes
+
+The `unwatched-ref/1` detector looks for exact references to deleted or
+renamed code paths and symbols in wiki pages, ordinary docs, and bound code
+comments. It does not require a watch. A location already covered by a
+declared watch is suppressed here to avoid duplicate allegations. This is
+an exact-reference audit, not a general semantic contradiction search.
+
+The volatile audit emits capped suggestions for versions, dates, counts,
+and moving phrases. A suggestion is not a stale verdict or an
+allegation. Promotion requires a declared watch **and** source evidence
+that the same literal changed from an old to a new value at the named
+revision. Routine scans do not yet extract those old/new source literals,
+so automatic volatile promotion remains off. See [stale-calibration](./stale-calibration.md)
+for per-class measurements and the admission boundary.
+
+---
+
+<a id="historical-and-versioned-claims"></a>
+
+## Historical And Versioned Claims
+
+On Markdown pages, an exact marker pair exempts only the enclosed
+historical passage from the deleted-reference audit:
+
+```markdown
+<!-- paniolo:historical:start -->
+This passage records the old behavior.
+<!-- paniolo:historical:end -->
+```
+
+The markers must stand on their own lines, pair exactly, and never nest.
+Malformed ranges fail wiki validation or ordinary-doc collection. The
+rest of the page and code comments remain eligible.
+
+A watched section may declare its claim's intended scope in its watch or
+with a section-local marker:
+
+```markdown
+## Earlier Release
+
+<!-- paniolo:claim-scope version=paniolo-0.4.x as-of=2026-06 -->
+```
+
+The marker applies to that heading's watched passage, not the whole
+page. A duplicate marker or a conflict with the watch is invalid. An
+unmarked claim has unknown time/version scope; the verifier must not
+infer currentness from age alone. When the named version resolves to a
+Git revision, the evidence packet includes a bounded historical source
+excerpt. Otherwise the agents must abstain if scope cannot be grounded.
 
 ---
 

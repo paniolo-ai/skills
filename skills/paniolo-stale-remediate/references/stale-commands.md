@@ -1,14 +1,14 @@
 ---
 source-slug: stale-commands
-source-hash: dbbd4bcacaa8ecc525ff678eda0f0463bd8d79e49e6b898ef6a95db00fc4365d
-bundled: 2026-09-27
+source-hash: 313c31355176bf08392a161532418354a470b1f5fa17e9b747f67875fa0e7b68
+bundled: 2026-09-28
 title: Stale Commands
 type: concept
 tags:
 - staleness
 - harness-eng
 - cli
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 # Stale Commands
@@ -29,6 +29,7 @@ The command is gated behind the `stale` cargo feature (part of
 - [Automation Gate](#automation-gate)
 - [Inspection Verbs](#inspection-verbs)
 - [Detection Verb](#detection-verb)
+- [Agent Filing Verb](#agent-filing-verb)
 - [Queue-Management Verbs](#queue-management-verbs)
 - [Agent And Publication Verbs](#agent-and-publication-verbs)
 - [Calibration Verbs](#calibration-verbs)
@@ -63,6 +64,11 @@ key, so a file holding only the bare block is treated as no section.
 `{"status":"disabled",...}` before opening the ledger. That response
 means **not run**, not an empty scan or completed cycle.
 
+`flag` has a stricter gate: the effective selected config must explicitly
+set `staleness.enabled: true`. A missing section or an implicit default
+does not authorize agent filing. Disabled filing returns `status: disabled`
+and writes no agent-report record.
+
 Other commands remain available. A command using a differently named explicit
 `--config` has independent policy and does not inherit the canonical config
 or its machine-local overlay. See [stale-triggers](./stale-triggers.md) for the full trigger and
@@ -81,8 +87,8 @@ These write nothing to the ledger.
 | `list` | `--actionable` | List allegations as `{id, state, section_id, claim, revision}` rows; `--actionable` keeps `pending-verification`, `confirmed-stale`, `remediation-proposed` |
 | `next` | — | Print the first actionable allegation in deterministic id order |
 | `show <id>` | `S-` id or unique prefix | Show one allegation plus its sealed observations by role; an ambiguous prefix is an error |
-| `report` | — | Deterministic per-surface dogfood report: outcomes, sealed observations by role, canary hits/misses, false-resolution budget, `automerge_recommended` |
-| `score-shadow` | `<input>` JSON file | Validate and score a complete shadow-observation file without running verifier or remediation agents |
+| `report` | — | Deterministic per-surface outcomes, canaries, false-resolution budget, `automerge_recommended`, retrieval shadow, and separate agent-report slice |
+| `score-shadow` | `<input>` JSON file | Score shadow observations only when their qmd index-integrity manifest is present and valid; no agents or ledger writes |
 
 ---
 
@@ -92,7 +98,22 @@ These write nothing to the ledger.
 
 | Command | Arguments and flags | Behavior |
 | --- | --- | --- |
-| `scan` | `--code key:path` (repeatable), `--wiki key:path` (repeatable), `--base <sha>`, `--head <sha>`, `--dry-run` | Detect allegations over `base..head`; a normal run writes allegation and retrieval-run records, while `--dry-run` computes the report without touching the ledger |
+| `scan` | `--code key:path` (repeatable), `--wiki key:path` (repeatable), `--base <sha>`, `--head <sha>`, `--dry-run` | Detect allegations over `base..head`; report watch coverage, scan errors, and volatile suggestions; a normal run writes allegation and retrieval-run records, while `--dry-run` touches no ledger |
+
+---
+
+<a id="agent-filing-verb"></a>
+
+## Agent Filing Verb
+
+| Command | Arguments and flags | Behavior |
+| --- | --- | --- |
+| `flag` | `--target <repo:path#anchor> --claim <text> --observation <file> [--source-revision <revision>]` | File one bounded observation the working agent already encountered. An identical filing returns `duplicate`; otherwise it returns `filed` and an `A-` report id. It does not investigate, verify, or repair the claim |
+
+The observation argument names a UTF-8 file, not inline text. The closed
+packet rejects patch requests, verdicts, and task-output fields. Only an
+explicitly enabled config permits a write. See [stale-ledger](./stale-ledger.md) for the
+record and [stale-calibration](./stale-calibration.md) for its independent-outcome measurement.
 
 ---
 
@@ -123,7 +144,7 @@ GitHub side effects.
 | `merge-sync` | `--repo key:path` (repeatable), `--dry-run` | Reconcile pending proposals with `gh pr list`: merged heads run the merge gate and resolve the group; closed PRs clear the proposal for re-queue |
 | `worker` | `--ledger-repo key:path`, `--repo key:path` (repeatable), `--wiki key:path` (repeatable), the `run` role/limit flags, `--bootstrap`, `--retry-retained`, `--dry-run` | The durable runner: merge-sync → checkpoint-gated scan per repo → adjudicate → propose → publish the ledger itself as a candidate PR on branch `staleness/ledger`. One run at a time via `run.lock` |
 
-`run` and `worker` admit the adapters `codex`, `claude`, and `cursor`; any
+`run` and `worker` admit `codex`, `claude`, `cursor`, and `devin`; any
 other name is rejected before work starts. `--bootstrap` records each
 `--repo`'s HEAD as its scan checkpoint and skips scanning history — use it
 on first contact. `--retry-retained` requeues `insufficient-evidence` allegations
@@ -139,7 +160,7 @@ and `gh` on PATH with GitHub authentication.
 | Command | Arguments and flags | Behavior |
 | --- | --- | --- |
 | `replay` | `--adapter`, `--model`, `--challenger-adapter`, `--challenger-model`, `--full`, `--shadow-observations <file>` (requires `--full`) | Live known-answer replay through the real adapters: preflight each role (`<cli> --version`, 15 s), then run built-in cases and the frozen gate report. `--full` adds remediation cases and scores fuzzy-lane admission from a shadow-observation file. **Writes ledger records — use a disposable `--root`** |
-| `shadow-qmd` | positional `<output>` JSON path, `--work-dir <dir>` | (requires the `qmd` feature) Measure qmd retrieval and reranking over the committed docs holdout: materialize `stale-shadow-*` collections in an isolated index, retrieve and rerank per case, write the `ShadowReplayInput` that `replay --full` consumes. Needs a configured qmd rerank model |
+| `shadow-qmd` | positional `<output>` JSON path, `--work-dir <dir>` | (requires the `qmd` feature) Measure qmd retrieval and reranking over the committed docs holdout in an isolated index; write observations with a run-scoped index-integrity manifest. Needs a configured qmd rerank model |
 | `seed` | `<target> <claim>`, `--expected stale\|fresh` (default `stale`), `--source repo:path`, `--commit` (default `HEAD`) | Plant a known-answer canary allegation (`canary/stale/2` or `canary/fresh/2`, severity `known-answer`) that flows through normal adjudication so the report can measure hits and misses |
 
 ---

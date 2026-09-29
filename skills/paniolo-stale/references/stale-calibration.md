@@ -1,14 +1,14 @@
 ---
 source-slug: stale-calibration
-source-hash: d517f3b070bf9430d8f2e8ebc160f1c3f5fb4099be62961a6b1ac05e3d358f31
-bundled: 2026-09-27
+source-hash: 2ac83c31af17dc0a09ba7905c88a16c650e8a9526473fd3b0cf10b3a82936593
+bundled: 2026-09-28
 title: Stale Calibration
 type: concept
 tags:
 - staleness
 - harness-eng
 - evals
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 # Stale Calibration
@@ -24,6 +24,7 @@ production until they earn admission with measured recall.
 - [Labels](#labels)
 - [Frozen Gates](#frozen-gates)
 - [Replay And Shadow Lanes](#replay-and-shadow-lanes)
+- [Next-Lane Scoring Safeguards](#next-lane-scoring-safeguards)
 - [Canaries And The Dogfood Report](#canaries-and-the-dogfood-report)
 - [See Also](#see-also)
 
@@ -47,6 +48,11 @@ Gold provenance is restricted to `seeded-mutation`,
 `deterministic-contradiction`, and `constructed-pair` — a case cannot claim
 gold from retrieval scores or agent agreement. Splits stay honest: holdout
 cases drive admission decisions; calibration cases tune.
+
+Next-lane cases distinguish source invalidation, unwatched references,
+watch coverage, temporal scope, volatile claims, and agent reports.
+Non-baseline cases require a source revision so a current-code snapshot
+cannot masquerade as the revision that a historical claim described.
 
 ---
 
@@ -107,7 +113,9 @@ The shadow lane measures candidate retrieval without touching production:
    fuzzy lane's admission gates from that file. Without the file, `--full`
    reports no fuzzy-lane admission rather than fabricating a measurement.
 3. `paniolo stale score-shadow <file>` validates and re-scores a
-   shadow-observation file standalone — no agents, no ledger.
+   shadow-observation file standalone — no agents, no ledger. A missing
+   or invalid index-integrity manifest fails scoring rather than adding
+   a false retrieval miss.
 
 Live dogfood collection is separate from the frozen holdout replay. Set
 `staleness.retrieval.shadow.enabled: true` to make ordinary live `scan` and
@@ -135,6 +143,38 @@ implemented, but the earlier observation file has a superseded corpus
 fingerprint. A fresh complete holdout replay must pass every fuzzy-lane gate
 before production scan may use qmd nomination or reranking to create work.
 Live shadow recording does not count as admission.
+
+---
+
+<a id="next-lane-scoring-safeguards"></a>
+
+## Next-Lane Scoring Safeguards
+
+Every scored qmd shadow run needs a run-scoped index manifest. It records
+source revisions and hashes, document and chunk identities, and active
+embedding fingerprints. The audit compares **all** eligible current
+sources with **all** active index documents, not only a displayed sample.
+Missing, stale, ghost, duplicate, orphaned, unembedded, or mixed-model
+entries fail the shadow collection. Deterministic detection continues;
+index lag is reported separately from a document-pool miss or a
+section-rerank miss. An invalid run cannot improve or dilute Recall@K.
+
+Lane scoring separates incremental gold recall, nomination volume,
+precision, and a fixed below-top-K tail. Unlabeled tail items remain
+unknown. Routing weights fit only on calibration lineages, then freeze
+with a fingerprint and per-case top-K budget before holdout replay.
+Zero-weight or omitted lanes cannot hide relevant sections they dropped
+from the scheduled tail. A failed surface or tail gate keeps the lane
+shadow-only; a passing score still changes no allegation verdict.
+
+Volatile suggestions report separate version, date, count, and
+moving-phrase totals. They are not false reports merely because no
+outcome exists. Agent-filed `observed-in-use/1` reports also form a
+separate shadow slice: only an exact claim-and-location match to an
+independently verified stale or fresh outcome enters precision. Unknown
+reports stay outside that denominator. See [stale-ledger](./stale-ledger.md) for `A-`
+records and plan-staleness-next-lanes for remaining
+operational gates.
 
 ---
 

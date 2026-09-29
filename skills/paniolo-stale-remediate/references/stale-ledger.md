@@ -1,14 +1,14 @@
 ---
 source-slug: stale-ledger
-source-hash: ae4f8b4f650f8704195bea2053d62b48902278f4778beae36d412a2f34071539
-bundled: 2026-09-27
+source-hash: da86d2b34a243c2e7fa91b10ac57aa01db0eb1703caaab91d8d2a156c4c86b36
+bundled: 2026-09-28
 title: Stale Ledger
 type: concept
 tags:
 - staleness
 - harness-eng
 - ledger
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 # Stale Ledger
@@ -23,6 +23,7 @@ the code repository; workspace commands aggregate the local stores.
 - [Ledger Location](#ledger-location)
 - [Directory Layout](#directory-layout)
 - [Record Ids](#record-ids)
+- [Agent-Reported Observations](#agent-reported-observations)
 - [State Machine](#state-machine)
 - [Scan Checkpoints And Pending Scans](#scan-checkpoints-and-pending-scans)
 - [Worktrees And Branches](#worktrees-and-branches)
@@ -60,6 +61,7 @@ and git history form one durable whole.
   evidence/            E-<hash>.json   immutable, content-addressed
   labels/              L-<hash>.json   immutable; corrections supersede
   retrieval-runs/      R-<hash>.json   bounded candidate pools, incl. deferred
+  agent-reports/       A-<hash>.json   immutable, bounded observations filed in use
   observations/        O-<hash>.json   immutable sealed agent outputs by role
   remediation-bundles/ B-<hash>.json   pins the four observation ids + patch hash
   proposals/           <remote>.json   pending candidate-PR proposal per remote
@@ -90,6 +92,7 @@ with `0x1f`. The prefix names the record kind:
 | `C-` | Change | detected change record |
 | `L-` | Label | Evaluation fact with provenance-constrained gold, silver, or outcome strength |
 | `R-` | Retrieval run | one scan's candidate pool |
+| `A-` | Agent report | target + claim + encountered observation + optional source revision |
 | `O-` | Observation | one sealed agent response |
 | `B-` | Remediation bundle | verifier, challenger, remediator, patch-challenger observation ids + patch hash |
 
@@ -97,6 +100,24 @@ Because ids are content-addressed, re-scanning an overlapping range rewrites
 identical bytes and reopens retained work rather than duplicating it. A
 different claim at the same location is a different allegation. Commands
 accept a `S-` id or a unique prefix.
+
+---
+
+<a id="agent-reported-observations"></a>
+
+## Agent-Reported Observations
+
+`paniolo stale flag` stores a bounded `observed-in-use/1` report in
+`agent-reports/`. It records the exact `repo:path#anchor`, relied-on claim,
+observation file contents, and optional source revision. Refiling the same
+packet is idempotent; a different observation remains distinct. Filing
+does **not** create an allegation, verdict, or remediation request.
+
+The dogfood report measures this lane separately. It matches a filed
+report to an independently verified outcome only when both the location
+and trimmed claim match. Confirmed-stale and dismissed-fresh matches form
+the precision denominator; reports with no matching outcome remain
+unknown, not false. Repeated reports never become gold labels.
 
 ---
 
