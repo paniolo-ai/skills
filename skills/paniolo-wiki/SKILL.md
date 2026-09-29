@@ -330,11 +330,11 @@ fallback vocabulary for untracked kinds), then stamps `status:`, touches
 
 `archive` requires a closed-tier status first — move the page with `status`
 before it will plan. It then writes a byte-exact snapshot to
-`raw/<domain>/wiki-archive/<slug>.md`, adds the provenance row to that
-directory's `SOURCES.md`, repoints every actionable link at the snapshot (or at
-`--with`'s replacement page), drops index bullets that existed only to point at
-the page, removes the `wiki/` file — **no stub remains** — and validates what it
-touched.
+`raw/wiki-archive/<slug>.md` — one flat directory per wiki, so the convention is
+the same everywhere — adds the provenance row to that directory's `SOURCES.md`,
+repoints every actionable link at the snapshot (or at `--with`'s replacement
+page), drops index bullets that existed only to point at the page, removes the
+`wiki/` file — **no stub remains** — and validates what it touched.
 
 Two kinds of reported leftovers deserve different treatment:
 
