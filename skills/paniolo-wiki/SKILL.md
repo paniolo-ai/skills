@@ -126,8 +126,9 @@ what would be written without writing it.
 ## Creating a page
 
 `paniolo wiki new` stamps the page, its frontmatter, the `wiki/log.md` entry, and
-one index link in a single deterministic step. Use it instead of hand-writing a
-file — the log entry and index link are the two things hand-creation forgets.
+— when you pass `--index` — a link on that focused index page, all in one
+deterministic step. Use it instead of hand-writing a file — the log entry is the
+thing hand-creation forgets.
 
 ```bash
 paniolo wiki new <slug> --config paniolo.config.json \
@@ -139,7 +140,7 @@ paniolo wiki new <slug> --config paniolo.config.json \
 config's `wiki.wikis[].pagePrefixes`. Kinds are declared per wiki, not
 workspace-wide — one corpus may file plans and decisions while another files
 neither. One flag supplies the slug prefix, the `type:`, the log verb, the
-starting `status:`, and the indexes to link into:
+starting `status:`, and any focused indexes the kind declares:
 
 ```bash
 paniolo wiki new <slug> --kind plan --config paniolo.config.json   --tags a,b --domain <domain> --source raw/<domain>/<file>.md
@@ -210,8 +211,11 @@ worse than none, because it is believed.
    rather than sprawl. Use wikilinks between wiki pages.
 3. Add every required frontmatter field (`title`, `type`, `tags`, `updated`, and
    `sources` unless it is an `index` page). Use a real `YYYY-MM-DD` `updated` date.
-4. List the new/changed page in the relevant category index, or in
-   `wiki/<domain>/index.md` for small domains (avoids an orphan).
+4. Link the new/changed page where a reader would look for it — a `[[wikilink]]`
+   from a related page, or a line on a focused topic index that genuinely
+   curates its subject. Index membership is optional curation, not a filing
+   requirement: an unlinked page warns but still passes, and qmd search finds
+   it either way.
 5. Append a `wiki/log.md` entry: `## [YYYY-MM-DD] <verb> | <domain> | <title>`.
 6. **Run `paniolo wiki` from the harness repo and fix everything it reports.**
    Do not finish red.
@@ -306,6 +310,49 @@ Log it (`## [YYYY-MM-DD] delete | <domain> | <title>`, 1-2 bullets), then run
 Before deleting, check whether the page holds a still-valid fact absent from its
 replacement. The command cannot know that; rescuing it is on you.
 
+### Status and archive are the lifecycle pair
+
+`status` moves a page along its kind's vocabulary; `archive` retires a page
+whose story is over **without losing it**. Both plan by default and write only
+with `--apply`:
+
+```bash
+paniolo wiki status <slug> <value> --config paniolo.config.json            # plan
+paniolo wiki status <slug> <value> --config paniolo.config.json --apply
+paniolo wiki archive <slug> --domain <d> --config paniolo.config.json      # plan
+paniolo wiki archive <slug> --domain <d> --config paniolo.config.json --apply
+paniolo wiki archive <slug> --domain <d> --with <replacement> --config paniolo.config.json --apply
+```
+
+`status` refuses a value outside the kind's declared vocabulary (or the wiki's
+fallback vocabulary for untracked kinds), then stamps `status:`, touches
+`updated:`, and appends the log entry itself.
+
+`archive` requires a closed-tier status first — move the page with `status`
+before it will plan. It then writes a byte-exact snapshot to
+`raw/<domain>/wiki-archive/<slug>.md`, adds the provenance row to that
+directory's `SOURCES.md`, repoints every actionable link at the snapshot (or at
+`--with`'s replacement page), drops index bullets that existed only to point at
+the page, removes the `wiki/` file — **no stub remains** — and validates what it
+touched.
+
+Two kinds of reported leftovers deserve different treatment:
+
+- **Unsearched repositories** block the apply outright; fix the `repoPaths`
+  mapping rather than waiving past them.
+- **Residue** is a mention that survived rewriting — usually the slug's words
+  used as ordinary English or a filename (`user-decisions.md`), not a link to
+  the page. Audit the list; when every line is genuinely a mention rather than
+  a reference, `--allow-residue` records that judgment and proceeds.
+
+Archived pages stay searchable: qmd indexes the snapshot, ranks it below
+current pages by default, and `--history` restores raw relevance order when the
+question is about the record itself. MCP exposes the same operations as
+`wiki_set_status` and `wiki_archive` for agent callers.
+
+Log an archive as `## [YYYY-MM-DD] archive | <domain> | <title>` — the command
+writes the entry, but the convention is the log's.
+
 ## Markdown lint best practices
 
 Apply while writing so pages pass `paniolo wiki` (and the harness the project's lint script) on the first try.
@@ -326,7 +373,9 @@ Apply while writing so pages pass `paniolo wiki` (and the harness the project's 
   validator is green either way, so a wrong slug is invisible to `check:wiki`.
 - Do not rename onto an unprefixed slug; the rename command accepts any target.
 - Do not duplicate a fact across two pages — link to one canonical page.
-- Do not leave a page out of its index (orphan) or skip the `wiki/log.md` entry.
+- Do not skip the `wiki/log.md` entry.
+- Do not build or feed a whole-wiki catalog to silence an orphan warning — link
+  a page where a reader would look for it, or leave it findable by search.
 - Do not finish while `paniolo wiki` is red.
 - Do not hand-edit references for a delete, rename, or move — use the commands.
 - Do not force a delete past its refusal; resolve the prose references it names.
