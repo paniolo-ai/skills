@@ -4,13 +4,12 @@ description: |
   Playwright E2E test conventions for this project — AAA pattern, translation-aware selectors, hydration waits, mock auth, staging DB sessions, two-user flows, debugging, and CI setup. Use when authoring or editing any Playwright spec, test helper, or E2E configuration. Do NOT use for unit tests or hook tests — load paniolo-vitest-test-best-practices instead.
 license: MIT
 metadata:
-  version: 0.1.2
+  version: 0.1.3
 tags:
 - playwright
 - testing
 user-invocable: true
 references:
-- references/plan-acceptance-evidence.md
 - references/playwright-aaa-pattern.md
 - references/playwright-debugging.md
 - references/playwright-e2e-fixture-contract-validation.md
