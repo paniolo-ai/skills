@@ -1,6 +1,6 @@
 ---
 source-slug: stale-ledger
-source-hash: 1f8d884cd8d1564ca541da1517917a116d51eb51cddb42efc2abda9c74c2fee7
+source-hash: b0ab8c31227097897903afc53e2adecddc3cd1a4f5caa78adce3a52a78319b53
 bundled: 2026-09-30
 title: Stale Ledger
 type: concept
@@ -37,13 +37,8 @@ different repository's diff.
 
 ## Ledger Location
 
-Resolution order:
-
-1. `--config`'s `staleness.ledgerPath` (or the default
-   `.paniolo/staleness`), resolved under `--root`.
-2. Legacy fallback, only when no `--config` was passed and the file has no
-   `staleness` section: an existing `<root>/staleness/` directory is used
-   while the configured path does not exist.
+The ledger lives at `--config`'s `staleness.ledgerPath` (or the default
+`.paniolo/staleness`), resolved under `--root`.
 
 The resolved path must stay inside the checkout — absolute paths, `..`
 segments, drive prefixes, and symlinked roots are rejected. Moving a ledger
@@ -70,7 +65,6 @@ and git history form one durable whole.
     lifecycle-candidates/  LC-<hash>.json  mutable lifecycle candidates
     lifecycle-evidence/    LE-<hash>.json  immutable lifecycle evidence
     lifecycle-bundles/     LB-<hash>.json  lifecycle patch bundles
-  _workspace/            same collections; records unattributable to one repo
   proposals/             <remote>.json     pending candidate-PR proposal per remote
   scan-checkpoints.json  per-repo last materialized scan heads
   pending-scans.json     heads carried by an unmerged ledger PR
@@ -83,11 +77,9 @@ The bucket key is the repository a record describes: an allegation's
 `location.repo` carries its whole trail (evidence, observations,
 remediation bundles), lifecycle collections use the candidate's wiki,
 `refs/` and `agent-reports/` use the record's own repo field, and
-retrieval runs carry the changed entity's repo. Records that cannot be
-attributed — including retrieval runs written before the field existed —
-sit in `_workspace/`. Opening a store migrates the legacy flat layout
-(`<collection>/*.json`) into these buckets; the move is idempotent and
-record bytes are unchanged.
+retrieval runs carry the changed entity's repo. A record that arrives
+with no attributable repository fails closed rather than filing
+anywhere.
 
 All writes are atomic (temp file + rename in the same directory) and every
 record path is validated to stay under the ledger root.
@@ -174,10 +166,6 @@ still open go to `pending-scans.json`; they become scan checkpoints only
 when the ledger PR carrying them merges. Remediation merges do not move scan
 checkpoints. `worker --bootstrap` seeds each `--repo` checkpoint at HEAD
 without scanning history.
-
-Stores created before this terminology change may contain `cursor.json`.
-The first checkpoint read migrates that file to `scan-checkpoints.json`
-without changing any repository's saved commit.
 
 ---
 
