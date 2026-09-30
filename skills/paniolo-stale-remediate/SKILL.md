@@ -4,7 +4,7 @@ description: |
   Drive the paniolo stale adjudication and remediation pipeline — run verifier/challenger agent phases, propose and merge remediation PRs, operate the durable worker, and calibrate detection with replay, shadow lanes, and canaries. Use when asked to run, adjudicate, remediate, propose, merge-sync, automate, or calibrate staleness work. To inspect the ledger without mutating, use paniolo-stale.
 license: MIT
 metadata:
-  version: 0.1.3
+  version: 0.1.4
 tags:
 - staleness
 - remediation
@@ -18,6 +18,7 @@ references:
 - references/stale-commands.md
 - references/stale-configuration.md
 - references/stale-ledger.md
+- references/stale-lifecycle.md
 - references/stale-triggers.md
 ---
 
@@ -64,6 +65,17 @@ adapter, disposition, and merge-gate contract.
    --repo ... [--wiki ...] [--bootstrap]` — it merge-syncs, scans from
    scan checkpoints, adjudicates, proposes, and publishes the ledger as a PR on
    `staleness/ledger`. One run per ledger via `run.lock`.
+
+## Lifecycle Lane
+
+`scan --wiki <key>:<repo-root>` also nominates `LC-` lifecycle candidates
+for `plan-`/`design-` pages whose work has shipped. The same `run` →
+`propose` → `merge-sync` loop moves them `pending-review → applied`. The
+page legibility contract — verdict plus evidence pointer on one status
+line, gate verdicts in a `Result` column — decides whether a page can
+nominate at all; see
+[stale-lifecycle](references/stale-lifecycle.md) before treating a quiet
+scan as "nothing to do".
 
 ## Calibration
 
@@ -115,6 +127,8 @@ adapter, disposition, and merge-gate contract.
   `staleness` config schema, validation, and CLI overrides
 - [stale-ledger](references/stale-ledger.md) — sealed observations,
   bundles, proposals, locks
+- [stale-lifecycle](references/stale-lifecycle.md) — `LC-` candidates,
+  page legibility grammar, status-patch proposals
 
 ---
 

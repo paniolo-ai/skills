@@ -473,7 +473,7 @@
       "name": "paniolo-stale-remediate",
       "description": "Drive the paniolo stale adjudication and remediation pipeline — run verifier/challenger agent phases, propose and merge remediation PRs, operate the durable worker, and calibrate detection with replay, shadow lanes, and canaries. Use when asked to run, adjudicate, remediate, propose, merge-sync, automate, or calibrate staleness work. To inspect the ledger without mutating, use paniolo-stale.",
       "license": "MIT",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "tags": [
         "staleness",
         "remediation",
@@ -489,6 +489,7 @@
         "stale-commands",
         "stale-configuration",
         "stale-ledger",
+        "stale-lifecycle",
         "stale-triggers"
       ]
     },
