@@ -1,22 +1,23 @@
 ---
 source-slug: stale-ledger
-source-hash: da86d2b34a243c2e7fa91b10ac57aa01db0eb1703caaab91d8d2a156c4c86b36
-bundled: 2026-09-28
+source-hash: 1f8d884cd8d1564ca541da1517917a116d51eb51cddb42efc2abda9c74c2fee7
+bundled: 2026-09-30
 title: Stale Ledger
 type: concept
 tags:
 - staleness
 - harness-eng
 - ledger
-updated: 2026-09-28
+updated: 2026-09-30
 ---
 
 # Stale Ledger
 
 The ledger is the durable state behind `paniolo stale`: a directory of
-JSON records inside the repository that owns the prose. Wiki-page
-allegations live in the wiki repository; code-comment allegations live in
-the code repository; workspace commands aggregate the local stores.
+JSON records inside the repository that owns the prose. Within a ledger,
+records group into one bucket per repository they describe, so a
+finding's whole trail stays together even when it was detected from a
+different repository's diff.
 
 ## Contents
 
@@ -57,20 +58,36 @@ and git history form one durable whole.
 
 ```text
 <ledgerPath>/
-  allegations/         S-<hash>.json   mutable; state machine + revision-checked
-  evidence/            E-<hash>.json   immutable, content-addressed
-  labels/              L-<hash>.json   immutable; corrections supersede
-  retrieval-runs/      R-<hash>.json   bounded candidate pools, incl. deferred
-  agent-reports/       A-<hash>.json   immutable, bounded observations filed in use
-  observations/        O-<hash>.json   immutable sealed agent outputs by role
-  remediation-bundles/ B-<hash>.json   pins the four observation ids + patch hash
-  proposals/           <remote>.json   pending candidate-PR proposal per remote
-  scan-checkpoints.json per-repo last materialized scan heads
-  pending-scans.json   heads carried by an unmerged ledger PR
-  state.lock           exclusive lock for every mutable read-modify-write
-  run.lock             worker-only single-run mutex
-  automerge.disabled   kill-switch sentinel: blocks every merge decision
+  <repo>/                one bucket per repository the records describe
+    allegations/           S-<hash>.json   mutable; state machine + revision-checked
+    evidence/              E-<hash>.json   immutable, content-addressed
+    labels/                L-<hash>.json   immutable; corrections supersede
+    retrieval-runs/        R-<hash>.json   bounded candidate pools, incl. deferred
+    agent-reports/         A-<hash>.json   immutable, bounded observations filed in use
+    observations/          O-<hash>.json   immutable sealed agent outputs by role
+    remediation-bundles/   B-<hash>.json   pins the four observation ids + patch hash
+    refs/                  RI-<hash>.json  prose-reference index, one record per file
+    lifecycle-candidates/  LC-<hash>.json  mutable lifecycle candidates
+    lifecycle-evidence/    LE-<hash>.json  immutable lifecycle evidence
+    lifecycle-bundles/     LB-<hash>.json  lifecycle patch bundles
+  _workspace/            same collections; records unattributable to one repo
+  proposals/             <remote>.json     pending candidate-PR proposal per remote
+  scan-checkpoints.json  per-repo last materialized scan heads
+  pending-scans.json     heads carried by an unmerged ledger PR
+  state.lock             exclusive lock for every mutable read-modify-write
+  run.lock               worker-only single-run mutex
+  automerge.disabled     kill-switch sentinel: blocks every merge decision
 ```
+
+The bucket key is the repository a record describes: an allegation's
+`location.repo` carries its whole trail (evidence, observations,
+remediation bundles), lifecycle collections use the candidate's wiki,
+`refs/` and `agent-reports/` use the record's own repo field, and
+retrieval runs carry the changed entity's repo. Records that cannot be
+attributed — including retrieval runs written before the field existed —
+sit in `_workspace/`. Opening a store migrates the legacy flat layout
+(`<collection>/*.json`) into these buckets; the move is idempotent and
+record bytes are unchanged.
 
 All writes are atomic (temp file + rename in the same directory) and every
 record path is validated to stay under the ledger root.
@@ -95,6 +112,10 @@ with `0x1f`. The prefix names the record kind:
 | `A-` | Agent report | target + claim + encountered observation + optional source revision |
 | `O-` | Observation | one sealed agent response |
 | `B-` | Remediation bundle | verifier, challenger, remediator, patch-challenger observation ids + patch hash |
+| `RI-` | Reference index | repo + prose file path; rewritten in place per scan |
+| `LC-` | Lifecycle candidate | wiki + page slug |
+| `LE-` | Lifecycle evidence | candidate id + evidence source |
+| `LB-` | Lifecycle bundle | candidate id + patch hash |
 
 Because ids are content-addressed, re-scanning an overlapping range rewrites
 identical bytes and reopens retained work rather than duplicating it. A
