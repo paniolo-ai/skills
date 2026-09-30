@@ -4,7 +4,7 @@ description: |
   Operate the paniolo stale staleness ledger — scan a commit range, inspect and triage allegations, file already-encountered evidence when explicitly enabled, manage the queue, and read the dogfood report. Use for stale docs, staleness findings, the queue, or bounded agent filing. Read-mostly — for verification, remediation PRs, and the durable worker use paniolo-stale-remediate.
 license: MIT
 metadata:
-  version: 0.1.3
+  version: 0.1.4
 tags:
 - staleness
 - ledger
@@ -18,6 +18,7 @@ references:
 - references/stale-commands.md
 - references/stale-configuration.md
 - references/stale-ledger.md
+- references/stale-lifecycle.md
 - references/stale-triggers.md
 - references/stale-unique.md
 ---
@@ -119,6 +120,9 @@ is for or how it pairs with qmd.
   dispositions, merge gate, worker, CI advisory
 - [stale-calibration](references/stale-calibration.md) — corpus, gates,
   replay, shadow lanes, canaries, report
+- [stale-lifecycle](references/stale-lifecycle.md) — `LC-` status-transition
+  candidates for plan/design pages: nomination, legibility contract,
+  proposal and merge flow
 - [stale-unique](references/stale-unique.md) — why the feature exists and
   how it combines with qmd
 

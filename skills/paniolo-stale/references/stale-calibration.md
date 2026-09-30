@@ -1,7 +1,7 @@
 ---
 source-slug: stale-calibration
-source-hash: 2ac83c31af17dc0a09ba7905c88a16c650e8a9526473fd3b0cf10b3a82936593
-bundled: 2026-09-28
+source-hash: 52cd0f512f39b23033dbba70493bcc2bffc28910e040eb202915fa0ec912e321
+bundled: 2026-09-29
 title: Stale Calibration
 type: concept
 tags:
@@ -35,8 +35,9 @@ production until they earn admission with measured recall.
 ## The Corpus
 
 `crates/staleness/corpus/manifest.json` is the committed known-answer
-corpus: a fingerprinted manifest (~100+ cases, split seed `20260924`)
-partitioned into calibration and holdout splits. Cases come from:
+corpus: a fingerprinted manifest (276 cases plus 72 retrieval distractors,
+split seed `20260924`) partitioned into calibration and holdout splits.
+Cases come from:
 
 - **Seeded mutations** — `seeded.rs` generates fixtures by mutating real
   prose/code pairs, so gold labels are known by construction.

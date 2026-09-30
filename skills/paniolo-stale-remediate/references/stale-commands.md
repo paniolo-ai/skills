@@ -1,7 +1,7 @@
 ---
 source-slug: stale-commands
-source-hash: 313c31355176bf08392a161532418354a470b1f5fa17e9b747f67875fa0e7b68
-bundled: 2026-09-28
+source-hash: 5460be6bb497abbd4604939e806f0ef28e80c2ab0c2aaf8cffb7071207d77baf
+bundled: 2026-09-29
 title: Stale Commands
 type: concept
 tags:
@@ -84,7 +84,7 @@ These write nothing to the ledger.
 
 | Command | Arguments and flags | Behavior |
 | --- | --- | --- |
-| `list` | `--actionable` | List allegations as `{id, state, section_id, claim, revision}` rows; `--actionable` keeps `pending-verification`, `confirmed-stale`, `remediation-proposed` |
+| `list` | `--actionable` | List allegations as `{id, state, section_id, claim, revision}` rows; `--actionable` keeps `pending-verification`, `confirmed-stale`, `remediation-proposed` — `insufficient-evidence` is retained open work and re-enters via `retry`/`worker --retry-retained` |
 | `next` | — | Print the first actionable allegation in deterministic id order |
 | `show <id>` | `S-` id or unique prefix | Show one allegation plus its sealed observations by role; an ambiguous prefix is an error |
 | `report` | — | Deterministic per-surface outcomes, canaries, false-resolution budget, `automerge_recommended`, retrieval shadow, and separate agent-report slice |
