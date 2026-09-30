@@ -1,14 +1,14 @@
 ---
 source-slug: playwright-test
-source-hash: 15a7dd1ba646b8214f817c85ad18b353c4ecce4a80277fe136d14a1046dfe5cb
-bundled: 2026-08-20
+source-hash: 91df715b57317a3eeeaf4e68cc917840287f55b2d1c5f3e5f193cd5185eb0f58
+bundled: 2026-09-30
 title: Authoring — Playwright e2e testing
 type: index
 tags:
 - index
 - authoring
 - playwright-test
-updated: 2026-08-20
+updated: 2026-09-30
 ---
 
 # Playwright e2e testing (authoring)

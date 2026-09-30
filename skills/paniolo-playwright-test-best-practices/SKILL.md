@@ -4,7 +4,7 @@ description: |
   Playwright E2E test conventions for this project — AAA pattern, translation-aware selectors, hydration waits, mock auth, staging DB sessions, two-user flows, debugging, and CI setup. Use when authoring or editing any Playwright spec, test helper, or E2E configuration. Do NOT use for unit tests or hook tests — load paniolo-vitest-test-best-practices instead.
 license: MIT
 metadata:
-  version: 0.1.1
+  version: 0.1.2
 tags:
 - playwright
 - testing
@@ -20,6 +20,7 @@ references:
 - references/playwright-mock-auth-troubleshooting.md
 - references/playwright-multiple-users-mock.md
 - references/playwright-native-runner-process-ownership.md
+- references/playwright-rich-text-editor-selection.md
 - references/playwright-session-expiry.md
 - references/playwright-staging-db-setup.md
 - references/playwright-test-organization.md
@@ -111,6 +112,13 @@ references:
 - **E2E util filenames** — `e2e/**/*.e2e-util.ts` that default-export a single function use
   **camelCase** basenames matching the export (for example `runEffect.e2e-util.ts`), not kebab-case.
   [playwright-test-organization](references/playwright-test-organization.md)
+
+- **Rich-text editor selection is two-layered** — on contenteditable/ProseMirror surfaces the
+  editor-state selection and the DOM `Selection` can diverge; verify both before destructive
+  keys. Use real input — click to focus, converge with `ArrowLeft`/`ArrowRight`, extend backward
+  with `Shift+ArrowLeft` — and assert an app-published caret/range signal rather than `Home` +
+  `Shift` geometry or synthetic `selectionchange` events.
+  [playwright-rich-text-editor-selection](references/playwright-rich-text-editor-selection.md)
 
 ## Output Format
 
