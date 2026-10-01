@@ -213,6 +213,29 @@
       ]
     },
     {
+      "name": "paniolo-mcp-dev",
+      "description": "Build, extend, debug, or review an MCP (Model Context Protocol) server — tool design, annotations, output token efficiency, resources, or serving Agent Skills via SEP-2640. Use when adding tools to `paniolo mcp` or any MCP server, choosing leaf-vs-family tool granularity, structuring results for context cost, handling long-running ops via jobs, or wiring skills/list+skills/get. Do NOT use for WebMCP (browser page tools via document.modelContext) — that is paniolo-webmcp-dev.",
+      "license": "MIT",
+      "version": "0.1.1",
+      "tags": [
+        "mcp",
+        "agents",
+        "tools"
+      ],
+      "sourceSkill": "mcp-dev",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-mcp-dev",
+      "references": [
+        "mcp-beyond-tools",
+        "mcp-discovery",
+        "mcp-server-security",
+        "mcp-skills-extension",
+        "mcp-testing-evals",
+        "mcp-token-efficiency",
+        "mcp-tool-design",
+        "mcp-transports-auth"
+      ]
+    },
+    {
       "name": "paniolo-naming-best-practices",
       "description": "Symbol and file naming conventions for functions, types, variables, and React components. Use when naming a new function, hook, type, file, or variable, or when reviewing whether an existing name is appropriate.",
       "license": "MIT",
