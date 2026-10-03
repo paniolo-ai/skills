@@ -1,7 +1,7 @@
 ---
 source-slug: markdown-required-elements
-source-hash: 92ccf46493c3274674d82292881a5ba4f254813408327374797004735a93c86a
-bundled: 2026-08-01
+source-hash: bdd5f48fd62d482b453caaf1555641d8d843f062a5274142b5695a9142b83033
+bundled: 2026-10-02
 title: Required Elements
 type: concept
 tags:

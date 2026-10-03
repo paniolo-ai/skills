@@ -1,7 +1,7 @@
 ---
 source-slug: stale-calibration
-source-hash: 52cd0f512f39b23033dbba70493bcc2bffc28910e040eb202915fa0ec912e321
-bundled: 2026-09-29
+source-hash: 3674f4817b7464ffb909dcbbece76fd76b4a4cd91ca6be374353b0e55a96f626
+bundled: 2026-10-02
 title: Stale Calibration
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: stale-lifecycle
 source-hash: 14631273dc0a817a36b01005458cd2f1e35fdae45510159661eb38fc9c233816
-bundled: 2026-09-29
+bundled: 2026-10-02
 title: Stale Lifecycle
 type: concept
 tags:

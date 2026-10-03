@@ -1,7 +1,7 @@
 ---
 source-slug: avoid-jargon-unless-necessary
-source-hash: 3517f752a9596c9b832b50a892ba3e8158623d964a2b757b9a07f4d69b599527
-bundled: 2026-08-01
+source-hash: 7bf5768566b0ec83e6dd1fd6bce65c12342a93358d1dffca9a48c5ae278f015f
+bundled: 2026-10-02
 title: Avoid Jargon Unless Necessary
 type: concept
 tags:

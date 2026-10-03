@@ -229,15 +229,15 @@ in present tense, either update both or frame your change as a clearly-labeled
 ## Page operations
 
 All references to wiki pages — in wiki pages, skills, agents, adapters, docs,
-and sibling repo files — **must** use cross-wiki wikilink syntax. Use the wiki
-name as it appears in `paniolo.config.json`:
+and sibling repo files — **must** use bare wikilink syntax:
 
 ```text
-[[source-wiki:slug]]  or  [[source-wiki:slug|Display Text]]
+[[slug]]  or  [[slug|Display Text]]
 ```
 
-Inside the wiki the page lives in, the prefix can be omitted. Do **not** use
-markdown path references (`source-wiki/wiki/slug.md`) in any form.
+The validator resolves the slug in the page's own wiki first, then across the
+union of configured wikis; the retired `wiki:slug` qualifier is an error. Do
+**not** use markdown path references (`source-wiki/wiki/slug.md`) in any form.
 
 **Do not grep-and-edit these by hand.** `paniolo wiki` performs all four.
 `rename` and `move` write unless you pass `--dry-run`; `delete` is the reverse

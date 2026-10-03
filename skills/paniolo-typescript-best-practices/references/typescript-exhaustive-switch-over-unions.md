@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-exhaustive-switch-over-unions
-source-hash: c2e8b1e59f14a8abb8c77f4002a967b83acd1100ce92af10de6ba0818bcf2bfe
-bundled: 2026-08-15
+source-hash: 5553d4d9c39e4d4c5d0f746198096e2311f90373a90ae06a7cf62efbd6d2c825
+bundled: 2026-10-02
 title: Exhaustive Switch Over Unions
 type: concept
 tags:

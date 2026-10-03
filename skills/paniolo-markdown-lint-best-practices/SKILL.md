@@ -51,7 +51,7 @@ Apply these before writing a single line — each prevents a common first-pass f
 
 - Internal harness links use workspace-relative paths (`<repo>/<path>`,
   `/.agents/skills/...`), not `./file.md`. References to a wiki page are the
-  exception — use cross-wiki wikilink syntax (`[[wiki-name:slug]]`) rather than a
+  exception — use a bare wikilink (`[[slug]]`) rather than a
   path, so `paniolo wiki rename`/`move` can rewrite them.
 - Fragment links (`#anchor`) must resolve to a real heading or `<a id="...">` in the **target**
   doc file (not in skills).

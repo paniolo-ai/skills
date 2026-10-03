@@ -1,7 +1,7 @@
 ---
 source-slug: stale-adjudication
-source-hash: ad5cb87d8893318b2a0a4618ab1b2bf436ab63d364261654c93fe3bb068bf169
-bundled: 2026-09-28
+source-hash: 5eac456892edf0fba2a3f24ac5c4569ebc36f16f1dfac74c21428b6e21f7f049
+bundled: 2026-10-02
 title: Stale Adjudication
 type: concept
 tags:

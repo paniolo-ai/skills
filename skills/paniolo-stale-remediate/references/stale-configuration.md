@@ -1,7 +1,7 @@
 ---
 source-slug: stale-configuration
-source-hash: ab3dba2c15ef5a3cc1a35361909ee2c567476e6e5e75f3a534a768f45f71524e
-bundled: 2026-09-28
+source-hash: 22b5fc411eb83785c56bb71c446bea2a44b8712c4e8779c564a8388aaeba162b
+bundled: 2026-10-02
 title: Stale Configuration
 type: concept
 tags:
