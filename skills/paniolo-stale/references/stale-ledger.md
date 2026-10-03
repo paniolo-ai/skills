@@ -1,7 +1,7 @@
 ---
 source-slug: stale-ledger
-source-hash: b0ab8c31227097897903afc53e2adecddc3cd1a4f5caa78adce3a52a78319b53
-bundled: 2026-09-30
+source-hash: 940065c47532184c654cb465763dd19c802861cae798782e04ec316c52f2f155
+bundled: 2026-10-02
 title: Stale Ledger
 type: concept
 tags:

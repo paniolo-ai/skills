@@ -1,7 +1,7 @@
 ---
 source-slug: stale-automation
-source-hash: 224618e61580abb9900c87e2b7682191987ea2f18de2c2af40cedf2d2a3f6c6a
-bundled: 2026-09-29
+source-hash: a00e029974deeafee2aba5dfe66210b57befced00f0070dc70ae0b15b99c4226
+bundled: 2026-10-02
 title: Stale Automation
 type: concept
 tags:

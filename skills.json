@@ -255,6 +255,23 @@
       ]
     },
     {
+      "name": "paniolo-obsidian-open",
+      "description": "Open a Markdown file or wiki page in the user's running Obsidian app via\nobsidian:// URIs. Use when handing a document to the user's GUI reader,\nopening a note at a filesystem path or inside a named vault, or making\nwikilink-navigable docs visible to the human. Do not use for creating\nor editing Paniolo wiki pages (use `paniolo wiki new`), for terminal\nrendering (use a Markdown renderer), or in headless sessions with no GUI.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "obsidian"
+      ],
+      "sourceSkill": "obsidian-open",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-obsidian-open",
+      "references": [
+        "obsidian-cli",
+        "obsidian-uri-scheme",
+        "obsidian-vaults",
+        "obsidian-wikilinks"
+      ]
+    },
+    {
       "name": "paniolo-plan-best-practices",
       "description": "Author or review executable implementation plans with dependency-ordered cards, observable acceptance criteria, verification gates, explicit deferrals, and safety boundaries. Use when creating or improving a plan before implementation begins. Do NOT use to execute an existing approved plan; load paniolo-plan-execution instead.",
       "license": "MIT",

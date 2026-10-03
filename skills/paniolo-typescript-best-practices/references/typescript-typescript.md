@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-typescript
-source-hash: b7e6833ded7cae00a26ec2fcfa86748801114b3927b046fe7a3019465917fbb0
-bundled: 2026-09-03
+source-hash: fe64d1777a35d53289a1717f39dd72dfe8628640bbf448901e88e317593c1c8c
+bundled: 2026-10-02
 title: Authoring — TypeScript
 type: index
 tags:

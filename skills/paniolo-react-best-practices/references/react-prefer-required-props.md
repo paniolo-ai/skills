@@ -1,7 +1,7 @@
 ---
 source-slug: react-prefer-required-props
-source-hash: 35257fa8cae3cf6351c7ad473713aeec846c8c07c770a87f3b80ad0f01b3b1b2
-bundled: 2026-08-01
+source-hash: aacdd9770525de93e0315239309968e3b255c9f24d312ffb6da2cd38d631f156
+bundled: 2026-10-02
 title: Prefer Required Props
 type: concept
 tags:

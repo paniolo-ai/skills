@@ -1,7 +1,7 @@
 ---
 source-slug: react-overlay-inside-scroll-container
-source-hash: 2dd51323905fb8d2fbb260c80f76baf76b7e8cd73f3ddababbf5a11c9b95f100
-bundled: 2026-08-15
+source-hash: 66d2a20928d0616f7fbadd5e8d8d60291f4c25d1aafd0459b6188aa4ae699d5e
+bundled: 2026-10-02
 title: Interactive Overlays Belong Inside the Scroll Container
 type: concept
 tags:

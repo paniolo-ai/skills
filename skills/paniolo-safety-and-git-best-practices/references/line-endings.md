@@ -1,7 +1,7 @@
 ---
 source-slug: line-endings
-source-hash: 246d83ad2b6662f3c0becfaf43e158dd757fda90980679b89e6f3d4da5ccae92
-bundled: 2026-08-16
+source-hash: 5eefd948314e8bd6c16aea7254403bc91cd41edeaa2eba52dbc7b3efd42c8a7d
+bundled: 2026-10-02
 title: Line Endings
 type: concept
 tags:

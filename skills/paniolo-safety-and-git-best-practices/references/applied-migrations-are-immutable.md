@@ -1,7 +1,7 @@
 ---
 source-slug: applied-migrations-are-immutable
-source-hash: 63ff609efc30b1fd98ff85aed9507f81e3800474fbc978b5c4f808b62187d25b
-bundled: 2026-08-16
+source-hash: 1b2a8c2caa7b42fec49b5d8b8132e6b05460abb6242879cd0a952c27d085bb23
+bundled: 2026-10-02
 title: Applied Migrations Are Immutable
 type: concept
 tags:

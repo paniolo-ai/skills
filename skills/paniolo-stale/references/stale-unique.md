@@ -1,7 +1,7 @@
 ---
 source-slug: stale-unique
-source-hash: 37f7821f6a0209a50027feccc5ab3063a3664e37c40ea1deae8a07f4d1ad32a5
-bundled: 2026-09-28
+source-hash: 5609e32721ee6b3ab318c71fa1fb79341cb8ce09c19215b33630e5ae47e0b39f
+bundled: 2026-10-02
 title: Why Stale Is Unique
 type: synthesis
 tags:

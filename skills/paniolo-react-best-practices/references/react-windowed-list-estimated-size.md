@@ -1,7 +1,7 @@
 ---
 source-slug: react-windowed-list-estimated-size
-source-hash: 27332d6d1333738330b152a687b4fa13c6f89713c03bcc10e0e9e9e69f237e78
-bundled: 2026-08-15
+source-hash: 4f12385a38fda79cb5a8f126e567c684d1061641301633410597529cfd8f9dfb
+bundled: 2026-10-02
 title: Windowed Lists Need an Estimated Size
 type: concept
 tags:
