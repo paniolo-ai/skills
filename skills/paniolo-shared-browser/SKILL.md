@@ -11,7 +11,7 @@ description: |
   human present, or for browsing with the user's everyday signed-in profile.
 license: MIT
 metadata:
-  version: 0.1.4
+  version: 0.1.5
 tags:
 - browser
 - webmcp
@@ -39,6 +39,9 @@ responding debug port does not prove the agent host loaded the server. If
 host using [shared-browser-setup](references/shared-browser-setup.md), reload
 its MCP connection, and verify the tools before claiming shared control.
 Codex uses `.codex/config.toml`; a repository `.mcp.json` alone is insufficient.
+Installing this skill does not register the browser MCP server. Add or merge
+the appropriate configuration for each supported AI vendor using the vendor
+table and examples in [shared-browser-setup](references/shared-browser-setup.md).
 
 ## Natural-Language Requests
 
