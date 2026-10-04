@@ -458,6 +458,25 @@
       ]
     },
     {
+      "name": "paniolo-shared-browser",
+      "description": "Open a Chrome window that a human and an AI agent can both control, then\ndrive it over the Chrome DevTools Protocol and call the WebMCP tools the page\nexposes. Use when the user wants to work on the same page together, asks to\nopen a browser the agent can see, needs the agent to act on a page the user\nis looking at, or needs WebMCP tools (document.modelContext) enabled for\ntesting. Do NOT use for headless or unattended browser automation with no\nhuman present, or for browsing with the user's everyday signed-in profile.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "browser",
+        "webmcp",
+        "agents",
+        "cdp"
+      ],
+      "sourceSkill": "shared-browser",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-shared-browser",
+      "references": [
+        "shared-browser-page-tools",
+        "shared-browser-pitfalls",
+        "shared-browser-setup"
+      ]
+    },
+    {
       "name": "paniolo-skill-best-practices",
       "description": "How to write, update, split, or review SKILL.md files. Use when creating a new skill, updating an existing one, or auditing for quality and conventions.",
       "license": "MIT",
