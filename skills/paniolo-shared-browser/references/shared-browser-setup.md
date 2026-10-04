@@ -1,7 +1,7 @@
 ---
 source-slug: shared-browser-setup
-source-hash: 256ba33cfc9f416211e062448fc157f7b6bcf4457639decaf1eb31145d6d0ce4
-bundled: 2026-10-03
+source-hash: d75a024337f950cb62dffdab48d5b783c97e395605edb7b006baa3e38011115c
+bundled: 2026-10-04
 title: Shared Browser Setup
 type: concept
 tags:
@@ -34,6 +34,38 @@ profile, then attach the MCP server to it. Some accounts reject sign-in when
 the MCP server launches Chrome in automation mode. WebMCP is optional, and
 the browser can visit local or public websites. Node.js and npm must be
 available to the agent host.
+
+## Install The Harness Dependency
+
+Add `chrome-devtools-mcp` at the exact tested version `1.10.1` to the harness
+dependencies and commit its package-manager lockfile:
+
+```bash
+pnpm add --save-exact chrome-devtools-mcp@1.10.1
+```
+
+Subsequent installs use `pnpm install`. The server is a harness dependency,
+not a dependency bundled into the Paniolo CLI. This keeps future standalone
+CLI installations independent of npm and Node tooling.
+
+For harnesses with that dependency installed, use `command = "node"` and
+the following arguments in Codex TOML; use the same command and argument
+array for `chrome-devtools` in the JSON host configurations:
+
+```toml
+args = ["./node_modules/chrome-devtools-mcp/build/src/bin/chrome-devtools-mcp.js", "--browserUrl", "http://127.0.0.1:9222", "--no-usage-statistics"]
+```
+
+This invokes the package's installed executable entry point directly on
+Windows, macOS, and Linux without npm shims or a connection-time download.
+Verify it with `node ./node_modules/chrome-devtools-mcp/build/src/bin/chrome-devtools-mcp.js --version`.
+If Node or the entry point is missing, report which prerequisite is absent
+and the install command. Do not silently fetch another version with `npx -y`.
+The planned `paniolo browser` command must use the same dependency check and
+actionable error; this does not claim that command is already implemented.
+
+The `npx` examples below remain alternatives for hosts without a managed
+harness dependency. Prefer the local entry point for customer harnesses.
 
 For hosts that load project `.mcp.json`, merge this entry with existing servers
 on macOS or Linux:

@@ -11,7 +11,7 @@ description: |
   human present, or for browsing with the user's everyday signed-in profile.
 license: MIT
 metadata:
-  version: 0.1.5
+  version: 0.1.6
 tags:
 - browser
 - webmcp
@@ -26,6 +26,10 @@ references:
 
 **Requires:** Chrome installed locally, Node.js and npm for Chrome DevTools MCP,
 terminal for setup, and the agent host's loaded Chrome DevTools MCP tools.
+The harness installs `chrome-devtools-mcp` at the tested version `1.10.1` in
+`package.json`; it is not bundled with the Paniolo CLI. Check the local dependency
+before connecting. If missing, report the missing package and the harness install
+command from [shared-browser-setup](references/shared-browser-setup.md).
 
 **Full reference:** [shared-browser-setup](references/shared-browser-setup.md) ·
 [shared-browser-page-tools](references/shared-browser-page-tools.md) ·
