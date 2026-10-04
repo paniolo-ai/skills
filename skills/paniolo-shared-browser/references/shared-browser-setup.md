@@ -1,6 +1,6 @@
 ---
 source-slug: shared-browser-setup
-source-hash: 28c436a0539d62c4f95793a64a8573ac590ecf9ab5471c668570146ce21b22e9
+source-hash: 256ba33cfc9f416211e062448fc157f7b6bcf4457639decaf1eb31145d6d0ce4
 bundled: 2026-10-03
 title: Shared Browser Setup
 type: concept
@@ -74,11 +74,47 @@ A repository `.mcp.json` is not a universal agent configuration format.
 Preserve existing servers and register the equivalent command where the host
 loads MCP servers:
 
+Installing the skill supplies instructions and references. It does not install
+the browser MCP server configuration. Add or merge the configuration for every
+AI host the customer harness supports; do not replace unrelated server entries.
+A harness supporting Codex and Claude Code needs both configuration files below,
+unless the equivalent server is already configured at user scope.
+
 | Agent Host | Configuration |
 | --- | --- |
 | Claude Code | Project `.mcp.json`; enable the project server in the host |
 | Codex | Project `.codex/config.toml` in a trusted project, or user `~/.codex/config.toml` |
+| Cursor | Project `.cursor/mcp.json`, using the `mcpServers` JSON examples above |
+| Copilot In VS Code | Project `.vscode/mcp.json`, using `servers` rather than `mcpServers` |
+| Gemini CLI | Project `.gemini/settings.json`, merging a `mcpServers` object |
 | Other MCP Hosts | Use that host's MCP settings and its supported command format |
+
+Cursor and Gemini CLI use the same `chrome-devtools` object shown in the JSON
+examples above, inside their existing `mcpServers` object. VS Code needs this
+native Windows example instead:
+
+```json
+{
+  "servers": {
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "cmd.exe",
+      "args": ["/c", "npx", "-y", "chrome-devtools-mcp@1.10.1", "--browserUrl", "http://127.0.0.1:9222", "--no-usage-statistics"]
+    }
+  }
+}
+```
+
+On macOS or Linux, use `npx` as the command and remove `"/c", "npx"` from
+that argument list. Copilot CLI is a separate host from Copilot in VS Code;
+use its own MCP configuration rather than assuming it reads `.vscode/mcp.json`.
+For Antigravity, Devin, or another host, check its current MCP settings and local
+desktop connection support. Do not invent a configuration path or assume a
+remote agent can reach the human's loopback Chrome port.
+
+Vendor references: [Cursor MCP](https://prod.cursor.com/help/customization/mcp),
+[VS Code MCP](https://code.visualstudio.com/docs/agent-customization/mcp-servers),
+and [Gemini CLI MCP](https://geminicli.com/docs/tools/mcp-server/).
 
 Codex on native Windows:
 
