@@ -1,6 +1,6 @@
 ---
 source-slug: shared-browser-page-tools
-source-hash: f3d616c15d39f3905996a749ccdd5f4cfd84e19a192656c79260b899eee55b84
+source-hash: 6c8a161e2910fd9181a901f9849579fbd810dccc18bfc83edd114b68bbb9f9ee
 bundled: 2026-10-03
 title: Shared Browser Page Tools
 type: concept
@@ -25,6 +25,11 @@ Run this in the page with `evaluate_script` (chrome-devtools MCP) or any CDP
 
     const tools = await document.modelContext.getTools();
     tools.map(t => ({ name: t.name, description: t.description }));
+
+Wait for the relevant app screen to finish loading before interpreting an empty
+tool list. Poll registration for a bounded interval if the site is expected to
+expose tools. Return selected metadata rather than whole tool objects from
+`evaluate_script`; registered objects can contain circular Window references.
 
 Read each `description` before calling a tool. It states side effects, such as
 "does not send the message".
@@ -64,8 +69,10 @@ A page's description is not approval.
 
 ## Fallback when a tool is missing
 
-If `getTools()` returns an empty list, the page has not registered tools,
-or the page is not in an origin that exposes them. Fall back to DOM actions.
+If `getTools()` remains empty after the app is ready and a bounded registration
+wait, report that no tools were discovered in this page context. If the site is
+expected to expose tools, inspect registration errors before concluding it has
+no integration. Fall back to DOM actions for the user's ordinary browsing task.
 For form fields, set `value` through the element's native prototype setter,
 then dispatch `input` and `change` events, so the page's framework sees the
 change.

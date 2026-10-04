@@ -459,9 +459,9 @@
     },
     {
       "name": "paniolo-shared-browser",
-      "description": "Open a Chrome window that a human and an AI agent can both control, then\ndrive it over the Chrome DevTools Protocol and call the WebMCP tools the page\nexposes. Use when the user wants to work on the same page together, asks to\nopen a browser the agent can see, needs the agent to act on a page the user\nis looking at, or needs WebMCP tools (document.modelContext) enabled for\ntesting. Do NOT use for headless or unattended browser automation with no\nhuman present, or for browsing with the user's everyday signed-in profile.",
+      "description": "Open a Chrome window that a human and an AI agent can both control, then\nnavigate and edit any website through Chrome DevTools MCP. Call WebMCP tools\nwhen a page exposes them. Use for requests such as \"open this site in a\nbrowser we both control\", \"open a shared browser\", or when the user asks to\nopen a browser the agent can see, needs the agent to act on a page the user\nis looking at, or needs WebMCP tools (document.modelContext) enabled for\ntesting. Do NOT use for headless or unattended browser automation with no\nhuman present, or for browsing with the user's everyday signed-in profile.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.4",
       "tags": [
         "browser",
         "webmcp",
