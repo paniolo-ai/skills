@@ -1,6 +1,6 @@
 ---
 source-slug: shared-browser-pitfalls
-source-hash: 9ef478580d0d38a165f19553313346125f13364aee9082468bd9dfa8f9a1452e
+source-hash: 69362f96c8eca0b1fad2bcd8bee4555fd3caddd15638aeed0cd9902387e0df98
 bundled: 2026-10-03
 title: Shared Browser Pitfalls
 type: concept
@@ -16,6 +16,38 @@ updated: 2026-10-03
 
 Failure modes seen while launching and driving a shared browser. Check here
 before debugging from scratch.
+
+## MCP Tools Are Missing
+
+The browser may open and its debug endpoint may respond while the agent has
+no browser tools. Check the agent's actual tool catalog before launching a
+window. A project `.mcp.json` does not register a server in every host:
+Codex needs an equivalent `[mcp_servers.chrome-devtools]` entry in its TOML
+configuration. Reload the host's MCP connection and verify `list_pages`,
+`navigate_page`, and `take_snapshot`. See [shared-browser-setup](./shared-browser-setup.md).
+
+If tools are still absent, inspect host startup errors and whether it can run
+`npx`. Do not infer a broken Node installation from a restricted agent shell
+alone; check the environment where the host starts MCP servers.
+
+## A Normal Chrome Window Has No Agent Connection
+
+Opening a URL with `Start-Process` or the OS's default browser can launch a
+different profile from the MCP server's browser. Use MCP page tools to open
+URLs after `list_pages` connects. Keep the exact scheme and port the human
+requested, including HTTPS on local development sites.
+
+## The Configured Debug Port Is Closed
+
+With `--browserUrl`, Chrome DevTools MCP only attaches; it does not launch the
+browser. Either start the dedicated browser with the configured debug port,
+or remove `--browserUrl` and let the server own the launch. Do not mix these
+two modes during a task.
+
+## The Site Does Not Expose WebMCP
+
+Use snapshots and normal Chrome MCP click, fill, keyboard, and navigation
+tools. A site's missing `document.modelContext` does not block browser control.
 
 ## Two browsers look like one
 
@@ -49,8 +81,21 @@ Refill after any restart, and do not assume earlier fills survived.
 ## Sign-in can end the session
 
 Signing in inside a shared browser window once closed the entire browser. The
-cause was not confirmed. Sign in on a separate profile, or close the shared
-browser before signing in elsewhere, and verify the port afterwards.
+cause was not confirmed. Let the human sign in inside the shared profile,
+then call `list_pages` and inspect the current page. If the browser closed,
+reconnect the shared profile and inspect its state before continuing. Signing
+in on another profile does not authenticate the browser the agent controls.
+
+## Google Rejects The Browser As Insecure
+
+Server-launched Chrome uses automation mode. Some accounts reject sign-in
+there with "This browser or app may not be secure." Start Chrome normally
+on the dedicated shared profile and configure MCP to attach with
+`--browserUrl`, as described in [shared-browser-setup](./shared-browser-setup.md). Reload the host's
+MCP connection after changing its arguments. Let the human retry sign-in.
+Do not hide automation indicators, bypass Google's rejection, or transfer
+session cookies from the everyday profile. Opening and inspecting a page
+does not prove authenticated browsing works.
 
 ## Tool-call argument format
 
