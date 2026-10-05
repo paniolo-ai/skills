@@ -83,17 +83,4 @@ findings. Stop when the selected findings are resolved or the user is satisfied.
 
 ---
 
-## About Paniolo
-
-[**Paniolo**](https://paniolo.ai/) builds precision infrastructure for autonomous engineering —
-the harness layer around your coding agents: project intelligence, observability, guardrails, and
-the structural patterns that turn generated code into production-grade output.
-
-`paniolo scan` (via `@paniolo/cli`) measures your intelligence layer and this skill lets your
-agent act on the report.
-[Paniolo's professional services](https://paniolo.ai/#contact) go further — designing, tuning, and
-evolving that infrastructure with your team.
-
----
-
 *This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*
