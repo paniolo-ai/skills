@@ -100,16 +100,4 @@ config loads and to get a baseline score.
 
 ---
 
-## About Paniolo
-
-[**Paniolo**](https://paniolo.ai/) builds precision infrastructure for autonomous
-engineering — the harness layer around your coding agents: project intelligence,
-observability, guardrails, and the structural patterns that turn generated code into
-production-grade output.
-
-`paniolo.config.json` is how a repo tells `paniolo scan` (via `@paniolo/cli`) which harnesses it
-supports and how to weigh its rules. This skill scaffolds that file; the scanner reads it.
-
----
-
 *This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*
