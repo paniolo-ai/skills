@@ -1,14 +1,14 @@
 ---
 source-slug: stale-commands
-source-hash: 5460be6bb497abbd4604939e806f0ef28e80c2ab0c2aaf8cffb7071207d77baf
-bundled: 2026-09-29
+source-hash: 5232cfe61da29fda6615c574e2a5597e86083248c359f24999b7bc95748f17cf
+bundled: 2026-10-06
 title: Stale Commands
 type: concept
 tags:
 - staleness
 - harness-eng
 - cli
-updated: 2026-09-28
+updated: 2026-10-06
 ---
 
 # Stale Commands
@@ -98,7 +98,7 @@ These write nothing to the ledger.
 
 | Command | Arguments and flags | Behavior |
 | --- | --- | --- |
-| `scan` | `--code key:path` (repeatable), `--wiki key:path` (repeatable), `--base <sha>`, `--head <sha>`, `--dry-run` | Detect allegations over `base..head`; report watch coverage, scan errors, and volatile suggestions; a normal run writes allegation and retrieval-run records, while `--dry-run` touches no ledger |
+| `scan` | `--code key:path` (repeatable), `--wiki key:path` (repeatable), `--base <sha>`, `--head <sha>`, `--sweep`, `--only <selector>` (repeatable), `--dry-run` | Detect allegations over `base..head` — or, under `--sweep`, over every in-scope comment and document on each `--code`; report watch coverage, scan errors, and volatile suggestions; `--only` bounds which locations file (out-of-scope matches count as `suppressed_out_of_scope`); a normal run writes allegation and retrieval-run records, while `--dry-run` touches no ledger |
 
 ---
 
@@ -139,10 +139,10 @@ GitHub side effects.
 
 | Command | Arguments and flags | Behavior |
 | --- | --- | --- |
-| `run` | `--adapter`, `--model`, `--challenger`, `--challenger-model`, `--remediator`, `--remediator-model`, `--patch-challenger`, `--patch-challenger-model`, `--repo key:path` (repeatable), `--max`, `--timeout-ms`, `--max-output-bytes` | Verify `pending-verification` allegations (verifier + verdict challenger), then remediate `confirmed-stale` ones (remediator + patch challenger). All role and limit flags are one-run overrides of config |
-| `propose` | `--repo key:path` (repeatable), `--dry-run` | Push each remote's `remediation-proposed` allegations as one PR on a `staleness/rem-*` branch via `gh pr create`, record the pending proposal, and request `gh pr merge --auto --squash --delete-branch` when `autoMerge` is set and the merge gate passes |
-| `merge-sync` | `--repo key:path` (repeatable), `--dry-run` | Reconcile pending proposals with `gh pr list`: merged heads run the merge gate and resolve the group; closed PRs clear the proposal for re-queue |
-| `worker` | `--ledger-repo key:path`, `--repo key:path` (repeatable), `--wiki key:path` (repeatable), the `run` role/limit flags, `--bootstrap`, `--retry-retained`, `--dry-run` | The durable runner: merge-sync → checkpoint-gated scan per repo → adjudicate → propose → publish the ledger itself as a candidate PR on branch `staleness/ledger`. One run at a time via `run.lock` |
+| `run` | `--adapter`, `--model`, `--challenger`, `--challenger-model`, `--remediator`, `--remediator-model`, `--patch-challenger`, `--patch-challenger-model`, `--repo key:path` (repeatable), `--only <selector>` (repeatable), `--max`, `--timeout-ms`, `--max-output-bytes` | Verify `pending-verification` allegations (verifier + verdict challenger), then remediate `confirmed-stale` ones (remediator + patch challenger). All role and limit flags are one-run overrides of config; `--only` restricts both phases to matching allegation locations |
+| `propose` | `--repo key:path` (repeatable), `--only <selector>` (repeatable), `--dry-run` | Push each remote's in-scope `remediation-proposed` allegations as one PR on a `staleness/rem-*` branch via `gh pr create`, record the pending proposal, and request `gh pr merge --auto --squash --delete-branch` when `autoMerge` is set and the merge gate passes; out-of-scope allegations stay `remediation-proposed` and report `skipped: out-of-scope` |
+| `merge-sync` | `--repo key:path` (repeatable), `--only <selector>` (repeatable), `--dry-run` | Reconcile pending proposals with `gh pr list`: merged heads run the merge gate and resolve the group; closed PRs clear the proposal for re-queue; `--only` reconciles a proposal only when every record it carries is in scope |
+| `worker` | `--ledger-repo key:path`, `--repo key:path` (repeatable), `--wiki key:path` (repeatable), the `run` role/limit flags, `--bootstrap`, `--sweep`, `--retry-retained`, `--only <selector>` (repeatable), `--dry-run` | The durable runner: merge-sync → checkpoint-gated scan per repo → adjudicate → propose → publish the ledger itself as a candidate PR on branch `staleness/ledger`. One run at a time via `run.lock`; one `--only` set bounds filing, adjudication, remediation, and proposal while checkpoints still advance for every `--repo` |
 
 `run` and `worker` admit `codex`, `claude`, `cursor`, and `devin`; any
 other name is rejected before work starts. `--bootstrap` records each
@@ -171,6 +171,15 @@ and `gh` on PATH with GitHub authentication.
 
 - `key:path` addresses a checkout: the key is a configured workspace
   repository name, the path is where it is checked out on disk.
+- `--only <key[:glob[#anchor]]>` repeats on `scan`, `run`, `propose`,
+  `merge-sync`, and `worker` to bound which locations that invocation
+  files, verifies, remediates, or proposes. A bare key selects the whole
+  repository; `*` matches direct children, `**` any depth, and `#anchor`
+  qualifies an exact path. Selectors union; an empty match set is zero
+  work, never a repository-wide fallback. Scan checkpoints still advance
+  for every `--repo` — the selector bounds work, not coverage
+  bookkeeping — and `run.lock`, `staleness.enabled`, and
+  `automerge.disabled` keep their unscoped meaning.
 - Allegation ids print as `S-<hash>`; a unique prefix is accepted anywhere
   an id is.
 - `--dry-run` on `scan`, `propose`, `merge-sync`, and `worker` reports the

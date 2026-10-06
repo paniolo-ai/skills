@@ -1,7 +1,7 @@
 ---
 source-slug: stale-triggers
-source-hash: 6bf131674c368ece1974a3db5db401046a4715a2cb8c7aa9fa6461cd6548b37b
-bundled: 2026-09-28
+source-hash: 8b9ab5010932908d3f053be81277669c50f3327c1beb6d8d2f79f6cbea5c8374
+bundled: 2026-10-06
 title: Stale Triggers
 type: concept
 tags:
@@ -9,7 +9,7 @@ tags:
 - harness-eng
 - automation
 - configuration
-updated: 2026-09-28
+updated: 2026-10-06
 ---
 
 # Stale Triggers
@@ -135,7 +135,10 @@ from owning the same ledger concurrently.
 
 Use `worker --bootstrap` once to record each repository's current HEAD without
 scanning its history. Use `--retry-retained` when a cycle should requeue
-`insufficient-evidence` work before adjudication.
+`insufficient-evidence` work before adjudication. One `--only` selector set
+runs a scoped cycle — scans still cover every `--repo` so checkpoints keep
+advancing, but only matching locations are filed, verified, remediated, and
+proposed.
 
 ---
 
@@ -169,6 +172,7 @@ The controls are independent:
 | Control | Scope |
 | --- | --- |
 | `staleness.enabled` | Whether `scan`, `run`, `propose`, and `worker` execute; `flag` requires an explicit effective `true` |
+| `--only key[:glob[#anchor]]` | Which locations that invocation may file, verify, remediate, or propose — the grammar lives in [stale-commands](./stale-commands.md); an empty match is zero work, never a repository-wide fallback |
 | `--dry-run` | Whether that invocation may persist or call agents/GitHub, where supported |
 | `autoMerge` | Whether `propose` may request auto-merge after the evidence gate passes |
 | `<ledger>/automerge.disabled` | Emergency merge kill switch; scanning and adjudication continue |
