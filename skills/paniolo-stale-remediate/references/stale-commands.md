@@ -1,7 +1,7 @@
 ---
 source-slug: stale-commands
-source-hash: 5232cfe61da29fda6615c574e2a5597e86083248c359f24999b7bc95748f17cf
-bundled: 2026-10-06
+source-hash: 997bfda4c423f4258b3326e6b26afbdfefcbd8585b863fdf0680f2c525cfa837
+bundled: 2026-10-08
 title: Stale Commands
 type: concept
 tags:
@@ -21,7 +21,9 @@ worker `run.lock` is not an error — the worker prints
 
 The command is gated behind the `stale` cargo feature (part of
 `release-core`). Binaries built without it report
-`unrecognized subcommand 'stale'`.
+`unrecognized subcommand 'stale'`. Individual verbs marked *(qmd)* in
+this reference exist only in builds that also link the `qmd` feature —
+a `release-core` binary reports `unrecognized subcommand` for them.
 
 ## Contents
 
@@ -32,6 +34,7 @@ The command is gated behind the `stale` cargo feature (part of
 - [Agent Filing Verb](#agent-filing-verb)
 - [Queue-Management Verbs](#queue-management-verbs)
 - [Agent And Publication Verbs](#agent-and-publication-verbs)
+- [Ledger Index And Verify Verbs](#ledger-index-and-verify-verbs)
 - [Calibration Verbs](#calibration-verbs)
 - [Common Conventions](#common-conventions)
 - [See Also](#see-also)
@@ -130,6 +133,7 @@ GitHub side effects.
 | `resolve <id>` | `--note <text>` (required) | Mark a `remediation-proposed` allegation `resolved-updated` when its fix landed outside a staleness PR; the note records the carrying commit or PR |
 | `prune` | `--apply` | Remove terminal (`resolved-updated`, `obsolete`) allegations; without `--apply` prints the plan only |
 | `rebase` | `--apply` | Re-resolve open locations; a missing target file becomes `obsolete`. Plan-only without `--apply` |
+| `migrate` | `--apply` | Report the JSON→`workspace.sqlite` cutover plan — record counts per family, the resolved destination, whether it already carries a stale schema. Takes the run lock and writes nothing until `--apply` |
 
 ---
 
@@ -142,7 +146,7 @@ GitHub side effects.
 | `run` | `--adapter`, `--model`, `--challenger`, `--challenger-model`, `--remediator`, `--remediator-model`, `--patch-challenger`, `--patch-challenger-model`, `--repo key:path` (repeatable), `--only <selector>` (repeatable), `--max`, `--timeout-ms`, `--max-output-bytes` | Verify `pending-verification` allegations (verifier + verdict challenger), then remediate `confirmed-stale` ones (remediator + patch challenger). All role and limit flags are one-run overrides of config; `--only` restricts both phases to matching allegation locations |
 | `propose` | `--repo key:path` (repeatable), `--only <selector>` (repeatable), `--dry-run` | Push each remote's in-scope `remediation-proposed` allegations as one PR on a `staleness/rem-*` branch via `gh pr create`, record the pending proposal, and request `gh pr merge --auto --squash --delete-branch` when `autoMerge` is set and the merge gate passes; out-of-scope allegations stay `remediation-proposed` and report `skipped: out-of-scope` |
 | `merge-sync` | `--repo key:path` (repeatable), `--only <selector>` (repeatable), `--dry-run` | Reconcile pending proposals with `gh pr list`: merged heads run the merge gate and resolve the group; closed PRs clear the proposal for re-queue; `--only` reconciles a proposal only when every record it carries is in scope |
-| `worker` | `--ledger-repo key:path`, `--repo key:path` (repeatable), `--wiki key:path` (repeatable), the `run` role/limit flags, `--bootstrap`, `--sweep`, `--retry-retained`, `--only <selector>` (repeatable), `--dry-run` | The durable runner: merge-sync → checkpoint-gated scan per repo → adjudicate → propose → publish the ledger itself as a candidate PR on branch `staleness/ledger`. One run at a time via `run.lock`; one `--only` set bounds filing, adjudication, remediation, and proposal while checkpoints still advance for every `--repo` |
+| `worker` | `--ledger-repo key:path`, `--repo key:path` (repeatable), `--wiki key:path` (repeatable), the `run` role/limit flags, `--bootstrap`, `--sweep`, `--retry-retained`, `--only <selector>` (repeatable), `--dry-run` | The durable runner: merge-sync → checkpoint-gated scan per repo → adjudicate → propose → publish the ledger itself as a candidate PR on branch `staleness/ledger` → maintenance tail: claim merge-minted `verify` jobs against the cycle's checkout map and reproject the ledger into the qmd `stale-ledger` collection. One run at a time via `run.lock`; one `--only` set bounds filing, adjudication, remediation, and proposal while checkpoints still advance for every `--repo` |
 
 `run` and `worker` admit `codex`, `claude`, `cursor`, and `devin`; any
 other name is rejected before work starts. `--bootstrap` records each
@@ -150,6 +154,33 @@ other name is rejected before work starts. `--bootstrap` records each
 on first contact. `--retry-retained` requeues `insufficient-evidence` allegations
 before adjudication. `propose`, `merge-sync`, and `worker` require `git`
 and `gh` on PATH with GitHub authentication.
+
+The `worker` maintenance tail needs the `qmd` feature: with it, a
+published cycle claims the `verify` jobs `merge-sync` minted (lease
+identity `stale-worker`, the same checkout map the cycle assembled) and
+reprojects the ledger's search documents — see the
+[maintenance verbs](#ledger-index-and-verify-verbs). Without `qmd` the
+report carries `{ "skipped": "qmd engine not in this build" }` under
+`verify` and `index`. The tail is best-effort and skipped on `--dry-run`
+or cancellation: a qmd-side failure lands as an `error` marker in the
+report, never as a failure of an already-published cycle.
+
+---
+
+<a id="ledger-index-and-verify-verbs"></a>
+
+## Ledger Index And Verify Verbs
+
+These verbs all require the `qmd` feature — they read and write the
+shared `workspace.sqlite` index through `IndexStore` and never embed.
+Standalone invocations stay useful for manual refresh or repair; the
+scheduled `worker` tail already covers the routine cases.
+
+| Command | Arguments and flags | Behavior |
+| --- | --- | --- |
+| `index` *(qmd)* | — | Reproject the ledger into the shared database's reserved `stale-ledger` qmd collection — one bounded search document per allegation. Scoped queries can opt in to the collection; unscoped search and prompt hooks never return ledger rows |
+| `verify` *(qmd)* | `--repo key:path` (repeatable), `--worker <name>` (default `stale-verify`), `--limit <n>` (default 8) | Claim queued `verify` jobs minted by merged remediations; a checkout that does not contain the merge head releases the job rather than confirming closure; a matching checkout refreshes the indexed passage to its bytes and completes the job |
+| `packet <id>` *(qmd)* | `S-` id or unique prefix, `--repo key:path` (repeatable), `--budget <bytes>` | Emit the bounded DB20 remediation packet for one allegation — passage bytes at the checkout's HEAD, freshness- and ledger-filtered qmd neighbors, and prior fixes. Read-only |
 
 ---
 
@@ -162,6 +193,7 @@ and `gh` on PATH with GitHub authentication.
 | `replay` | `--adapter`, `--model`, `--challenger-adapter`, `--challenger-model`, `--full`, `--shadow-observations <file>` (requires `--full`) | Live known-answer replay through the real adapters: preflight each role (`<cli> --version`, 15 s), then run built-in cases and the frozen gate report. `--full` adds remediation cases and scores fuzzy-lane admission from a shadow-observation file. **Writes ledger records — use a disposable `--root`** |
 | `shadow-qmd` | positional `<output>` JSON path, `--work-dir <dir>` | (requires the `qmd` feature) Measure qmd retrieval and reranking over the committed docs holdout in an isolated index; write observations with a run-scoped index-integrity manifest. Needs a configured qmd rerank model |
 | `seed` | `<target> <claim>`, `--expected stale\|fresh` (default `stale`), `--source repo:path`, `--commit` (default `HEAD`) | Plant a known-answer canary allegation (`canary/stale/2` or `canary/fresh/2`, severity `known-answer`) that flows through normal adjudication so the report can measure hits and misses |
+| `eval` *(qmd)* | `--cases <file>`, `--limit <n>` (default 10), `--db <path>` | Replay a frozen gold-labeled case file against the `stale-ledger` projection and report recall; report only — a corpus whose queries embed the gold labels fails the leakage check rather than scoring |
 
 ---
 
