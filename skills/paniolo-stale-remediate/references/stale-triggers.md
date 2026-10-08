@@ -1,7 +1,7 @@
 ---
 source-slug: stale-triggers
-source-hash: 8b9ab5010932908d3f053be81277669c50f3327c1beb6d8d2f79f6cbea5c8374
-bundled: 2026-10-06
+source-hash: 7af1ba5ac48366e9c969b4163b8fa6d5f9ad622d772a52eb0ac1faf8a1dfdd35
+bundled: 2026-10-08
 title: Stale Triggers
 type: concept
 tags:
@@ -46,9 +46,12 @@ invoke the command with an explicit configuration.
 | Manual adjudication | Operator elects to process the queue | `run` | Yes | Ledger observations, transitions, and bundles |
 | Proposal publication | Operator elects to publish accepted fixes | `propose` | No | Worktree, branch, push, PR, proposal record |
 | Proposal reconciliation | Operator or worker checks GitHub | `merge-sync` | No | Ledger transitions after GitHub reads |
-| Durable cycle | Scheduler or operator invokes it | `worker` | Yes | Ledger, branches, PRs, and ledger PR |
+| Durable cycle | Scheduler or operator invokes it | `worker` | Yes | Ledger, branches, PRs, ledger PR, verify-job verdicts, and the qmd projection |
+| Post-merge verification | A merged remediation minted a `verify` job; a checkout carrying the merge head exists | `worker` tail, or `verify` standalone | No | Job completion and an indexed-passage refresh; a checkout without the head releases the job |
+| Ledger reindex | The ledger changed and the `stale-ledger` search collection is stale | `worker` tail, or `index` standalone | No | qmd `stale-ledger` collection rows |
+| Packet assembly | Operator or agent wants one allegation's bounded remediation packet | `packet` | No | None; JSON report only |
 | Retained retry | Operator requests another attempt | `retry` or `worker --retry-retained` | Later | Allegation transition |
-| Calibration | Operator starts an experiment | `seed`, `replay`, `shadow-qmd` | Varies | Ledger records or shadow JSON file |
+| Calibration | Operator starts an experiment | `seed`, `replay`, `shadow-qmd`, `eval` | Varies | Ledger records or shadow JSON file |
 
 `next`, `list`, `show`, `report`, and `score-shadow` inspect existing state;
 they do not trigger detection or remediation.
@@ -91,7 +94,8 @@ treat that response as **not run**, not as an empty successful scan.
 
 Inspection and explicit maintenance remain available while automation is off:
 `list`, `next`, `show`, `report`, `score-shadow`, `retry`, `resolve`, `prune`,
-`rebase`, `merge-sync`, `seed`, and `replay`. `shadow-qmd` runs before the
+`rebase`, `migrate`, `merge-sync`, `index`, `verify`, `packet`, `seed`,
+`eval`, and `replay`. `shadow-qmd` runs before the
 ledger configuration is opened and is also unaffected by `enabled`.
 
 `flag` is a separate, opt-in entry point. It requires an **explicit**
@@ -126,7 +130,12 @@ policy as well as disabling the canonical config.
 
 `worker` is durable orchestration, not a daemon or scheduler. One invocation
 runs merge-sync, scans each repository from its saved scan checkpoint to HEAD,
-adjudicates, proposes fixes, and publishes the ledger branch. Then it exits.
+adjudicates, proposes fixes, and publishes the ledger branch. In a qmd build
+it then runs a maintenance tail — claiming the `verify` jobs the cycle's
+merge-sync minted and reprojecting the ledger's `stale-ledger` search
+collection — before it exits. The tail is best-effort (a qmd failure reports
+an `error` marker rather than failing the published cycle), skipped on
+`--dry-run`, and reports `skipped` markers in builds without `qmd`.
 
 A local task runner, self-hosted scheduler, or operator must invoke it again.
 Only a merged ledger PR advances scan checkpoints, so missed or failed
@@ -207,7 +216,12 @@ that selects a different config.
 
 - Enable canonical automation and configure role profiles and surfaces.
 - Schedule `worker` on authorized local or self-hosted compute with signed-in
-  agent and GitHub CLIs.
+  agent and GitHub CLIs — one invocation ends with the maintenance tail:
+  merged-remediation `verify` jobs are claimed against the cycle's checkout
+  map and the ledger reprojects into the qmd `stale-ledger` collection.
+- Schedule standalone `verify` or `index` only for out-of-cycle refresh —
+  e.g. a new checkout joining mid-cycle, or rebuilding the collection after
+  a schema change.
 - Keep branch protection and `automerge.disabled` available as independent
   merge controls.
 

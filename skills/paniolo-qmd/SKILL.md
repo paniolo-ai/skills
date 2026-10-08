@@ -220,13 +220,15 @@ Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
   — `update` (text index only) and `embed` (vectors only) are its two halves
 - Warm sidecar: `paniolo qmd serve --ensure | --stop | --restart`
   — add `--all` to `--stop` to also reclaim servers that record no harness root
-- Shared model daemons: `paniolo qmd daemon` lists them; `--stop [<pool>]` stops
-  the named one, or the only one running
+- Inference worker pools: `paniolo qmd daemon` lists them; `--stop [<pool>]`
+  stops the named one, or the only one running. Model execution lives in the
+  prebuilt `paniolo-inference-worker` process — installed once as a pinned,
+  checksum-verified artifact, reused offline, never compiled by the CLI.
 - Reclaim disk: `paniolo qmd cleanup` releases cache/orphaned data (cheap);
   `paniolo qmd vacuum` compacts the index file itself (exclusive-lock rewrite;
   add `--dry-run` to either first)
 - GPU preference: `paniolo qmd gpu` writes the per-machine `.qmd-local.json`
-- Add `-v` to any command for llama.cpp's model-loading diagnostics.
+- Add `-v` to any command to forward the worker's llama.cpp diagnostics.
 
 Two more exist and are not part of normal task work: `mcp` (the MCP server, which
 your editor starts for you) and `hook` (vendor hook plumbing). `bench`, `eval`,
@@ -251,10 +253,11 @@ reach for `--explain` instead when the question is about one query you just ran.
 - When `query` misbehaves but `search` is fine, run `doctor` first: it checks
   vector coverage and asks the warm sidecar to answer a real query, rather than
   only checking that it is listening. `serve --restart` is the recovery.
-- `query` answers from the warm sidecar when a ready one exists, and loads the
-  models itself otherwise — the difference is seconds against a minute. So
-  `serve --ensure` before a run of queries is worth it. `--explain` always
-  loads in-process, because the per-stage placements only exist there.
+- `query` answers from the warm sidecar when a ready one exists, and runs the
+  pipeline through the inference worker otherwise — the difference is seconds
+  against a minute. So `serve --ensure` before a run of queries is worth it.
+  `--explain` always runs the local pipeline (through the worker), because the
+  sidecar's response does not carry the per-stage placements.
 - `doctor` lists warm-server *processes*, including ones no discovery file
   names and ones belonging to other harness checkouts, with the memory each
   holds. That is the report to read when a machine feels heavy.
