@@ -4,7 +4,7 @@ description: |
   Drive the paniolo stale adjudication and remediation pipeline — run verifier/challenger agent phases, propose and merge remediation PRs, operate the durable worker, and calibrate detection with replay, shadow lanes, and canaries. Use when asked to run, adjudicate, remediate, propose, merge-sync, automate, or calibrate staleness work. To inspect the ledger without mutating, use paniolo-stale.
 license: MIT
 metadata:
-  version: 0.1.4
+  version: 0.1.5
 tags:
 - staleness
 - remediation
@@ -98,7 +98,7 @@ scan as "nothing to do".
 
 ## Do Not
 
-- Do not hand-edit ledger JSON or force transitions — the state machine and
+- Do not hand-edit the ledger snapshot or force transitions — the state machine and
   merge gate exist so dispositions stay evidence-based.
 - Do not bypass the merge gate or delete `automerge.disabled` to make a
   merge happen; investigate what the gate rejected.

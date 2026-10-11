@@ -1,28 +1,29 @@
 ---
 source-slug: stale-ledger
-source-hash: 940065c47532184c654cb465763dd19c802861cae798782e04ec316c52f2f155
-bundled: 2026-10-02
+source-hash: 5dfdb1a518be6b5174f0981fec15a9a39a8e04178a0a60ccc175cf19baab2dfb
+bundled: 2026-10-11
 title: Stale Ledger
 type: concept
 tags:
 - staleness
 - harness-eng
 - ledger
-updated: 2026-09-30
+updated: 2026-10-11
 ---
 
 # Stale Ledger
 
-The ledger is the durable state behind `paniolo stale`: a directory of
-JSON records inside the repository that owns the prose. Within a ledger,
-records group into one bucket per repository they describe, so a
-finding's whole trail stays together even when it was detected from a
-different repository's diff.
+The ledger is the durable state behind `paniolo stale`. Its live records
+are in the checkout owner's platform-native `workspace.sqlite`, shared
+with qmd under separate schema owners. Git carries a stale-only recovery
+snapshot at `.paniolo/ledger.sqlite` and the writer lease at
+`.paniolo/writer.json`. A finding's repository remains part of its record
+identity even when another repository's diff detected it.
 
 ## Contents
 
 - [Ledger Location](#ledger-location)
-- [Directory Layout](#directory-layout)
+- [Storage Layout](#storage-layout)
 - [Record Ids](#record-ids)
 - [Agent-Reported Observations](#agent-reported-observations)
 - [State Machine](#state-machine)
@@ -37,52 +38,40 @@ different repository's diff.
 
 ## Ledger Location
 
-The ledger lives at `--config`'s `staleness.ledgerPath` (or the default
-`.paniolo/staleness`), resolved under `--root`.
+The live database is selected by the owner checkout, not by `ledgerPath`.
+Windows and WSL keep separate native files and coordinate through the
+published snapshot and writer lease. A missing or incompatible live
+database fails closed; it never becomes an empty JSON ledger.
 
-The resolved path must stay inside the checkout — absolute paths, `..`
-segments, drive prefixes, and symlinked roots are rejected. Moving a ledger
-is an explicit migration: locks, scan checkpoints, observations, proposal records,
-and git history form one durable whole.
+`staleness.ledgerPath` names the repository-relative publication directory
+(default `.paniolo`). Absolute paths, `..` segments, drive prefixes, and
+symlinked roots are rejected. `stale migrate` is the explicit importer for
+an existing legacy JSON tree.
 
 ---
 
-<a id="directory-layout"></a>
+<a id="storage-layout"></a>
 
-## Directory Layout
+## Storage Layout
 
 ```text
-<ledgerPath>/
-  <repo>/                one bucket per repository the records describe
-    allegations/           S-<hash>.json   mutable; state machine + revision-checked
-    evidence/              E-<hash>.json   immutable, content-addressed
-    labels/                L-<hash>.json   immutable; corrections supersede
-    retrieval-runs/        R-<hash>.json   bounded candidate pools, incl. deferred
-    agent-reports/         A-<hash>.json   immutable, bounded observations filed in use
-    observations/          O-<hash>.json   immutable sealed agent outputs by role
-    remediation-bundles/   B-<hash>.json   pins the four observation ids + patch hash
-    refs/                  RI-<hash>.json  prose-reference index, one record per file
-    lifecycle-candidates/  LC-<hash>.json  mutable lifecycle candidates
-    lifecycle-evidence/    LE-<hash>.json  immutable lifecycle evidence
-    lifecycle-bundles/     LB-<hash>.json  lifecycle patch bundles
-  proposals/             <remote>.json     pending candidate-PR proposal per remote
-  scan-checkpoints.json  per-repo last materialized scan heads
-  pending-scans.json     heads carried by an unmerged ledger PR
-  state.lock             exclusive lock for every mutable read-modify-write
-  run.lock               worker-only single-run mutex
-  automerge.disabled     kill-switch sentinel: blocks every merge decision
+<native state>/<owner>/workspace.sqlite
+  stale_* tables         durable ledger records and lineage
+  ops_* tables           rebuildable jobs and metrics; not in the snapshot
+  qmd-owned tables       local retrieval index; not in the snapshot
+<ledger checkout>/.paniolo/
+  ledger.sqlite          Git-tracked stale-only recovery snapshot
+  writer.json            Git-tracked cross-platform writer lease
+  managed.lock           local scheduled-worker mutex
 ```
 
-The bucket key is the repository a record describes: an allegation's
-`location.repo` carries its whole trail (evidence, observations,
-remediation bundles), lifecycle collections use the candidate's wiki,
-`refs/` and `agent-reports/` use the record's own repo field, and
-retrieval runs carry the changed entity's repo. A record that arrives
-with no attributable repository fails closed rather than filing
-anywhere.
-
-All writes are atomic (temp file + rename in the same directory) and every
-record path is validated to stay under the ledger root.
+The `stale_*` tables hold allegations, evidence, labels, retrieval runs,
+agent reports, observations, proposals, references, lifecycle records,
+and singleton documents for scan checkpoints and pending scans. Records
+carry repository keys; a record with no attributable repository fails
+closed. Writes use SQLite transactions and checked revisions. Snapshot
+export copies only durable stale-owned state and stamps its generation.
+The native run lock and journal sit beside `workspace.sqlite`.
 
 ---
 
@@ -120,8 +109,8 @@ accept a `S-` id or a unique prefix.
 
 ## Agent-Reported Observations
 
-`paniolo stale flag` stores a bounded `observed-in-use/1` report in
-`agent-reports/`. It records the exact `repo:path#anchor`, relied-on claim,
+`paniolo stale flag` stores a bounded `observed-in-use/1` report in the
+ledger's agent-report records. It records the exact `repo:path#anchor`, relied-on claim,
 observation file contents, and optional source revision. Refiling the same
 packet is idempotent; a different observation remains distinct. Filing
 does **not** create an allegation, verdict, or remediation request.
@@ -159,10 +148,10 @@ verification on new evidence or `--retry-retained`, never abandoned.
 ## Scan Checkpoints And Pending Scans
 
 A **scan checkpoint** is the last source commit whose detection results were
-successfully materialized into a merged ledger. `scan-checkpoints.json` maps
+successfully materialized into a merged ledger. A `stale_documents` row maps
 each repository key to that commit, and the worker scans the range
-`checkpoint..HEAD` each cycle. Scan heads recorded while a ledger PR is
-still open go to `pending-scans.json`; they become scan checkpoints only
+`checkpoint..HEAD` each cycle. Pending scan heads are stored in another
+singleton document while a ledger PR is open; they become checkpoints only
 when the ledger PR carrying them merges. Remediation merges do not move scan
 checkpoints. `worker --bootstrap` seeds each `--repo` checkpoint at HEAD
 without scanning history.
@@ -185,9 +174,10 @@ checkout and its hooks are untouched:
   on failure. Leftover empty `.stale-rem-*` directories are cleanup residue
   from earlier runs — check `git worktree list` before deleting one whose
   branch may still exist.
-- `.stale-ledger-<key>` — the worker's persistent worktree for the
-  `staleness/ledger` branch. A healthy one is reused so unpublished
-  transitions survive between runs; `--dry-run` uses a detached HEAD.
+- `.stale-ledger-<key>` — the worker's candidate worktree for the
+  `staleness/ledger` branch. A healthy one is reused for publication;
+  unpublished transitions remain in the owner's native database.
+  `--dry-run` uses a detached HEAD.
 - `staleness/ledger` branch — where the ledger itself is published as a
   candidate PR. Nothing lands without merge.
 

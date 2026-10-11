@@ -4,7 +4,7 @@ description: |
   Operate the paniolo stale staleness ledger — scan a commit range, inspect and triage allegations, file already-encountered evidence when explicitly enabled, manage the queue, and read the dogfood report. Use for stale docs, staleness findings, the queue, or bounded agent filing. Read-mostly — for verification, remediation PRs, and the durable worker use paniolo-stale-remediate.
 license: MIT
 metadata:
-  version: 0.1.4
+  version: 0.1.5
 tags:
 - staleness
 - ledger
