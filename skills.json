@@ -686,6 +686,22 @@
       "references": []
     },
     {
+      "name": "paniolo-worktree-best-practices",
+      "description": "Git worktree discipline for repositories several agents share at once. Use before running `git worktree add`, before committing in a checkout whose working tree holds changes you did not make, when a commit lands on the wrong branch, when a checkout fails on Windows path length, and when deleting a worktree or a merged branch. Do NOT use for ordinary branching in a repository you are the only session touching.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "git",
+        "worktrees"
+      ],
+      "sourceSkill": "worktree-best-practices",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-worktree-best-practices",
+      "references": [
+        "git-worktree-creation-and-cleanup",
+        "git-worktree-shared-checkout-hazards"
+      ]
+    },
+    {
       "name": "paniolo-writing-style-best-practices",
       "description": "Writing style standards for documentation — clarity, conciseness, audience, tone, active vs passive voice, and jargon handling. Use when writing or reviewing prose in wiki authoring pages, README.md, CONTRIBUTING.md, SKILL.md, or inline code comments. Do NOT use for structural/formatting questions (file naming, ToC, headers, code blocks) — load doc-best-practices instead.",
       "license": "MIT",
