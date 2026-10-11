@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-rich-text-editor-selection
-source-hash: 735f2a64dc5a3517290e14da2a5f17f26a9b67e95f309a0fb269f20e83cc23b1
-bundled: 2026-10-02
+source-hash: ec8b6f300f55af34c525e29f23f3b2b295ecf37361fe09afb294e31a5611fb2d
+bundled: 2026-10-11
 title: Rich-Text Editor Selection in E2E Tests
 type: concept
 tags:

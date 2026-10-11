@@ -1,7 +1,7 @@
 ---
 source-slug: stale-unique
-source-hash: 5609e32721ee6b3ab318c71fa1fb79341cb8ce09c19215b33630e5ae47e0b39f
-bundled: 2026-10-02
+source-hash: bfae15b551bc4a44732224bdef28c39aa683bbc3036d03a590a67c5c82f8d14f
+bundled: 2026-10-11
 title: Why Stale Is Unique
 type: synthesis
 tags:
@@ -9,7 +9,7 @@ tags:
 - qmd
 - harness-eng
 - retrieval
-updated: 2026-09-28
+updated: 2026-10-11
 ---
 
 # Why Stale Is Unique
@@ -115,7 +115,7 @@ replay clears every admission gate.
   fingerprint. A run with a missing, stale, or otherwise invalid qmd index
   manifest cannot count toward that replay.
 - **Clean separation in storage.** The default ledger lives at
-  `.paniolo/staleness`, deliberately outside the content roots, so
+  the owner's native `workspace.sqlite`, deliberately outside the content roots, so
   candidates never enter the qmd corpus they protect.
 - **No leakage to judges.** Verifier and challenger never see rerank
   scores, gold labels, or split assignments — the payload is

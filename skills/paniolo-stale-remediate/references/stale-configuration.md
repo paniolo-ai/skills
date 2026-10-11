@@ -1,14 +1,14 @@
 ---
 source-slug: stale-configuration
-source-hash: 22b5fc411eb83785c56bb71c446bea2a44b8712c4e8779c564a8388aaeba162b
-bundled: 2026-10-02
+source-hash: 127bc7d2eaffc594add10a50ad8fdaa4d08f5e237ef30e5a8bded6f9fc38184e
+bundled: 2026-10-11
 title: Stale Configuration
 type: concept
 tags:
 - staleness
 - harness-eng
 - configuration
-updated: 2026-09-28
+updated: 2026-10-11
 ---
 
 # Stale Configuration
@@ -48,7 +48,8 @@ All keys are camelCase.
 | Field | Type | Default | Notes |
 | --- | --- | --- | --- |
 | `enabled` | boolean | `true` | Gates `scan`, `run`, `propose`, and `worker`; agent `flag` filing additionally requires an explicit effective `true` |
-| `ledgerPath` | string | `.paniolo/staleness` | Repo-relative durable ledger directory. Required when a `staleness` section is present — it has no per-field default. Validated: non-empty, relative, no `.`/`..`/drive-prefix components |
+| `ledgerPath` | string | `.paniolo` | Repo-relative directory for the Git-tracked snapshot and writer lease; the live database lives in native state. Required when a `staleness` section is present. Validated: non-empty, relative, no `.`/`..`/drive-prefix components |
+| `ledger.backend` | `sqlite` | `sqlite` | Production commands reject legacy `json`; `stale migrate` can still parse it to import an existing tree |
 | `agentProfiles` | map: name → `{adapter, model}` | `{default: {adapter: codex, model: default}}` | Required when a `staleness` section is present. Admitted adapters: `codex`, `claude`, `cursor`, `devin`; both fields must be non-empty |
 | `roles` | `{verifier, verdictChallenger, remediator, patchChallenger}` | every role → `default` | Each value names an `agentProfiles` key; unknown names fail validation |
 | `limits` | budget object | see [Limits And Retrieval](#limits-and-retrieval) | Phase, process, packet, repair, and total-invocation budgets |
@@ -210,9 +211,11 @@ The whole block is validated on load; any violation aborts the command:
 - Every profile needs a non-empty `adapter` and `model`.
 - Every `roles.*` value must reference a declared `agentProfiles` key.
 
-The legacy fallback applies only without `--config` and without a
-`staleness` section: if `<root>/staleness/` exists while the configured
-ledger path does not, the ledger resolves to `staleness/` for that run.
+Production commands require an existing, compatible native
+`workspace.sqlite`. Neither `ledger.backend=json` nor the retired
+`PANIOLO_STALE_JSON` environment override selects the old tree. An
+explicit `stale migrate` imports a saved JSON tree; an absent source
+fails rather than creating a clean-looking empty ledger.
 
 ---
 
@@ -246,7 +249,8 @@ It keeps automation off by default and scopes the surfaces:
 ```json
 "staleness": {
   "enabled": false,
-  "ledgerPath": ".paniolo/staleness",
+  "ledgerPath": ".paniolo",
+  "ledger": { "backend": "sqlite" },
   "autoMerge": true,
   "agentProfiles": {
     "cursor-auto": { "adapter": "cursor", "model": "auto" },
