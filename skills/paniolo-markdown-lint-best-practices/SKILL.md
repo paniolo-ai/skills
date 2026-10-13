@@ -42,7 +42,6 @@ Apply these before writing a single line — each prevents a common first-pass f
 - Headings increment one level at a time (no `##` jumping to `####`).
 - Headings use Title Case; no trailing punctuation (no periods, no colons).
 - Every fenced code block declares a language (` ```typescript `, ` ```bash `, ` ```json `).
-- Prose lines ≤ 100 characters — headings, tables, and code blocks are exempt.
 - Unordered lists use `-`; ordered lists use `1.` for every item.
 - No bare URLs — always `[text](url)`.
 - Do not use `**Bold Text**` as a heading substitute — use `##` instead.

@@ -102,7 +102,7 @@ Every **wiki authoring page** (`<wiki-root>/*.md`) should have:
 - **Lists:** hyphens (`-`), 4-space indent for nesting, `1.` for ordered
 - **Code blocks:** always fenced with language specifier (` ```typescript `)
 - **Section separators:** `---` between major H2 sections only
-- **Line length:** target 80–100 chars for prose; skip for URLs, tables, code
+- **Line length:** no enforced limit — Obsidian soft-wraps prose
 
 **Details:**
 
