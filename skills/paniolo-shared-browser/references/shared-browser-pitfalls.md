@@ -1,7 +1,7 @@
 ---
 source-slug: shared-browser-pitfalls
-source-hash: 29ee0fb47cedeaa19356cc762bb030c7495f6caa116214a6b61c686e78846662
-bundled: 2026-10-16
+source-hash: 63792b8070c45153a9ee69d04b42e56af1c8f43ce6c62eaaf5916c99579db02f
+bundled: 2026-10-17
 title: Shared Browser Pitfalls
 type: concept
 tags:
@@ -9,12 +9,34 @@ tags:
 - cdp
 - webmcp
 - debugging
-updated: 2026-10-05
+updated: 2026-10-17
 ---
 
 # Shared Browser Pitfalls
 
 Failure modes seen while launching and driving a shared browser. Check here before debugging from scratch.
+
+## Launch Failure Diagnosis
+
+`paniolo browser launch` prints its failure category automatically. Read that
+diagnostic when launch fails. `browser_tabs` can report `browser_unavailable`,
+but cannot infer why a separate CLI launch failed.
+
+| Evidence | Next check |
+| --- | --- |
+| Executable unavailable | Read the searched paths and set `PANIOLO_BROWSER_BIN` to an installed Chromium executable. |
+| Port occupied by another service | Identify that service before stopping it, or choose `--port`. A foreign DevTools browser is also refused because its profile is untrusted. |
+| Process exits early | Read its exit status and sanitized stderr excerpt. |
+| Profile appears in use | Check the profile lock or process evidence before attributing the failure to handoff. |
+| Process alive without DevTools | Read the port, timeout, and completed checks. GUI launch or local debug port restrictions are possible causes; retry in an environment that permits them. |
+| Browser connects but site fails | Launch succeeded. Inspect the page's connection or certificate error separately. |
+
+Verify in order: launch the exact URL, check `browser_tabs`, and capture a
+`browser_screenshot` only after the tab appears. Confirm that the screenshot
+shows the requested page rather than a browser error page. On Windows, a launch
+that fails in a restricted agent shell but succeeds in an allowed interactive
+shell points to an execution restriction. Do not clear the profile or stop all
+browser processes to investigate a timeout.
 
 ## The MCP tools are missing
 

@@ -11,7 +11,7 @@ description: |
   human present, or for browsing with the user's everyday signed-in profile.
 license: MIT
 metadata:
-  version: 0.2.0
+  version: 0.2.1
 tags:
 - browser
 - webmcp
@@ -41,6 +41,7 @@ The user does not need to name this skill or a CLI command. Resolve "this site" 
 ## Workflow
 
 1. **Launch.** `paniolo browser launch <url>` starts the shared browser on a dedicated profile with the debug port and the WebMCP flag already set. A second launch against a running instance reuses it and opens the URL there rather than racing it. Verify with `browser_tabs`.
+1. **Diagnose launch failure.** Follow the launch, tabs, screenshot, and requested-page verification sequence in [shared-browser-pitfalls](references/shared-browser-pitfalls.md). Read the CLI diagnostic when launch fails.
 1. **Open.** Pass the user's exact URL, preserving HTTPS, ports and paths. To move an existing tab, use `browser_navigate`. Do not launch ordinary Chrome through the OS and assume the agent controls that window.
 1. **Verify and share.** `browser_screenshot` the page and identify the window to the human. Both controllers use this browser from here on. If sign-in is needed, let the human sign in there, then inspect the page afterwards.
 1. **Find what to act on.** There is no snapshot-and-click-by-id model here. Targets are CSS selectors. Use `browser_eval` to discover them on an unfamiliar page — list a form's fields and their names before filling anything.
