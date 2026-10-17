@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-isolateddeclarations-explicit-type-annotations-on-exports
-source-hash: f31decd3b819a978c8eff1898b06bc9a1a01b1783b1f1a94425e0d1257453e25
-bundled: 2026-08-01
+source-hash: 2cdfaa4842ef6dedfedf96d5072b5b971c7b3931a57d3010c18771fe4db032df
+bundled: 2026-10-17
 title: '`--isolatedDeclarations` — explicit type annotations on exports'
 type: concept
 tags:

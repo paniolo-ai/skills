@@ -1,7 +1,7 @@
 ---
 source-slug: jsdoc-formatting
-source-hash: db590716e3a3a789ed80483d76cf5e47d072ff07de14f92874f66f78a9cb87c4
-bundled: 2026-10-16
+source-hash: e699e4451caf8707a2bde79e9fd444604dda99885ebcb8740ecd2158aa87784a
+bundled: 2026-10-17
 title: JSDoc — formatting rules
 type: concept
 tags:

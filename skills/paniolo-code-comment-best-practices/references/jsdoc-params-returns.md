@@ -1,7 +1,7 @@
 ---
 source-slug: jsdoc-params-returns
-source-hash: 26b9aef6196423f7cd7867288212b779f9c3fda68946cef322336450c3c395e3
-bundled: 2026-10-16
+source-hash: 68c7c637903d48440f6d7fa3ca0aa5196c613048b05c10525b1ae16f583715a2
+bundled: 2026-10-17
 title: JSDoc — params and returns
 type: concept
 tags:

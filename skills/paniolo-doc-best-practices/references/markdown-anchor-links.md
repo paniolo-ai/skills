@@ -1,7 +1,7 @@
 ---
 source-slug: markdown-anchor-links
-source-hash: cd7bb0835cda690e992ccf66654b495d87913995658edb255ed97e9b8bafdcbe
-bundled: 2026-10-16
+source-hash: 6c1aaa5fee68a1e044eb886fb07f8f0e6b1271eb3416371804e40c56d85b0ce8
+bundled: 2026-10-17
 title: Anchor Links
 type: concept
 tags:

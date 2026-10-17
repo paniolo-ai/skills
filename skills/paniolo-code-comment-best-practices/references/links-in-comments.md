@@ -1,7 +1,7 @@
 ---
 source-slug: links-in-comments
-source-hash: 7742ec7ba5052f7953e5dfdf2ff68ffc87f729597c4017278212c77ab5032c07
-bundled: 2026-10-16
+source-hash: a3cd3dbe13fb0175e63623c93b0bb3d439d47a5e1f12494d18b0db3d13890262
+bundled: 2026-10-17
 title: Links in comments
 type: concept
 tags:

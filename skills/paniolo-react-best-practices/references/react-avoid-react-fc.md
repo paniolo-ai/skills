@@ -1,7 +1,7 @@
 ---
 source-slug: react-avoid-react-fc
-source-hash: 8c6d9ffc36fda9ce6b05be569b7556b6aa25b8b73624431bc578c4d1b03333b3
-bundled: 2026-10-16
+source-hash: d206ad670dd158eaa0cf1459ef5d5b17102b139c5e8575c2bd79f119d0f31de3
+bundled: 2026-10-17
 title: Avoid React.FC
 type: concept
 tags:

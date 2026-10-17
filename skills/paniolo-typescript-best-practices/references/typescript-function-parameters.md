@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-function-parameters
-source-hash: 95694fa9e4f7bda156f40db3a5f6d9024825000ec6d2012320e1bd7f50c6e923
-bundled: 2026-10-16
+source-hash: 861dbc57440d217503c28bbd66c1a2b3cb71d5e371783660da912440153dcfed
+bundled: 2026-10-17
 title: Function Parameters
 type: concept
 tags:

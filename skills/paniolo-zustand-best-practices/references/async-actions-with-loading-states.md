@@ -1,7 +1,7 @@
 ---
 source-slug: async-actions-with-loading-states
-source-hash: b2d4c61a261e441bd42802fd2f9be03e5eccacb5d8a91735b5f3ac0b7bca27d5
-bundled: 2026-08-01
+source-hash: 826b7a291276c9b2dc300451593cb11e65ce6f05cc952bc601a151269104f9b6
+bundled: 2026-10-17
 title: Async Actions with Loading States
 type: concept
 tags:

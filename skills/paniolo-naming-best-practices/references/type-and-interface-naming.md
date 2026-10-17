@@ -1,7 +1,7 @@
 ---
 source-slug: type-and-interface-naming
-source-hash: 8707ff609ad5c424a2bc86df66a4418e0026074c89648a3c477369dccf165332
-bundled: 2026-08-01
+source-hash: d25178ef3cee14e85bbcfd9d36c5d0f97d8a4cb7d0c1fe29c457c2d12edfbdc4
+bundled: 2026-10-17
 title: Type and Interface Naming
 type: concept
 tags:

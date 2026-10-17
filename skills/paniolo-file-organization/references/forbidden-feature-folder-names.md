@@ -1,7 +1,7 @@
 ---
 source-slug: forbidden-feature-folder-names
-source-hash: 51d8b4ed3d32ce156521f5057320646cca84283c1574f88f06a0cf7973c9e7f2
-bundled: 2026-10-16
+source-hash: b8c592f8e95927ddf6102451dbf4a4d7a3a856b9185e604b1df22726298b7db4
+bundled: 2026-10-17
 title: Forbidden feature-folder names
 type: concept
 tags:

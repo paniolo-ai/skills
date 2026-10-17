@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-effect-throwing-instead-of-effectfail
-source-hash: 7d7e822ced2d225431451eff83b2e0fd9e120e44f35b2852d1bffe1e373aa20a
-bundled: 2026-08-01
+source-hash: c5ec1930f9d8fabbe871357b918c1aa7cd5d0532c5d096a82a24346cfbf02baa
+bundled: 2026-10-17
 title: Throwing Instead of Effect.fail
 type: concept
 tags:

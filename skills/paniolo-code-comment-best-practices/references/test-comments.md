@@ -1,7 +1,7 @@
 ---
 source-slug: test-comments
-source-hash: bd8dd5a305f302b050c149964e52896e0ab6efac7411aeeaa7e98970f4ae1442
-bundled: 2026-10-16
+source-hash: dcf7f76d28cd64c10036b5bf4f0aba3faae2fd5fc476a008bca3bada9e86e0f9
+bundled: 2026-10-17
 title: Test file comments
 type: concept
 tags:

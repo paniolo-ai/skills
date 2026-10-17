@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-test
-source-hash: 742bb6524afbff75dc52f1b87676c051953455ed95adee3812b572c1a8d9ed1b
-bundled: 2026-09-03
+source-hash: 51dd707dc2323b5382f805d138b8aa7ad1c6bfd8ad06e7009c020fdedddb8265
+bundled: 2026-10-17
 title: Authoring — Vitest unit testing
 type: index
 tags:

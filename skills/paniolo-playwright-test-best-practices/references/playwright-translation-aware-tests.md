@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-translation-aware-tests
-source-hash: 1c69b68952dd0e6d73956bfe80e725b09de294b2a03a964281a9f010d735d0ef
-bundled: 2026-10-16
+source-hash: 65e3dbd3f6fe8d27b1e0b3bc2fe8a8ec7cdd7d3ba3040e0678d65e0c325aa9cc
+bundled: 2026-10-17
 title: Translation-Aware Tests
 type: concept
 tags:

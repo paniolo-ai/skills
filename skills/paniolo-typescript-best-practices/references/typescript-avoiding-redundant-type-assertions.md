@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-avoiding-redundant-type-assertions
-source-hash: 793e05cc42b56acb7ae1915ed9d7fb46b2c60db4767f19d5d12fc98f30e62528
-bundled: 2026-10-16
+source-hash: d1a3dec1a9204239ec3b8fb6eb39bc4f225240c22a0fa0a967d0075db31c0e06
+bundled: 2026-10-17
 title: Avoiding Redundant Type Assertions
 type: concept
 tags:

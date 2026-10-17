@@ -1,7 +1,7 @@
 ---
 source-slug: immer-middleware
-source-hash: e0fb618257452b3b4780c794ff4542ca9f0f483a328bf2c2c24d960dea569be6
-bundled: 2026-10-16
+source-hash: e7d271b32857f544cd61f2487cee7137f899e987ccdb118be8a6eda068631649
+bundled: 2026-10-17
 title: Immer Middleware (Mutable Updates)
 type: concept
 tags:

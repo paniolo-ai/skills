@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-avoid-any
-source-hash: 138e7963fbab074bc09358c30ccf40351a6a961e77bd8972dd6cecf46acb639b
-bundled: 2026-08-01
+source-hash: bfb3b86ff25ab90e79f2817ad22cba434fd4b8d77a2464865f5be8502a46ea6f
+bundled: 2026-10-17
 title: Avoid `any`
 type: concept
 tags:

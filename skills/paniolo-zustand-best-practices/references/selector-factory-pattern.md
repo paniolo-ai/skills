@@ -1,7 +1,7 @@
 ---
 source-slug: selector-factory-pattern
-source-hash: 89b0a6699bb02c3f7e013636d2fdefff11d8719756042382d2adad8161eab511
-bundled: 2026-08-01
+source-hash: a2a4cb9d095b2d3c5b48a17dce26fb4ed6ae4294a89b654923bcf8e8a65a3296
+bundled: 2026-10-17
 title: Selector Factory Pattern
 type: concept
 tags:

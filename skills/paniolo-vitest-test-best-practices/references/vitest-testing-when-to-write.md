@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-testing-when-to-write
-source-hash: 302a2f5866d8a7b20eb334cded30de8850313e41731e7ea84b758b6ebec1d991
-bundled: 2026-10-16
+source-hash: b0908bff2943c4cf06b6bfbcdef124702d7214118500e121c34a23be35d50f8c
+bundled: 2026-10-17
 title: When to Write a Test (and When NOT to)
 type: concept
 tags:

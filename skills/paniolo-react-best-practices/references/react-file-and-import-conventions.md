@@ -1,7 +1,7 @@
 ---
 source-slug: react-file-and-import-conventions
-source-hash: f8bb228047cb0b352b08fc63b36d7c17f877ea325d8346637751ef6d2cddfeab
-bundled: 2026-10-16
+source-hash: 1fcf288aab9282437409b3218f456b56b718552fda7c306079a880b836d6af7a
+bundled: 2026-10-17
 title: File and Import Conventions
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: project-structure-example
-source-hash: 820ef97a03291f713b8b0900c54709cd84e9eac08a32a1c3d53c3ce2f161dea2
-bundled: 2026-08-01
+source-hash: 948c0374112de790112b2a6877a9018d5d31ff189eaf45f0906c40b210d40ab8
+bundled: 2026-10-17
 title: Project Structure Example
 type: concept
 tags:

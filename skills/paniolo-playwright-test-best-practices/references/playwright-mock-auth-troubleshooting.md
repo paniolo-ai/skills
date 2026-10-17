@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-mock-auth-troubleshooting
-source-hash: f7f01898dca8ef930cc269c4fd6773376fd0312f05d9cb018ed0b45c5f016818
-bundled: 2026-10-16
+source-hash: 078600dc57ad2b6df88433237c45154c99376d2e5db4f3ab2871e0279bafa259
+bundled: 2026-10-17
 title: Mock Auth Troubleshooting
 type: concept
 tags:

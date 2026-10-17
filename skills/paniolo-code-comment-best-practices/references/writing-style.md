@@ -1,7 +1,7 @@
 ---
 source-slug: writing-style
-source-hash: edd18e88a2c566f2186638bec5e988c5519d0a57d8570be15b36c9db39fdfd58
-bundled: 2026-08-01
+source-hash: 3482af17114b8bcb3a97e799dc65eb7157452b00bcfa9fbe2e79fb1d15cee2e5
+bundled: 2026-10-17
 title: Writing style
 type: concept
 tags:

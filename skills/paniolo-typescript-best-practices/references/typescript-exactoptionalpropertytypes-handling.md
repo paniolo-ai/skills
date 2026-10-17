@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-exactoptionalpropertytypes-handling
-source-hash: 6dbe8957673d78e308d8a8d4a991a6aa3187451114dd50d1a7aa8b4534bdb146
-bundled: 2026-08-01
+source-hash: 3d2a98c97ba083778559c4894d5f04a194015ad30a944a586eba328d17cffa15
+bundled: 2026-10-17
 title: exactOptionalPropertyTypes Handling
 type: concept
 tags:

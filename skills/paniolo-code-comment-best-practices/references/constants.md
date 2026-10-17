@@ -1,7 +1,7 @@
 ---
 source-slug: constants
-source-hash: 06e8bcfb95277dd7a30af22fd2ec8064db39bdc2683663accadeccb66c1979b1
-bundled: 2026-10-16
+source-hash: 2ed345cb3ce6566acd88edb58bfbabe0a519de66fb3f072e139f4bf06dab57ac
+bundled: 2026-10-17
 title: Constants and grouped symbols
 type: concept
 tags:

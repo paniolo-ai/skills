@@ -1,7 +1,7 @@
 ---
 source-slug: testing-zustand-unit-testing
-source-hash: dc48e920260e258a3775f14ddc32e245f254f4259747d1d536a86d9070ee24bf
-bundled: 2026-08-01
+source-hash: 3e30f6ccf06ab3200ac05673ebd4a40f0744054143d145ae8981271fc98e16e0
+bundled: 2026-10-17
 title: Unit Testing
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-explicit-return-types
-source-hash: 1b3db661d4fb93cfd5d718a787de4be18bfa7462e38efc1906547e073d3990d2
-bundled: 2026-08-01
+source-hash: ff5db1e6f1f72868693527636c15585e2301e5c07faf0b5243492538d8e14add
+bundled: 2026-10-17
 title: Explicit Return Types
 type: concept
 tags:

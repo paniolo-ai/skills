@@ -1,7 +1,7 @@
 ---
 source-slug: philosophy
-source-hash: 47b978ae8a6434d4680c07ab48ce735f762277c15910960f1eca299b7f567e36
-bundled: 2026-10-16
+source-hash: 4d212023d2d881ce07fcbbc3e37a13a093f004b907d05a3b0e1da0a2313869fb
+bundled: 2026-10-17
 title: Philosophy
 type: concept
 tags:

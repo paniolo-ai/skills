@@ -1,7 +1,7 @@
 ---
 source-slug: audience-and-tone
-source-hash: 0757c94ab30cf60f5d5b0f9b322029e8d24dec5858cb0285b155b722f03848c5
-bundled: 2026-08-16
+source-hash: 56caefb9516f1a3a1a506a30841ceff8afb1b31383e638ddd2f7f0da94909a2d
+bundled: 2026-10-17
 title: Audience and Tone
 type: concept
 tags:

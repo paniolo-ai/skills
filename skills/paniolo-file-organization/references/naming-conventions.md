@@ -1,7 +1,7 @@
 ---
 source-slug: naming-conventions
-source-hash: 0940a1194e017c3ccd0608968c95638a1c6b4d270387e10572ecb0b93409ab2f
-bundled: 2026-10-16
+source-hash: c94296d8004da14c97a295bd905ca4109e322bc9353437f044ae78d82631caff
+bundled: 2026-10-17
 title: Naming Conventions
 type: concept
 tags:

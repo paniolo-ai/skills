@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-test-organization
-source-hash: 407a26262165f2f70d28fb6bb5d5d101ee4152fd39ea55b35ec915fe0a230c34
-bundled: 2026-10-16
+source-hash: be03c2050c377a69f2fe5892916b5956ccc08bba8ee246dc5083ac6a01aa16a1
+bundled: 2026-10-17
 title: Test Organization
 type: concept
 tags:

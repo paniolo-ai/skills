@@ -1,7 +1,7 @@
 ---
 source-slug: react-compiler-control-flow
-source-hash: 8a96f5194a0fcf7c1bd8ba73e0c5b77f48419608acd229b032311cc8bd3ea63c
-bundled: 2026-10-16
+source-hash: 1cf6fa231b86272da1a23928c2c8436e6de17a8508a4b508de98415b99c36ea6
+bundled: 2026-10-17
 title: Compiler-compatible control flow
 type: concept
 tags:

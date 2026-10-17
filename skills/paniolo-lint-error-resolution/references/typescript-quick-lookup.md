@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-quick-lookup
-source-hash: adf9ef1394cb5f20dbedf727527a97d3992b596ce5b360615539fcbeb5f6cccb
-bundled: 2026-08-01
+source-hash: 6908883ea818bb4644f52617dd40f54ccb703fa3b89a7c3238f3100923f83c90
+bundled: 2026-10-17
 title: Quick Lookup — Common Errors
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: import-organization-pattern
-source-hash: 7f16c6cef4a268aaee65a21e9fd3f8231a9ae2560f5d574cb50323192fd7f1a9
-bundled: 2026-10-16
+source-hash: 7bdd54b3c762c19dd89a71c0d056b83b76f8a8aa6fd4dbcd658faf93628f8a40
+bundled: 2026-10-17
 title: Import Organization Pattern
 type: concept
 tags:

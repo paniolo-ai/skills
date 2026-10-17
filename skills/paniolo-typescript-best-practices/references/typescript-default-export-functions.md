@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-default-export-functions
-source-hash: 75e449dc45aa212b0a197c00e0532218f555925dbfcbb8e61570865e2a1158b6
-bundled: 2026-08-01
+source-hash: e1b80ee320921c3b81ea728b56d9b95fc0aeda39849b458adeacb781171c66af
+bundled: 2026-10-17
 title: Default Export Functions
 type: concept
 tags:

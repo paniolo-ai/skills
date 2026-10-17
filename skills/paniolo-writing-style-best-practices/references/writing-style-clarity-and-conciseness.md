@@ -1,7 +1,7 @@
 ---
 source-slug: writing-style-clarity-and-conciseness
-source-hash: 290fff5dc6749e414c217ab3ddb8fce8d6d64613d0a9e0ef6bd8c3e0eba33162
-bundled: 2026-08-01
+source-hash: 9f15baa7d5a7b2cd1ee8eafd3d345c463753de81c9e461c461203a97e76de29b
+bundled: 2026-10-17
 title: Clarity and Conciseness
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: react-compiler
-source-hash: 969da6bc001cdc172cb66b2f4ad04dcdb8542cdb109e935fcb529702d0159320
-bundled: 2026-10-16
+source-hash: 918e79f3f2e76131969b80baff6fc61226bd3944417be1e5e9157143dc6dd7e0
+bundled: 2026-10-17
 title: React Compiler
 type: concept
 tags:

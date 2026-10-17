@@ -1,7 +1,7 @@
 ---
 source-slug: what-not-to-comment
-source-hash: c9b50c78937dd13eb3cfcb9b8bf5ae5d7dd8cb7003b86fb70cf4f31aaad11687
-bundled: 2026-08-01
+source-hash: 30282c9edb3c9a17bae565a66f349050edc821efd32bd20c2b0cc1a05f331c41
+bundled: 2026-10-17
 title: What NOT to comment
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: react-function-declaration-style
-source-hash: 2ad7ff0ef266615ea93b8660d84bd8bf4f02f69f6c57ec37919f0cbfd2baea63
-bundled: 2026-10-16
+source-hash: fc8a2405862027d113af712c8037d0a9f8d26a66cf36ac06ec8c23e2088b91c9
+bundled: 2026-10-17
 title: Function Declaration Style
 type: concept
 tags:

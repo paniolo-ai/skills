@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-forcecast-vs-make-fixtures
-source-hash: 066555ce8bcc39af399c00f20f038b398c5f5eafac93f516952bad59d8c2eca0
-bundled: 2026-08-01
+source-hash: d2d278aee21f7319a933cf77156df5d133798d6e8e6cff332c5b722d847c78b1
+bundled: 2026-10-17
 title: forceCast vs make\* Test Fixtures
 type: concept
 tags:

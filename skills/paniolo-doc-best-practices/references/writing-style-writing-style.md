@@ -1,7 +1,7 @@
 ---
 source-slug: writing-style-writing-style
-source-hash: af41524ad1a36dcc07013058351b3735e487d58e1b70abc2cd62ce19ba490e0f
-bundled: 2026-08-01
+source-hash: 26537a4a3d30a88767c0e3e467f2d4c63cb9f55063f74dda7e663a3a7d2b3b93
+bundled: 2026-10-17
 title: Authoring — Writing style
 type: index
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: basic-selector-pattern
-source-hash: f16f5997d57743e5b7348f5d9e61f82a9e17d7ae53d2333a5b9460a5be0240a0
-bundled: 2026-10-16
+source-hash: 70d646c1cf4aa935aa0fe0e463c8da78e9e16f9a72f63cd367f861151eee4c17
+bundled: 2026-10-17
 title: Basic Selector Pattern
 type: concept
 tags:
