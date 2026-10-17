@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-debugging
-source-hash: 52412a1e2f25edd98a56b40ae418e51ffcb21a778b22ac1856ac5cdb63f62511
-bundled: 2026-08-20
+source-hash: 5aa4635d8795a6de0fc66befb65330086231a81c97b9f83f4e150a5030ec5917
+bundled: 2026-10-16
 title: Debugging
 type: concept
 tags:
@@ -14,8 +14,7 @@ updated: 2026-08-20
 
 # Debugging
 
-Isolate one Playwright failure and classify it before changing application behavior. Start with the
-repository's native package script so the documented environment and runner lifecycle still apply.
+Isolate one Playwright failure and classify it before changing application behavior. Start with the repository's native package script so the documented environment and runner lifecycle still apply.
 
 ## Focused Windows Run
 

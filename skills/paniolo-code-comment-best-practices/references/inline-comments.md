@@ -1,7 +1,7 @@
 ---
 source-slug: inline-comments
-source-hash: 7e9c1958642b8eb1f78866c27210ce01ee47edea4e702b47e4a4c3f1d7f85598
-bundled: 2026-08-01
+source-hash: 7482acf57fc6d86523ee365f6e1c654a703047f2bd8c207a42c8084fff3cd378
+bundled: 2026-10-16
 title: Inline `//` comments
 type: concept
 tags:
@@ -20,8 +20,7 @@ Use `//` above:
 - TODOs/FIXMEs (see format below)
 - Section markers inside longer functions
 
-**Placement:** always on the line(s) immediately _above_ the target code. Never on the same line as
-code.
+**Placement:** always on the line(s) immediately _above_ the target code. Never on the same line as code.
 
 ```ts
 // ❌

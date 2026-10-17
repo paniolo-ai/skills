@@ -39,80 +39,44 @@ references:
 
 ## Key rules
 
-- **No `any`** — use `unknown` + type guards instead.
-  [typescript-avoid-any](references/typescript-avoid-any.md)
+- **No `any`** — use `unknown` + type guards instead. [typescript-avoid-any](references/typescript-avoid-any.md)
 
-- **Prefer `type` over `interface`** — for object shapes, unions, and function signatures.
-  [typescript-type-vs-interface](references/typescript-type-vs-interface.md)
+- **Prefer `type` over `interface`** — for object shapes, unions, and function signatures. [typescript-type-vs-interface](references/typescript-type-vs-interface.md)
 
-- **Explicit return types** — always annotate function return types.
-  [typescript-explicit-return-types](references/typescript-explicit-return-types.md)
+- **Explicit return types** — always annotate function return types. [typescript-explicit-return-types](references/typescript-explicit-return-types.md)
 
-- **JSDoc on new/changed functions** — concise, purpose-focused; no `{...}` types or
-  `@returns {Foo}` in `.ts` / `.tsx` (prose-only `@param` / `@returns`).
-  [→ code-comment-best-practices skill](../paniolo-code-comment-best-practices/SKILL.md)
-- **Keep JSDoc in sync** — if you change params, props, or the behavior described by existing JSDoc,
-  update the JSDoc in the same edit.
+- **JSDoc on new/changed functions** — concise, purpose-focused; no `{...}` types or `@returns {Foo}` in `.ts` / `.tsx` (prose-only `@param` / `@returns`). [→ code-comment-best-practices skill](../paniolo-code-comment-best-practices/SKILL.md)
+- **Keep JSDoc in sync** — if you change params, props, or the behavior described by existing JSDoc, update the JSDoc in the same edit.
 
-- **Ambient types** — `ReactElement` is ambient (no import needed); `ReactNode` must be imported.
-  [typescript-ambient-types](references/typescript-ambient-types.md)
+- **Ambient types** — `ReactElement` is ambient (no import needed); `ReactNode` must be imported. [typescript-ambient-types](references/typescript-ambient-types.md)
 
-- **Destructure params in signature** — prefer destructured parameters in the function signature
-  (e.g., `function foo({ a, b }: Options)`) over a single params object with internal destructuring.
-  This satisfies the max-parameters linter rule while keeping code readable.
-  [typescript-function-parameters](references/typescript-function-parameters.md)
+- **Destructure params in signature** — prefer destructured parameters in the function signature (e.g., `function foo({ a, b }: Options)`) over a single params object with internal destructuring. This satisfies the max-parameters linter rule while keeping code readable. [typescript-function-parameters](references/typescript-function-parameters.md)
 
-- **`exactOptionalPropertyTypes`** — use conditional spread `...(x === undefined ? {} : { x })` to
-  thread optional props; never pass `T | undefined` where `T` is expected.
-  [typescript-exactoptionalpropertytypes-handling](references/typescript-exactoptionalpropertytypes-handling.md)
+- **`exactOptionalPropertyTypes`** — use conditional spread `...(x === undefined ? {} : { x })` to thread optional props; never pass `T | undefined` where `T` is expected. [typescript-exactoptionalpropertytypes-handling](references/typescript-exactoptionalpropertytypes-handling.md)
 
-- **No redundant casts** — prefer an explicit type annotation on the receiving variable over an
-  inline `as` cast.
-  [typescript-avoiding-redundant-type-assertions](references/typescript-avoiding-redundant-type-assertions.md)
+- **No redundant casts** — prefer an explicit type annotation on the receiving variable over an inline `as` cast. [typescript-avoiding-redundant-type-assertions](references/typescript-avoiding-redundant-type-assertions.md)
 
-- **`Set` from optional arrays** — `new Set(optionalArray)` needs no `?? []` fallback.
-  [typescript-strict-null-checks](references/typescript-strict-null-checks.md)
+- **`Set` from optional arrays** — `new Set(optionalArray)` needs no `?? []` fallback. [typescript-strict-null-checks](references/typescript-strict-null-checks.md)
 
-- **Type-only imports** — `import type { }` for all-type imports; inline `type` keyword for mixed
-  imports.
-  [typescript-consistent-type-imports-type-only-imports](references/typescript-consistent-type-imports-type-only-imports.md)
+- **Type-only imports** — `import type { }` for all-type imports; inline `type` keyword for mixed imports. [typescript-consistent-type-imports-type-only-imports](references/typescript-consistent-type-imports-type-only-imports.md)
 
-- **Default export functions** — use inline declarations: `export default function foo()` or
-  `export default async function foo()`. Do not declare the function and then add a trailing
-  `export default foo;` statement. This keeps the declaration and its export co-located.
-  [typescript-default-export-functions](references/typescript-default-export-functions.md)
+- **Default export functions** — use inline declarations: `export default function foo()` or `export default async function foo()`. Do not declare the function and then add a trailing `export default foo;` statement. This keeps the declaration and its export co-located. [typescript-default-export-functions](references/typescript-default-export-functions.md)
 
-- **No `forceCast` outside tests** — `forceCast` (in `lib/test-utils/`) is a test-only escape hatch.
-  In tests, prefer shared `make*` helpers with `Partial` overrides for typed rows; colocate
-  feature-specific helpers with the feature folder; see
-  [vitest-forcecast-vs-make-fixtures](references/vitest-forcecast-vs-make-fixtures.md) and
-  [vitest-colocate-make-fixtures](references/vitest-colocate-make-fixtures.md).
-  In production code, first ask whether a generic type parameter can simply be removed or replaced
-  with a concrete type so no cast is needed at all. If a cast is truly unavoidable, use
-  `as unknown as TheType` (no `any`) and justify it with a comment; never use lint-disable comments
-  as a substitute for a proper type fix.
+- **No `forceCast` outside tests** — `forceCast` (in `lib/test-utils/`) is a test-only escape hatch. In tests, prefer shared `make*` helpers with `Partial` overrides for typed rows; colocate feature-specific helpers with the feature folder; see [vitest-forcecast-vs-make-fixtures](references/vitest-forcecast-vs-make-fixtures.md) and [vitest-colocate-make-fixtures](references/vitest-colocate-make-fixtures.md). In production code, first ask whether a generic type parameter can simply be removed or replaced with a concrete type so no cast is needed at all. If a cast is truly unavoidable, use `as unknown as TheType` (no `any`) and justify it with a comment; never use lint-disable comments as a substitute for a proper type fix.
 
-- **Exhaustive `switch` over unions** — give every `switch` on a discriminated or string-literal
-  union a `default` that assigns to `never`. Without it, an unhandled variant compiles, runs, and
-  silently does nothing.
-  [typescript-exhaustive-switch-over-unions](references/typescript-exhaustive-switch-over-unions.md)
+- **Exhaustive `switch` over unions** — give every `switch` on a discriminated or string-literal union a `default` that assigns to `never`. Without it, an unhandled variant compiles, runs, and silently does nothing. [typescript-exhaustive-switch-over-unions](references/typescript-exhaustive-switch-over-unions.md)
 
-- **Update guards must compare every field they gate** — a predicate deciding whether to apply an
-  incoming update has to cover the whole payload. Adding a synced field means editing that
-  predicate; a monotonic `sequence`/`version` only proves what it is bumped by.
-  [typescript-update-guards-cover-every-gated-field](references/typescript-update-guards-cover-every-gated-field.md)
+- **Update guards must compare every field they gate** — a predicate deciding whether to apply an incoming update has to cover the whole payload. Adding a synced field means editing that predicate; a monotonic `sequence`/`version` only proves what it is bumped by. [typescript-update-guards-cover-every-gated-field](references/typescript-update-guards-cover-every-gated-field.md)
 
 ## Defaults (proceed without asking)
 
 - Strict mode and `exactOptionalPropertyTypes: true` are always on.
-- `no-null` lint rule is active; use `oxlint-disable-next-line no-null` only when clearing nullable
-  FK columns.
+- `no-null` lint rule is active; use `oxlint-disable-next-line no-null` only when clearing nullable FK columns.
 
 ## Output format
 
 - Inline code edits only — no standalone files unless asked.
-- After edits, summarize which rules were applied; note any unavoidable tradeoffs (e.g., a temporary
-  `as` assertion with justification).
+- After edits, summarize which rules were applied; note any unavoidable tradeoffs (e.g., a temporary `as` assertion with justification).
 
 ## Validation
 

@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-shared-mock-helper-infrastructure
-source-hash: 97d79b32d1431b7640cedac8e968233866b6f022433459e3b6b45a3fcc67812a
-bundled: 2026-08-16
+source-hash: 4be211e5c25c031559b261d16439276503b677238245283ec0dcc22671e11bbe
+bundled: 2026-10-16
 title: Shared Mock Helper Infrastructure
 type: concept
 tags:
@@ -22,13 +22,9 @@ Three patterns exist; pick the right one upfront:
 | Multiple test files mock the same module             | Callable `mockFoo()` function               | `*.test-util.ts` |
 | Multiple helper files share the same mock state      | `vi.hoisted()` state + `mockFoo()` + getter | `*.test-util.ts` |
 
-Treat `vi.hoisted()` as a code smell by default. Most tests should use top-level
-`vi.mock("path")` plus per-test `vi.mocked(...)` setup. Reach for `vi.hoisted()` only when hoist
-timing is required for shared mock state across helper modules.
+Treat `vi.hoisted()` as a code smell by default. Most tests should use top-level `vi.mock("path")` plus per-test `vi.mocked(...)` setup. Reach for `vi.hoisted()` only when hoist timing is required for shared mock state across helper modules.
 
-Start with `async init()`. Extract to a callable helper only when two or more test files need the
-same mock. Add `vi.hoisted()` only when a second helper file needs to read or configure the same
-mock function.
+Start with `async init()`. Extract to a callable helper only when two or more test files need the same mock. Add `vi.hoisted()` only when a second helper file needs to read or configure the same mock function.
 
 **Callable mock setup functions:**
 

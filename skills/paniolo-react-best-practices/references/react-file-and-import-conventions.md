@@ -1,7 +1,7 @@
 ---
 source-slug: react-file-and-import-conventions
-source-hash: b8044c2a6364717f5eda8726f9a1dc2a123739abbe77c58a00e0f586ee772030
-bundled: 2026-08-01
+source-hash: f8bb228047cb0b352b08fc63b36d7c17f877ea325d8346637751ef6d2cddfeab
+bundled: 2026-10-16
 title: File and Import Conventions
 type: concept
 tags:
@@ -13,8 +13,7 @@ updated: 2026-06-18
 
 # File and Import Conventions
 
-**Strong preference: one component per `.tsx` file.** Keep a single primary component (usually the
-default export) per module and colocate its tests in the same directory:
+**Strong preference: one component per `.tsx` file.** Keep a single primary component (usually the default export) per module and colocate its tests in the same directory:
 
 ```text
 song-form/

@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-test-organization
-source-hash: 4eb177973aca85d0d89beffb07ba6f2e4ffc292ed9405341d441b61213a71ae0
-bundled: 2026-08-17
+source-hash: 407a26262165f2f70d28fb6bb5d5d101ee4152fd39ea55b35ec915fe0a230c34
+bundled: 2026-10-16
 title: Test Organization
 type: concept
 tags:
@@ -21,9 +21,7 @@ Tests live under `e2e/`:
 - `e2e/specs/tagging/helpers/` — realtime tagging helpers
 - `e2e/utils/` — auth setup, response wait helpers, effect wrappers, console/error tracking
 
-**`*.e2e-util.ts` naming:** when a helper file **default-exports one function**, the basename is
-**camelCase** and matches that symbol (for example `createPublicLiveCommunityChain.e2e-util.ts` in
-`e2e/utils/live/`). Kebab-case basenames are for multi-export or non-function modules only.
+**`*.e2e-util.ts` naming:** when a helper file **default-exports one function**, the basename is **camelCase** and matches that symbol (for example `createPublicLiveCommunityChain.e2e-util.ts` in `e2e/utils/live/`). Kebab-case basenames are for multi-export or non-function modules only.
 
 Test styles used in this repo:
 

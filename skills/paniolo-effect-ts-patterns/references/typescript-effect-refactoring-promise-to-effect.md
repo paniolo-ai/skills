@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-effect-refactoring-promise-to-effect
-source-hash: c1d1d2699a480eedaa619612978c6aabf90c3985bb3cab8e40f686b1449cdf76
-bundled: 2026-08-01
+source-hash: 5148cb24093d366e09f15b9d9db4dbc96e6561258e0cdcb481021ac921fbeb23
+bundled: 2026-10-16
 title: Refactoring Promise-Returning Functions to Effect
 type: concept
 tags:
@@ -14,11 +14,9 @@ updated: 2026-06-18
 
 # Refactoring Promise-Returning Functions to Effect
 
-When converting existing `async function(): Promise<T>` service functions to Effect, follow this
-structured approach.
+When converting existing `async function(): Promise<T>` service functions to Effect, follow this structured approach.
 
-**Identify scope:** Start with service functions (not HTTP handlers, which use `handleHttpEndpoint`
-directly). Prioritize functions with complex async boundaries or multiple error paths.
+**Identify scope:** Start with service functions (not HTTP handlers, which use `handleHttpEndpoint` directly). Prioritize functions with complex async boundaries or multiple error paths.
 
 ---
 

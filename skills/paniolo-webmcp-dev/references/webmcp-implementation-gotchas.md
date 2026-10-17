@@ -1,7 +1,7 @@
 ---
 source-slug: webmcp-implementation-gotchas
-source-hash: 01a5c28a636bb668c1f87101d6bba91dd2715dd9b4d10a018f88855a47955bb0
-bundled: 2026-09-25
+source-hash: 3823574593aaf9d5af5ade6e558c1dd82b74fe5f6635f425bec819712266df86
+bundled: 2026-10-16
 title: WebMCP Implementation Gotchas
 type: concept
 tags:
@@ -14,19 +14,11 @@ updated: 2026-09-25
 
 # WebMCP Implementation Gotchas
 
-Field notes from shipping `document.modelContext.registerTool` on a real
-production page (`paniolo.ai` contact form). None of these are documented in
-the spec or Chrome's guides, and each one produces **silent failure** — no
-thrown error, no console warning, tools simply never appear. Mechanics:
-[webmcp-apis](./webmcp-apis.md). Rollout status: [webmcp-timeline](./webmcp-timeline.md).
+Field notes from shipping `document.modelContext.registerTool` on a real production page (`paniolo.ai` contact form). None of these are documented in the spec or Chrome's guides, and each one produces **silent failure** — no thrown error, no console warning, tools simply never appear. Mechanics: [webmcp-apis](./webmcp-apis.md). Rollout status: [webmcp-timeline](./webmcp-timeline.md).
 
 ## 1. `document.modelContext` can attach after your script already ran
 
-A page's `<script>` tag (no `defer`) executes synchronously during HTML
-parsing. In at least one real Chromium build (Edge 155 with
-`edge://flags/#enable-webmcp-testing`), `document.modelContext` was not yet
-present at that exact moment — it showed up shortly after, before the `load`
-event, but too late for a **one-shot synchronous feature-detect**:
+A page's `<script>` tag (no `defer`) executes synchronously during HTML parsing. In at least one real Chromium build (Edge 155 with `edge://flags/#enable-webmcp-testing`), `document.modelContext` was not yet present at that exact moment — it showed up shortly after, before the `load` event, but too late for a **one-shot synchronous feature-detect**:
 
 ```js
 // Broken: silently no-ops if modelContext attaches even a moment late.

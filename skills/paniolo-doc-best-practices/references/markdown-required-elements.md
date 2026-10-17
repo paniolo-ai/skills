@@ -1,7 +1,7 @@
 ---
 source-slug: markdown-required-elements
-source-hash: bdd5f48fd62d482b453caaf1555641d8d843f062a5274142b5695a9142b83033
-bundled: 2026-10-02
+source-hash: 9a39555ff11546cddc1f072bb7a9595556bd3ce9e9359463247d72db6486390a
+bundled: 2026-10-16
 title: Required Elements
 type: concept
 tags:
@@ -22,10 +22,7 @@ Every documentation file should include:
 4. **Body content** — Organized with H2/H3 headers
 5. **Optional "See also" section** — Links to related docs (at bottom)
 
-**Retrieval (qmd):** the H1 is what qmd indexes as the document Title and
-embeds with _every_ chunk (`title: {title} | text: {content}`), so make it specific and
-keyword-rich — not `Overview` or `Notes`. A vague title weakens semantic matching for
-the whole file.
+**Retrieval (qmd):** the H1 is what qmd indexes as the document Title and embeds with _every_ chunk (`title: {title} | text: {content}`), so make it specific and keyword-rich — not `Overview` or `Notes`. A vague title weakens semantic matching for the whole file.
 
 ---
 

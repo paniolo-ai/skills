@@ -1,7 +1,7 @@
 ---
 source-slug: links-in-comments
-source-hash: ff36ccbfbebe976e7f4dfbbded39a9c46a32cbcbfc55a998bbf90199fd2ad28c
-bundled: 2026-08-01
+source-hash: 7742ec7ba5052f7953e5dfdf2ff68ffc87f729597c4017278212c77ab5032c07
+bundled: 2026-10-16
 title: Links in comments
 type: concept
 tags:
@@ -12,11 +12,9 @@ updated: 2026-06-18
 
 # Links in comments
 
-Any comment that contains a URL or cross-reference must use JSDoc (`/** */`), not `//`. This keeps
-links consistently findable and IDE-navigable.
+Any comment that contains a URL or cross-reference must use JSDoc (`/** */`), not `//`. This keeps links consistently findable and IDE-navigable.
 
-**`@see` for standalone references** (external URLs, internal file paths, issue trackers). Always on
-its own line:
+**`@see` for standalone references** (external URLs, internal file paths, issue trackers). Always on its own line:
 
 ```ts
 /**

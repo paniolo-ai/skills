@@ -18,8 +18,7 @@ references:
 
 **Requires:** file-read, terminal (linting/testing). No network access needed.
 
-**Reference:** [naming](references/naming.md) — code examples
-for use\* vs compute\*, type/variable/component naming, file naming table, and success criteria.
+**Reference:** [naming](references/naming.md) — code examples for use\* vs compute\*, type/variable/component naming, file naming table, and success criteria.
 
 ## Use When
 
@@ -64,31 +63,25 @@ The prefix signals the responsibility of the function. Pick the most precise one
 
 ## Type / Interface Naming
 
-Suffix patterns: `*Props` (component props), `*Return`/`*Result` (return shapes),
-`*Error` (error types), `*Slice`/`*State` (store slices), short PascalCase for generics.
+Suffix patterns: `*Props` (component props), `*Return`/`*Result` (return shapes), `*Error` (error types), `*Slice`/`*State` (store slices), short PascalCase for generics.
 
 [type-and-interface-naming](references/type-and-interface-naming.md)
 
 ## Variable Naming
 
-Booleans: `is*`/`has*`/`can*`. Constants: `UPPER_SNAKE_CASE`. Locals: `camelCase`.
-Callbacks: `handle*`. Refs: `camelCase` + `Ref` suffix.
+Booleans: `is*`/`has*`/`can*`. Constants: `UPPER_SNAKE_CASE`. Locals: `camelCase`. Callbacks: `handle*`. Refs: `camelCase` + `Ref` suffix.
 
 [typescript-naming-variable-naming](references/typescript-naming-variable-naming.md)
 
 ## React Component Naming
 
-Components: `PascalCase`, filename matches export. Providers: `*Provider` suffix.
-Sub-components: `PascalCase`, descriptive.
+Components: `PascalCase`, filename matches export. Providers: `*Provider` suffix. Sub-components: `PascalCase`, descriptive.
 
 [react-component-naming](references/react-component-naming.md)
 
 ## File Naming
 
-Components: `PascalCase.tsx`. A **single default-exported function**: `camelCase.ts` (do **not** use
-kebab-case). Multi-symbol modules: `kebab-case.ts`. Types-only, **single** exported type:
-`PascalCase.type.ts`. Types-only **multiple** exports: `kebab-case.type.ts`.
-Tests: `source.test.ts`. Directories: `kebab-case`.
+Components: `PascalCase.tsx`. A **single default-exported function**: `camelCase.ts` (do **not** use kebab-case). Multi-symbol modules: `kebab-case.ts`. Types-only, **single** exported type: `PascalCase.type.ts`. Types-only **multiple** exports: `kebab-case.type.ts`. Tests: `source.test.ts`. Directories: `kebab-case`.
 
 [naming-file-naming](references/naming-file-naming.md)
 
@@ -104,18 +97,14 @@ Tests: `source.test.ts`. Directories: `kebab-case`.
 
 - Do not use `use*` prefix unless the function calls at least one React hook internally.
 - Do not use `get*` for non-trivial derivations — use `compute*` instead.
-- Do not use this skill for file organization or import decisions.
-  Load `file-organization` instead.
+- Do not use this skill for file organization or import decisions. Load `file-organization` instead.
 - Do not rename symbols without updating all import sites and running the project's lint script.
 
 ## References
 
-- [file-organization skill](../paniolo-file-organization/SKILL.md) — full file/directory
-  naming rules
-- [react-best-practices skill](../paniolo-react-best-practices/SKILL.md) — React-specific
-  patterns
-- [paniolo-typescript-best-practices skill](../paniolo-typescript-best-practices/SKILL.md) — type
-  conventions
+- [file-organization skill](../paniolo-file-organization/SKILL.md) — full file/directory naming rules
+- [react-best-practices skill](../paniolo-react-best-practices/SKILL.md) — React-specific patterns
+- [paniolo-typescript-best-practices skill](../paniolo-typescript-best-practices/SKILL.md) — type conventions
 - rules — canonical project rules
 
 ## Skill Handoffs

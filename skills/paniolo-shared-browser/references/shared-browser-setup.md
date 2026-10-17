@@ -1,7 +1,7 @@
 ---
 source-slug: shared-browser-setup
-source-hash: 11e9a1fc5698c353d98b45b87cb478aaf57ab30906d38a41c729b85b530a632e
-bundled: 2026-10-05
+source-hash: acff3b3afecaf5e9e32ce76792640a36e1b0061043e40aa9d26f34e116b1b777
+bundled: 2026-10-16
 title: Shared Browser Setup
 type: concept
 tags:
@@ -15,15 +15,9 @@ updated: 2026-10-05
 
 # Shared Browser Setup
 
-A shared browser is one Chrome window that a human and an agent both control.
-The human uses the mouse and keyboard. The agent attaches over the Chrome
-DevTools Protocol and sees the same DOM, console, and session.
+A shared browser is one Chrome window that a human and an agent both control. The human uses the mouse and keyboard. The agent attaches over the Chrome DevTools Protocol and sees the same DOM, console, and session.
 
-Setup used to be the long part of this: a separate browser MCP server pinned in
-`package.json`, plus a config block for every vendor. None of that applies from
-`@paniolo/cli` 0.5.76. The `browser_*` tools live on the Paniolo MCP server the
-harness already configures, so if `query` works in this host, the browser tools
-work too.
+Setup used to be the long part of this: a separate browser MCP server pinned in `package.json`, plus a config block for every vendor. None of that applies from `@paniolo/cli` 0.5.76. The `browser_*` tools live on the Paniolo MCP server the harness already configures, so if `query` works in this host, the browser tools work too.
 
 ## Check first
 
@@ -35,8 +29,7 @@ Call `browser_tabs`. Three outcomes:
 | `browser_unavailable` | Server loaded, no browser running yet. Launch one. |
 | Tool not found | Host has not loaded the Paniolo server, or is pre-0.5.76. |
 
-An unknown-tool error is a host configuration problem, not a browser problem.
-Do not launch a window to investigate it.
+An unknown-tool error is a host configuration problem, not a browser problem. Do not launch a window to investigate it.
 
 ## Launch
 

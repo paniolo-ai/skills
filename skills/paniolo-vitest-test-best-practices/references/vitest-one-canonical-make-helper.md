@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-one-canonical-make-helper
-source-hash: 672d9d760b5023f405951b23d4a54f3fdc76787dd4b2366683bd480eb880d950
-bundled: 2026-08-16
+source-hash: b1fb60ab71cd0ec4eedb56f0854597b9ab4a69a3b245599494f225cda9ef200f
+bundled: 2026-10-16
 title: One canonical `make*` per fixture type
 type: concept
 tags:
@@ -13,9 +13,7 @@ updated: 2026-06-18
 
 # One canonical `make*` per fixture type
 
-Each fixture shape (e.g. `EventParticipant`, `PlaylistLibraryEntry`, `playlist_library` row)
-should have **one** default-exported builder in a `*.test-util.ts` file. All tests import that
-helper; they do not reimplement the same field list in another file.
+Each fixture shape (e.g. `EventParticipant`, `PlaylistLibraryEntry`, `playlist_library` row) should have **one** default-exported builder in a `*.test-util.ts` file. All tests import that helper; they do not reimplement the same field list in another file.
 
 **Before adding** `makeFoo.test-util.ts`, search the repo:
 

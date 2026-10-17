@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-avoiding-redundant-type-assertions
-source-hash: dfd3db4cca18e83b016444dacc24d8273a6e7e88986ea2ce7dc60e304b3f96ea
-bundled: 2026-08-01
+source-hash: 793e05cc42b56acb7ae1915ed9d7fb46b2c60db4767f19d5d12fc98f30e62528
+bundled: 2026-10-16
 title: Avoiding Redundant Type Assertions
 type: concept
 tags:
@@ -12,8 +12,7 @@ updated: 2026-06-18
 
 # Avoiding Redundant Type Assertions
 
-Prefer an explicit type annotation on the receiving variable over an inline `as` cast. The
-annotation is sufficient and does not suppress type errors the way `as` can.
+Prefer an explicit type annotation on the receiving variable over an inline `as` cast. The annotation is sufficient and does not suppress type errors the way `as` can.
 
 ```typescript
 // ❌ BAD: redundant — `raw` annotation already widens any to unknown

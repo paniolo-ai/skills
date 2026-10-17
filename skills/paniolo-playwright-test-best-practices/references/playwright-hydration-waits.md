@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-hydration-waits
-source-hash: 0135a3181aac7240f40d5aa3dbb0b743581d5e1b7a426b88c3681fedb6efed04
-bundled: 2026-08-20
+source-hash: 81ed804dc1995a5d6e50aed0b4335be07155e28103546ea092acc9a192aafe7d
+bundled: 2026-10-16
 title: Hydration Waits
 type: concept
 tags:
@@ -14,12 +14,9 @@ updated: 2026-08-20
 
 # Hydration Waits
 
-Default to web-first assertions and locator retries. They are faster to read and more resilient than
-sleeps.
+Default to web-first assertions and locator retries. They are faster to read and more resilient than sleeps.
 
-The one documented exception in this repo is a short post-navigation hydration settle using a named
-`HYDRATION_WAIT_MS` constant. Use it only when the page is known to need React hydration time after
-`page.goto()` and a plain assertion is not enough.
+The one documented exception in this repo is a short post-navigation hydration settle using a named `HYDRATION_WAIT_MS` constant. Use it only when the page is known to need React hydration time after `page.goto()` and a plain assertion is not enough.
 
 ```typescript
 const HYDRATION_WAIT_MS = 2000;

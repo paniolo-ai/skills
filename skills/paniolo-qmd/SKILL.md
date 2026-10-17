@@ -24,33 +24,22 @@ references: []
 
 ## Setup
 
-Install dependencies once with `pnpm install`. The harness pulls the correct
-`@paniolo/cli-<platform>-<arch>` binary for the current platform through the `@paniolo/cli`
-wrapper, so no global qmd install is needed. Set `PANIOLO_BIN` only when using a locally built
-binary.
+Install dependencies once with `pnpm install`. The harness pulls the correct `@paniolo/cli-<platform>-<arch>` binary for the current platform through the `@paniolo/cli` wrapper, so no global qmd install is needed. Set `PANIOLO_BIN` only when using a locally built binary.
 
-Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package;
-`paniolo bootstrap` verifies the binary it links against it and refuses on a
-mismatch.
+Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package; `paniolo bootstrap` verifies the binary it links against it and refuses on a mismatch.
 
-- **Windows (PowerShell):** run `paniolo qmd reindex` to build the BM25 index and,
-  on a GPU-capable machine, generate the hybrid query embeddings.
-- **WSL (bash):** run `paniolo qmd reindex` to build the BM25 index. GPU embedding
-  stays on the Windows side; WSL uses fast BM25 `search`.
+- **Windows (PowerShell):** run `paniolo qmd reindex` to build the BM25 index and, on a GPU-capable machine, generate the hybrid query embeddings.
+- **WSL (bash):** run `paniolo qmd reindex` to build the BM25 index. GPU embedding stays on the Windows side; WSL uses fast BM25 `search`.
 
-Each platform keeps its own SQLite index on native local disk so Windows and
-WSL indexes never collide.
+Each platform keeps its own SQLite index on native local disk so Windows and WSL indexes never collide.
 
 ---
 
 ## Execution Workflow
 
-1. **Search** for candidates with `paniolo qmd search` (BM25),
-   `vsearch` (vector-only), or `query` (hybrid, GPU on Windows).
-2. **Load** only the clearly relevant returned files (or fetch with
-   `qmd get`/`multi-get`).
-3. If a result points to another repo's `.agents/skills/<name>/SKILL.md`, read that
-   repo-local skill for work in that repo.
+1. **Search** for candidates with `paniolo qmd search` (BM25), `vsearch` (vector-only), or `query` (hybrid, GPU on Windows).
+2. **Load** only the clearly relevant returned files (or fetch with `qmd get`/`multi-get`).
+3. If a result points to another repo's `.agents/skills/<name>/SKILL.md`, read that repo-local skill for work in that repo.
 4. After adding or editing markdown guidance, run `paniolo qmd reindex`.
 
 ---
@@ -59,15 +48,9 @@ WSL indexes never collide.
 
 Three modes, differing in cost as much as quality:
 
-- **`search` (BM25)** — exact words, titles, code symbols, rare phrases. Fast,
-  any platform, no model. Reach for this first when you know the term.
-- **`vsearch` (vector)** — semantic recall for one model's cost instead of
-  three. Use when you are describing a concept rather than naming it, but do not
-  need the hybrid stack's ranking quality. Needs embeddings: it fails with a
-  clear message on an index that has none.
-- **`query` (hybrid)** — best quality: BM25 + vector fused, then reranked.
-  GPU-accelerated on Windows; on WSL it falls back to BM25. Don't overuse
-  semantic search when a keyword would do.
+- **`search` (BM25)** — exact words, titles, code symbols, rare phrases. Fast, any platform, no model. Reach for this first when you know the term.
+- **`vsearch` (vector)** — semantic recall for one model's cost instead of three. Use when you are describing a concept rather than naming it, but do not need the hybrid stack's ranking quality. Needs embeddings: it fails with a clear message on an index that has none.
+- **`query` (hybrid)** — best quality: BM25 + vector fused, then reranked. GPU-accelerated on Windows; on WSL it falls back to BM25. Don't overuse semantic search when a keyword would do.
 
 ```bash
 paniolo qmd search  "zustand store hook"

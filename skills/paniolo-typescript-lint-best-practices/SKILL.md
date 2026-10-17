@@ -14,13 +14,11 @@ references:
 
 **Requires:** file-read, terminal (linting).
 
-**Harness catalog:**
-[typescript-lint](references/typescript-lint.md)
+**Harness catalog:** [typescript-lint](references/typescript-lint.md)
 
 **Repo supplements:**
 
-- Paniolo scan:
-  paniolo
+- Paniolo scan: paniolo
 
 # TypeScript Lint Best Practices
 
@@ -32,15 +30,13 @@ references:
 
 ## Do Not Use When
 
-- The primary task is fixing existing lint failures — use
-  [lint-error-resolution](../paniolo-lint-error-resolution/SKILL.md) instead.
+- The primary task is fixing existing lint failures — use [lint-error-resolution](../paniolo-lint-error-resolution/SKILL.md) instead.
 
 ---
 
 ## Preconditions
 
-- Read `AGENTS.md` and rules for the
-  repo you are editing.
+- Read `AGENTS.md` and rules for the repo you are editing.
 - Load the **repo supplement** above when working in an app repo.
 - Read the file being changed and one nearby file that already follows the local pattern.
 
@@ -73,8 +69,7 @@ Apply before writing — see the catalog doc for the full lookup table.
 
 ### Paniolo scan only
 
-- Load the
-  paniolo.
+- Load the paniolo.
 
 ---
 
@@ -84,21 +79,16 @@ Apply before writing — see the catalog doc for the full lookup table.
 2. Match surrounding structure, naming, and imports.
 3. the project's lint autofix script (if available) → full lint entrypoint → format if needed.
 
-Use the repo's own lint script rather than a remembered one: read its
-`package.json` `scripts` and prefer the most specific entrypoint that covers
-TypeScript — commonly `lint:ts`, falling back to `lint`.
+Use the repo's own lint script rather than a remembered one: read its `package.json` `scripts` and prefer the most specific entrypoint that covers TypeScript — commonly `lint:ts`, falling back to `lint`.
 
-Do not substitute bare `npx eslint` for the repo's lint script, and do not invoke
-a script name you have not seen in that repo's `package.json`.
+Do not substitute bare `npx eslint` for the repo's lint script, and do not invoke a script name you have not seen in that repo's `package.json`.
 
 ---
 
 ## References
 
-- **Catalog:**
-  [typescript-lint](references/typescript-lint.md)
-- **Fix failures:**
-  [lint-error-resolution](../paniolo-lint-error-resolution/SKILL.md)
+- **Catalog:** [typescript-lint](references/typescript-lint.md)
+- **Fix failures:** [lint-error-resolution](../paniolo-lint-error-resolution/SKILL.md)
 
 ## Do Not
 

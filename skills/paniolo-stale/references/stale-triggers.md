@@ -1,7 +1,7 @@
 ---
 source-slug: stale-triggers
-source-hash: 7af1ba5ac48366e9c969b4163b8fa6d5f9ad622d772a52eb0ac1faf8a1dfdd35
-bundled: 2026-10-08
+source-hash: c1071437bc42cb1fa6974ef8efa1700e71184d67baa570c0140fd800faa6d249
+bundled: 2026-10-16
 title: Stale Triggers
 type: concept
 tags:
@@ -14,10 +14,7 @@ updated: 2026-10-06
 
 # Stale Triggers
 
-A trigger is the event and policy boundary that starts one part of the
-staleness loop. `paniolo stale` supplies commands and a durable worker, but it
-does not schedule itself: an operator, CI workflow, or external scheduler must
-invoke the command with an explicit configuration.
+A trigger is the event and policy boundary that starts one part of the staleness loop. `paniolo stale` supplies commands and a durable worker, but it does not schedule itself: an operator, CI workflow, or external scheduler must invoke the command with an explicit configuration.
 
 ## Contents
 
@@ -53,8 +50,7 @@ invoke the command with an explicit configuration.
 | Retained retry | Operator requests another attempt | `retry` or `worker --retry-retained` | Later | Allegation transition |
 | Calibration | Operator starts an experiment | `seed`, `replay`, `shadow-qmd`, `eval` | Varies | Ledger records or shadow JSON file |
 
-`next`, `list`, `show`, `report`, and `score-shadow` inspect existing state;
-they do not trigger detection or remediation.
+`next`, `list`, `show`, `report`, and `score-shadow` inspect existing state; they do not trigger detection or remediation.
 
 ---
 
@@ -64,20 +60,13 @@ they do not trigger detection or remediation.
 
 Every invocation has one effective configuration:
 
-1. `--config <path>` selects that file. A relative path resolves under
-   `--root`.
-2. Without `--config`, the command loads `<root>/paniolo.config.json` when it
-   exists; otherwise it uses built-in defaults.
-3. When the selected file is canonically named `paniolo.config.json`, a sibling
-   `paniolo.config.local.json` recursively overlays it. Objects merge, arrays
-   replace, and the local file stays untracked.
-4. A differently named explicit config is independent. It does not inherit the
-   canonical config or its local overlay.
+1. `--config <path>` selects that file. A relative path resolves under `--root`.
+2. Without `--config`, the command loads `<root>/paniolo.config.json` when it exists; otherwise it uses built-in defaults.
+3. When the selected file is canonically named `paniolo.config.json`, a sibling `paniolo.config.local.json` recursively overlays it. Objects merge, arrays replace, and the local file stays untracked.
+4. A differently named explicit config is independent. It does not inherit the canonical config or its local overlay.
 5. Command flags override configured roles and budgets for that invocation.
 
-A workflow using `--config .github/staleness-advisory.json` therefore has its
-own enablement and scope. Changing the root config does not change that
-workflow unless the workflow is updated to use it.
+A workflow using `--config .github/staleness-advisory.json` therefore has its own enablement and scope. Changing the root config does not change that workflow unless the workflow is updated to use it.
 
 ---
 
@@ -85,24 +74,13 @@ workflow unless the workflow is updated to use it.
 
 ## Automation Switch
 
-`staleness.enabled` gates the entry points that nominate, judge, or publish
-work: `scan`, `run`, `propose`, and `worker`.
+`staleness.enabled` gates the entry points that nominate, judge, or publish work: `scan`, `run`, `propose`, and `worker`.
 
-When disabled, those commands exit successfully with JSON containing
-`"status": "disabled"` and make no ledger or external changes. Callers must
-treat that response as **not run**, not as an empty successful scan.
+When disabled, those commands exit successfully with JSON containing `"status": "disabled"` and make no ledger or external changes. Callers must treat that response as **not run**, not as an empty successful scan.
 
-Inspection and explicit maintenance remain available while automation is off:
-`list`, `next`, `show`, `report`, `score-shadow`, `retry`, `resolve`, `prune`,
-`rebase`, `migrate`, `merge-sync`, `index`, `verify`, `packet`, `seed`,
-`eval`, and `replay`. `shadow-qmd` runs before the
-ledger configuration is opened and is also unaffected by `enabled`.
+Inspection and explicit maintenance remain available while automation is off: `list`, `next`, `show`, `report`, `score-shadow`, `retry`, `resolve`, `prune`, `rebase`, `migrate`, `merge-sync`, `index`, `verify`, `packet`, `seed`, `eval`, and `replay`. `shadow-qmd` runs before the ledger configuration is opened and is also unaffected by `enabled`.
 
-`flag` is a separate, opt-in entry point. It requires an **explicit**
-effective `staleness.enabled: true`; the default value alone is not enough.
-If disabled, it files nothing and returns `status: disabled`. The working
-agent should report only evidence it already encountered, then resume its
-original task. Dedicated ledger agents handle verification and repair.
+`flag` is a separate, opt-in entry point. It requires an **explicit** effective `staleness.enabled: true`; the default value alone is not enough. If disabled, it files nothing and returns `status: disabled`. The working agent should report only evidence it already encountered, then resume its original task. Dedicated ledger agents handle verification and repair.
 
 ---
 
@@ -110,17 +88,9 @@ original task. Dedicated ledger agents handle verification and repair.
 
 ## Pull-Request Advisory
 
-The Ranch Hand `staleness-advisory` workflow runs on each pull request. It
-scans `base..head` with `--dry-run`, publishes a bounded summary and watch
-coverage, and uploads `staleness-report` with scan outcome and elapsed time.
-It distinguishes a failed scan or missing report from zero candidates. It
-has read-only repository permissions, no agent
-credentials, and cannot block a merge.
+The Ranch Hand `staleness-advisory` workflow runs on each pull request. It scans `base..head` with `--dry-run`, publishes a bounded summary and watch coverage, and uploads `staleness-report` with scan outcome and elapsed time. It distinguishes a failed scan or missing report from zero candidates. It has read-only repository permissions, no agent credentials, and cannot block a merge.
 
-The workflow passes `.github/staleness-advisory.json`. That file currently
-enables its advisory independently of the harness root configuration. Teams
-that want no shared staleness signal must disable or remove that workflow
-policy as well as disabling the canonical config.
+The workflow passes `.github/staleness-advisory.json`. That file currently enables its advisory independently of the harness root configuration. Teams that want no shared staleness signal must disable or remove that workflow policy as well as disabling the canonical config.
 
 ---
 
@@ -128,26 +98,11 @@ policy as well as disabling the canonical config.
 
 ## Durable Worker
 
-`worker` is durable orchestration, not a daemon or scheduler. One invocation
-runs merge-sync, scans each repository from its saved scan checkpoint to HEAD,
-adjudicates, proposes fixes, and publishes the ledger branch. In a qmd build
-it then runs a maintenance tail — claiming the `verify` jobs the cycle's
-merge-sync minted and reprojecting the ledger's `stale-ledger` search
-collection — before it exits. The tail is best-effort (a qmd failure reports
-an `error` marker rather than failing the published cycle), skipped on
-`--dry-run`, and reports `skipped` markers in builds without `qmd`.
+`worker` is durable orchestration, not a daemon or scheduler. One invocation runs merge-sync, scans each repository from its saved scan checkpoint to HEAD, adjudicates, proposes fixes, and publishes the ledger branch. In a qmd build it then runs a maintenance tail — claiming the `verify` jobs the cycle's merge-sync minted and reprojecting the ledger's `stale-ledger` search collection — before it exits. The tail is best-effort (a qmd failure reports an `error` marker rather than failing the published cycle), skipped on `--dry-run`, and reports `skipped` markers in builds without `qmd`.
 
-A local task runner, self-hosted scheduler, or operator must invoke it again.
-Only a merged ledger PR advances scan checkpoints, so missed or failed
-invocations retain their range. `run.lock` prevents two worker invocations
-from owning the same ledger concurrently.
+A local task runner, self-hosted scheduler, or operator must invoke it again. Only a merged ledger PR advances scan checkpoints, so missed or failed invocations retain their range. `run.lock` prevents two worker invocations from owning the same ledger concurrently.
 
-Use `worker --bootstrap` once to record each repository's current HEAD without
-scanning its history. Use `--retry-retained` when a cycle should requeue
-`insufficient-evidence` work before adjudication. One `--only` selector set
-runs a scoped cycle — scans still cover every `--repo` so checkpoints keep
-advancing, but only matching locations are filed, verified, remediated, and
-proposed.
+Use `worker --bootstrap` once to record each repository's current HEAD without scanning its history. Use `--retry-retained` when a cycle should requeue `insufficient-evidence` work before adjudication. One `--only` selector set runs a scoped cycle — scans still cover every `--repo` so checkpoints keep advancing, but only matching locations are filed, verified, remediated, and proposed.
 
 ---
 
@@ -157,18 +112,13 @@ proposed.
 
 The queue has its own data-driven triggers:
 
-- New evidence or a content edit reopens work at that location as
-  `pending-verification`.
+- New evidence or a content edit reopens work at that location as `pending-verification`.
 - `retry <id>` explicitly requeues work allowed by the state machine.
-- `worker --retry-retained` requeues all `insufficient-evidence` work before
-  the cycle.
-- A closed remediation PR clears its proposal during `merge-sync`, allowing
-  the allegation to re-enter the queue.
-- A stale target hash or patch context requeues the allegation instead of
-  force-applying it.
+- `worker --retry-retained` requeues all `insufficient-evidence` work before the cycle.
+- A closed remediation PR clears its proposal during `merge-sync`, allowing the allegation to re-enter the queue.
+- A stale target hash or patch context requeues the allegation instead of force-applying it.
 
-These triggers preserve unknown work; none treats delay or disagreement as a
-fresh verdict.
+These triggers preserve unknown work; none treats delay or disagreement as a fresh verdict.
 
 ---
 
@@ -188,9 +138,7 @@ The controls are independent:
 | `run.lock` | Prevents concurrent workers for one ledger |
 | `state.lock` | Serializes mutable ledger transactions |
 
-No one switch replaces the others. Disabling auto-merge does not disable
-proposals, and disabling the canonical config does not disable a workflow
-that selects a different config.
+No one switch replaces the others. Disabling auto-merge does not disable proposals, and disabling the canonical config does not disable a workflow that selects a different config.
 
 ---
 
@@ -201,8 +149,7 @@ that selects a different config.
 ### Private Owner Only
 
 - Commit `"enabled": false` in `paniolo.config.json`.
-- Put `{"staleness":{"enabled":true}}` in the owner's ignored
-  `paniolo.config.local.json`.
+- Put `{"staleness":{"enabled":true}}` in the owner's ignored `paniolo.config.local.json`.
 - Disable independent PR workflows and scheduled worker configurations.
 - Run manual scans and workers from the owner's machine.
 
@@ -215,15 +162,9 @@ that selects a different config.
 ### Fully Autonomous
 
 - Enable canonical automation and configure role profiles and surfaces.
-- Schedule `worker` on authorized local or self-hosted compute with signed-in
-  agent and GitHub CLIs — one invocation ends with the maintenance tail:
-  merged-remediation `verify` jobs are claimed against the cycle's checkout
-  map and the ledger reprojects into the qmd `stale-ledger` collection.
-- Schedule standalone `verify` or `index` only for out-of-cycle refresh —
-  e.g. a new checkout joining mid-cycle, or rebuilding the collection after
-  a schema change.
-- Keep branch protection and `automerge.disabled` available as independent
-  merge controls.
+- Schedule `worker` on authorized local or self-hosted compute with signed-in agent and GitHub CLIs — one invocation ends with the maintenance tail: merged-remediation `verify` jobs are claimed against the cycle's checkout map and the ledger reprojects into the qmd `stale-ledger` collection.
+- Schedule standalone `verify` or `index` only for out-of-cycle refresh — e.g. a new checkout joining mid-cycle, or rebuilding the collection after a schema change.
+- Keep branch protection and `automerge.disabled` available as independent merge controls.
 
 ---
 

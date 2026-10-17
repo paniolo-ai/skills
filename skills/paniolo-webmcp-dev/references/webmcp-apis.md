@@ -1,7 +1,7 @@
 ---
 source-slug: webmcp-apis
-source-hash: f6c8b745ae50cc1e8ee92d46bf4c2199e5692e1b35fcfbd460ea69c422c54d3f
-bundled: 2026-09-25
+source-hash: 4402529a9004fdde7bca31d3ae3bcaa98ecfcc295e618f1f9af8f754871bf89d
+bundled: 2026-10-16
 title: WebMCP Imperative and Declarative APIs
 type: concept
 tags:
@@ -14,10 +14,7 @@ updated: 2026-09-25
 
 # WebMCP Imperative and Declarative APIs
 
-Two registration shapes share one browser-mediated tool registry. Prefer the
-imperative API for app logic; use declarative annotations when an ordinary HTML
-form *is* the tool. Overview and product fit: [webmcp-overview](./webmcp-overview.md). Security
-hints and origin gating: [webmcp-security](./webmcp-security.md).
+Two registration shapes share one browser-mediated tool registry. Prefer the imperative API for app logic; use declarative annotations when an ordinary HTML form *is* the tool. Overview and product fit: [webmcp-overview](./webmcp-overview.md). Security hints and origin gating: [webmcp-security](./webmcp-security.md).
 
 ## Imperative API
 

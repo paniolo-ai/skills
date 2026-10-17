@@ -24,131 +24,66 @@ references:
 - references/web-component-testing.md
 ---
 
-**Requires:** file-read, file-edit, terminal (local verification). A real
-browser required for meaningful verification — jsdom cannot be trusted for
-shadow DOM/upgrade semantics.
+**Requires:** file-read, file-edit, terminal (local verification). A real browser required for meaningful verification — jsdom cannot be trusted for shadow DOM/upgrade semantics.
 
-**Full reference:** [web-component-overview](references/web-component-overview.md) ·
-[web-component-api-design](references/web-component-api-design.md) ·
-[web-component-best-practices](references/web-component-best-practices.md)
+**Full reference:** [web-component-overview](references/web-component-overview.md) · [web-component-api-design](references/web-component-api-design.md) · [web-component-best-practices](references/web-component-best-practices.md)
 
-Custom elements are platform primitives, not a framework. The quality bar is
-"indistinguishable from a built-in element": instantiable from markup alone,
-self-contained, keyboard-usable, themable. Every claim below traces to
-web.dev's custom-element checklist, the W3C TAG design guidelines, or the
-Gold Standard checklist.
+Custom elements are platform primitives, not a framework. The quality bar is "indistinguishable from a built-in element": instantiable from markup alone, self-contained, keyboard-usable, themable. Every claim below traces to web.dev's custom-element checklist, the W3C TAG design guidelines, or the Gold Standard checklist.
 
 ## Preconditions
 
-- Confirm this needs to be a custom element at all: cross-framework design
-  system, framework-free embeddable, or standards-longevity argument → yes;
-  app-internal component inside one framework → probably not.
-  [web-component-overview](references/web-component-overview.md)
-- Decide vanilla vs library **before** writing: leaf element, few
-  attributes, static shadow tree → vanilla is fine; dynamic templating,
-  reactive state, many properties → Lit (~5 KB, no build required).
-  [web-component-libraries](references/web-component-libraries.md)
+- Confirm this needs to be a custom element at all: cross-framework design system, framework-free embeddable, or standards-longevity argument → yes; app-internal component inside one framework → probably not. [web-component-overview](references/web-component-overview.md)
+- Decide vanilla vs library **before** writing: leaf element, few attributes, static shadow tree → vanilla is fine; dynamic templating, reactive state, many properties → Lit (~5 KB, no build required). [web-component-libraries](references/web-component-libraries.md)
 
 ## Defaults (proceed without asking)
 
-- Autonomous custom element (`extends HTMLElement`) — never customized
-  built-ins (`is="…"`); Safari doesn't support them.
-- `attachShadow({ mode: 'open' })` **in the constructor**; closed roots are
-  deterrence not security and break tests/devtools.
+- Autonomous custom element (`extends HTMLElement`) — never customized built-ins (`is="…"`); Safari doesn't support them.
+- `attachShadow({ mode: 'open' })` **in the constructor**; closed roots are deterrence not security and break tests/devtools.
 - Tag name: hyphenated, library-prefixed (`acme-button`, not `button-x`).
-- **Always ask:** which styling surface is intended to be public
-  (`::part`/custom properties vs closed internals) if the repo's design
-  system doesn't already establish it — parts are a forever-API.
+- **Always ask:** which styling surface is intended to be public (`::part`/custom properties vs closed internals) if the repo's design system doesn't already establish it — parts are a forever-API.
 
 ## Key rules
 
 ### API surface (most design mistakes live here)
 
-- **Attributes for primitives, properties for rich data.** Accept string/
-  number/boolean as attribute *and* property; reflect between them unless
-  high-frequency. Objects/arrays are properties only — never serialize to
-  attributes.
+- **Attributes for primitives, properties for rich data.** Accept string/ number/boolean as attribute *and* property; reflect between them unless high-frequency. Objects/arrays are properties only — never serialize to attributes.
 - **Booleans are presence-based** (`hasAttribute`, not `disabled="false"`).
-- **No reentrancy loops:** never set a property from
-  `attributeChangedCallback` while the setter reflects to that attribute.
-  Shape: setter writes attribute, getter reads it; the callback handles
-  side effects (ARIA sync) only.
-- **Capture pre-upgrade properties** in `connectedCallback`
-  (`_upgradeProperty` delete-and-restore pattern) — frameworks bind before
-  `define()` runs. Lit does this automatically.
-- **Don't stamp author-set globals** — check `hasAttribute` before applying
-  `role`/`tabindex`; `class` on the host is author-owned.
-- **Data down, events up.** Dispatch for internal activity only — never in
-  response to the host setting a property (binding loops). Kebab-case
-  names, `bubbles: true, composed: true` to escape the shadow root.
-  [web-component-api-design](references/web-component-api-design.md) ·
-  [web-component-events](references/web-component-events.md)
+- **No reentrancy loops:** never set a property from `attributeChangedCallback` while the setter reflects to that attribute. Shape: setter writes attribute, getter reads it; the callback handles side effects (ARIA sync) only.
+- **Capture pre-upgrade properties** in `connectedCallback` (`_upgradeProperty` delete-and-restore pattern) — frameworks bind before `define()` runs. Lit does this automatically.
+- **Don't stamp author-set globals** — check `hasAttribute` before applying `role`/`tabindex`; `class` on the host is author-owned.
+- **Data down, events up.** Dispatch for internal activity only — never in response to the host setting a property (binding loops). Kebab-case names, `bubbles: true, composed: true` to escape the shadow root. [web-component-api-design](references/web-component-api-design.md) · [web-component-events](references/web-component-events.md)
 
 ### Lifecycle
 
-- Constructor: `super()` first; attach shadow root; no attribute/child
-  inspection, no DOM writes — children don't exist yet for parser-created
-  elements.
-- `connectedCallback`/`disconnectedCallback` are paired setup/teardown, not
-  once-only — moves re-fire both unless `connectedMoveCallback` +
-  `moveBefore()` are used. Everything external set up in `connected` must
-  be released in `disconnected` or the element can't be GC'd.
-- `attributeChangedCallback` only fires for `static observedAttributes`.
-  [web-component-lifecycle](references/web-component-lifecycle.md)
+- Constructor: `super()` first; attach shadow root; no attribute/child inspection, no DOM writes — children don't exist yet for parser-created elements.
+- `connectedCallback`/`disconnectedCallback` are paired setup/teardown, not once-only — moves re-fire both unless `connectedMoveCallback` + `moveBefore()` are used. Everything external set up in `connected` must be released in `disconnected` or the element can't be GC'd.
+- `attributeChangedCallback` only fires for `static observedAttributes`. [web-component-lifecycle](references/web-component-lifecycle.md)
 
 ### Styling
 
-- `:host { display: block|inline-block|flex }` always — default `inline`
-  makes width/height no-ops. Pair with `:host([hidden]) { display: none }`
-  or your display rule beats the UA's `hidden`.
-- Theming = CSS custom properties (shared/internal values) + `::part`
-  (semantic internal elements). Parts can't nest and can't be removed
-  without a breaking change. Default styling stays generic — no baked-in
-  Material/Cupertino.
-- Never style via author-facing attributes (`my-el[open]`) — reflection
-  desync fails silently. Use internal classes or `:state()`.
-  [web-component-styling](references/web-component-styling.md)
+- `:host { display: block|inline-block|flex }` always — default `inline` makes width/height no-ops. Pair with `:host([hidden]) { display: none }` or your display rule beats the UA's `hidden`.
+- Theming = CSS custom properties (shared/internal values) + `::part` (semantic internal elements). Parts can't nest and can't be removed without a breaking change. Default styling stays generic — no baked-in Material/Cupertino.
+- Never style via author-facing attributes (`my-el[open]`) — reflection desync fails silently. Use internal classes or `:state()`. [web-component-styling](references/web-component-styling.md)
 
 ### Accessibility and forms (where naive ports die)
 
-- **IDs are scoped per shadow root** — `aria-labelledby`/`for`/`aria-controls`
-  across the boundary fails silently. Keep label+control in one root, use
-  `ElementInternals` for default role/states, `ariaLabelledByElements`-style
-  element refs where supported, `delegatesFocus` for focus forwarding.
-  [web-component-accessibility](references/web-component-accessibility.md)
-- **Forms need FACE:** `static formAssociated = true` +
-  `attachInternals()` → `setFormValue`/`setValidity` + the four
-  `form*Callback`s. A plain custom element inside `<form>` submits nothing.
-  [web-component-forms](references/web-component-forms.md)
+- **IDs are scoped per shadow root** — `aria-labelledby`/`for`/`aria-controls` across the boundary fails silently. Keep label+control in one root, use `ElementInternals` for default role/states, `ariaLabelledByElements`-style element refs where supported, `delegatesFocus` for focus forwarding. [web-component-accessibility](references/web-component-accessibility.md)
+- **Forms need FACE:** `static formAssociated = true` + `attachInternals()` → `setFormValue`/`setValidity` + the four `form*Callback`s. A plain custom element inside `<form>` submits nothing. [web-component-forms](references/web-component-forms.md)
 
 ### Framework interop
 
-- Modern React (≥19), Vue, Angular, Svelte, Lit all bind correctly **if**
-  you follow the attr/prop/event rules above — both-way primitive
-  reflection is what makes every framework row green. Kebab-case events for
-  Vue's declarative bindings; rich data needs `.prop`-style property
-  binding. React < 19 needs wrappers (`@lit/react`).
-  [web-component-framework-interop](references/web-component-framework-interop.md)
+- Modern React (≥19), Vue, Angular, Svelte, Lit all bind correctly **if** you follow the attr/prop/event rules above — both-way primitive reflection is what makes every framework row green. Kebab-case events for Vue's declarative bindings; rich data needs `.prop`-style property binding. React < 19 needs wrappers (`@lit/react`). [web-component-framework-interop](references/web-component-framework-interop.md)
 
 ## Output format
 
-Write code changes directly. After edits, state which API surfaces were
-added/changed (attributes, properties, events, slots, parts, custom
-properties), what reflection/upgrade handling exists, and how you verified
-the element in a real browser.
+Write code changes directly. After edits, state which API surfaces were added/changed (attributes, properties, events, slots, parts, custom properties), what reflection/upgrade handling exists, and how you verified the element in a real browser.
 
 ## Error handling
 
-- Element renders nothing with no console error → check registration order
-  (`define` before markup use), `observedAttributes` spelling, and whether
-  an un-upgraded instance is hiding (style `:not(:defined)` while
-  debugging).
+- Element renders nothing with no console error → check registration order (`define` before markup use), `observedAttributes` spelling, and whether an un-upgraded instance is hiding (style `:not(:defined)` while debugging).
 - Parent listener never fires → missing `composed: true` on the event.
-- `setAttribute` loop/stack overflow → property↔attribute reentrancy; move
-  to setter-writes-attribute shape.
-- Element invisible to forms/AT despite correct markup → not
-  form-associated, or cross-root ID reference failing — see the two
-  reference pages above.
+- `setAttribute` loop/stack overflow → property↔attribute reentrancy; move to setter-writes-attribute shape.
+- Element invisible to forms/AT despite correct markup → not form-associated, or cross-root ID reference failing — see the two reference pages above.
 
 ## Validation
 

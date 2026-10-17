@@ -18,8 +18,7 @@ references:
 
 **Full reference:** [markdown-lint](references/markdown-lint.md)
 
-**Paniolo repo:** see
-scan-markdown-lint
+**Paniolo repo:** see scan-markdown-lint
 
 # Markdown Lint Best Practices
 
@@ -27,8 +26,7 @@ scan-markdown-lint
 
 - Creating or editing any `.md` file in the repository.
 - Writing skills, agents, docs, or instruction files.
-- Choosing the repository's current Markdown, wiki, and lint entry points without
-  relying on retired script aliases.
+- Choosing the repository's current Markdown, wiki, and lint entry points without relying on retired script aliases.
 
 ---
 
@@ -48,38 +46,28 @@ Apply these before writing a single line — each prevents a common first-pass f
 
 ### Links
 
-- Internal harness links use workspace-relative paths (`<repo>/<path>`,
-  `/.agents/skills/...`), not `./file.md`. References to a wiki page are the
-  exception — use a bare wikilink (`[[slug]]`) rather than a
-  path, so `paniolo wiki rename`/`move` can rewrite them.
-- Fragment links (`#anchor`) must resolve to a real heading or `<a id="...">` in the **target**
-  doc file (not in skills).
+- Internal harness links use workspace-relative paths (`<repo>/<path>`, `/.agents/skills/...`), not `./file.md`. References to a wiki page are the exception — use a bare wikilink (`[[slug]]`) rather than a path, so `paniolo wiki rename`/`move` can rewrite them.
+- Fragment links (`#anchor`) must resolve to a real heading or `<a id="...">` in the **target** doc file (not in skills).
 - No `file://` links.
 
 ### File size limits
 
 - `.agents/skills/*/SKILL.md` and `agents/**/*.md`: ≤ 159 lines.
-- rules: ≤ 100 lines; plain headings only
-  (no anchors or ToC).
-- `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, adapter files: ≤ 150 lines. Keep `AGENTS.md`
-  brief; full skill slug list: available-skills.
+- rules: ≤ 100 lines; plain headings only (no anchors or ToC).
+- `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, adapter files: ≤ 150 lines. Keep `AGENTS.md` brief; full skill slug list: available-skills.
 
 ---
 
 ## Validation Stages
 
-Use the command that owns the edited file. Inspect the repository's current
-scripts before running a dedicated Markdown command; `lint:md` is not a
-portable or guaranteed entry point.
+Use the command that owns the edited file. Inspect the repository's current scripts before running a dedicated Markdown command; `lint:md` is not a portable or guaranteed entry point.
 
 | Scope | Command | What it checks |
 | --- | --- | --- |
 | Paniolo wiki page | `paniolo wiki` from the harness | Whole-wiki schema, sources, links, indexes, and orphans |
 | Harness Markdown or prose not covered by the wiki gate | the project's lint script | Repository lint entry point, including `paniolo scan` guidance checks |
 
-For a Paniolo wiki edit, run the whole-wiki gate first. If it does not cover
-the edited page's prose checks, run the edited repository's lint entry point.
-For the harness, the current sequence is:
+For a Paniolo wiki edit, run the whole-wiki gate first. If it does not cover the edited page's prose checks, run the edited repository's lint entry point. For the harness, the current sequence is:
 
 ```bash
 paniolo wiki

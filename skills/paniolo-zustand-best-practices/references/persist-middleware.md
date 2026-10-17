@@ -1,7 +1,7 @@
 ---
 source-slug: persist-middleware
-source-hash: dfb595795b0b972dd520b9270ba0bce5f0ca9bf0fae0178c5810e07dbc18898d
-bundled: 2026-08-01
+source-hash: 557f8c19c4e12027a5cf5c7362f60530175de45a2d3c7fc473fcf24ff68ae0c5
+bundled: 2026-10-16
 title: Persist Middleware
 type: concept
 tags:
@@ -15,8 +15,7 @@ updated: 2026-06-18
 
 # Persist Middleware
 
-Use `persist` to automatically save state to `localStorage` and restore it on page reload. Use
-`partialize` to persist only specific fields:
+Use `persist` to automatically save state to `localStorage` and restore it on page reload. Use `partialize` to persist only specific fields:
 
 ```typescript
 import { persist } from "zustand/middleware";

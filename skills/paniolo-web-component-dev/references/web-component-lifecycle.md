@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-lifecycle
-source-hash: 33ae4814143d086233ae40ce6171530ab473a491765bd6b030e688c63518fad4
-bundled: 2026-09-27
+source-hash: 89972c1c11180eb4af11743c7916c291faedec29606689b5ad224e1f534b4117
+bundled: 2026-10-16
 title: Web Component Lifecycle
 type: concept
 tags:
@@ -13,9 +13,7 @@ updated: 2026-09-26
 
 # Web Component Lifecycle
 
-The browser calls lifecycle methods on your class — you never call them
-yourself. Understanding what each callback guarantees (and forbids) is where
-most custom-element bugs live.
+The browser calls lifecycle methods on your class — you never call them yourself. Understanding what each callback guarantees (and forbids) is where most custom-element bugs live.
 
 ## The callbacks
 
@@ -30,18 +28,12 @@ most custom-element bugs live.
 
 ## Constructor rules (spec-mandated)
 
-- Call `super()` first. Never `return` a value; don't use `document.write`,
-  inspect attributes/children, or add attributes/children — children don't
-  exist yet for parser-created elements.
-- The constructor is the **only** place with exclusive knowledge of the
-  element: attach the shadow root here, not in `connectedCallback` (the
-  element may detach/reattach; constructor work happens once).
+- Call `super()` first. Never `return` a value; don't use `document.write`, inspect attributes/children, or add attributes/children — children don't exist yet for parser-created elements.
+- The constructor is the **only** place with exclusive knowledge of the element: attach the shadow root here, not in `connectedCallback` (the element may detach/reattach; constructor work happens once).
 
 ## connected/disconnected are paired, not once-only
 
-Elements move (`insertBefore`, reparenting) — each move is a disconnect +
-connect unless `moveBefore()` + `connectedMoveCallback` are used. Write both
-callbacks as idempotent setup/teardown:
+Elements move (`insertBefore`, reparenting) — each move is a disconnect + connect unless `moveBefore()` + `connectedMoveCallback` are used. Write both callbacks as idempotent setup/teardown:
 
 ```js
 connectedCallback() {

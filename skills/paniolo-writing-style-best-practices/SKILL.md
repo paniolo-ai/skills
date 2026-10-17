@@ -21,8 +21,7 @@ references:
 
 ## Full reference
 
-[writing-style-writing-style](references/writing-style-writing-style.md) —
-load on demand for ✅/❌ examples, rationale, and edge cases.
+[writing-style-writing-style](references/writing-style-writing-style.md) — load on demand for ✅/❌ examples, rationale, and edge cases.
 
 ## When invoked
 
@@ -32,26 +31,19 @@ load on demand for ✅/❌ examples, rationale, and edge cases.
 
 **Clarifying questions:**
 
-- **Defaults (proceed without asking):** assume the task is reviewing prose
-  in a doc unless a specific file path or writing task is provided.
-- **Always ask:** target file path if reviewing and not provided; topic and
-  purpose if writing new prose and not provided. Ask one focused question at
-  a time.
-- State assumptions when proceeding: "Reviewing prose in the provided
-  snippet — let me know if you want a full file review."
+- **Defaults (proceed without asking):** assume the task is reviewing prose in a doc unless a specific file path or writing task is provided.
+- **Always ask:** target file path if reviewing and not provided; topic and purpose if writing new prose and not provided. Ask one focused question at a time.
+- State assumptions when proceeding: "Reviewing prose in the provided snippet — let me know if you want a full file review."
 
 **Output format:**
 
-- _Reviewing prose:_ structured report — **Passes** (bullet list) and **Gaps**
-  (table: location | issue | suggested fix). Keep it terse.
-- _Rewriting prose:_ output only the changed paragraphs/sentences as fenced
-  code, with one sentence explaining each change.
+- _Reviewing prose:_ structured report — **Passes** (bullet list) and **Gaps** (table: location | issue | suggested fix). Keep it terse.
+- _Rewriting prose:_ output only the changed paragraphs/sentences as fenced code, with one sentence explaining each change.
 - _Question-answering:_ concise prose referencing the relevant doc section.
 
 **Error handling:**
 
-- If the target file is needed but not given and cannot be inferred, ask for
-  it before proceeding.
+- If the target file is needed but not given and cannot be inferred, ask for it before proceeding.
 - Do not fabricate content; only rewrite what is provided.
 
 ## Quick rules

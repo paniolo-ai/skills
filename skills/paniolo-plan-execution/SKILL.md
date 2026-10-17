@@ -22,8 +22,7 @@ references:
 
 **Requires:** file-read, repository search, file-write, and terminal access for verification gates.
 
-**Companion:**
-[paniolo-plan-best-practices](../paniolo-plan-best-practices/SKILL.md)
+**Companion:** [paniolo-plan-best-practices](../paniolo-plan-best-practices/SKILL.md)
 
 # Plan Execution
 
@@ -60,42 +59,31 @@ Include a separate validation table:
 | --- | --- | --- | --- |
 | Command or check | Host and dependencies | Passed, failed, inconclusive, or not run | Output summary |
 
-Also list remaining work, explicit deferrals, cleanup evidence, and unauthorized actions not taken.
-Never merge a focused pass with an unrun broad gate.
+Also list remaining work, explicit deferrals, cleanup evidence, and unauthorized actions not taken. Never merge a focused pass with an unrun broad gate.
 
 ## Failure And Stop Policy
 
-Preserve the first causal failure and its diagnostics. An outer timeout or reporter pipe error is
-inconclusive unless an assertion failed first. Validate fixtures before weakening product
-validation. Verify descendants and listeners before claiming runner cleanup.
+Preserve the first causal failure and its diagnostics. An outer timeout or reporter pipe error is inconclusive unless an assertion failed first. Validate fixtures before weakening product validation. Verify descendants and listeners before claiming runner cleanup.
 
-Ask one focused question only when a missing choice changes the product contract or expands
-authority. Stop before production mutation, destructive work, or a contract conflict that evidence
-cannot resolve. Ordinary test failures and stale plan claims are work to diagnose, not reasons to
-ask the user.
+Ask one focused question only when a missing choice changes the product contract or expands authority. Stop before production mutation, destructive work, or a contract conflict that evidence cannot resolve. Ordinary test failures and stale plan claims are work to diagnose, not reasons to ask the user.
 
 ## Completion
 
-Finish only when every in-scope card has behavior evidence, every required gate has an honest
-status, owned processes and test data are cleaned up, documentation matches the landed state, and
-deferred work remains explicit.
+Finish only when every in-scope card has behavior evidence, every required gate has an honest status, owned processes and test data are cleaned up, documentation matches the landed state, and deferred work remains explicit.
 
 ## Evaluations
 
 **Input:** "Execute this approved five-card plan."
 
-**Expected:** Audit current state, implement in dependency order, and return both required tables,
-cleanup evidence, and remaining work with no unsupported completion claims.
+**Expected:** Audit current state, implement in dependency order, and return both required tables, cleanup evidence, and remaining work with no unsupported completion claims.
 
 **Input:** "Audit the previous agent's claim that all consumers were updated."
 
-**Expected:** Inventory every consumer, map each to implementation and a behavior assertion, and
-mark any missing or untested consumer incomplete.
+**Expected:** Inventory every consumer, map each to implementation and a behavior assertion, and mark any missing or untested consumer incomplete.
 
 **Input:** "The E2E API rejected the generated fixture, so relax the validator."
 
-**Expected:** Load fixture-contract guidance, inspect the exact values and domain invariant, and
-refuse to weaken product validation unless evidence shows the product contract is wrong.
+**Expected:** Load fixture-contract guidance, inspect the exact values and domain invariant, and refuse to weaken product validation unless evidence shows the product contract is wrong.
 
 ## Do Not
 

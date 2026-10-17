@@ -1,7 +1,7 @@
 ---
 source-slug: entry-point-vs-logic-module-pattern
-source-hash: 83c69d67c5877059d46f11ee2b98ea44a58495d8e06f1010f6f90400dbcb4a46
-bundled: 2026-08-30
+source-hash: bec6ca658f76e967d84beb9faf0d0362788850b3a565d46ac391dcf11cdacbe5
+bundled: 2026-10-16
 title: Entry-point vs logic-module pattern
 type: concept
 tags:
@@ -13,9 +13,7 @@ updated: 2026-07-20
 
 # Entry-point vs logic-module pattern
 
-Entry points are thin shells: resolve the repo root, call a pure exported function, and handle
-side-effects only (`process.exit`, `stdout`/`stderr`). All non-trivial logic lives in a pure
-module that is unit-testable without spawning a separate process.
+Entry points are thin shells: resolve the repo root, call a pure exported function, and handle side-effects only (`process.exit`, `stdout`/`stderr`). All non-trivial logic lives in a pure module that is unit-testable without spawning a separate process.
 
 ```ts
 // cli.bun.ts  ← thin shell

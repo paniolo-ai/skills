@@ -30,16 +30,13 @@ Use this skill when:
 - Refactoring `async`/`Promise` script logic to `Effect.gen`, `Effect.tryPromise`, or tagged errors.
 - Composing subprocess, file I/O, or script orchestration.
 
-Prefer exposing functions that return an `Effect` instead of raw `Promise` results. Convert
-Promise-based boundaries to Effects with `Effect.tryPromise` so downstream code composes and maps
-errors using Effect combinators.
+Prefer exposing functions that return an `Effect` instead of raw `Promise` results. Convert Promise-based boundaries to Effects with `Effect.tryPromise` so downstream code composes and maps errors using Effect combinators.
 
 Execution workflow:
 
 1. Identify the script boundary (entry `.bun.ts` vs logic module vs shared helper).
 2. Keep errors typed when a subsystem has multiple failure modes (`Data.TaggedError`).
-3. Use `Effect.tryPromise` with a small subprocess helper for captured stdout/stderr (see
-   [typescript-effect-subprocesses](references/typescript-effect-subprocesses.md)).
+3. Use `Effect.tryPromise` with a small subprocess helper for captured stdout/stderr (see [typescript-effect-subprocesses](references/typescript-effect-subprocesses.md)).
 4. Validate with the project's lint and test commands.
 
 Output requirements:
@@ -71,19 +68,13 @@ See [typescript-effect-refactoring-promise-to-effect](references/typescript-effe
 
 ### 6. Portable Bun orchestration
 
-Use direct argv arrays, an explicit working directory and environment, and a thin `.bun.ts`
-entrypoint. Do not hide subprocesses behind shell-quoted command strings. See
-[typescript-bun-script-portability](references/typescript-bun-script-portability.md).
+Use direct argv arrays, an explicit working directory and environment, and a thin `.bun.ts` entrypoint. Do not hide subprocesses behind shell-quoted command strings. See [typescript-bun-script-portability](references/typescript-bun-script-portability.md).
 
 ## Common Pitfalls
 
-Avoid mixing Promise and Effect in the same call chain, throwing inside `Effect.gen`, and bare
-`Effect.tryPromise` without `catch`.
+Avoid mixing Promise and Effect in the same call chain, throwing inside `Effect.gen`, and bare `Effect.tryPromise` without `catch`.
 
-See also:
-[typescript-effect-mixing-promises-and-effects](references/typescript-effect-mixing-promises-and-effects.md),
-[typescript-effect-throwing-instead-of-effectfail](references/typescript-effect-throwing-instead-of-effectfail.md), and
-[typescript-effect-refactoring-promise-to-effect](references/typescript-effect-refactoring-promise-to-effect.md).
+See also: [typescript-effect-mixing-promises-and-effects](references/typescript-effect-mixing-promises-and-effects.md), [typescript-effect-throwing-instead-of-effectfail](references/typescript-effect-throwing-instead-of-effectfail.md), and [typescript-effect-refactoring-promise-to-effect](references/typescript-effect-refactoring-promise-to-effect.md).
 
 ## Deep Reference
 

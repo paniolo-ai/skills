@@ -27,20 +27,11 @@ references: []
 
 ## Core Rules
 
-1. **Skills must be ≤ 500 lines.** Enforced by `paniolo scan` (via `@paniolo/cli`; configurable via
-   `paniolo.config.json` `skill.maxLines`).
-2. **Skills are pointers, not encyclopedias.** Tell the agent _what to do_ and _where to look_.
-   Defer detail to the skill's own `references/` leaves, or to a page in a wiki
-   declared under `wiki.wikis` in `paniolo.config.json`.
+1. **Skills must be ≤ 500 lines.** Enforced by `paniolo scan` (via `@paniolo/cli`; configurable via `paniolo.config.json` `skill.maxLines`).
+2. **Skills are pointers, not encyclopedias.** Tell the agent _what to do_ and _where to look_. Defer detail to the skill's own `references/` leaves, or to a page in a wiki declared under `wiki.wikis` in `paniolo.config.json`.
 3. **Docs are canonical.** Update the doc first; then update the skill to point at it.
 4. **No secrets.** Never embed credentials or PII in a skill or examples.
-5. **Naming:** harness first-party catalog skills use generic slugs (e.g.
-   `code-comment-best-practices`) under `.agents/skills/<slug>/`. Paniolo-vendored
-   skills live under `.agents/skills/external/paniolo-<name>/` and use `paniolo-<name>` as the
-   slug. Repo-local skills live under `.agents/skills/repos/<repo>/<slug>/` —
-   the path namespaces them, so slugs need not repeat the repo prefix. The `name` frontmatter must
-   match the directory name. Sibling repos should not copy catalog skills — load the harness
-   skill plus that repo's supplement in your wiki.
+5. **Naming:** harness first-party catalog skills use generic slugs (e.g. `code-comment-best-practices`) under `.agents/skills/<slug>/`. Paniolo-vendored skills live under `.agents/skills/external/paniolo-<name>/` and use `paniolo-<name>` as the slug. Repo-local skills live under `.agents/skills/repos/<repo>/<slug>/` — the path namespaces them, so slugs need not repeat the repo prefix. The `name` frontmatter must match the directory name. Sibling repos should not copy catalog skills — load the harness skill plus that repo's supplement in your wiki.
 
 ---
 
@@ -58,9 +49,7 @@ references: []
 
 ## Structure Template
 
-Every `SKILL.md` must follow this structure. `## Use When` is optional — omit it
-when the `description` frontmatter already carries complete trigger and exclusion language.
-Add it only when trigger conditions are too complex to express in one sentence.
+Every `SKILL.md` must follow this structure. `## Use When` is optional — omit it when the `description` frontmatter already carries complete trigger and exclusion language. Add it only when trigger conditions are too complex to express in one sentence.
 
 ```markdown
 ---

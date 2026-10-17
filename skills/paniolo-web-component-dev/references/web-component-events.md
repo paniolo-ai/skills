@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-events
-source-hash: a37f60be62a51c6c1d97373fda7ddefe95c2c4c55a6faceb1dc40df907bb81a7
-bundled: 2026-09-27
+source-hash: d3cac9ee3babb6ad7b5247cbc59141cf7ef6dab631fc69def7178ebf914f10e6
+bundled: 2026-10-16
 title: Web Component Events
 type: concept
 tags:
@@ -13,22 +13,13 @@ updated: 2026-09-26
 
 # Web Component Events
 
-Custom elements are `EventTarget`s — events are the standard upward channel
-in the **"data down, events up"** pattern: parents set attributes/properties
-down the tree; elements dispatch events that bubble up.
+Custom elements are `EventTarget`s — events are the standard upward channel in the **"data down, events up"** pattern: parents set attributes/properties down the tree; elements dispatch events that bubble up.
 
 ## When to dispatch — and when not to
 
-- **Dispatch for internal activity** the host can't otherwise observe:
-  timers finishing, resources loading, user interaction inside the shadow
-  tree, internal state transitions.
-- **Never dispatch in response to the host setting a property.** The host
-  already knows — and data-binding systems will loop: host sets prop →
-  element fires event → framework re-renders → sets prop again.
-- Follow DOM event conventions: lowercase or kebab-case names
-  (`change`, `item-selected`) — some frameworks' declarative bindings
-  can't express uppercase event names ([web-component-framework-interop](./web-component-framework-interop.md)).
-  Detail payload goes in `event.detail` via `CustomEvent`.
+- **Dispatch for internal activity** the host can't otherwise observe: timers finishing, resources loading, user interaction inside the shadow tree, internal state transitions.
+- **Never dispatch in response to the host setting a property.** The host already knows — and data-binding systems will loop: host sets prop → element fires event → framework re-renders → sets prop again.
+- Follow DOM event conventions: lowercase or kebab-case names (`change`, `item-selected`) — some frameworks' declarative bindings can't express uppercase event names ([web-component-framework-interop](./web-component-framework-interop.md)). Detail payload goes in `event.detail` via `CustomEvent`.
 
 ## Crossing the shadow boundary
 

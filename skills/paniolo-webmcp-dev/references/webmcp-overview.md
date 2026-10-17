@@ -1,7 +1,7 @@
 ---
 source-slug: webmcp-overview
-source-hash: 39cdea8a02f26ac4cb97b398dcd1c4c569fda2ca956c30b16553820f49987ebe
-bundled: 2026-09-25
+source-hash: 8e4d49632de70d21cffb96e4fa8a0f8fee1243f37312c3fcb44632de415466fd
+bundled: 2026-10-16
 title: WebMCP Overview
 type: concept
 tags:
@@ -14,37 +14,21 @@ updated: 2026-09-25
 
 # WebMCP Overview
 
-WebMCP is a proposed browser API that lets a web page expose client-side
-actions as **tools** — named functions with natural-language descriptions and
-JSON Schema inputs — to AI agents running in the browser (built-in agents,
-extensions, or cross-origin iframes the page opts into).
+WebMCP is a proposed browser API that lets a web page expose client-side actions as **tools** — named functions with natural-language descriptions and JSON Schema inputs — to AI agents running in the browser (built-in agents, extensions, or cross-origin iframes the page opts into).
 
-The live surface is `document.modelContext`. Pages that use it behave like
-MCP servers implemented in client script rather than on a backend: the agent
-calls tools by name and schema; the browser mediates discovery and execution;
-`execute` runs in the page with the user's existing session while the UI stays
-visible.
+The live surface is `document.modelContext`. Pages that use it behave like MCP servers implemented in client script rather than on a backend: the agent calls tools by name and schema; the browser mediates discovery and execution; `execute` runs in the page with the user's existing session while the UI stays visible.
 
-It is a **Draft Community Group Report** under the W3C Web Machine Learning CG
-(not a W3C Standard). Chrome runs an origin trial from Chrome 149 and a local
-testing flag (`chrome://flags/#enable-webmcp-testing`). The API relocated from
-`navigator.modelContext` to `document.modelContext`; feature-detect before use.
+It is a **Draft Community Group Report** under the W3C Web Machine Learning CG (not a W3C Standard). Chrome runs an origin trial from Chrome 149 and a local testing flag (`chrome://flags/#enable-webmcp-testing`). The API relocated from `navigator.modelContext` to `document.modelContext`; feature-detect before use.
 
 ## What it is not
 
-- **Not MCP over the wire** — tools only; no resources, prompts, JSON-RPC, or
-  transport. Chrome calls the APIs "MCP-inspired."
-- **Not discovery** — tools exist only while a capable browser has the page
-  open. There is no crawlable manifest.
-- **Not headless automation** — design intent is attended, in-tab workflows.
-  Cron jobs, CLI agents, and remote services cannot call WebMCP tools.
+- **Not MCP over the wire** — tools only; no resources, prompts, JSON-RPC, or transport. Chrome calls the APIs "MCP-inspired."
+- **Not discovery** — tools exist only while a capable browser has the page open. There is no crawlable manifest.
+- **Not headless automation** — design intent is attended, in-tab workflows. Cron jobs, CLI agents, and remote services cannot call WebMCP tools.
 
 ## When WebMCP vs a dedicated MCP server
 
-Decide **per capability**, not once for the product. Full comparison and
-decision order: [webmcp-vs-mcp](./webmcp-vs-mcp.md). Short version: live tab + page/session state
-→ WebMCP; unattended / CLI / anywhere-anytime → MCP; both can share one service
-layer.
+Decide **per capability**, not once for the product. Full comparison and decision order: [webmcp-vs-mcp](./webmcp-vs-mcp.md). Short version: live tab + page/session state → WebMCP; unattended / CLI / anywhere-anytime → MCP; both can share one service layer.
 
 ## Related pages
 

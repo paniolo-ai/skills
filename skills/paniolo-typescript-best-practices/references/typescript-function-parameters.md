@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-function-parameters
-source-hash: c83006f2082ecd20aa6f9c49a78d374661d9605781a022d6c064bf424e83401e
-bundled: 2026-08-01
+source-hash: 95694fa9e4f7bda156f40db3a5f6d9024825000ec6d2012320e1bd7f50c6e923
+bundled: 2026-10-16
 title: Function Parameters
 type: concept
 tags:
@@ -12,9 +12,7 @@ updated: 2026-06-18
 
 # Function Parameters
 
-Prefer destructured parameters directly in the function signature over a single `params` object
-pattern. This is more readable, consistent with destructuring at call sites, and aligns with the
-linter's max-parameters rule.
+Prefer destructured parameters directly in the function signature over a single `params` object pattern. This is more readable, consistent with destructuring at call sites, and aligns with the linter's max-parameters rule.
 
 ```typescript
 // ✅ Preferred: destructure directly in signature

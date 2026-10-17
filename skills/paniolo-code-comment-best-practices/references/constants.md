@@ -1,7 +1,7 @@
 ---
 source-slug: constants
-source-hash: c3396f73668a24980f3937aaa451b9c2c178a895f7ec877fbf79b43270ba9535
-bundled: 2026-08-01
+source-hash: 06e8bcfb95277dd7a30af22fd2ec8064db39bdc2683663accadeccb66c1979b1
+bundled: 2026-10-16
 title: Constants and grouped symbols
 type: concept
 tags:
@@ -12,8 +12,7 @@ updated: 2026-06-18
 
 # Constants and grouped symbols
 
-Do **not** use JSDoc to comment on more than one symbol at a time. For groups of related constants,
-use a single `//` above the group — not a JSDoc that spans all of them:
+Do **not** use JSDoc to comment on more than one symbol at a time. For groups of related constants, use a single `//` above the group — not a JSDoc that spans all of them:
 
 ```ts
 // ❌

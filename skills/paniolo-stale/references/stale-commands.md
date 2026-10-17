@@ -1,7 +1,7 @@
 ---
 source-slug: stale-commands
-source-hash: 997bfda4c423f4258b3326e6b26afbdfefcbd8585b863fdf0680f2c525cfa837
-bundled: 2026-10-08
+source-hash: d47247c3a60f34a7a28cafd195e3b81f627671af709cfe658387ddde8581417c
+bundled: 2026-10-16
 title: Stale Commands
 type: concept
 tags:
@@ -13,17 +13,9 @@ updated: 2026-10-06
 
 # Stale Commands
 
-The `paniolo stale` command family operates the staleness ledger described
-in [stale-automation](./stale-automation.md). Every subcommand prints JSON to stdout and exits
-zero on success; failures are errors on stderr with a nonzero exit. A held
-worker `run.lock` is not an error — the worker prints
-`{"stopped": "run lock held"}` and exits 0.
+The `paniolo stale` command family operates the staleness ledger described in [stale-automation](./stale-automation.md). Every subcommand prints JSON to stdout and exits zero on success; failures are errors on stderr with a nonzero exit. A held worker `run.lock` is not an error — the worker prints `{"stopped": "run lock held"}` and exits 0.
 
-The command is gated behind the `stale` cargo feature (part of
-`release-core`). Binaries built without it report
-`unrecognized subcommand 'stale'`. Individual verbs marked *(qmd)* in
-this reference exist only in builds that also link the `qmd` feature —
-a `release-core` binary reports `unrecognized subcommand` for them.
+The command is gated behind the `stale` cargo feature (part of `release-core`). Binaries built without it report `unrecognized subcommand 'stale'`. Individual verbs marked *(qmd)* in this reference exist only in builds that also link the `qmd` feature — a `release-core` binary reports `unrecognized subcommand` for them.
 
 ## Contents
 
@@ -50,11 +42,7 @@ a `release-core` binary reports `unrecognized subcommand` for them.
 | `--root <PATH>` | `.` | Repository root that hosts the ledger and the default config |
 | `--config <PATH>` | `paniolo.config.json` under `--root` | Config file whose `staleness` section is read; see [stale-configuration](./stale-configuration.md) |
 
-`--root` is canonicalized before use. A relative `--config` resolves under
-`--root`; a missing explicit file is an error, while a missing default file
-falls back to built-in defaults. `--config` must name a
-`paniolo.config.json`-shaped document — the command reads its `staleness`
-key, so a file holding only the bare block is treated as no section.
+`--root` is canonicalized before use. A relative `--config` resolves under `--root`; a missing explicit file is an error, while a missing default file falls back to built-in defaults. `--config` must name a `paniolo.config.json`-shaped document — the command reads its `staleness` key, so a file holding only the bare block is treated as no section.
 
 ---
 
@@ -62,20 +50,11 @@ key, so a file holding only the bare block is treated as no section.
 
 ## Automation Gate
 
-`staleness.enabled: false` disables `scan`, `run`, `propose`, and
-`worker` for the selected config. Each returns exit zero with
-`{"status":"disabled",...}` before opening the ledger. That response
-means **not run**, not an empty scan or completed cycle.
+`staleness.enabled: false` disables `scan`, `run`, `propose`, and `worker` for the selected config. Each returns exit zero with `{"status":"disabled",...}` before opening the ledger. That response means **not run**, not an empty scan or completed cycle.
 
-`flag` has a stricter gate: the effective selected config must explicitly
-set `staleness.enabled: true`. A missing section or an implicit default
-does not authorize agent filing. Disabled filing returns `status: disabled`
-and writes no agent-report record.
+`flag` has a stricter gate: the effective selected config must explicitly set `staleness.enabled: true`. A missing section or an implicit default does not authorize agent filing. Disabled filing returns `status: disabled` and writes no agent-report record.
 
-Other commands remain available. A command using a differently named explicit
-`--config` has independent policy and does not inherit the canonical config
-or its machine-local overlay. See [stale-triggers](./stale-triggers.md) for the full trigger and
-configuration-authority matrix.
+Other commands remain available. A command using a differently named explicit `--config` has independent policy and does not inherit the canonical config or its machine-local overlay. See [stale-triggers](./stale-triggers.md) for the full trigger and configuration-authority matrix.
 
 ---
 
@@ -113,10 +92,7 @@ These write nothing to the ledger.
 | --- | --- | --- |
 | `flag` | `--target <repo:path#anchor> --claim <text> --observation <file> [--source-revision <revision>]` | File one bounded observation the working agent already encountered. An identical filing returns `duplicate`; otherwise it returns `filed` and an `A-` report id. It does not investigate, verify, or repair the claim |
 
-The observation argument names a UTF-8 file, not inline text. The closed
-packet rejects patch requests, verdicts, and task-output fields. Only an
-explicitly enabled config permits a write. See [stale-ledger](./stale-ledger.md) for the
-record and [stale-calibration](./stale-calibration.md) for its independent-outcome measurement.
+The observation argument names a UTF-8 file, not inline text. The closed packet rejects patch requests, verdicts, and task-output fields. Only an explicitly enabled config permits a write. See [stale-ledger](./stale-ledger.md) for the record and [stale-calibration](./stale-calibration.md) for its independent-outcome measurement.
 
 ---
 
@@ -124,8 +100,7 @@ record and [stale-calibration](./stale-calibration.md) for its independent-outco
 
 ## Queue-Management Verbs
 
-These mutate allegation records only — no agent invocations, no git or
-GitHub side effects.
+These mutate allegation records only — no agent invocations, no git or GitHub side effects.
 
 | Command | Arguments and flags | Behavior |
 | --- | --- | --- |
@@ -148,22 +123,9 @@ GitHub side effects.
 | `merge-sync` | `--repo key:path` (repeatable), `--only <selector>` (repeatable), `--dry-run` | Reconcile pending proposals with `gh pr list`: merged heads run the merge gate and resolve the group; closed PRs clear the proposal for re-queue; `--only` reconciles a proposal only when every record it carries is in scope |
 | `worker` | `--ledger-repo key:path`, `--repo key:path` (repeatable), `--wiki key:path` (repeatable), the `run` role/limit flags, `--bootstrap`, `--sweep`, `--retry-retained`, `--only <selector>` (repeatable), `--dry-run` | The durable runner: merge-sync → checkpoint-gated scan per repo → adjudicate → propose → publish the ledger itself as a candidate PR on branch `staleness/ledger` → maintenance tail: claim merge-minted `verify` jobs against the cycle's checkout map and reproject the ledger into the qmd `stale-ledger` collection. One run at a time via `run.lock`; one `--only` set bounds filing, adjudication, remediation, and proposal while checkpoints still advance for every `--repo` |
 
-`run` and `worker` admit `codex`, `claude`, `cursor`, and `devin`; any
-other name is rejected before work starts. `--bootstrap` records each
-`--repo`'s HEAD as its scan checkpoint and skips scanning history — use it
-on first contact. `--retry-retained` requeues `insufficient-evidence` allegations
-before adjudication. `propose`, `merge-sync`, and `worker` require `git`
-and `gh` on PATH with GitHub authentication.
+`run` and `worker` admit `codex`, `claude`, `cursor`, and `devin`; any other name is rejected before work starts. `--bootstrap` records each `--repo`'s HEAD as its scan checkpoint and skips scanning history — use it on first contact. `--retry-retained` requeues `insufficient-evidence` allegations before adjudication. `propose`, `merge-sync`, and `worker` require `git` and `gh` on PATH with GitHub authentication.
 
-The `worker` maintenance tail needs the `qmd` feature: with it, a
-published cycle claims the `verify` jobs `merge-sync` minted (lease
-identity `stale-worker`, the same checkout map the cycle assembled) and
-reprojects the ledger's search documents — see the
-[maintenance verbs](#ledger-index-and-verify-verbs). Without `qmd` the
-report carries `{ "skipped": "qmd engine not in this build" }` under
-`verify` and `index`. The tail is best-effort and skipped on `--dry-run`
-or cancellation: a qmd-side failure lands as an `error` marker in the
-report, never as a failure of an already-published cycle.
+The `worker` maintenance tail needs the `qmd` feature: with it, a published cycle claims the `verify` jobs `merge-sync` minted (lease identity `stale-worker`, the same checkout map the cycle assembled) and reprojects the ledger's search documents — see the [maintenance verbs](#ledger-index-and-verify-verbs). Without `qmd` the report carries `{ "skipped": "qmd engine not in this build" }` under `verify` and `index`. The tail is best-effort and skipped on `--dry-run` or cancellation: a qmd-side failure lands as an `error` marker in the report, never as a failure of an already-published cycle.
 
 ---
 
@@ -171,10 +133,7 @@ report, never as a failure of an already-published cycle.
 
 ## Ledger Index And Verify Verbs
 
-These verbs all require the `qmd` feature — they read and write the
-shared `workspace.sqlite` index through `IndexStore` and never embed.
-Standalone invocations stay useful for manual refresh or repair; the
-scheduled `worker` tail already covers the routine cases.
+These verbs all require the `qmd` feature — they read and write the shared `workspace.sqlite` index through `IndexStore` and never embed. Standalone invocations stay useful for manual refresh or repair; the scheduled `worker` tail already covers the routine cases.
 
 | Command | Arguments and flags | Behavior |
 | --- | --- | --- |
@@ -201,28 +160,14 @@ scheduled `worker` tail already covers the routine cases.
 
 ## Common Conventions
 
-- `key:path` addresses a checkout: the key is a configured workspace
-  repository name, the path is where it is checked out on disk.
-- `--only <key[:glob[#anchor]]>` repeats on `scan`, `run`, `propose`,
-  `merge-sync`, and `worker` to bound which locations that invocation
-  files, verifies, remediates, or proposes. A bare key selects the whole
-  repository; `*` matches direct children, `**` any depth, and `#anchor`
-  qualifies an exact path. Selectors union; an empty match set is zero
-  work, never a repository-wide fallback. Scan checkpoints still advance
-  for every `--repo` — the selector bounds work, not coverage
-  bookkeeping — and `run.lock`, `staleness.enabled`, and
-  `automerge.disabled` keep their unscoped meaning.
-- Allegation ids print as `S-<hash>`; a unique prefix is accepted anywhere
-  an id is.
-- `--dry-run` on `scan`, `propose`, `merge-sync`, and `worker` reports the
-  plan without writing ledger records, touching git, or calling agents.
+- `key:path` addresses a checkout: the key is a configured workspace repository name, the path is where it is checked out on disk.
+- `--only <key[:glob[#anchor]]>` repeats on `scan`, `run`, `propose`, `merge-sync`, and `worker` to bound which locations that invocation files, verifies, remediates, or proposes. A bare key selects the whole repository; `*` matches direct children, `**` any depth, and `#anchor` qualifies an exact path. Selectors union; an empty match set is zero work, never a repository-wide fallback. Scan checkpoints still advance for every `--repo` — the selector bounds work, not coverage bookkeeping — and `run.lock`, `staleness.enabled`, and `automerge.disabled` keep their unscoped meaning.
+- Allegation ids print as `S-<hash>`; a unique prefix is accepted anywhere an id is.
+- `--dry-run` on `scan`, `propose`, `merge-sync`, and `worker` reports the plan without writing ledger records, touching git, or calling agents.
 - `prune` and `rebase` are plan-only until `--apply` is present.
-- `shadow-qmd` writes its requested JSON output and temporary index artifacts,
-  but it does not open the ledger or invoke adjudication agents.
-- Preflight failure inside `run` is not an error: the report carries
-  `stopped: "preflight <role>: …"` and the queue is untouched.
-- Evidence content is read at the recorded commit via `git show`; `--repo`
-  checkouts must be readable for prose and evidence excerpts.
+- `shadow-qmd` writes its requested JSON output and temporary index artifacts, but it does not open the ledger or invoke adjudication agents.
+- Preflight failure inside `run` is not an error: the report carries `stopped: "preflight <role>: …"` and the queue is untouched.
+- Evidence content is read at the recorded commit via `git show`; `--repo` checkouts must be readable for prose and evidence excerpts.
 
 ---
 

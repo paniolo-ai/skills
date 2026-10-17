@@ -1,7 +1,7 @@
 ---
 source-slug: react-windowed-list-estimated-size
-source-hash: 4f12385a38fda79cb5a8f126e567c684d1061641301633410597529cfd8f9dfb
-bundled: 2026-10-02
+source-hash: 28eb952dfaa21635dc605b5028d0bd0cf2d212365ae0715a72ec4d9b58e5d4cd
+bundled: 2026-10-16
 title: Windowed Lists Need an Estimated Size
 type: concept
 tags:
@@ -14,13 +14,9 @@ updated: 2026-08-15
 
 # Windowed Lists Need an Estimated Size
 
-A windowed list replaces unmounted items with spacers that preserve scroll extent. The spacer's
-height usually comes from a measurement cached when the item was last mounted — which means an item
-that has **never** been mounted has no measurement, and its spacer renders at `0px`.
+A windowed list replaces unmounted items with spacers that preserve scroll extent. The spacer's height usually comes from a measurement cached when the item was last mounted — which means an item that has **never** been mounted has no measurement, and its spacer renders at `0px`.
 
-That is a deadlock. The scroll extent standing in for the item is what lets the reader scroll far
-enough to mount it. At `0px` there is nothing to scroll through, so it never mounts, so it is never
-measured.
+That is a deadlock. The scroll extent standing in for the item is what lets the reader scroll far enough to mount it. At `0px` there is nothing to scroll through, so it never mounts, so it is never measured.
 
 ```ts
 const DEFAULT_ROW_HEIGHT_PX = 320;

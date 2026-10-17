@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-test
-source-hash: 91df715b57317a3eeeaf4e68cc917840287f55b2d1c5f3e5f193cd5185eb0f58
-bundled: 2026-09-30
+source-hash: d4e31f191683964bab461ecc622826fa7f574d6e5b3f7a9acb11ef9c89dd4dc6
+bundled: 2026-10-16
 title: Authoring — Playwright e2e testing
 type: index
 tags:
@@ -18,11 +18,9 @@ Operational reference for playwright e2e testing — loaded from skills and agen
 
 ### Clicks silently ignored on backgrounded pages
 
-Symptoms: after navigating a second page (`viewerPage`, `recipientPage`), a click on the first page
-(`presenterPage`, `senderPage`) has no effect in WebKit but works in Chromium.
+Symptoms: after navigating a second page (`viewerPage`, `recipientPage`), a click on the first page (`presenterPage`, `senderPage`) has no effect in WebKit but works in Chromium.
 
-Cause: WebKit does not dispatch input events to pages that are not in the foreground.
-Call `page.bringToFront()` before clicking whenever you have interleaved multi-page navigation:
+Cause: WebKit does not dispatch input events to pages that are not in the foreground. Call `page.bringToFront()` before clicking whenever you have interleaved multi-page navigation:
 
 ```typescript
 // Arrange: navigate the viewer

@@ -1,7 +1,7 @@
 ---
 source-slug: avoid-multi-function-helpersts-modules
-source-hash: 9241e15a78df46025f85db866e5bd766675b802e3bc02e92c357164efe9ccd67
-bundled: 2026-08-01
+source-hash: 0a323f9a8e87905a8e217a3f3231883f277b0f47b1714867dd210eed62afd820
+bundled: 2026-10-16
 title: Avoid multi-function `*Helpers.ts` modules
 type: concept
 tags:
@@ -14,8 +14,7 @@ updated: 2026-06-18
 
 > **Hub:** File organization (authoring) index
 
-Do **not** create application modules such as `activePublicSongSubscriptionHelpers.ts` that export
-several named functions. That pattern is legacy; new work should use **one file per function**:
+Do **not** create application modules such as `activePublicSongSubscriptionHelpers.ts` that export several named functions. That pattern is legacy; new work should use **one file per function**:
 
 ```text
 src/song/active-songs/

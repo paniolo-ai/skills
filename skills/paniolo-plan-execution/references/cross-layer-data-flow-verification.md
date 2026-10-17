@@ -1,7 +1,7 @@
 ---
 source-slug: cross-layer-data-flow-verification
-source-hash: 3471b429e2ee2f5f88d70ff4435ea4d0be2f73fbe9a53a7adba1585418f97a14
-bundled: 2026-08-20
+source-hash: 8ec024a146fde5d98a4bf590884aed9208b738df8cef229ab0371381204db3fc
+bundled: 2026-10-16
 title: Cross-Layer Data Flow Verification
 type: concept
 tags:
@@ -14,8 +14,7 @@ updated: 2026-08-20
 
 # Cross-Layer Data Flow Verification
 
-Cross-layer changes are complete only when data travels from its producer through every required
-boundary and consumer. A correct editor, endpoint, or database row does not prove downstream use.
+Cross-layer changes are complete only when data travels from its producer through every required boundary and consumer. A correct editor, endpoint, or database row does not prove downstream use.
 
 ## Contents
 

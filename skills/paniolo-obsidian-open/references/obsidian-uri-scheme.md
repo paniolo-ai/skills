@@ -1,7 +1,7 @@
 ---
 source-slug: obsidian-uri-scheme
-source-hash: 0b29fb21391cd0337d1d9e89e09e108da5423df83421ff180917b396196d508e
-bundled: 2026-10-02
+source-hash: e444a3444a395e01f874905f333f4e377a5b570ff608dc9406b960936e9c9ffa
+bundled: 2026-10-16
 title: Obsidian URI Scheme
 type: concept
 tags:
@@ -13,11 +13,7 @@ status: draft
 
 # Obsidian URI Scheme
 
-`obsidian://` is a custom URI protocol registered by the Obsidian desktop app.
-Anything that can open a URL — a shell, a terminal multiplexer, an agent, a
-browser link — can drive the user's Obsidian window without Obsidian needing
-an API server. This is the canonical "agent → GUI reader" bridge: open a
-specific note in the user's already-running instance.
+`obsidian://` is a custom URI protocol registered by the Obsidian desktop app. Anything that can open a URL — a shell, a terminal multiplexer, an agent, a browser link — can drive the user's Obsidian window without Obsidian needing an API server. This is the canonical "agent → GUI reader" bridge: open a specific note in the user's already-running instance.
 
 ## URI format
 

@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-mock
-source-hash: 228ead1dec8323bc4f3513a618778f4cc88b0d06384376367d50560a0e279eac
-bundled: 2026-08-16
+source-hash: 682813b779d9a40100c68af6ee33d0844fd2b2b533ccb36cf05ce562a6a26154
+bundled: 2026-10-16
 title: Authoring — Vitest mocking
 type: index
 tags:
@@ -34,8 +34,7 @@ Start with these pages when choosing a mocking approach:
 
 ### Case 1: Module-level initialization
 
-Use a factory when a mocked function is called during another module's top-level initialization.
-This happens at import time, before a test can call `mockReturnValue`.
+Use a factory when a mocked function is called during another module's top-level initialization. This happens at import time, before a test can call `mockReturnValue`.
 
 ```typescript
 // api-client.ts (source module under test)

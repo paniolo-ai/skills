@@ -1,7 +1,7 @@
 ---
 source-slug: import-organization-pattern
-source-hash: 6cf2c30f6b05a4bb093cae9617c6a01fe534d66262905a4fb9f3295e93d9f409
-bundled: 2026-08-01
+source-hash: 7f16c6cef4a268aaee65a21e9fd3f8231a9ae2560f5d574cb50323192fd7f1a9
+bundled: 2026-10-16
 title: Import Organization Pattern
 type: concept
 tags:
@@ -12,8 +12,7 @@ updated: 2026-06-18
 
 # Import Organization Pattern
 
-Detailed reference for import patterns, naming conventions, project structure, and file organization
-strategies.
+Detailed reference for import patterns, naming conventions, project structure, and file organization strategies.
 
 # Import Organization Pattern
 

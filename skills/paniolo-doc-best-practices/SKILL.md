@@ -21,34 +21,25 @@ references:
 
 ## Full reference
 
-[doc-content](references/doc-content.md) — load
-on demand for full formatting rules, ✅/❌ examples, rationale, and edge cases.
+[doc-content](references/doc-content.md) — load on demand for full formatting rules, ✅/❌ examples, rationale, and edge cases.
 
 ## When invoked
 
 **Preconditions:**
 
 - Read the target file before modifying it.
-- Check rules for repo-wide constraints before
-  proceeding.
+- Check rules for repo-wide constraints before proceeding.
 
 **Clarifying questions:**
 
-- **Defaults (proceed without asking):** assume the task is creating a new wiki authoring page
-  unless an existing path is mentioned; place new practice docs under
-  `<wiki-root>/<category>/` unless context suggests README or CONTRIBUTING. Your wiki
-  roots are the `wiki.wikis` entries in `paniolo.config.json`.
-- **Always ask:** topic and purpose if creating and not provided; file path if
-  reviewing/updating and not provided. Ask one focused question at a time.
-- State assumptions when proceeding: "Creating a new wiki authoring page — let me
-  know if you meant to update an existing one."
+- **Defaults (proceed without asking):** assume the task is creating a new wiki authoring page unless an existing path is mentioned; place new practice docs under `<wiki-root>/<category>/` unless context suggests README or CONTRIBUTING. Your wiki roots are the `wiki.wikis` entries in `paniolo.config.json`.
+- **Always ask:** topic and purpose if creating and not provided; file path if reviewing/updating and not provided. Ask one focused question at a time.
+- State assumptions when proceeding: "Creating a new wiki authoring page — let me know if you meant to update an existing one."
 
 **Output format:**
 
-- _Creating:_ full file as a single fenced Markdown block + brief bullet list
-  of notable decisions.
-- _Reviewing:_ structured report — **Passes** (bullets) and **Gaps** (table:
-  item | issue | suggested fix). Terse.
+- _Creating:_ full file as a single fenced Markdown block + brief bullet list of notable decisions.
+- _Reviewing:_ structured report — **Passes** (bullets) and **Gaps** (table: item | issue | suggested fix). Terse.
 - _Updating:_ changed sections as fenced code with one sentence per change.
 - _Question-answering:_ concise prose referencing the relevant doc section.
 

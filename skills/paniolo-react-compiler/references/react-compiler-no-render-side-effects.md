@@ -1,7 +1,7 @@
 ---
 source-slug: react-compiler-no-render-side-effects
-source-hash: da9fb8090de66b24c63bd55feec94fa61643dd582e5c6e39662c8a7cd167d9a7
-bundled: 2026-08-15
+source-hash: 32ad99eb9c2a19f2f47e494271a2ab9f36e8c9a4ff7538cbd4202b2c269b341c
+bundled: 2026-10-16
 title: Compiler-rejected render side effects
 type: concept
 tags:
@@ -13,8 +13,7 @@ updated: 2026-08-15
 
 # Compiler-rejected render side effects
 
-Writing to a ref during render is a **`ReactCompilerError`**, not a warning. With
-`panicThreshold: "all_errors"` it fails the dev build, so it cannot be discovered later:
+Writing to a ref during render is a **`ReactCompilerError`**, not a warning. With `panicThreshold: "all_errors"` it fails the dev build, so it cannot be discovered later:
 
 ```tsx
 // ❌ ReactCompilerError: Ref values may not be written during render

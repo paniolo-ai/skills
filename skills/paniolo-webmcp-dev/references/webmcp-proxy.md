@@ -1,7 +1,7 @@
 ---
 source-slug: webmcp-proxy
-source-hash: 99164aa20a503216d10a0201ea4300a780a45d10eded778787cc1e793679e257
-bundled: 2026-09-25
+source-hash: b49b81280f225f5bf566f26c712cea04d948ad77139a571fa804ad71806e8dfd
+bundled: 2026-10-16
 title: WebMCP Proxy
 type: concept
 tags:
@@ -14,13 +14,9 @@ updated: 2026-09-25
 
 # WebMCP Proxy
 
-[`webmcp-proxy`](https://github.com/alpic-ai/webmcp-proxy) (Alpic) bridges an
-**existing remote MCP server** onto the browser's WebMCP surface. Browsing agents
-discover the server's tools via `document.modelContext` without you reimplementing
-them as page-local `execute` callbacks.
+[`webmcp-proxy`](https://github.com/alpic-ai/webmcp-proxy) (Alpic) bridges an **existing remote MCP server** onto the browser's WebMCP surface. Browsing agents discover the server's tools via `document.modelContext` without you reimplementing them as page-local `execute` callbacks.
 
-This is one concrete way to do "both" from [webmcp-vs-mcp](./webmcp-vs-mcp.md): keep MCP as the
-service layer, expose the same tools to in-tab agents.
+This is one concrete way to do "both" from [webmcp-vs-mcp](./webmcp-vs-mcp.md): keep MCP as the service layer, expose the same tools to in-tab agents.
 
 ## What it does
 

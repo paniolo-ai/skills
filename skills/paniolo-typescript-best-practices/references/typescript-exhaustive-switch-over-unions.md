@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-exhaustive-switch-over-unions
-source-hash: 5553d4d9c39e4d4c5d0f746198096e2311f90373a90ae06a7cf62efbd6d2c825
-bundled: 2026-10-02
+source-hash: 5ba020cfca4f07b77a4c3aa0b7bf5940484ad6e29c51f3f18cc29895d3425967
+bundled: 2026-10-16
 title: Exhaustive Switch Over Unions
 type: concept
 tags:
@@ -12,9 +12,7 @@ updated: 2026-08-15
 
 # Exhaustive Switch Over Unions
 
-When you `switch` on a discriminated union, give it a `default` that assigns the value to `never`.
-Adding a variant then becomes a **compile error at every switch that does not handle it** — which is
-the only reliable way to find them all.
+When you `switch` on a discriminated union, give it a `default` that assigns the value to `never`. Adding a variant then becomes a **compile error at every switch that does not handle it** — which is the only reliable way to find them all.
 
 ```ts
 type BroadcastAction =

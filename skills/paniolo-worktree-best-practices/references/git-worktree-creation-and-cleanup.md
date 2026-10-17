@@ -1,7 +1,7 @@
 ---
 source-slug: git-worktree-creation-and-cleanup
-source-hash: f8e4d8a1ef17934163fe6fb4709e09efb867562bbf953cb7c287baf814ebb474
-bundled: 2026-10-11
+source-hash: 66174e9640aa1e6c58e11022b8c0e2a0afd84c5aa9e2c4d61dc8d8ff3a221024
+bundled: 2026-10-16
 title: Git Worktree Creation and Cleanup
 type: concept
 tags:
@@ -15,14 +15,11 @@ updated: 2026-10-11
 
 # Git Worktree Creation and Cleanup
 
-Where a worktree sits decides whether it works. Three constraints apply before
-you have written a line, and the cleanup has its own traps.
+Where a worktree sits decides whether it works. Three constraints apply before you have written a line, and the cleanup has its own traps.
 
 ## Hooks resolve paths relative to the repository, so depth matters
 
-A hook that finds a project root by climbing a fixed number of directories
-breaks in a worktree placed anywhere else. The failure names a directory you
-did not choose:
+A hook that finds a project root by climbing a fixed number of directories breaks in a worktree placed anywhere else. The failure names a directory you did not choose:
 
 ```text
 [ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND] No package.json ... was found in "C:\Users".

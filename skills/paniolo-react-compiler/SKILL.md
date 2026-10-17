@@ -16,10 +16,7 @@ references:
 
 **Requires:** file-read, terminal (lint / dev build). No network access needed.
 
-**Applies only when the project enables the React Compiler.** Confirm before applying — check
-`vite.config.ts` (or the equivalent bundler config) for `babel-plugin-react-compiler`, or
-`package.json` for the dependency. If it is absent, this skill does not apply and its prohibitions
-are wrong for that repo.
+**Applies only when the project enables the React Compiler.** Confirm before applying — check `vite.config.ts` (or the equivalent bundler config) for `babel-plugin-react-compiler`, or `package.json` for the dependency. If it is absent, this skill does not apply and its prohibitions are wrong for that repo.
 
 ## Preconditions
 
@@ -28,49 +25,29 @@ are wrong for that repo.
 
 ## Defaults (proceed without asking)
 
-- Apply all key rules below to compiled functions — default-export components and `use*` hook
-  bodies.
+- Apply all key rules below to compiled functions — default-export components and `use*` hook bodies.
 - **Always ask:** before adding `memo` for a measured performance exception.
 
 ## Key rules
 
-- **No manual memoization** — the compiler handles identity stability. Do **not** add `useCallback`
-  or `useMemo`. Use plain `function handle(): void {}` handlers and plain `const` locals for derived
-  values. Avoid `memo` unless there is a documented, measured exception.
-  [react-compiler](references/react-compiler.md)
+- **No manual memoization** — the compiler handles identity stability. Do **not** add `useCallback` or `useMemo`. Use plain `function handle(): void {}` handlers and plain `const` locals for derived values. Avoid `memo` unless there is a documented, measured exception. [react-compiler](references/react-compiler.md)
 
-- **No side effects during render** — writing `ref.current` during render is a `ReactCompilerError`,
-  not a warning. Assign it in `useLayoutEffect` instead, so the ref is current before any effect
-  that reads it. The same rule bans in-place mutation of props/state values (`sort`, `reverse` —
-  copy first), module-level `let` writes, and store setters called from render.
-  [react-compiler-no-render-side-effects](references/react-compiler-no-render-side-effects.md)
+- **No side effects during render** — writing `ref.current` during render is a `ReactCompilerError`, not a warning. Assign it in `useLayoutEffect` instead, so the ref is current before any effect that reads it. The same rule bans in-place mutation of props/state values (`sort`, `reverse` — copy first), module-level `let` writes, and store setters called from render. [react-compiler-no-render-side-effects](references/react-compiler-no-render-side-effects.md)
 
-- **Compiler-safe control flow** — do not use `try { … } finally { … }` in compiled hooks. Avoid
-  ternaries, `&&` / `||` chains, and optional chaining in expression positions *inside* a `try`;
-  hoist them to `const` assignments above it, or move the async work to a plain sibling `.ts` helper.
-  [react-compiler-control-flow](references/react-compiler-control-flow.md)
+- **Compiler-safe control flow** — do not use `try { … } finally { … }` in compiled hooks. Avoid ternaries, `&&` / `||` chains, and optional chaining in expression positions *inside* a `try`; hoist them to `const` assignments above it, or move the async work to a plain sibling `.ts` helper. [react-compiler-control-flow](references/react-compiler-control-flow.md)
 
-- **Stability belongs to the consumer, not the producer.** When a callback needs a stable identity,
-  do not memoize the producer — guard in the consumer (compare against a previous value held in a
-  ref) or let the effect depend on the callback and accept the re-subscribe.
-  [react-compiler-no-render-side-effects](references/react-compiler-no-render-side-effects.md)
+- **Stability belongs to the consumer, not the producer.** When a callback needs a stable identity, do not memoize the producer — guard in the consumer (compare against a previous value held in a ref) or let the effect depend on the callback and accept the re-subscribe. [react-compiler-no-render-side-effects](references/react-compiler-no-render-side-effects.md)
 
-- **`panicThreshold: "all_errors"` fails the build, not just lint.** Typecheck alone will not catch
-  a compiler panic. Run lint or a dev build after editing hooks that contain `try`/`catch`, refs, or
-  async saves.
-  [react-compiler-control-flow](references/react-compiler-control-flow.md)
+- **`panicThreshold: "all_errors"` fails the build, not just lint.** Typecheck alone will not catch a compiler panic. Run lint or a dev build after editing hooks that contain `try`/`catch`, refs, or async saves. [react-compiler-control-flow](references/react-compiler-control-flow.md)
 
 ## Output format
 
-Write code changes directly. After edits, list which compiler constraints applied and which
-validation command was run.
+Write code changes directly. After edits, list which compiler constraints applied and which validation command was run.
 
 ## Error handling
 
-- On a `ReactCompilerError`, report the message verbatim, then fix the cause — do not disable the
-  plugin, lower `panicThreshold`, or add an `eslint-disable`.
-- If a task appears to require `useCallback` or `useMemo`, flag it and ask before adding it; the
-  answer is almost always a consumer-side guard instead.
+- On a `ReactCompilerError`, report the message verbatim, then fix the cause — do not disable the plugin, lower `panicThreshold`, or add an `eslint-disable`.
+- If a task appears to require `useCallback` or `useMemo`, flag it and ask before adding it; the answer is almost always a consumer-side guard instead.
 
 ## Validation
 
