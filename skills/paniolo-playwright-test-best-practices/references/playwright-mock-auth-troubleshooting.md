@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-mock-auth-troubleshooting
-source-hash: 965e1008877b9c716be7fc98a2ae50a08d9217368689e602ab7f3908b518235f
-bundled: 2026-08-20
+source-hash: f7f01898dca8ef930cc269c4fd6773376fd0312f05d9cb018ed0b45c5f016818
+bundled: 2026-10-16
 title: Mock Auth Troubleshooting
 type: concept
 tags:
@@ -17,9 +17,7 @@ updated: 2026-08-20
 
 **Test fails with "Not authenticated"** — call `authenticateTestUser(page)` before `page.goto()`.
 
-**User data not showing up** — use web-first assertions first. If the page has a known
-post-navigation hydration delay, use the documented `HYDRATION_WAIT_MS` pattern instead of an
-arbitrary sleep:
+**User data not showing up** — use web-first assertions first. If the page has a known post-navigation hydration delay, use the documented `HYDRATION_WAIT_MS` pattern instead of an arbitrary sleep:
 
 ```typescript
 // ✅ Playwright retries until visible or times out

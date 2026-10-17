@@ -1,7 +1,7 @@
 ---
 source-slug: plan-acceptance-evidence
-source-hash: 17f29b98877140a23634656baec27d23de602bc408257dde2f805f2b4c3a82a9
-bundled: 2026-09-25
+source-hash: 4b3f0475a5906bed45906270b9649160a2cf52973f054e8c2aaa7fe6db69ca4c
+bundled: 2026-10-16
 title: Plan Acceptance Evidence
 type: concept
 status: completed
@@ -15,9 +15,7 @@ updated: 2026-08-20
 
 # Plan Acceptance Evidence
 
-A plan card is complete only when its stated contract is implemented and its acceptance behavior
-has been observed. A changed file, passing typecheck, status table, code comment, or prior agent
-summary is not acceptance evidence by itself.
+A plan card is complete only when its stated contract is implemented and its acceptance behavior has been observed. A changed file, passing typecheck, status table, code comment, or prior agent summary is not acceptance evidence by itself.
 
 Use one evidence row per card while reviewing or implementing a plan:
 

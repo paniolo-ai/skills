@@ -1,7 +1,7 @@
 ---
 source-slug: jsdoc-params-returns
-source-hash: e51b98e40d05fefc61dea09d353e99b00d5fe3f062ca8df375d21f76d35d66a8
-bundled: 2026-08-01
+source-hash: 26b9aef6196423f7cd7867288212b779f9c3fda68946cef322336450c3c395e3
+bundled: 2026-10-16
 title: JSDoc — params and returns
 type: concept
 tags:
@@ -12,12 +12,9 @@ updated: 2026-06-18
 
 # JSDoc — params and returns
 
-**Always include `@returns`.** For `void` functions, write `@returns void` so the intent is
-explicit.
+**Always include `@returns`.** For `void` functions, write `@returns void` so the intent is explicit.
 
-**Single-object params (props) — document fields directly.** When a function accepts a single object
-(often `props`), do not create a standalone `@param props` entry. List each field as its own
-`@param`. This matches destructuring call-site usage and avoids misleading noise.
+**Single-object params (props) — document fields directly.** When a function accepts a single object (often `props`), do not create a standalone `@param props` entry. List each field as its own `@param`. This matches destructuring call-site usage and avoids misleading noise.
 
 ```ts
 // ❌

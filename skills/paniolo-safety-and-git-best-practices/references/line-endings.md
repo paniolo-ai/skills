@@ -1,7 +1,7 @@
 ---
 source-slug: line-endings
-source-hash: 5eefd948314e8bd6c16aea7254403bc91cd41edeaa2eba52dbc7b3efd42c8a7d
-bundled: 2026-10-02
+source-hash: 4845b6713508e39fa3f5e75392532f79ad578a9aba5bacaa35e5d0988717337c
+bundled: 2026-10-16
 title: Line Endings
 type: concept
 tags:
@@ -15,8 +15,7 @@ updated: 2026-08-15
 
 # Line Endings
 
-Every repo uses **LF** in committed content. Declare it once in
-`.gitattributes`, at the repo root:
+Every repo uses **LF** in committed content. Declare it once in `.gitattributes`, at the repo root:
 
 ```text
 * text=auto eol=lf

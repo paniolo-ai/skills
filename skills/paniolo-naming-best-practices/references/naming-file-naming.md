@@ -1,7 +1,7 @@
 ---
 source-slug: naming-file-naming
-source-hash: 9ff07b45eaa925f7e5cef9420b65e700465a33c7796f58fe06826c7d5f96d543
-bundled: 2026-08-01
+source-hash: d043da6a2534684c43835b5c383de053bebe771c47b434925208380c3e7c85d7
+bundled: 2026-10-16
 title: File Naming
 type: concept
 tags:
@@ -25,8 +25,7 @@ updated: 2026-06-18
 | Directory                        | kebab-case                         | `event-manage-view/`, `community-search-input/`     |
 | Doc files                        | kebab-case `.md`                   | `authentication-system.md`                          |
 
-For complete file organization rules see
-`/skills/file-organization/SKILL.md`.
+For complete file organization rules see `/skills/file-organization/SKILL.md`.
 
 ---
 

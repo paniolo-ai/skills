@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-e2e-fixture-contract-validation
-source-hash: e2d6cf8186073e70da1dddaf6e61011ade6e3af93e3f864cc2ca0389d8a3271f
-bundled: 2026-08-20
+source-hash: ea58a1be05697141dcecc0450887cd2abf315a22cfd4aefec6b0c945699911d5
+bundled: 2026-10-16
 title: E2E Fixture Contract Validation
 type: concept
 tags:
@@ -15,8 +15,7 @@ updated: 2026-08-20
 
 # E2E Fixture Contract Validation
 
-Validate an end-to-end fixture against the product contract before changing product behavior. A
-fixture that reaches the UI or API can still be invalid for the scenario it claims to represent.
+Validate an end-to-end fixture against the product contract before changing product behavior. A fixture that reaches the UI or API can still be invalid for the scenario it claims to represent.
 
 ## Contents
 
@@ -43,8 +42,7 @@ Check every dimension that the behavior depends on:
 - disposable identifiers are recognized by local and global cleanup;
 - protected shared fixtures cannot match a disposable cleanup rule.
 
-Use a typed fixture builder or validated API when practical. Raw database inserts still need the
-same validation and authorization assumptions documented explicitly.
+Use a typed fixture builder or validated API when practical. Raw database inserts still need the same validation and authorization assumptions documented explicitly.
 
 ---
 
@@ -66,12 +64,9 @@ same validation and authorization assumptions documented explicitly.
 
 ## Evidence
 
-Record the fixture source, actor, owned identifiers, relevant invariant values, boundary response,
-cleanup path, and observed result. A fixture screenshot alone does not prove authorization or
-persistence correctness.
+Record the fixture source, actor, owned identifiers, relevant invariant values, boundary response, cleanup path, and observed result. A fixture screenshot alone does not prove authorization or persistence correctness.
 
-For generated values, assert the important dimensions before the product action. This makes a
-fixture defect fail near setup instead of appearing later as a misleading UI timeout.
+For generated values, assert the important dimensions before the product action. This makes a fixture defect fail near setup instead of appearing later as a misleading UI timeout.
 
 ---
 
@@ -79,9 +74,7 @@ fixture defect fail near setup instead of appearing later as a misleading UI tim
 
 ## Stop Conditions
 
-Stop and request clarification when the plan, schema, and current product behavior disagree about
-a domain invariant or authorization rule. Do not weaken constraints, skip row-level security,
-grant broader permissions, add polling, or reuse unrelated shared data just to make the test pass.
+Stop and request clarification when the plan, schema, and current product behavior disagree about a domain invariant or authorization rule. Do not weaken constraints, skip row-level security, grant broader permissions, add polling, or reuse unrelated shared data just to make the test pass.
 
 ---
 

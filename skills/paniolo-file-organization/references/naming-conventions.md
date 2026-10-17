@@ -1,7 +1,7 @@
 ---
 source-slug: naming-conventions
-source-hash: 8dd1fb6df7567ce659af138460f7690299017a60e4e43739870162805b9f2f38
-bundled: 2026-08-01
+source-hash: 0940a1194e017c3ccd0608968c95638a1c6b4d270387e10572ecb0b93409ab2f
+bundled: 2026-10-16
 title: Naming Conventions
 type: concept
 tags:
@@ -14,9 +14,7 @@ updated: 2026-06-18
 
 ### Component Files (React Components)
 
-**PascalCase** — one component per file is a **strong preference**: each module should expose one
-primary component (typically the default export). Avoid stacking several top-level `function`
-components in a single `.tsx`; split into sibling files in the same feature folder instead.
+**PascalCase** — one component per file is a **strong preference**: each module should expose one primary component (typically the default export). Avoid stacking several top-level `function` components in a single `.tsx`; split into sibling files in the same feature folder instead.
 
 ```text
 src/components/

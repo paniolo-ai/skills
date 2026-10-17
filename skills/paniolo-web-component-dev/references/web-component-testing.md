@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-testing
-source-hash: ef570be9a3e2900e2d8f68c99a11a2312fc7e63c0f2c9128ab02d029458e09ec
-bundled: 2026-09-27
+source-hash: 8d6d1a45571460022d0c1f48d2802c5e9b79f0c19ae1f14bf0aa42159e3db1a8
+bundled: 2026-10-16
 title: Web Component Testing
 type: concept
 tags:
@@ -13,10 +13,7 @@ updated: 2026-09-26
 
 # Web Component Testing
 
-Custom elements need a **real browser** (or faithful DOM) — shadow roots,
-upgrades, slots, and `:defined` don't exist in a naive string-diffing setup.
-The open-wc stack is the reference workflow; its patterns port to any
-runner.
+Custom elements need a **real browser** (or faithful DOM) — shadow roots, upgrades, slots, and `:defined` don't exist in a naive string-diffing setup. The open-wc stack is the reference workflow; its patterns port to any runner.
 
 ## Fixture + lifecycle timing
 

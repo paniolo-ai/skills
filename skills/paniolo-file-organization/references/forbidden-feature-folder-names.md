@@ -1,7 +1,7 @@
 ---
 source-slug: forbidden-feature-folder-names
-source-hash: 6cdecd2d0786b2a42589cbdb934275d2e7c2ce6147e52e76fb647c4133c54850
-bundled: 2026-08-16
+source-hash: 51d8b4ed3d32ce156521f5057320646cca84283c1574f88f06a0cf7973c9e7f2
+bundled: 2026-10-16
 title: Forbidden feature-folder names
 type: concept
 tags:
@@ -13,8 +13,7 @@ updated: 2026-06-18
 
 # Forbidden feature-folder names
 
-When a directory is already split into **two or more** child folders that contain code, each child
-must be named for **behavior or domain** — not for “leftover” file types.
+When a directory is already split into **two or more** child folders that contain code, each child must be named for **behavior or domain** — not for “leftover” file types.
 
 ❌ **Do not create junk-drawer folders:**
 

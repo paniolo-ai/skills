@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-api-design
-source-hash: d4a2ad15557a393e9b43617b6ddc926d54f2c27e93ae5747a0b8ec15a4bc04a8
-bundled: 2026-09-27
+source-hash: ac82702f2c3c05cc4b0ef1454504e203d744c5cffd63487c374c8ea22e80cd15
+bundled: 2026-10-16
 title: Web Component API Design
 type: concept
 tags:
@@ -14,10 +14,7 @@ updated: 2026-09-26
 
 # Web Component API Design
 
-A custom element has **five** API surfaces, and picking the wrong one is the
-most common design error: attributes, properties, methods, slots, and CSS
-hooks (custom properties + `::part`). Your element's *styling* is part of
-its API — treat it as such.
+A custom element has **five** API surfaces, and picking the wrong one is the most common design error: attributes, properties, methods, slots, and CSS hooks (custom properties + `::part`). Your element's *styling* is part of its API — treat it as such.
 
 ## Which surface for which job
 
@@ -30,32 +27,19 @@ its API — treat it as such.
 | CSS custom props | Theming tokens | Drowns DX if exposed per-property — use for shared values (`--border-width`) |
 | `::part` | Style named internal elements | Public forever once shipped; can't nest or select children |
 
-Rule of thumb from Cianfrani: choose per feature — a two-variant button
-wants an attribute (`type="primary"`); arbitrary user markup wants a slot;
-"how do I style XYZ" may correctly be *you don't*, or a `::part`, not a prop.
+Rule of thumb from Cianfrani: choose per feature — a two-variant button wants an attribute (`type="primary"`); arbitrary user markup wants a slot; "how do I style XYZ" may correctly be *you don't*, or a `::part`, not a prop.
 
 ## Attributes vs properties (the core contract)
 
-- **Primitives (string/number/boolean): accept as attribute *and* property.**
-  Consumers set either; both should work.
-- **Reflect primitives both ways** where not burdensome —
-  `setAttribute('foo', v)` ↔ `el.foo`. Skip reflection for high-frequency
-  values (`currentTime`) and **never reflect rich data to attributes**
-  (serialization cost + lost references).
-- **Rich data (objects, arrays): properties only.** No built-in element
-  takes objects via attributes; don't invent the pattern.
-- **Booleans: presence semantics.** `hasAttribute('open')`, not
-  `open="false"`. Pair with a boolean property that adds/removes the
-  attribute.
-- **Declarative parity:** the TAG requires HTML and JS APIs stay linked —
-  `<x-foo open>` and `el.open = true` must mean the same thing. Pick a
-  source of truth (usually the attribute) and stick to it.
+- **Primitives (string/number/boolean): accept as attribute *and* property.** Consumers set either; both should work.
+- **Reflect primitives both ways** where not burdensome — `setAttribute('foo', v)` ↔ `el.foo`. Skip reflection for high-frequency values (`currentTime`) and **never reflect rich data to attributes** (serialization cost + lost references).
+- **Rich data (objects, arrays): properties only.** No built-in element takes objects via attributes; don't invent the pattern.
+- **Booleans: presence semantics.** `hasAttribute('open')`, not `open="false"`. Pair with a boolean property that adds/removes the attribute.
+- **Declarative parity:** the TAG requires HTML and JS APIs stay linked — `<x-foo open>` and `el.open = true` must mean the same thing. Pick a source of truth (usually the attribute) and stick to it.
 
 ## Avoid reentrancy loops
 
-Don't set a property from `attributeChangedCallback` while the property
-setter reflects to the same attribute — infinite loop. The safe shape: the
-setter writes the attribute; the getter reads it:
+Don't set a property from `attributeChangedCallback` while the property setter reflects to the same attribute — infinite loop. The safe shape: the setter writes the attribute; the getter reads it:
 
 ```js
 set checked(value) {

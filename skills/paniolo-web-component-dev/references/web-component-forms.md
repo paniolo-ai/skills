@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-forms
-source-hash: 8a348d48f374a5283300a3841b54633998db27bfd5a1258a5493f0d02c64956d
-bundled: 2026-09-27
+source-hash: a0b542a7c0f51ab6614f2c9442a0188d13fac88a39d8a1d2467292e07a977b3f
+bundled: 2026-10-16
 title: Form-Associated Custom Elements
 type: concept
 tags:
@@ -13,12 +13,7 @@ updated: 2026-09-26
 
 # Form-Associated Custom Elements (FACE)
 
-A plain custom element inside a `<form>` is invisible to it: no submission,
-no validation, no reset. **Form-associated custom elements** close that gap
-via `static formAssociated = true` + `ElementInternals` — the element then
-behaves like a built-in control: auto-associates with the nearest form,
-works with `<label>`, submits a value, participates in validation, and gets
-`:disabled`/`:valid`/`:invalid` styling.
+A plain custom element inside a `<form>` is invisible to it: no submission, no validation, no reset. **Form-associated custom elements** close that gap via `static formAssociated = true` + `ElementInternals` — the element then behaves like a built-in control: auto-associates with the nearest form, works with `<label>`, submits a value, participates in validation, and gets `:disabled`/`:valid`/`:invalid` styling.
 
 ## The minimal contract
 

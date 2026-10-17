@@ -31,42 +31,27 @@ references:
 
 - Staging-first for deploys and migrations.
 - Production deploy/migration commands require explicit user confirmation.
-- **Read the script definition before running a migration.** Environment-suffixed commands are
-  explicit (`supabase:migrate:staging`); the **unsuffixed one is frequently production**. Do not
-  infer the target from the name.
+- **Read the script definition before running a migration.** Environment-suffixed commands are explicit (`supabase:migrate:staging`); the **unsuffixed one is frequently production**. Do not infer the target from the name.
 
 ## Migration Safety
 
-- **A migration applied to any shared environment is immutable.** Correct it by adding a new
-  migration, never by editing the file — including changes that alter no SQL, such as reworded
-  comments or reformatting. Tooling tracks applied state by filename and content checksum.
-- When unsure whether a migration has been applied, assume it has.
-  [applied-migrations-are-immutable](references/applied-migrations-are-immutable.md)
+- **A migration applied to any shared environment is immutable.** Correct it by adding a new migration, never by editing the file — including changes that alter no SQL, such as reworded comments or reformatting. Tooling tracks applied state by filename and content checksum.
+- When unsure whether a migration has been applied, assume it has. [applied-migrations-are-immutable](references/applied-migrations-are-immutable.md)
 
 ## Reporting Completion
 
-- **A task is complete when its verification command has been run and passed** — not when the code
-  looks right or matches the plan. If the suite was not run, say so; "implemented, tests not run" is
-  a useful status, "complete" is a false one.
-- **Changing shared or derived data means running the consumers' tests.** Adding a defaulted field
-  to a normalizer, decoder, or fixture changes the shape every caller sees; that module's own test
-  passing proves nothing about callers asserting the old shape. Scope the run by what the change
-  reaches, not by what you edited.
+- **A task is complete when its verification command has been run and passed** — not when the code looks right or matches the plan. If the suite was not run, say so; "implemented, tests not run" is a useful status, "complete" is a false one.
+- **Changing shared or derived data means running the consumers' tests.** Adding a defaulted field to a normalizer, decoder, or fixture changes the shape every caller sees; that module's own test passing proves nothing about callers asserting the old shape. Scope the run by what the change reaches, not by what you edited.
 - Plan and checklist markers describe what landed, not what was attempted.
-- Record plan verification as passed, failed, inconclusive, or not run. Trace each card from its
-  contract through implementation and a behavior-level test.
-  [plan-acceptance-evidence](references/plan-acceptance-evidence.md)
-- If a test fails and you believe it is a flake, say it failed and why, then re-run it in isolation.
-  [completion-means-the-gate-ran](references/completion-means-the-gate-ran.md)
+- Record plan verification as passed, failed, inconclusive, or not run. Trace each card from its contract through implementation and a behavior-level test. [plan-acceptance-evidence](references/plan-acceptance-evidence.md)
+- If a test fails and you believe it is a flake, say it failed and why, then re-run it in isolation. [completion-means-the-gate-ran](references/completion-means-the-gate-ran.md)
 
 ## Git Usage
 
 - No git write operations by default.
 - Read-only git commands are allowed.
 - Do not prompt users to commit or open PRs unless they explicitly request PR help.
-- **Write LF, and verify it.** `.gitattributes` normalizes on commit, not on write, so a
-  CRLF file sits in the working tree where `git status` reports nothing and byte
-  comparisons fail anyway. [line-endings](references/line-endings.md)
+- **Write LF, and verify it.** `.gitattributes` normalizes on commit, not on write, so a CRLF file sits in the working tree where `git status` reports nothing and byte comparisons fail anyway. [line-endings](references/line-endings.md)
 
 ## Do Not
 

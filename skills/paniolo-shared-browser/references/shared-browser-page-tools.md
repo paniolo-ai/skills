@@ -1,7 +1,7 @@
 ---
 source-slug: shared-browser-page-tools
-source-hash: 715c60944c83bd05aa801d1fb4f7b68d2c6f10313d3f95b964d1d3fe3086d786
-bundled: 2026-10-05
+source-hash: ab7753adea0713b436737a452c9067c784b30744d993bda2087ab766c87bbe4c
+bundled: 2026-10-16
 title: Shared Browser Page Tools
 type: concept
 tags:
@@ -14,25 +14,17 @@ updated: 2026-10-05
 
 # Shared Browser Page Tools
 
-A page that declares WebMCP tools exposes them through
-`document.modelContext`. An agent attached to a shared browser can list those
-tools and call them instead of clicking and typing through the DOM.
+A page that declares WebMCP tools exposes them through `document.modelContext`. An agent attached to a shared browser can list those tools and call them instead of clicking and typing through the DOM.
 
-From `@paniolo/cli` 0.5.76 there are two tools for this, so the raw
-`getTools`/`executeTool` dance is no longer something a caller has to get right
-by hand.
+From `@paniolo/cli` 0.5.76 there are two tools for this, so the raw `getTools`/`executeTool` dance is no longer something a caller has to get right by hand.
 
 ## Discover
 
-`browser_webmcp_list` returns each declared tool's `name`, `description`,
-`inputSchema` and `annotations`. Same-origin only.
+`browser_webmcp_list` returns each declared tool's `name`, `description`, `inputSchema` and `annotations`. Same-origin only.
 
-Wait for the relevant app screen to finish loading before interpreting an empty
-list; poll for a bounded interval when the site is expected to expose tools. An
-empty list during loading does not establish that a site has no tools.
+Wait for the relevant app screen to finish loading before interpreting an empty list; poll for a bounded interval when the site is expected to expose tools. An empty list during loading does not establish that a site has no tools.
 
-Read each `description` before calling. It states side effects, such as "does
-not send the message".
+Read each `description` before calling. It states side effects, such as "does not send the message".
 
 ## Call
 

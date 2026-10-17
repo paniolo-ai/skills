@@ -1,7 +1,7 @@
 ---
 source-slug: stale-automation
-source-hash: a00e029974deeafee2aba5dfe66210b57befced00f0070dc70ae0b15b99c4226
-bundled: 2026-10-02
+source-hash: 669b12bf0a63c4be15dc3d439f9f622b5c568aba3bff73e7b298b7f7f5b3926f
+bundled: 2026-10-16
 title: Stale Automation
 type: concept
 tags:
@@ -14,17 +14,9 @@ updated: 2026-09-28
 
 # Stale Automation
 
-`paniolo stale` is the staleness ledger: a durable, git-native queue of
-falsifiable allegations that a code change may have invalidated prose. It
-implements the code-invalidates-prose maintenance loop designed in
-design-staleness-ledger and sequenced in
-plan-staleness-automation.
+`paniolo stale` is the staleness ledger: a durable, git-native queue of falsifiable allegations that a code change may have invalidated prose. It implements the code-invalidates-prose maintenance loop designed in design-staleness-ledger and sequenced in plan-staleness-automation.
 
-Detection nominates bounded work; autonomous agents verify and remediate it;
-repository gates record the outcome beside the fix. The core invariant —
-**detection nominates but never proves truth** — is enforced in code: no
-retrieval score, agent agreement, or validator result can mint a gold label
-or set a disposition.
+Detection nominates bounded work; autonomous agents verify and remediate it; repository gates record the outcome beside the fix. The core invariant — **detection nominates but never proves truth** — is enforced in code: no retrieval score, agent agreement, or validator result can mint a gold label or set a disposition.
 
 ## Contents
 

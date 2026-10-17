@@ -1,7 +1,7 @@
 ---
 source-slug: secrets-migration
-source-hash: a718c4473d79686f0af4e5533a8aad0ba81333ccdc5d2f408689f9cf1be85a90
-bundled: 2026-10-02
+source-hash: 952efd54a37215c07d60b69f60840af665b5e9242431bcb7f24460272eafdc68
+bundled: 2026-10-16
 title: Migrating to Paniolo Secrets
 type: concept
 tags:
@@ -15,11 +15,7 @@ updated: 2026-09-26
 
 # Migrating to Paniolo Secrets
 
-Paniolo's public secrets command uses Rust's credential-store client. Moving an
-existing project to it requires copying values into that client's entries and
-preserving any behavior supplied by the old project wrapper. Migrate one
-service and environment at a time; keep the previous entries until the new
-runner has been verified.
+Paniolo's public secrets command uses Rust's credential-store client. Moving an existing project to it requires copying values into that client's entries and preserving any behavior supplied by the old project wrapper. Migrate one service and environment at a time; keep the previous entries until the new runner has been verified.
 
 ## Contents
 
@@ -36,15 +32,9 @@ runner has been verified.
 
 ## Why Values Need Copying
 
-Python `keyring` and Rust `keyring` use different Windows Credential Manager
-target names. Even when both use the same service and variable name, a value
-stored by Python can appear missing to `paniolo secrets status`. Treat that
-result as a namespace difference until the migration is checked. Do not
-switch a project runner merely because the service strings match.
+Python `keyring` and Rust `keyring` use different Windows Credential Manager target names. Even when both use the same service and variable name, a value stored by Python can appear missing to `paniolo secrets status`. Treat that result as a namespace difference until the migration is checked. Do not switch a project runner merely because the service strings match.
 
-The public CLI does not display stored values. Copy from the old client
-straight into `paniolo secrets set --stdin`. Do not use `--generate` when
-preserving an existing token or signing key: it creates a new value.
+The public CLI does not display stored values. Copy from the old client straight into `paniolo secrets set --stdin`. Do not use `--generate` when preserving an existing token or signing key: it creates a new value.
 
 ---
 
@@ -52,18 +42,11 @@ preserving an existing token or signing key: it creates a new value.
 
 ## Migration Sequence
 
-1. Inventory every environment-specific service and names-only list. Keep
-   development, staging, and production values separate.
-1. For each listed name, pipe the old value into the Rust store. The example
-   uses one BardoShare development entry; substitute the actual service and
-   name on each pass.
-1. Run `status` against the same service and list. It checks vault presence
-   without revealing values.
-1. Run a representative project command through `paniolo secrets run` and
-   verify its behavior and exit status. Repeat in each environment before
-   changing any script.
-1. Switch the wrapper only after its non-secret behavior and working directory
-   are accounted for. Keep old Python entries until the new path is proven.
+1. Inventory every environment-specific service and names-only list. Keep development, staging, and production values separate.
+1. For each listed name, pipe the old value into the Rust store. The example uses one BardoShare development entry; substitute the actual service and name on each pass.
+1. Run `status` against the same service and list. It checks vault presence without revealing values.
+1. Run a representative project command through `paniolo secrets run` and verify its behavior and exit status. Repeat in each environment before changing any script.
+1. Switch the wrapper only after its non-secret behavior and working directory are accounted for. Keep old Python entries until the new path is proven.
 1. Treat deletion of old entries as a separate cleanup or rotation decision.
 
 ```powershell

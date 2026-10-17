@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-effect-subprocesses
-source-hash: 6c44ad7728cdc460efd1bb8ef92d23e6b7bad70c0e6f6a7ac39be1d129d52a0b
-bundled: 2026-08-30
+source-hash: fb74429ee13b9866d55838d705c70a4185428e25699e1997f262b91d55d263ff
+bundled: 2026-10-16
 title: Subprocesses
 type: concept
 tags:
@@ -13,8 +13,7 @@ updated: 2026-07-20
 
 # Subprocesses
 
-Use `Effect.tryPromise` with a small subprocess helper. The helper should capture stdout/stderr and
-return a typed result:
+Use `Effect.tryPromise` with a small subprocess helper. The helper should capture stdout/stderr and return a typed result:
 
 ```typescript
 import { Effect } from "effect";

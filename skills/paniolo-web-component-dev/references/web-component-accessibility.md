@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-accessibility
-source-hash: 75dd8d2f68253889d2877a61d7a0c2927bc9251098cd498aaa32ec808e5600bc
-bundled: 2026-09-27
+source-hash: b3729b34e818fd8c72fcffaa0c6500a33287be4b3ba856be8690be977e544cde
+bundled: 2026-10-16
 title: Web Component Accessibility
 type: concept
 tags:
@@ -14,17 +14,11 @@ updated: 2026-09-26
 
 # Web Component Accessibility
 
-Shadow DOM scopes IDs per root — so **any feature that references elements
-by ID fails across the boundary**: `<label for>`, `aria-labelledby`,
-`aria-describedby`, `aria-controls`, `aria-activedescendant`, `aria-owns`,
-`aria-flowto`, `aria-details`, `aria-errormessage`. This is the single
-hardest problem in web-component accessibility; nothing in the platform
-bridges it automatically.
+Shadow DOM scopes IDs per root — so **any feature that references elements by ID fails across the boundary**: `<label for>`, `aria-labelledby`, `aria-describedby`, `aria-controls`, `aria-activedescendant`, `aria-owns`, `aria-flowto`, `aria-details`, `aria-errormessage`. This is the single hardest problem in web-component accessibility; nothing in the platform bridges it automatically.
 
 ## What works today
 
-- **`ElementInternals` ARIA defaults** — set default role/states on the host
-  without clobbering author intent:
+- **`ElementInternals` ARIA defaults** — set default role/states on the host without clobbering author intent:
 
   ```js
   this.#internals = this.attachInternals();

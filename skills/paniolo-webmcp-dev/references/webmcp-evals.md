@@ -1,7 +1,7 @@
 ---
 source-slug: webmcp-evals
-source-hash: 2855251fdd8ccd611adc92ced2aceb37b1f4a46cb7ad32af83964658df038176
-bundled: 2026-09-25
+source-hash: e43ba1bdecbc2e90f157ef7f3ba104991abc786e17e977c9f61dffbc77d009ac
+bundled: 2026-10-16
 title: WebMCP Evals
 type: concept
 tags:
@@ -14,9 +14,7 @@ updated: 2026-09-25
 
 # WebMCP Evals
 
-WebMCP tools sit next to an LLM. Unit tests catch JavaScript bugs; **evals**
-catch probabilistic agent mistakes — wrong tool, wrong args, wrong order, or
-acting on poisoned output. Keep both.
+WebMCP tools sit next to an LLM. Unit tests catch JavaScript bugs; **evals** catch probabilistic agent mistakes — wrong tool, wrong args, wrong order, or acting on poisoned output. Keep both.
 
 ## What to prove
 
@@ -37,19 +35,14 @@ Documented [webmcp-user-journeys](./webmcp-user-journeys.md) become the eval blu
 | Bad or verbose tool output | Deterministic logic bugs; return only what the next step needs |
 | Runtime / API errors | Graceful structured errors (retry vs fatal) |
 
-Also eval **when not to call**: policy questions shouldn't hit catalog tools;
-prompt injection in product text shouldn't become instructions.
+Also eval **when not to call**: policy questions shouldn't hit catalog tools; prompt injection in product text shouldn't become instructions.
 
 ## Test ladder
 
-1. **Deterministic tool logic** — call the underlying functions (and
-   `executeTool`) with valid/invalid/empty/cancelled cases. No model.
-2. **Isolation evals** — user message → `expectedCall` (name + args). Include
-   the **full** tool list for that app state so selection is realistic.
+1. **Deterministic tool logic** — call the underlying functions (and `executeTool`) with valid/invalid/empty/cancelled cases. No model.
+2. **Isolation evals** — user message → `expectedCall` (name + args). Include the **full** tool list for that app state so selection is realistic.
 3. **Direct vs ambiguous prompts** — "add pepperoni" vs "all the meat toppings."
-4. **End-to-end** — ordered steps plus unordered groups where order doesn't
-   matter. Mid-chain: force state after a prior step and test the risky tool
-   alone (e.g. discount before checkout).
+4. **End-to-end** — ordered steps plus unordered groups where order doesn't matter. Mid-chain: force state after a prior step and test the risky tool alone (e.g. discount before checkout).
 
 Use paraphrases of the same goal — one passing phrasing proves little.
 

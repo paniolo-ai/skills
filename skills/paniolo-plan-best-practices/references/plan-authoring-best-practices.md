@@ -1,7 +1,7 @@
 ---
 source-slug: plan-authoring-best-practices
-source-hash: 2ec018de6b98d4bc67ae1f9d71343dc36369cd979ab56a042a1e18bd33a2b5f3
-bundled: 2026-09-25
+source-hash: 5dc4a94c2cf5aaf72270b05c1c0b2ae5b96e8aeb8a60ca782bb54f6f5e723cad
+bundled: 2026-10-16
 title: Plan Authoring Best Practices
 type: concept
 status: completed
@@ -15,9 +15,7 @@ updated: 2026-08-20
 
 # Plan Authoring Best Practices
 
-A useful implementation plan is an executable contract, not a themed task list. It explains what
-must become true, why the work is ordered, how each result will be observed, and what is outside
-scope.
+A useful implementation plan is an executable contract, not a themed task list. It explains what must become true, why the work is ordered, how each result will be observed, and what is outside scope.
 
 ## Contents
 
@@ -35,12 +33,10 @@ scope.
 
 - State current and target behavior in observable terms.
 - Separate confirmed defects from assumptions and open questions.
-- Order cards by dependency: data and authorization, boundary validation, shared logic, consumers,
-  then end-to-end coverage.
+- Order cards by dependency: data and authorization, boundary validation, shared logic, consumers, then end-to-end coverage.
 - Give each card concrete file or subsystem scope without treating paths as proof of completion.
 - Write acceptance criteria as behavior that would fail against the old implementation.
-- Name verification commands or gate categories, supported environments, and forbidden production
-  actions.
+- Name verification commands or gate categories, supported environments, and forbidden production actions.
 - Separate deferred work from release-gate work.
 - Include status and evidence areas for observed results after execution.
 

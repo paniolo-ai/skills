@@ -35,35 +35,25 @@ references:
 
 ## Key rules
 
-- **Always use selectors** — never subscribe to the whole store; select only the fields needed.
-  [basic-selector-pattern](references/basic-selector-pattern.md)
+- **Always use selectors** — never subscribe to the whole store; select only the fields needed. [basic-selector-pattern](references/basic-selector-pattern.md)
 
-- **`useShallow` for derived arrays/objects** — prevents unnecessary re-renders when a selector
-  returns a new reference.
-  [memoized-selectors](references/memoized-selectors.md)
+- **`useShallow` for derived arrays/objects** — prevents unnecessary re-renders when a selector returns a new reference. [memoized-selectors](references/memoized-selectors.md)
 
-- **Named selector constants** — define selectors outside components for reuse and stability.
-  [selector-factory-pattern](references/selector-factory-pattern.md)
+- **Named selector constants** — define selectors outside components for reuse and stability. [selector-factory-pattern](references/selector-factory-pattern.md)
 
-- **One store per domain** — split by concern; do not grow one monolithic store.
-  [store-composition](references/store-composition.md)
+- **One store per domain** — split by concern; do not grow one monolithic store. [store-composition](references/store-composition.md)
 
-- **Track `isLoading` and `error`** for every async action.
-  [async-actions-with-loading-states](references/async-actions-with-loading-states.md)
+- **Track `isLoading` and `error`** for every async action. [async-actions-with-loading-states](references/async-actions-with-loading-states.md)
 
-- **Use Immer** for deeply nested state updates.
-  [immer-middleware](references/immer-middleware.md)
+- **Use Immer** for deeply nested state updates. [immer-middleware](references/immer-middleware.md)
 
-- **Wrap with `devtools`** in all stores; use `partialize` when adding `persist`.
-  [devtools](references/devtools.md) and [persist-middleware](references/persist-middleware.md)
+- **Wrap with `devtools`** in all stores; use `partialize` when adding `persist`. [devtools](references/devtools.md) and [persist-middleware](references/persist-middleware.md)
 
-- **Never mock the store in tests** — reset with `useStore.setState(initialState)` in `beforeEach`.
-  [testing-zustand-unit-testing](references/testing-zustand-unit-testing.md)
+- **Never mock the store in tests** — reset with `useStore.setState(initialState)` in `beforeEach`. [testing-zustand-unit-testing](references/testing-zustand-unit-testing.md)
 
 ## Output format
 
-Write code changes directly. After edits, output a brief bullet list of which patterns were applied
-and which validation commands were run.
+Write code changes directly. After edits, output a brief bullet list of which patterns were applied and which validation commands were run.
 
 ## Error handling
 

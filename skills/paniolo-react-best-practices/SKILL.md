@@ -28,13 +28,8 @@ references:
 
 **Companion skills (load on demand):**
 
-- **React Compiler enabled?** (check your build config or `package.json` for
-  `babel-plugin-react-compiler`) → also load
-  [react-compiler/SKILL.md](../paniolo-react-compiler/SKILL.md). It forbids `useCallback` /
-  `useMemo` and render-phase side effects. This skill is compiler-independent and deliberately says
-  nothing about memoization.
-- Zustand store selectors/slices →
-  [zustand-best-practices/SKILL.md](../paniolo-zustand-best-practices/SKILL.md)
+- **React Compiler enabled?** (check your build config or `package.json` for `babel-plugin-react-compiler`) → also load [react-compiler/SKILL.md](../paniolo-react-compiler/SKILL.md). It forbids `useCallback` / `useMemo` and render-phase side effects. This skill is compiler-independent and deliberately says nothing about memoization.
+- Zustand store selectors/slices → [zustand-best-practices/SKILL.md](../paniolo-zustand-best-practices/SKILL.md)
 
 ## Preconditions
 
@@ -48,88 +43,44 @@ references:
 
 ## Key rules
 
-- **Prefer required props** — avoid many optional props; use noops/fallback refs at call sites
-  instead of optional handlers.
-  [react-prefer-required-props](references/react-prefer-required-props.md)
+- **Prefer required props** — avoid many optional props; use noops/fallback refs at call sites instead of optional handlers. [react-prefer-required-props](references/react-prefer-required-props.md)
 
-- **No `React.FC`** — use an explicit prop type and `): ReactElement` return annotation.
-  [react-avoid-react-fc](references/react-avoid-react-fc.md)
+- **No `React.FC`** — use an explicit prop type and `): ReactElement` return annotation. [react-avoid-react-fc](references/react-avoid-react-fc.md)
 
-- **Optional “render nothing”** — prefer `return undefined` and `ReactElement | undefined` over
-  `return null` / `ReactElement | null` so lint stays clean without disables.
-  [react-optional-render-nothing](references/react-optional-render-nothing.md)
+- **Optional “render nothing”** — prefer `return undefined` and `ReactElement | undefined` over `return null` / `ReactElement | null` so lint stays clean without disables. [react-optional-render-nothing](references/react-optional-render-nothing.md)
 
-- **`ReactElement` is ambient** — do not import it; `ReactNode` must be imported.
-  [react-common-prop-types](references/react-common-prop-types.md)
+- **`ReactElement` is ambient** — do not import it; `ReactNode` must be imported. [react-common-prop-types](references/react-common-prop-types.md)
 
-- **Plain function declarations** — use `function handleClick(): void {}` over arrow assignments for
-  handlers and components.
-  [react-function-declaration-style](references/react-function-declaration-style.md)
+- **Plain function declarations** — use `function handleClick(): void {}` over arrow assignments for handlers and components. [react-function-declaration-style](references/react-function-declaration-style.md)
 
-- **Destructure component props in the signature** — prefer
-  `function Component({ a, b }: ComponentProps): ReactElement` over
-  `function Component(props: ComponentProps): ReactElement` plus
-  `const { a, b } = props;`.
-  rules
+- **Destructure component props in the signature** — prefer `function Component({ a, b }: ComponentProps): ReactElement` over `function Component(props: ComponentProps): ReactElement` plus `const { a, b } = props;`. rules
 
-- **`useEffect` comment** — add a `//` comment on the line directly above every `useEffect`
-  explaining why it exists.
-  [react-useeffect-rules](references/react-useeffect-rules.md)
+- **`useEffect` comment** — add a `//` comment on the line directly above every `useEffect` explaining why it exists. [react-useeffect-rules](references/react-useeffect-rules.md)
 
-- **Complete dependency arrays** — do not suppress the exhaustive-deps lint rule; restructure
-  instead.
-  [react-useeffect-rules](references/react-useeffect-rules.md)
+- **Complete dependency arrays** — do not suppress the exhaustive-deps lint rule; restructure instead. [react-useeffect-rules](references/react-useeffect-rules.md)
 
-- **Memoization is out of scope here** — whether `useCallback` / `useMemo` are appropriate depends
-  on whether the repo enables the React Compiler. Load
-  [react-compiler/SKILL.md](../paniolo-react-compiler/SKILL.md) when it does; that skill forbids
-  them outright.
+- **Memoization is out of scope here** — whether `useCallback` / `useMemo` are appropriate depends on whether the repo enables the React Compiler. Load [react-compiler/SKILL.md](../paniolo-react-compiler/SKILL.md) when it does; that skill forbids them outright.
 
-- **Strong preference: one component per `.tsx` file** — colocate tests in the same directory.
-  [react-file-and-import-conventions](references/react-file-and-import-conventions.md)
+- **Strong preference: one component per `.tsx` file** — colocate tests in the same directory. [react-file-and-import-conventions](references/react-file-and-import-conventions.md)
 
-- **Paired hook for non-display logic (strong preference)** — treat **`use<SameNameAsComponent>`**
-  in **`use<SameNameAsComponent>.ts`** as the default home for substantial state, effects, refs, or
-  routing tied to that default-export module (`FooBar` ↔ `useFooBar`). Move behavior hooks,
-  handlers/functions, domain-derived consts, hrefs, permission booleans, and async orchestration
-  into the paired hook; keep JSX, icons, `className`/Tailwind strings, and style/layout constants in
-  the component. Sibling shell and body files each get their own hook when both carry logic; thin
-  shells may stay inline until logic grows. **One hook call per component** — fold shell chrome and
-  banner/badge placement derivations into the existing `use<Component>` return instead of a second
-  colocated hook the `.tsx` must call (see `ToolsTabsSlidePanel` / `useToolsTabsSlidePanel`).
-  Components that render copy keep `t(...)` beside the JSX; hooks may call locale hooks for
-  non-display needs like `lang`, but never accept, return, or prop-drill `t`. Keep the `.tsx`
-  presentation-focused (hook once, destructure, render).
-  [react-paired-hook-for-non-display-logic](references/react-paired-hook-for-non-display-logic.md)
+- **Paired hook for non-display logic (strong preference)** — treat **`use<SameNameAsComponent>`** in **`use<SameNameAsComponent>.ts`** as the default home for substantial state, effects, refs, or routing tied to that default-export module (`FooBar` ↔ `useFooBar`). Move behavior hooks, handlers/functions, domain-derived consts, hrefs, permission booleans, and async orchestration into the paired hook; keep JSX, icons, `className`/Tailwind strings, and style/layout constants in the component. Sibling shell and body files each get their own hook when both carry logic; thin shells may stay inline until logic grows. **One hook call per component** — fold shell chrome and banner/badge placement derivations into the existing `use<Component>` return instead of a second colocated hook the `.tsx` must call (see `ToolsTabsSlidePanel` / `useToolsTabsSlidePanel`). Components that render copy keep `t(...)` beside the JSX; hooks may call locale hooks for non-display needs like `lang`, but never accept, return, or prop-drill `t`. Keep the `.tsx` presentation-focused (hook once, destructure, render). [react-paired-hook-for-non-display-logic](references/react-paired-hook-for-non-display-logic.md)
 
-- **Observers report changes; measure geometry now** — `IntersectionObserverEntry`'s rect is a
-  snapshot from threshold-crossing time and goes stale on scroll. An observer also only watches the
-  nodes it was given, so lazily mounted items are never reported unless the set is re-synced.
-  [react-observer-snapshots-and-late-mounts](references/react-observer-snapshots-and-late-mounts.md)
+- **Observers report changes; measure geometry now** — `IntersectionObserverEntry`'s rect is a snapshot from threshold-crossing time and goes stale on scroll. An observer also only watches the nodes it was given, so lazily mounted items are never reported unless the set is re-synced. [react-observer-snapshots-and-late-mounts](references/react-observer-snapshots-and-late-mounts.md)
 
-- **Interactive overlays go inside the scroll container** — a sibling positioned over a scroller
-  swallows drag, wheel, and pointer events, and the scroller's own handlers never fire.
-  [react-overlay-inside-scroll-container](references/react-overlay-inside-scroll-container.md)
+- **Interactive overlays go inside the scroll container** — a sibling positioned over a scroller swallows drag, wheel, and pointer events, and the scroller's own handlers never fire. [react-overlay-inside-scroll-container](references/react-overlay-inside-scroll-container.md)
 
-- **Windowed placeholders need an estimated size, never zero** — an item that has never mounted has
-  no measurement; a `0px` spacer removes the scroll extent needed to reach and mount it.
-  [react-windowed-list-estimated-size](references/react-windowed-list-estimated-size.md)
+- **Windowed placeholders need an estimated size, never zero** — an item that has never mounted has no measurement; a `0px` spacer removes the scroll extent needed to reach and mount it. [react-windowed-list-estimated-size](references/react-windowed-list-estimated-size.md)
 
-- **Direct imports** — no barrel `index.ts` re-exports; import from source files.
-  [react-file-and-import-conventions](references/react-file-and-import-conventions.md)
+- **Direct imports** — no barrel `index.ts` re-exports; import from source files. [react-file-and-import-conventions](references/react-file-and-import-conventions.md)
 
 ## Output format
 
-Write code changes directly. After edits, output a brief bullet list of which conventions were
-applied and why, and which validation commands were run. For question-answering: concise prose with
-inline code.
+Write code changes directly. After edits, output a brief bullet list of which conventions were applied and why, and which validation commands were run. For question-answering: concise prose with inline code.
 
 ## Error handling
 
-- If the project's lint script or TypeScript build fails after changes, report verbatim and fix before declaring
-  success.
-- If the task turns on whether memoization is allowed, stop and load `paniolo-react-compiler` (or
-  confirm the repo does not enable the compiler) before deciding.
+- If the project's lint script or TypeScript build fails after changes, report verbatim and fix before declaring success.
+- If the task turns on whether memoization is allowed, stop and load `paniolo-react-compiler` (or confirm the repo does not enable the compiler) before deciding.
 
 ## Validation
 

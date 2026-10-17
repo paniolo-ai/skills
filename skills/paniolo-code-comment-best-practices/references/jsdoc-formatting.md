@@ -1,7 +1,7 @@
 ---
 source-slug: jsdoc-formatting
-source-hash: 9ae1447f5921ae5185e935489f7871dd8c3dad54ff529df0a7da73da91d6ccf1
-bundled: 2026-08-01
+source-hash: db590716e3a3a789ed80483d76cf5e47d072ff07de14f92874f66f78a9cb87c4
+bundled: 2026-10-16
 title: JSDoc — formatting rules
 type: concept
 tags:
@@ -12,8 +12,7 @@ updated: 2026-06-18
 
 # JSDoc — formatting rules
 
-**No types in JSDoc for `.ts`/`.tsx` files.** TypeScript provides the types. Use plain descriptions
-only.
+**No types in JSDoc for `.ts`/`.tsx` files.** TypeScript provides the types. Use plain descriptions only.
 
 ```ts
 // ❌

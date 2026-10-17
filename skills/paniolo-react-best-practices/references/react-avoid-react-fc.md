@@ -1,7 +1,7 @@
 ---
 source-slug: react-avoid-react-fc
-source-hash: f84e8ae0930c85a37edd32f3524fe8a9c61aa9f7f631a4a0181ea1b0efd8f0f4
-bundled: 2026-08-01
+source-hash: 8c6d9ffc36fda9ce6b05be569b7556b6aa25b8b73624431bc578c4d1b03333b3
+bundled: 2026-10-16
 title: Avoid React.FC
 type: concept
 tags:
@@ -13,8 +13,7 @@ updated: 2026-06-18
 
 # Avoid React.FC
 
-Do not use `React.FC` or `React.FunctionComponent` to type components. Use an explicit prop type and
-return type annotation instead:
+Do not use `React.FC` or `React.FunctionComponent` to type components. Use an explicit prop type and return type annotation instead:
 
 ```tsx
 // ❌ Avoid

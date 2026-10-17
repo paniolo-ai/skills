@@ -26,14 +26,11 @@ references:
 
 **Requires:** file-read. No terminal needed unless validating after edits.
 
-**Depends on:**
-[`paniolo-typescript-best-practices/SKILL.md`](../paniolo-typescript-best-practices/SKILL.md) —
-load when comment changes are driven by API clarity or type changes.
+**Depends on:** [`paniolo-typescript-best-practices/SKILL.md`](../paniolo-typescript-best-practices/SKILL.md) — load when comment changes are driven by API clarity or type changes.
 
 ## Full reference
 
-[code-comments](references/code-comments.md) —
-load on demand for detailed formatting patterns, examples, and edge cases.
+[code-comments](references/code-comments.md) — load on demand for detailed formatting patterns, examples, and edge cases.
 
 ## When invoked
 
@@ -44,8 +41,7 @@ load on demand for detailed formatting patterns, examples, and edge cases.
 
 **Clarifying questions:**
 
-- **Defaults (proceed without asking):** add/update comments in the file already open; follow all
-  rules below.
+- **Defaults (proceed without asking):** add/update comments in the file already open; follow all rules below.
 - **Always ask:** which file if not specified.
 
 **Output format:**
@@ -59,61 +55,28 @@ load on demand for detailed formatting patterns, examples, and edge cases.
 
 ## Quick rules
 
-Core philosophy: explain the "why," not the "what."
-([philosophy](references/philosophy.md))
+Core philosophy: explain the "why," not the "what." ([philosophy](references/philosophy.md))
 
-- **JSDoc (`/** \*/`)\*\* for exported functions, components, and types.
-  ([jsdoc-when](references/jsdoc-when.md))
-- **JSDoc requirement:** Every exported function must have JSDoc. Additionally, any non-trivial
-  internal function (complex logic, side effects, branching, or >~3 lines) should include concise
-  JSDoc. Prefer documenting intent and side-effects over implementation details.
-- **Default to JSDoc for named functions you add** — not just exports. Helper functions, local
-  utility functions, test helpers, and hook-internal handlers should usually get concise JSDoc
-  unless the name and body are truly trivial. This repo prefers documenting function purpose
-  proactively rather than only at module boundaries.
-- **Tests and strict-typing helpers count too** — named helpers such as
-  `installMockBody`, `makeProps`, `LocationProbe`, `noop`, `noopAsync`,
-  `noopUnsubscribe`, and local type guards added to satisfy strict typing should
-  get JSDoc with `@param` and `@returns`, even when the body is short.
-- **`//`** for logic blocks (`useEffect`, complex conditionals), test descriptions, and grouped
-  constants. ([inline-comments](references/inline-comments.md))
-- **No types in JSDoc** — no `{Type}` on `@param` / `@returns` in `.ts` / `.tsx`. Use
-  `@param name - description` and prose-only `@returns` (or `@returns void`).
-  ([jsdoc-formatting](references/jsdoc-formatting.md))
-- **Always `@returns`** — write `@returns void` for void functions.
-  ([jsdoc-params-returns](references/jsdoc-params-returns.md))
-- **Props: document fields directly** — no `@param props` wrapper; list each destructured field.
-  ([jsdoc-params-returns](references/jsdoc-params-returns.md))
-- **Multi-line JSDoc:** `/**` and `*/` each on their own line.
-  ([jsdoc-formatting](references/jsdoc-formatting.md))
-- **One blank line above** a JSDoc block; no blank lines between JSDoc and its symbol.
-  ([spacing-placement](references/spacing-placement.md))
-- **No JSDoc above `describe`/`it`/`test`** — use `//` only when the name isn't self-explanatory.
-  ([test-comments](references/test-comments.md))
-- **Grouped constants** — use `//` above the group, not JSDoc spanning multiple symbols.
-  ([constants](references/constants.md))
-- **Symbol comments:** If a comment documents a specific symbol (function, constant, type, class, or
-  exported value), use JSDoc (`/** ... */`) rather than `//`. Reserve `//` for inline implementation
-  notes and small logic comments. This keeps symbol-level documentation consistent and
-  machine-readable.
-- **Avoid repeating the symbol name:** The first sentence of a symbol's JSDoc should be a concise
-  verb phrase describing its purpose (e.g., "Return the user's profile"), not a restatement of the
-  symbol name (avoid: "User profile: returns..." or "Noise filter: ..."). This keeps inline
-  documentation focused and avoids redundancy.
-- **Max 100 chars per line.**
-  ([jsdoc-formatting](references/jsdoc-formatting.md))
-- **JSDoc for any comment with a URL** — use `@see` for standalone links (URLs, file paths),
-  `{@link}` for inline symbol refs; never `//` for comments containing links.
-  ([links-in-comments](references/links-in-comments.md))
-- **TODO/FIXME must include context** — `// TODO: [action] — [reason or ticket]`; switch to JSDoc
-  when the comment includes a link. ([inline-comments](references/inline-comments.md))
-- **No redundant comments** — don't comment obvious code, don't repeat types, don't apologize for
-  messy code (refactor instead). ([what-not-to-comment](references/what-not-to-comment.md))
-- **Writing style** — full sentences + periods for JSDoc; fragments ok for `//`; active voice;
-  present tense; one space after `//`. ([writing-style](references/writing-style.md))
-- **Anti-patterns** — no commented-out code, no version history, no author attribution, no jokes or
-  passive-aggressive remarks.
-  ([anti-patterns](references/anti-patterns.md))
+- **JSDoc (`/** \*/`)\*\* for exported functions, components, and types. ([jsdoc-when](references/jsdoc-when.md))
+- **JSDoc requirement:** Every exported function must have JSDoc. Additionally, any non-trivial internal function (complex logic, side effects, branching, or >~3 lines) should include concise JSDoc. Prefer documenting intent and side-effects over implementation details.
+- **Default to JSDoc for named functions you add** — not just exports. Helper functions, local utility functions, test helpers, and hook-internal handlers should usually get concise JSDoc unless the name and body are truly trivial. This repo prefers documenting function purpose proactively rather than only at module boundaries.
+- **Tests and strict-typing helpers count too** — named helpers such as `installMockBody`, `makeProps`, `LocationProbe`, `noop`, `noopAsync`, `noopUnsubscribe`, and local type guards added to satisfy strict typing should get JSDoc with `@param` and `@returns`, even when the body is short.
+- **`//`** for logic blocks (`useEffect`, complex conditionals), test descriptions, and grouped constants. ([inline-comments](references/inline-comments.md))
+- **No types in JSDoc** — no `{Type}` on `@param` / `@returns` in `.ts` / `.tsx`. Use `@param name - description` and prose-only `@returns` (or `@returns void`). ([jsdoc-formatting](references/jsdoc-formatting.md))
+- **Always `@returns`** — write `@returns void` for void functions. ([jsdoc-params-returns](references/jsdoc-params-returns.md))
+- **Props: document fields directly** — no `@param props` wrapper; list each destructured field. ([jsdoc-params-returns](references/jsdoc-params-returns.md))
+- **Multi-line JSDoc:** `/**` and `*/` each on their own line. ([jsdoc-formatting](references/jsdoc-formatting.md))
+- **One blank line above** a JSDoc block; no blank lines between JSDoc and its symbol. ([spacing-placement](references/spacing-placement.md))
+- **No JSDoc above `describe`/`it`/`test`** — use `//` only when the name isn't self-explanatory. ([test-comments](references/test-comments.md))
+- **Grouped constants** — use `//` above the group, not JSDoc spanning multiple symbols. ([constants](references/constants.md))
+- **Symbol comments:** If a comment documents a specific symbol (function, constant, type, class, or exported value), use JSDoc (`/** ... */`) rather than `//`. Reserve `//` for inline implementation notes and small logic comments. This keeps symbol-level documentation consistent and machine-readable.
+- **Avoid repeating the symbol name:** The first sentence of a symbol's JSDoc should be a concise verb phrase describing its purpose (e.g., "Return the user's profile"), not a restatement of the symbol name (avoid: "User profile: returns..." or "Noise filter: ..."). This keeps inline documentation focused and avoids redundancy.
+- **Max 100 chars per line.** ([jsdoc-formatting](references/jsdoc-formatting.md))
+- **JSDoc for any comment with a URL** — use `@see` for standalone links (URLs, file paths), `{@link}` for inline symbol refs; never `//` for comments containing links. ([links-in-comments](references/links-in-comments.md))
+- **TODO/FIXME must include context** — `// TODO: [action] — [reason or ticket]`; switch to JSDoc when the comment includes a link. ([inline-comments](references/inline-comments.md))
+- **No redundant comments** — don't comment obvious code, don't repeat types, don't apologize for messy code (refactor instead). ([what-not-to-comment](references/what-not-to-comment.md))
+- **Writing style** — full sentences + periods for JSDoc; fragments ok for `//`; active voice; present tense; one space after `//`. ([writing-style](references/writing-style.md))
+- **Anti-patterns** — no commented-out code, no version history, no author attribution, no jokes or passive-aggressive remarks. ([anti-patterns](references/anti-patterns.md))
 
 ## Validation
 

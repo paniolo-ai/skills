@@ -1,7 +1,7 @@
 ---
 source-slug: web-component-shadow-dom
-source-hash: 8eaa1980fcf3435eaf9cb426080f43dbadcc3813c54a87ed16c6fb18dbb71c91
-bundled: 2026-09-27
+source-hash: bbb105949149ec6cff4c8b7033c5723bc38ba3278fae59b9c2f8141540c4c2f4
+bundled: 2026-10-16
 title: Web Component Shadow DOM
 type: concept
 tags:
@@ -14,18 +14,11 @@ updated: 2026-09-26
 
 # Shadow DOM
 
-Shadow DOM attaches an encapsulated tree to an element: internals are hidden
-from page JS and CSS, IDs are scoped per-root, and `<slot>` projects the
-author's light-DOM children into chosen positions. It's what lets a custom
-element be dropped into any page without breaking or being broken.
+Shadow DOM attaches an encapsulated tree to an element: internals are hidden from page JS and CSS, IDs are scoped per-root, and `<slot>` projects the author's light-DOM children into chosen positions. It's what lets a custom element be dropped into any page without breaking or being broken.
 
 ## Attach it in the constructor
 
-The constructor is the only moment with exclusive knowledge of the element.
-Attaching later (`connectedCallback`) forces guards for detach/reattach.
-Place implementation children in the shadow root; leave author-supplied
-children in light DOM so they remain visible/accessible even if the element
-never upgrades.
+The constructor is the only moment with exclusive knowledge of the element. Attaching later (`connectedCallback`) forces guards for detach/reattach. Place implementation children in the shadow root; leave author-supplied children in light DOM so they remain visible/accessible even if the element never upgrades.
 
 ```js
 constructor() {

@@ -14,27 +14,19 @@ references: []
 
 # paniolo-config-init — scaffold paniolo.config.json
 
-Generate a starter `paniolo.config.json`. The scanner only **reads** this file — it
-never writes it — so the file the user ends up with is whatever this skill writes.
+Generate a starter `paniolo.config.json`. The scanner only **reads** this file — it never writes it — so the file the user ends up with is whatever this skill writes.
 
 ## When to use
 
-Use this skill when the user wants to create or set up a `paniolo.config.json`, or asks
-which AI vendors/harnesses a repo should support — for example: "init paniolo config",
-"set up paniolo.config.json", "which AI vendors should this repo support", or the
-`/paniolo-config-init` trigger.
+Use this skill when the user wants to create or set up a `paniolo.config.json`, or asks which AI vendors/harnesses a repo should support — for example: "init paniolo config", "set up paniolo.config.json", "which AI vendors should this repo support", or the `/paniolo-config-init` trigger.
 
-For an **existing** config — migrating the legacy shape, deduplicating repeated
-`repos` blocks into `repoDefaults`/`repoTypes`, or registering repos and wikis —
-use `paniolo-config-upgrade` instead.
+For an **existing** config — migrating the legacy shape, deduplicating repeated `repos` blocks into `repoDefaults`/`repoTypes`, or registering repos and wikis — use `paniolo-config-upgrade` instead.
 
 ## Flow
 
 ### 1. Check for an existing config
 
-Look for `paniolo.config.json` at the repo root. If present, read it and show the
-current `harnesses` value before continuing — don't silently overwrite a file someone
-already tuned.
+Look for `paniolo.config.json` at the repo root. If present, read it and show the current `harnesses` value before continuing — don't silently overwrite a file someone already tuned.
 
 ### 2. Detect likely vendors from existing adapters
 
@@ -52,19 +44,13 @@ Glob for adapter markers already in the repo as a hint, not a decision:
 
 ### 3. Ask which AI vendors/harnesses to support
 
-Ask the user to pick from the seven harnesses the scanner understands — `claude`,
-`cursor`, `copilot`, `codex`, `gemini`, `antigravity`, `devin` — noting which ones Step 2
-detected as likely defaults. If the agent supports a multi-select prompt, use it;
-otherwise ask in plain text and accept a comma-separated list.
+Ask the user to pick from the seven harnesses the scanner understands — `claude`, `cursor`, `copilot`, `codex`, `gemini`, `antigravity`, `devin` — noting which ones Step 2 detected as likely defaults. If the agent supports a multi-select prompt, use it; otherwise ask in plain text and accept a comma-separated list.
 
-If the user picks none, or says "all" / "no preference", leave `harnesses` out of the
-config entirely — an empty/absent list means "no declared scope," and every
-harness-specific rule still runs, the same as omitting `--harness` on the CLI.
+If the user picks none, or says "all" / "no preference", leave `harnesses` out of the config entirely — an empty/absent list means "no declared scope," and every harness-specific rule still runs, the same as omitting `--harness` on the CLI.
 
 ### 4. Write the config
 
-Write `paniolo.config.json` at the repo root, kept minimal — this config grows with the
-rule set, so don't pre-populate `rules` with every rule ID:
+Write `paniolo.config.json` at the repo root, kept minimal — this config grows with the rule set, so don't pre-populate `rules` with every rule ID:
 
 ```json
 {

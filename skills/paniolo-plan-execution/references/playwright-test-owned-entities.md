@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-test-owned-entities
-source-hash: 645603834e35b138de1a7da35cde4493a3eea32cd6acc3ecb525686257e77704
-bundled: 2026-08-20
+source-hash: d1a0f6ebdab81950477e8efd4c1c3428785453b7b1e3b4a337f4ee736630bec7
+bundled: 2026-10-16
 title: Test-Owned Entities
 type: concept
 tags:
@@ -14,9 +14,7 @@ updated: 2026-08-20
 
 # Test-Owned Entities
 
-Playwright specs should create the domain entities they assert on. Prefer setup through the same
-API or UI surface the product uses, then remove the records through the test flow or a focused
-cleanup helper.
+Playwright specs should create the domain entities they assert on. Prefer setup through the same API or UI surface the product uses, then remove the records through the test flow or a focused cleanup helper.
 
 Use a collision-resistant identifier that the repository's cleanup contract recognizes:
 

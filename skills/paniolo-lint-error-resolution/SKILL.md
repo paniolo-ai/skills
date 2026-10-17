@@ -36,12 +36,9 @@ references:
 
 **Lint command policy:**
 
-Read the repo's `package.json` `scripts` and use the most specific entrypoint that
-covers the files you changed — commonly `lint:ts`, falling back to `lint`. A
-generated Paniolo harness defines `lint` (and `scan`), not `lint:ts`.
+Read the repo's `package.json` `scripts` and use the most specific entrypoint that covers the files you changed — commonly `lint:ts`, falling back to `lint`. A generated Paniolo harness defines `lint` (and `scan`), not `lint:ts`.
 
-Do not substitute bare `npx eslint` for the repo lint script, and do not invoke a
-script name you have not seen in that repo's `package.json`.
+Do not substitute bare `npx eslint` for the repo lint script, and do not invoke a script name you have not seen in that repo's `package.json`.
 
 **Error handling:**
 
@@ -50,32 +47,23 @@ script name you have not seen in that repo's `package.json`.
 
 ## Quick lookup — shared errors
 
-**Catalog:**
-[typescript-quick-lookup](references/typescript-quick-lookup.md)
+**Catalog:** [typescript-quick-lookup](references/typescript-quick-lookup.md)
 
-- `id-length`, `no-magic-numbers`, `no-negated-condition`, `prefer-number-properties`,
-  `curly`, `consistent-type-imports`, `unicorn/no-array-sort` → catalog quick lookup
+- `id-length`, `no-magic-numbers`, `no-negated-condition`, `prefer-number-properties`, `curly`, `consistent-type-imports`, `unicorn/no-array-sort` → catalog quick lookup
 - `require-own-file-for-long-function`, `require-aaa-pattern` → catalog custom ESLint rules
 
 ## Quick lookup — React / API / data-layer app repos
 
-- `no-unsafe-type-assertion` (API) →
-  [Request validation](references/typescript-no-unsafe-type-assertion-request-validation.md)
-- `no-unsafe-assignment` / dynamic database tables →
-  [Dynamic tables](references/typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna.md)
-- "All if-else branches same code" →
-  [Shared error handling](references/typescript-all-if-else-branches-contain-same-code-shared-error-check.md)
-- Query-builder optional method chain →
-  [typed query wrapper](references/typescript-optional-method-chain-use-typed-query-wrapper.md)
-- `require-useeffect-comment` →
-  [useEffect](references/typescript-require-useeffect-comment-comment-before-useeffect.md)
-- `--isolatedDeclarations` / Effect schema exports →
-  [isolatedDeclarations](references/typescript-isolateddeclarations-explicit-type-annotations-on-exports.md)
+- `no-unsafe-type-assertion` (API) → [Request validation](references/typescript-no-unsafe-type-assertion-request-validation.md)
+- `no-unsafe-assignment` / dynamic database tables → [Dynamic tables](references/typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna.md)
+- "All if-else branches same code" → [Shared error handling](references/typescript-all-if-else-branches-contain-same-code-shared-error-check.md)
+- Query-builder optional method chain → [typed query wrapper](references/typescript-optional-method-chain-use-typed-query-wrapper.md)
+- `require-useeffect-comment` → [useEffect](references/typescript-require-useeffect-comment-comment-before-useeffect.md)
+- `--isolatedDeclarations` / Effect schema exports → [isolatedDeclarations](references/typescript-isolateddeclarations-explicit-type-annotations-on-exports.md)
 
 ## Quick lookup — Paniolo scan
 
-**Supplement:**
-paniolo
+**Supplement:** paniolo
 
 ## When to disable rules (rare)
 

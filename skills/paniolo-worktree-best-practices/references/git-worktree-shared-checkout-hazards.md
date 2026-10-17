@@ -1,7 +1,7 @@
 ---
 source-slug: git-worktree-shared-checkout-hazards
-source-hash: 7f62481738aafd7f04dd0c91bff07d8197edf6c49a30463fa205ad12b37d2fa1
-bundled: 2026-10-11
+source-hash: e6cafaa3217b5bf09a204eeefb8f2179a427f1d18802ebfb5f5190cf06eef397
+bundled: 2026-10-16
 title: Git Worktree Shared Checkout Hazards
 type: concept
 tags:
@@ -15,17 +15,11 @@ updated: 2026-10-11
 
 # Git Worktree Shared Checkout Hazards
 
-A repository checked out once and used by several agents at the same time
-behaves differently from one you have to yourself. Three pieces of state are
-shared across every worktree of a repository — `HEAD`, the branch set, and the
-stash stack — and each of them is a way to lose work that `git status` will not
-warn you about.
+A repository checked out once and used by several agents at the same time behaves differently from one you have to yourself. Three pieces of state are shared across every worktree of a repository — `HEAD`, the branch set, and the stash stack — and each of them is a way to lose work that `git status` will not warn you about.
 
 ## `HEAD` moves under you
 
-A concurrent `git checkout` in any worktree of the repository changes which
-branch is current. A commit you then make lands on whatever branch is current
-at that moment — someone else's feature branch, or the default branch.
+A concurrent `git checkout` in any worktree of the repository changes which branch is current. A commit you then make lands on whatever branch is current at that moment — someone else's feature branch, or the default branch.
 
 The habit that catches the entire class:
 

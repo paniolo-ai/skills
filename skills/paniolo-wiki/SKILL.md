@@ -13,26 +13,19 @@ references: []
 
 **Requires:** file-read, file-write, terminal (to run `paniolo wiki` from harness).
 
-Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package;
-`paniolo bootstrap` verifies the binary it links against it and refuses on a
-mismatch.
+Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package; `paniolo bootstrap` verifies the binary it links against it and refuses on a mismatch.
 
 # Maintaining a wiki
 
-A pointer skill — the operating procedure, not a restatement of the rules. The
-validator is the canonical schema: it enumerates the permitted values in its own
-findings, so run it rather than guessing.
+A pointer skill — the operating procedure, not a restatement of the rules. The validator is the canonical schema: it enumerates the permitted values in its own findings, so run it rather than guessing.
 
-- `type:` — `entity`, `concept`, `summary`, `comparison`, `synthesis`,
-  `decision`, `index`.
+- `type:` — `entity`, `concept`, `summary`, `comparison`, `synthesis`, `decision`, `index`.
 - `wiki/log.md` verbs — see [Choosing a log verb](#choosing-a-log-verb).
-- Wikis, known repos, and thresholds — the `wiki` section of
-  `paniolo.config.json`.
+- Wikis, known repos, and thresholds — the `wiki` section of `paniolo.config.json`.
 
 ## Choosing a log verb
 
-Nine verbs, and the validator only rejects one it does not recognize — it cannot
-tell you the verb you picked is the vaguest one that fits. Pick the narrowest:
+Nine verbs, and the validator only rejects one it does not recognize — it cannot tell you the verb you picked is the vaguest one that fits. Pick the narrowest:
 
 | Verb | Use it when the entry records |
 | --- | --- |
@@ -46,11 +39,7 @@ tell you the verb you picked is the vaguest one that fits. Pick the narrowest:
 | `rename` | A page's slug changed. |
 | `move` | A page changed wikis. |
 
-`lint` is the one that over-attracts, because "I fixed the wiki" describes a
-delete, a rename, and a move too. If the entry's title names a page that stopped
-existing, changed slug, or changed wiki, the verb is `delete`, `rename`, or
-`move` — even though the work also involved cleanup. Reach for `lint` only when
-the page set is unchanged and the content inside it was corrected.
+`lint` is the one that over-attracts, because "I fixed the wiki" describes a delete, a rename, and a move too. If the entry's title names a page that stopped existing, changed slug, or changed wiki, the verb is `delete`, `rename`, or `move` — even though the work also involved cleanup. Reach for `lint` only when the page set is unchanged and the content inside it was corrected.
 
 ## Use When
 
@@ -61,57 +50,29 @@ the page set is unchanged and the content inside it was corrected.
 
 ## Golden rule
 
-Every factual claim must trace to a file you have snapshotted under `raw/`. If you
-read it from another repo on disk, **snapshot it into `raw/` first** (and add it to
-that directory's `SOURCES.md`) or do not claim it. The validator enforces that every
-cited snapshot resolves — both `raw/<path>` entries and bare slugs — but it cannot
-catch a fact you invented, so this discipline is on you.
+Every factual claim must trace to a file you have snapshotted under `raw/`. If you read it from another repo on disk, **snapshot it into `raw/` first** (and add it to that directory's `SOURCES.md`) or do not claim it. The validator enforces that every cited snapshot resolves — both `raw/<path>` entries and bare slugs — but it cannot catch a fact you invented, so this discipline is on you.
 
-`raw/` holds **reference documents, not source code.** Program-language files
-(`.ts`, `.tsx`, `.js`, `.rs`, `.py`, `.hs`, …), scripts (`.sh`, `.ps1`, `.cmd`),
-stylesheets (`.css`), and binaries do not belong under `raw/` — evidence for product
-code lives in page prose as commit IDs, file paths, and observed checks. Reference
-documents are fine: `.md`, `.html`, `.pdf`, images, and data files.
+`raw/` holds **reference documents, not source code.** Program-language files (`.ts`, `.tsx`, `.js`, `.rs`, `.py`, `.hs`, …), scripts (`.sh`, `.ps1`, `.cmd`), stylesheets (`.css`), and binaries do not belong under `raw/` — evidence for product code lives in page prose as commit IDs, file paths, and observed checks. Reference documents are fine: `.md`, `.html`, `.pdf`, images, and data files.
 
-Document anything that makes an AI agent more reliable across a long session:
-harness structure, instruction-authoring techniques, enforcement/correction loops,
-memory patterns, and distribution/remediation patterns. Prefer one concept per page;
-split rather than sprawl.
+Document anything that makes an AI agent more reliable across a long session: harness structure, instruction-authoring techniques, enforcement/correction loops, memory patterns, and distribution/remediation patterns. Prefer one concept per page; split rather than sprawl.
 
 ## Naming the page
 
-The leading token of a slug names the page's **kind** — a plan, a decision, a
-paper digest, a blog digest, a third-party repo digest. Pick it before you
-write: the slug is what wikilinks, file lists, and search results carry, and
-changing it later costs a rename across every repo.
+The leading token of a slug names the page's **kind** — a plan, a decision, a paper digest, a blog digest, a third-party repo digest. Pick it before you write: the slug is what wikilinks, file lists, and search results carry, and changing it later costs a rename across every repo.
 
-**The validator does not check this.** `check:wiki` passes a mis-prefixed page,
-so a wrong slug survives until a human reads the directory listing. The prefix
-table is authored per wiki, on that wiki's own naming-conventions page — read
-it before naming a new page. If the wiki has no such page, match the sibling
-pages already in that domain and say which ones you matched.
+**The validator does not check this.** `check:wiki` passes a mis-prefixed page, so a wrong slug survives until a human reads the directory listing. The prefix table is authored per wiki, on that wiki's own naming-conventions page — read it before naming a new page. If the wiki has no such page, match the sibling pages already in that domain and say which ones you matched.
 
 Three ways it goes wrong:
 
-- **Prefixing by topic instead of kind.** A page *about* planning technique is
-  a concept page, not a plan; a page digesting a paper about blogging is a
-  paper digest. Ask what the page **is**, not what it discusses.
-- **Stacking two kind prefixes.** A page has one kind. When a source is both a
-  repo and a paper, the prefix follows the thing the page actually digests.
-- **Prefixing a catalog.** An index listing many papers is not a paper digest
-  and keeps its own descriptive slug. `type: index` is usually the tell.
+- **Prefixing by topic instead of kind.** A page *about* planning technique is a concept page, not a plan; a page digesting a paper about blogging is a paper digest. Ask what the page **is**, not what it discusses.
+- **Stacking two kind prefixes.** A page has one kind. When a source is both a repo and a paper, the prefix follows the thing the page actually digests.
+- **Prefixing a catalog.** An index listing many papers is not a paper digest and keeps its own descriptive slug. `type: index` is usually the tell.
 
-A rename must land on a correctly prefixed slug. `paniolo wiki rename` rewrites
-links to whatever target you hand it and will not tell you the target is wrong.
+A rename must land on a correctly prefixed slug. `paniolo wiki rename` rewrites links to whatever target you hand it and will not tell you the target is wrong.
 
 ## Creating a new wiki repo
 
-`paniolo wiki init` is repo-level, not page-level — it stamps a brand-new customer
-wiki repo from the embedded template (`raw/`, `wiki/`, `wiki/log.md`, config
-scaffolding) into an empty directory. Use it once, before any `wiki new`, when
-the wiki repo itself does not exist yet; `paniolo init` (the top-level onboarding
-command) calls it for you during first-time setup. It needs no `--config` — there
-is nothing to register against yet:
+`paniolo wiki init` is repo-level, not page-level — it stamps a brand-new customer wiki repo from the embedded template (`raw/`, `wiki/`, `wiki/log.md`, config scaffolding) into an empty directory. Use it once, before any `wiki new`, when the wiki repo itself does not exist yet; `paniolo init` (the top-level onboarding command) calls it for you during first-time setup. It needs no `--config` — there is nothing to register against yet:
 
 ```bash
 paniolo wiki init --name Northwind --out northwind-wiki --register paniolo.config.json
@@ -235,6 +196,19 @@ and sibling repo files — **must** use bare wikilink syntax:
 [[slug]]  or  [[slug|Display Text]]
 ```
 
+**Bare means bare.** A wikilink carries a slug and nothing else:
+
+- `[[<wiki>:slug]]` is **obsolete**. Every one is a
+  `wikilink-qualifier-deprecated` error. Do not write one, and do not add a
+  qualifier to reach another wiki — you do not need to.
+- A bare `[[slug]]` that misses the local corpus **falls back to the union of
+  all configured wikis**. A unique hit resolves; several hits are an ambiguity
+  error. So linking a page in another wiki is just `[[its-slug]]`.
+- The slug is not a path. `[[skills/paniolo-wiki]]` fails where
+  `[[paniolo-wiki]]` resolves, even though the file sits at
+  `wiki/skills/paniolo-wiki.md`.
+- Fragments are forbidden — no `[[slug#heading]]`.
+
 The validator resolves the slug in the page's own wiki first, then across the
 union of configured wikis; the retired `wiki:slug` qualifier is an error. Do
 **not** use markdown path references (`source-wiki/wiki/slug.md`) in any form.
@@ -353,6 +327,27 @@ question is about the record itself. MCP exposes the same operations as
 Log an archive as `## [YYYY-MM-DD] archive | <domain> | <title>` — the command
 writes the entry, but the convention is the log's.
 
+## Validating
+
+`paniolo wiki` validates the **configured wiki roots**, not the directory you
+are standing in. Run it while working in a `.pr-*` worktree and it reports on
+the main checkout — green, and silent about every page you changed. Either
+make the edit in the configured checkout, or treat the pre-commit hook as the
+only validation that actually saw your work.
+
+The hook validates **every configured target and fails the command on one
+error**, so a single broken page blocks commits in every wiki repo, on every
+branch, until it is fixed. If commits start failing in a wiki you have not
+touched, read the hook's output before suspecting your own change — and the
+fix has to land in the configured checkout, because that is where the hook
+looks.
+
+`sources:` entries are validated paths, not prose. `source-paths-exist` fails
+when a cited `raw/` file no longer exists, so deleting a capture means
+removing or repointing its citations in the same change. Searching for
+Markdown links will not find them: a citation is a bare frontmatter path, with
+no `](` or `[[` to match on.
+
 ## Markdown lint best practices
 
 Apply while writing so pages pass `paniolo wiki` (and the harness the project's lint script) on the first try.
@@ -377,6 +372,12 @@ Apply while writing so pages pass `paniolo wiki` (and the harness the project's 
 - Do not build or feed a whole-wiki catalog to silence an orphan warning — link
   a page where a reader would look for it, or leave it findable by search.
 - Do not finish while `paniolo wiki` is red.
+- Do not trust a green `paniolo wiki` run made from a worktree — it validated
+  the configured checkout, not your edits.
+- Do not delete a `raw/` capture without clearing its frontmatter `sources:`
+  citations; links are not the only kind of reference.
+- Do not write `[[<wiki>:slug]]` or `[[kind/slug]]` — a wikilink is a bare
+  slug, and it already reaches other configured wikis.
 - Do not hand-edit references for a delete, rename, or move — use the commands.
 - Do not force a delete past its refusal; resolve the prose references it names.
 - Do not rewrite `wiki/log.md` entries for a renamed or deleted page — the log

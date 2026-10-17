@@ -1,7 +1,7 @@
 ---
 source-slug: stale-ledger
-source-hash: 5dfdb1a518be6b5174f0981fec15a9a39a8e04178a0a60ccc175cf19baab2dfb
-bundled: 2026-10-11
+source-hash: 48e87cbd058841027b692c0022c16c0c50ff872dd9465bd2fba9becb522656f1
+bundled: 2026-10-16
 title: Stale Ledger
 type: concept
 tags:
@@ -13,12 +13,7 @@ updated: 2026-10-11
 
 # Stale Ledger
 
-The ledger is the durable state behind `paniolo stale`. Its live records
-are in the checkout owner's platform-native `workspace.sqlite`, shared
-with qmd under separate schema owners. Git carries a stale-only recovery
-snapshot at `.paniolo/ledger.sqlite` and the writer lease at
-`.paniolo/writer.json`. A finding's repository remains part of its record
-identity even when another repository's diff detected it.
+The ledger is the durable state behind `paniolo stale`. Its live records are in the checkout owner's platform-native `workspace.sqlite`, shared with qmd under separate schema owners. Git carries a stale-only recovery snapshot at `.paniolo/ledger.sqlite` and the writer lease at `.paniolo/writer.json`. A finding's repository remains part of its record identity even when another repository's diff detected it.
 
 ## Contents
 
@@ -38,15 +33,9 @@ identity even when another repository's diff detected it.
 
 ## Ledger Location
 
-The live database is selected by the owner checkout, not by `ledgerPath`.
-Windows and WSL keep separate native files and coordinate through the
-published snapshot and writer lease. A missing or incompatible live
-database fails closed; it never becomes an empty JSON ledger.
+The live database is selected by the owner checkout, not by `ledgerPath`. Windows and WSL keep separate native files and coordinate through the published snapshot and writer lease. A missing or incompatible live database fails closed; it never becomes an empty JSON ledger.
 
-`staleness.ledgerPath` names the repository-relative publication directory
-(default `.paniolo`). Absolute paths, `..` segments, drive prefixes, and
-symlinked roots are rejected. `stale migrate` is the explicit importer for
-an existing legacy JSON tree.
+`staleness.ledgerPath` names the repository-relative publication directory (default `.paniolo`). Absolute paths, `..` segments, drive prefixes, and symlinked roots are rejected. `stale migrate` is the explicit importer for an existing legacy JSON tree.
 
 ---
 

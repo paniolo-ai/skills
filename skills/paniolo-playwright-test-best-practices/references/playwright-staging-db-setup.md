@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-staging-db-setup
-source-hash: 15faf988dbecd7d474260356d6195160596fbdb9c7c1caeaa4602a8f01ea839f
-bundled: 2026-08-17
+source-hash: 8a697cba8bd097bd9ce72343aec12006b53b920837a375a44e03e1e9f3138b04
+bundled: 2026-10-16
 title: Staging DB Setup
 type: concept
 tags:
@@ -15,8 +15,7 @@ updated: 2026-06-18
 
 # Staging DB Setup
 
-Use real signed sessions (instead of mocked `/api/me`) when tests need Realtime subscriptions,
-actual DB rows, or RLS enforcement.
+Use real signed sessions (instead of mocked `/api/me`) when tests need Realtime subscriptions, actual DB rows, or RLS enforcement.
 
 | Mode                        | Frontend           | API                    | Supabase |
 | --------------------------- | ------------------ | ---------------------- | -------- |

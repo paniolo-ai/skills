@@ -1,7 +1,7 @@
 ---
 source-slug: spacing-placement
-source-hash: 76b222324e91cbde9983188559d62816d720898d4ac50bdd3386a47750671de0
-bundled: 2026-08-01
+source-hash: 1c9c75278d1ddd9953dfdd4804df4d266a75dbee12f6be15755f72575b34ef3e
+bundled: 2026-10-16
 title: Spacing and placement
 type: concept
 tags:
@@ -12,9 +12,7 @@ updated: 2026-06-18
 
 # Spacing and placement
 
-**One blank line above a JSDoc block.** Leave exactly one empty line before a JSDoc block to
-visually separate it from preceding code (unless the JSDoc is at the top of the file or immediately
-after an opening `{`).
+**One blank line above a JSDoc block.** Leave exactly one empty line before a JSDoc block to visually separate it from preceding code (unless the JSDoc is at the top of the file or immediately after an opening `{`).
 
 ```ts
 // ❌ — two blank lines

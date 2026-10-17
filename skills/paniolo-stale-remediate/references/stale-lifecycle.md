@@ -1,7 +1,7 @@
 ---
 source-slug: stale-lifecycle
-source-hash: 9846e27f95c390aa9d18cd571662f98af36e62543cecb70b1a99b578a3dde0d1
-bundled: 2026-10-11
+source-hash: 4e15d049507d8566273f15ff3f373d897466c56fe6ce353c0eb6d423bc446781
+bundled: 2026-10-16
 title: Stale Lifecycle
 type: concept
 tags:
@@ -14,39 +14,19 @@ updated: 2026-09-30
 
 # Stale Lifecycle
 
-The lifecycle lane tracks a wiki page's declared status through `LC-`
-candidates — separate from prose-staleness `S-` allegations. An allegation
-says "this claim may be stale"; a lifecycle candidate says "this page's
-status is wrong because its work finished or it was superseded".
+The lifecycle lane tracks a wiki page's declared status through `LC-` candidates — separate from prose-staleness `S-` allegations. An allegation says "this claim may be stale"; a lifecycle candidate says "this page's status is wrong because its work finished or it was superseded".
 
 ## States
 
-`pending-review → verified-transition → transition-proposed → applied`.
-`declined` and `insufficient-evidence` are durable open outcomes — never
-forced. Editing the page while a candidate is open reopens it at
-`pending-review` via revision tracking.
+`pending-review → verified-transition → transition-proposed → applied`. `declined` and `insufficient-evidence` are durable open outcomes — never forced. Editing the page while a candidate is open reopens it at `pending-review` via revision tracking.
 
 ## Detection Grammar
 
-- `plan-*` pages nominate `completed`; `design-*` pages nominate
-  `implemented`, `superseded`, or `obsolete`. A page is eligible only when
-  the wiki config declares its prefix and the proposed status exists in
-  that prefix's vocabulary.
-- Plan cards are `###` headings under a `##` section named one of:
-  Implementation Cards, Implementation Phases, Task Queue, Cards, Work
-  Items, Ordered Work. Other sections stay prose.
-- A card resolves only when a `Status:`, `Status and evidence:`, or
-  `Status/evidence:` line carries the verdict **and an evidence pointer on
-  the same line**. `Implemented —` alone is a bare done-word; evidence on
-  continuation lines is invisible to the detector.
-- Tables under a `##` Status / Verification heading: `| Card | Status |`-keyed
-  rows re-declare card verdicts (the worst declared outcome wins);
-  `| Gate | Cards |` rows are extra obligations. A gate stays open when it
-  names no declared card, references an unknown card id, covers an
-  unresolved card, or declares an unresolved verdict in a `Status` or
-  `Result` column. Rows with no verdict column defer to their cards.
-- Deferred or descoped cards are recorded as obligations — counted, never
-  disguised as done.
+- `plan-*` pages nominate `completed`; `design-*` pages nominate `implemented`, `superseded`, or `obsolete`. A page is eligible only when the wiki config declares its prefix and the proposed status exists in that prefix's vocabulary.
+- Plan cards are `###` headings under a `##` section named one of: Implementation Cards, Implementation Phases, Task Queue, Cards, Work Items, Ordered Work. Other sections stay prose.
+- A card resolves only when a `Status:`, `Status and evidence:`, or `Status/evidence:` line carries the verdict **and an evidence pointer on the same line**. `Implemented —` alone is a bare done-word; evidence on continuation lines is invisible to the detector.
+- Tables under a `##` Status / Verification heading: `| Card | Status |`-keyed rows re-declare card verdicts (the worst declared outcome wins); `| Gate | Cards |` rows are extra obligations. A gate stays open when it names no declared card, references an unknown card id, covers an unresolved card, or declares an unresolved verdict in a `Status` or `Result` column. Rows with no verdict column defer to their cards.
+- Deferred or descoped cards are recorded as obligations — counted, never disguised as done.
 
 ## Command Sequence
 

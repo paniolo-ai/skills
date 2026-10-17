@@ -34,9 +34,7 @@ Output requirements:
 
 ## Rollback Procedures
 
-Prefer the option highest in this list that your setup supports. Each is faster
-to reason about than the one below it, and none require diagnosing the fault
-first — that is the point.
+Prefer the option highest in this list that your setup supports. Each is faster to reason about than the one below it, and none require diagnosing the fault first — that is the point.
 
 ### Rollback via Git Revert (recommended)
 

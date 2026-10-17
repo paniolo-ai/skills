@@ -1,7 +1,7 @@
 ---
 source-slug: react-function-declaration-style
-source-hash: b5e2c4a1856b18318870a0e06ee581568e78c7b1913ba222d9c144e364655d54
-bundled: 2026-08-01
+source-hash: 2ad7ff0ef266615ea93b8660d84bd8bf4f02f69f6c57ec37919f0cbfd2baea63
+bundled: 2026-10-16
 title: Function Declaration Style
 type: concept
 tags:
@@ -13,8 +13,7 @@ updated: 2026-06-18
 
 # Function Declaration Style
 
-Prefer plain function declarations over arrow function assignments for components, event handlers,
-and local callbacks:
+Prefer plain function declarations over arrow function assignments for components, event handlers, and local callbacks:
 
 ```tsx
 // ❌ Avoid: arrow function assignment

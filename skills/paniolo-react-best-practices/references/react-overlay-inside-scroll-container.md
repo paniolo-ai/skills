@@ -1,7 +1,7 @@
 ---
 source-slug: react-overlay-inside-scroll-container
-source-hash: 66d2a20928d0616f7fbadd5e8d8d60291f4c25d1aafd0459b6188aa4ae699d5e
-bundled: 2026-10-02
+source-hash: 0f925875b8ca2e4c5ed08b00c7d7a065fec6d212388c800bd65db01c491bc6d4
+bundled: 2026-10-16
 title: Interactive Overlays Belong Inside the Scroll Container
 type: concept
 tags:
@@ -14,9 +14,7 @@ updated: 2026-08-15
 
 # Interactive Overlays Belong Inside the Scroll Container
 
-An overlay that covers a scrollable element must be a **descendant of that element**, not a sibling
-positioned on top of it. A sibling intercepts the pointer, and because it is not inside the
-scroller, the browser finds no scrollable ancestor to act on.
+An overlay that covers a scrollable element must be a **descendant of that element**, not a sibling positioned on top of it. A sibling intercepts the pointer, and because it is not inside the scroller, the browser finds no scrollable ancestor to act on.
 
 ```tsx
 // ❌ Zones cover the scroller but are not inside it:

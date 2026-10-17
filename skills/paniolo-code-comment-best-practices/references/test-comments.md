@@ -1,7 +1,7 @@
 ---
 source-slug: test-comments
-source-hash: 12ab309d1af16c04d21bf8f3a5c01be91f16ad7c2a23b8dcde8fc907391dcc68
-bundled: 2026-08-01
+source-hash: bd8dd5a305f302b050c149964e52896e0ab6efac7411aeeaa7e98970f4ae1442
+bundled: 2026-10-16
 title: Test file comments
 type: concept
 tags:
@@ -12,9 +12,7 @@ updated: 2026-06-18
 
 # Test file comments
 
-Use `//` in test files to describe purpose or complex setup. Do **not** use JSDoc above `describe`
-or `it`/`test` blocks. Only add a comment above a test block if the test name is not
-self-explanatory. Keep these comments extremely concise.
+Use `//` in test files to describe purpose or complex setup. Do **not** use JSDoc above `describe` or `it`/`test` blocks. Only add a comment above a test block if the test name is not self-explanatory. Keep these comments extremely concise.
 
 ```ts
 // ❌ — redundant header + over-explained

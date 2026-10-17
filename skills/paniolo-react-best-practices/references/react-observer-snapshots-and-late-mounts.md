@@ -1,7 +1,7 @@
 ---
 source-slug: react-observer-snapshots-and-late-mounts
-source-hash: 01e39d1b880f6fe77d2a5006e759216269ab126b9a142df49918ba9bbb421868
-bundled: 2026-10-02
+source-hash: a1c81152ec3fd00e08a27e8a2a2dafca3e50af20d40add20c5650a401e27a00e
+bundled: 2026-10-16
 title: Observer Snapshots and Late Mounts
 type: concept
 tags:
@@ -18,9 +18,7 @@ updated: 2026-08-15
 
 ## 1. Entry geometry is a snapshot, not live
 
-`IntersectionObserverEntry.boundingClientRect` is captured **at the moment the threshold was
-crossed**. Hold the entry and read its rect later and you get where the element *was*, not where it
-is. After any scroll the answer is wrong, and wrong in a way that looks plausible.
+`IntersectionObserverEntry.boundingClientRect` is captured **at the moment the threshold was crossed**. Hold the entry and read its rect later and you get where the element *was*, not where it is. After any scroll the answer is wrong, and wrong in a way that looks plausible.
 
 ```ts
 // ❌ Ranking cached entries by a rect captured at threshold crossing

@@ -1,7 +1,7 @@
 ---
 source-slug: webmcp-timeline
-source-hash: c65bdf4149dd2940679102c025b658c25101644a936455ecbf0b8c74e6fb54cc
-bundled: 2026-09-25
+source-hash: 2d440a86c825923efb4ad90f428d3e1ae2096a1dcd19fc754bb82e5e12da5f6b
+bundled: 2026-10-16
 title: WebMCP Rollout Timeline
 type: concept
 tags:
@@ -15,15 +15,11 @@ updated: 2026-09-25
 
 # WebMCP Rollout Timeline
 
-Estimated browser and consumer rollout as of **2026-09-25**. Chromium milestones
-come from the Blink [Intent to Experiment](https://groups.google.com/a/chromium.org/g/blink-dev/c/gmYffo5WOE8/m/OJxuQRP3AAAJ);
-calendar dates map those milestones to Chromium Dash `early_stable` (Stable
-launch estimates — not ship commitments). Non-Chromium engines remain uncommitted.
+Estimated browser and consumer rollout as of **2026-09-25**. Chromium milestones come from the Blink [Intent to Experiment](https://groups.google.com/a/chromium.org/g/blink-dev/c/gmYffo5WOE8/m/OJxuQRP3AAAJ); calendar dates map those milestones to Chromium Dash `early_stable` (Stable launch estimates — not ship commitments). Non-Chromium engines remain uncommitted.
 
 ## Chromium (Chrome / Edge / WebView)
 
-Intent milestones apply to **desktop, Android, and Android WebView** the same
-way (all six Blink platforms listed as yes).
+Intent milestones apply to **desktop, Android, and Android WebView** the same way (all six Blink platforms listed as yes).
 
 | Phase | Milestone | Est. Stable (`early_stable`) | Notes |
 | --- | --- | --- | --- |
@@ -35,12 +31,9 @@ way (all six Blink platforms listed as yes).
 | Origin trial ends | 156 | 2026-10-07 | Last OT milestone (inclusive) |
 | **Estimated shipping** | **157** | **2026-10-21** | Desktop, Android, and WebView — Intent estimate only |
 
-Local development today: `chrome://flags/#enable-webmcp-testing` (or
-`--enable-features=WebMCPTesting`). OT token alone has not always been enough
-without the flag — see blog-vietanh-webmcp-attack-surface.
+Local development today: `chrome://flags/#enable-webmcp-testing` (or `--enable-features=WebMCPTesting`). OT token alone has not always been enough without the flag — see blog-vietanh-webmcp-attack-surface.
 
-**Edge:** origin trial live from **Edge 150** (Chromium-aligned; defer to Chrome
-platform notes for desktop/Android/WebView detail).
+**Edge:** origin trial live from **Edge 150** (Chromium-aligned; defer to Chrome platform notes for desktop/Android/WebView detail).
 
 ## Other browsers
 
@@ -50,8 +43,7 @@ platform notes for desktop/Android/WebView detail).
 | Safari (WebKit) | Standards-position open; Intent: "No signal" | **No ship date** — discussion only |
 | Brave | Experimental Leo AI chat support | Experimental; not a platform ship |
 
-Cross-browser interoperable WebMCP is **not** on a calendar. Treat it as
-Chromium-first progressive enhancement: `if (document.modelContext) { … }`.
+Cross-browser interoperable WebMCP is **not** on a calendar. Treat it as Chromium-first progressive enhancement: `if (document.modelContext) { … }`.
 
 ## Spec / standards track
 
@@ -74,16 +66,10 @@ These matter for "will anyone call my tools?" more than engine ship dates:
 
 ## How to read this
 
-- **~Oct 2026 (Chrome 157)** is the Intent's ship *estimate* for Chromium
-  desktop, Android, and WebView — watch Chrome Status and a future Intent to
-  Ship; OT ends at 156.
-- **Mobile** here means Chrome on Android and Android WebView on the same
-  milestone train as desktop. iOS Chrome uses WebKit — no WebMCP until WebKit
-  moves.
-- **Firefox / Safari:** months-to-years unknown; do not plan product-critical
-  paths on them.
-- Keep integrations thin ([webmcp-overview](./webmcp-overview.md), [webmcp-apis](./webmcp-apis.md)) so milestone
-  churn stays cheap.
+- **~Oct 2026 (Chrome 157)** is the Intent's ship *estimate* for Chromium desktop, Android, and WebView — watch Chrome Status and a future Intent to Ship; OT ends at 156.
+- **Mobile** here means Chrome on Android and Android WebView on the same milestone train as desktop. iOS Chrome uses WebKit — no WebMCP until WebKit moves.
+- **Firefox / Safari:** months-to-years unknown; do not plan product-critical paths on them.
+- Keep integrations thin ([webmcp-overview](./webmcp-overview.md), [webmcp-apis](./webmcp-apis.md)) so milestone churn stays cheap.
 
 ---
 

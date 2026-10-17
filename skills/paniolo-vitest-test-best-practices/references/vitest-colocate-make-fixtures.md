@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-colocate-make-fixtures
-source-hash: faf148d85a65cd53ad9c5b361b860d6f3ac8fa08a8861472268988b16be9d0d7
-bundled: 2026-08-01
+source-hash: ebc6b1bc6db4ff911ae7e0264b0c3992c262e279801991ca2619742b9c46f61f
+bundled: 2026-10-16
 title: Where to place `make*` helpers
 type: concept
 tags:
@@ -25,14 +25,9 @@ Colocate feature-specific `make*` files with the code that owns the type:
 
 Rules:
 
-- **Do not** add a feature-only `make*` helper under `api/src/test-utils/` or
-  `react/src/lib/test-utils/` when only one feature uses it — put it beside that feature
-  (same rule as `addItemsToUserLibrary.test-util.ts` in `api/src/item-library/`).
-- **Before creating** a new helper, search the feature folder and nearby `*.test-util.ts` files;
-  extend an existing `make*` rather than duplicating a local function in each spec.
-- **Imports:** use `./makeFoo.test-util` from tests in the same folder; use package-aliased paths
-  (`@api/...` / `@react/...`) when calling from another package area (see file-organization skill
-  for cross-module paths).
+- **Do not** add a feature-only `make*` helper under `api/src/test-utils/` or `react/src/lib/test-utils/` when only one feature uses it — put it beside that feature (same rule as `addItemsToUserLibrary.test-util.ts` in `api/src/item-library/`).
+- **Before creating** a new helper, search the feature folder and nearby `*.test-util.ts` files; extend an existing `make*` rather than duplicating a local function in each spec.
+- **Imports:** use `./makeFoo.test-util` from tests in the same folder; use package-aliased paths (`@api/...` / `@react/...`) when calling from another package area (see file-organization skill for cross-module paths).
 
 ---
 

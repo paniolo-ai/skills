@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-update-guards-cover-every-gated-field
-source-hash: c7a5e7bc94e02cf13e08ef34f22ab5cbead7f30933c45392867c28f72964919f
-bundled: 2026-10-02
+source-hash: 1843a05dadcb4d171e74fbc5dd8476b7c11359309eb41ce675a8f1ef0bbf0355
+bundled: 2026-10-16
 title: Update Guards Cover Every Gated Field
 type: concept
 tags:
@@ -13,9 +13,7 @@ updated: 2026-08-15
 
 # Update Guards Cover Every Gated Field
 
-A predicate that decides *whether to apply an incoming update* is a gate over the whole payload. If
-it compares a subset of the fields it gates, every change confined to the uncompared fields is
-silently dropped.
+A predicate that decides *whether to apply an incoming update* is a gate over the whole payload. If it compares a subset of the fields it gates, every change confined to the uncompared fields is silently dropped.
 
 ```ts
 // ❌ Rejects any update where only the panel columns changed

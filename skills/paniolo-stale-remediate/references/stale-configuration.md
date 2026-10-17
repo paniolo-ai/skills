@@ -1,7 +1,7 @@
 ---
 source-slug: stale-configuration
-source-hash: 127bc7d2eaffc594add10a50ad8fdaa4d08f5e237ef30e5a8bded6f9fc38184e
-bundled: 2026-10-11
+source-hash: c0570d55460692c4542888fb3c756291d92a8f9234611b06f2dc733577f03ea8
+bundled: 2026-10-16
 title: Stale Configuration
 type: concept
 tags:
@@ -13,17 +13,9 @@ updated: 2026-10-11
 
 # Stale Configuration
 
-The `staleness` section of `paniolo.config.json` is the deployment control
-plane for `paniolo stale`. Per
-decision-staleness-configuration-authority, configuration
-owns deployment policy — model fleets, role assignments, budgets, ledger
-placement, content scopes — while provider protocols and safety invariants
-remain compiled Rust that configuration cannot relax.
+The `staleness` section of `paniolo.config.json` is the deployment control plane for `paniolo stale`. Per decision-staleness-configuration-authority, configuration owns deployment policy — model fleets, role assignments, budgets, ledger placement, content scopes — while provider protocols and safety invariants remain compiled Rust that configuration cannot relax.
 
-`paniolo stale` reads the section at invocation time: `--config` names the
-file (default `paniolo.config.json` under `--root`), and the `staleness`
-key inside it is validated as a whole. An absent section selects defaults;
-`null` does too. A malformed section is an error, not a warning.
+`paniolo stale` reads the section at invocation time: `--config` names the file (default `paniolo.config.json` under `--root`), and the `staleness` key inside it is validated as a whole. An absent section selects defaults; `null` does too. A malformed section is an error, not a warning.
 
 ## Contents
 
@@ -63,23 +55,11 @@ All keys are camelCase.
 
 ## Enablement And Local Overlay
 
-`enabled: false` makes `scan`, `run`, `propose`, and `worker` return a
-successful JSON response with `"status": "disabled"` before the ledger
-opens. It does not disable inspection, queue maintenance, calibration, or an
-independent workflow that passes a different `--config`. See
-[stale-triggers](./stale-triggers.md) for the command and trigger matrix.
+`enabled: false` makes `scan`, `run`, `propose`, and `worker` return a successful JSON response with `"status": "disabled"` before the ledger opens. It does not disable inspection, queue maintenance, calibration, or an independent workflow that passes a different `--config`. See [stale-triggers](./stale-triggers.md) for the command and trigger matrix.
 
-Agent filing through `stale flag` is intentionally stricter: the
-effective selected config must **explicitly** contain `enabled: true`.
-The built-in default of `true` does not count. Missing, false, and absent
-sections return `status: disabled` with no report record. This lets a
-working agent report evidence it already encountered only when its owner
-has opted into that behavior; filing never launches a remediation agent.
+Agent filing through `stale flag` is intentionally stricter: the effective selected config must **explicitly** contain `enabled: true`. The built-in default of `true` does not count. Missing, false, and absent sections return `status: disabled` with no report record. This lets a working agent report evidence it already encountered only when its owner has opted into that behavior; filing never launches a remediation agent.
 
-The canonical `paniolo.config.json` may have a sibling
-`paniolo.config.local.json`. The local file recursively overlays the tracked
-file: nested objects preserve unspecified tracked values and arrays replace
-rather than append. The local file is machine-owned and should be gitignored.
+The canonical `paniolo.config.json` may have a sibling `paniolo.config.local.json`. The local file recursively overlays the tracked file: nested objects preserve unspecified tracked values and arrays replace rather than append. The local file is machine-owned and should be gitignored.
 
 For a private owner override:
 

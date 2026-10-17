@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-effect-defining-tagged-errors
-source-hash: f66960132639ca92aed3f3941c599b5aff9d99d46e94ea23dcb5e3030c47f5eb
-bundled: 2026-08-01
+source-hash: b141650f05c7df4f53ee225740e15237af617a4494196d73d95431560f6b92eb
+bundled: 2026-10-16
 title: Defining Tagged Errors
 type: concept
 tags:
@@ -14,8 +14,7 @@ updated: 2026-06-18
 
 # Defining Tagged Errors
 
-Use `Data.TaggedError` for all API errors. The tag string is used by `Effect.catchTag` and
-enables discriminated union pattern matching at compile time.
+Use `Data.TaggedError` for all API errors. The tag string is used by `Effect.catchTag` and enables discriminated union pattern matching at compile time.
 
 ```typescript
 // api/src/api-errors.ts

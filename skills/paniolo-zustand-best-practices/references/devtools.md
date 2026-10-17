@@ -1,7 +1,7 @@
 ---
 source-slug: devtools
-source-hash: 2d6894fb0867f68d5b402521c775db11b8050e0b44e47afb254a4e8171d05457
-bundled: 2026-08-01
+source-hash: 72ab56a7adba90eace1eb4aa5c4e56d10b1fce223e7c54d8c4c301a24d65f238
+bundled: 2026-10-16
 title: DevTools
 type: concept
 tags:
@@ -15,8 +15,7 @@ updated: 2026-06-18
 
 # DevTools
 
-Wrap the store with `devtools` to get action history and time-travel debugging in the Redux DevTools
-browser extension:
+Wrap the store with `devtools` to get action history and time-travel debugging in the Redux DevTools browser extension:
 
 ```typescript
 import { devtools } from "zustand/middleware";

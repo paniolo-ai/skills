@@ -1,7 +1,7 @@
 ---
 source-slug: mcp-testing-evals
-source-hash: f096b0c47f3ac59e21f6106aa5e7c2a616ccf742def87ae1d7adbe01e71143f2
-bundled: 2026-09-30
+source-hash: 4cec66716cd874c697f5dc92f7424e9de43ae547686af04e98b97fda71011a52
+bundled: 2026-10-16
 title: MCP Testing and Evals
 type: concept
 tags:
@@ -14,22 +14,13 @@ updated: 2026-09-30
 
 # MCP Testing and Evals
 
-MCP servers have two distinct correctness surfaces, and they need different
-test machinery: **protocol conformance** (did we implement the spec?) and
-**agent behavior** (does the model pick the right tool?). A green typecheck
-says nothing about either.
+MCP servers have two distinct correctness surfaces, and they need different test machinery: **protocol conformance** (did we implement the spec?) and **agent behavior** (does the model pick the right tool?). A green typecheck says nothing about either.
 
 ## Layer 1 — protocol conformance
 
-**MCP Inspector** (`@modelcontextprotocol/inspector`, v2) is the interactive
-floor — Web UI, scriptable `--cli` for CI and agent feedback loops, and a TUI.
-Use it to drive `initialize` → `tools/list` → `tools/call` by hand before
-trusting a client. Caveat: it stores OAuth tokens and `env:` secrets in the OS
-keychain or `~/.mcp-inspector/secrets.json` — treat it as a credential-bearing
-tool, not a harmless debug UI.
+**MCP Inspector** (`@modelcontextprotocol/inspector`, v2) is the interactive floor — Web UI, scriptable `--cli` for CI and agent feedback loops, and a TUI. Use it to drive `initialize` → `tools/list` → `tools/call` by hand before trusting a client. Caveat: it stores OAuth tokens and `env:` secrets in the OS keychain or `~/.mcp-inspector/secrets.json` — treat it as a credential-bearing tool, not a harmless debug UI.
 
-**The conformance suite** (`@modelcontextprotocol/conformance`) runs
-spec-pinned scenarios against clients *and* servers:
+**The conformance suite** (`@modelcontextprotocol/conformance`) runs spec-pinned scenarios against clients *and* servers:
 
 ```bash
 npx @modelcontextprotocol/conformance server --url http://localhost:3000/mcp

@@ -14,18 +14,11 @@ references: []
 
 # paniolo-scan — audit
 
-Diagnose the repo's AI-agent harness with the deterministic `paniolo scan` CLI (via
-`@paniolo/cli`). The scanner is **read-only** — it never writes files, and neither does this
-skill. Fixing findings is a separate skill: `paniolo-scan-remediate`. Platform binaries ship
-with a `SHA256SUMS.txt` manifest inside the package; `paniolo bootstrap` verifies the binary
-it links against it and refuses on a mismatch.
+Diagnose the repo's AI-agent harness with the deterministic `paniolo scan` CLI (via `@paniolo/cli`). The scanner is **read-only** — it never writes files, and neither does this skill. Fixing findings is a separate skill: `paniolo-scan-remediate`. Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package; `paniolo bootstrap` verifies the binary it links against it and refuses on a mismatch.
 
 ## When to use
 
-Use this skill when the user wants to measure how well a repository is set up for coding
-agents — for example: "scan my harness", "check my AI agent setup", "audit CLAUDE.md /
-AGENTS.md", "score my agent rules and skills", or the `/paniolo-scan` trigger. Works in any
-harness: Claude Code, Cursor, Copilot, Codex, Gemini, and Antigravity.
+Use this skill when the user wants to measure how well a repository is set up for coding agents — for example: "scan my harness", "check my AI agent setup", "audit CLAUDE.md / AGENTS.md", "score my agent rules and skills", or the `/paniolo-scan` trigger. Works in any harness: Claude Code, Cursor, Copilot, Codex, Gemini, and Antigravity.
 
 ## Flow
 

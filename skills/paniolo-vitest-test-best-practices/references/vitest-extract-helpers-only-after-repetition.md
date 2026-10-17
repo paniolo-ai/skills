@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-extract-helpers-only-after-repetition
-source-hash: 4017353e0d828d2a62ee87d6d2e3dd430d9bc5116754f6780078910aab846309
-bundled: 2026-08-01
+source-hash: 1f12304e49861464d9c29fb37f60770246c1db4d0eb5e48afa29ce10acc00afd
+bundled: 2026-10-16
 title: Extract Helpers Only After Repetition
 type: concept
 tags:
@@ -13,15 +13,11 @@ updated: 2026-07-14
 
 # Extract Helpers Only After Repetition
 
-Keep one-off setup inline. Extract a local typed factory when the same complete prop, callback,
-or mock bundle repeats two or more times in a spec. This keeps each assertion focused on the
-meaningful override without hiding the test's behavior behind a general-purpose helper.
+Keep one-off setup inline. Extract a local typed factory when the same complete prop, callback, or mock bundle repeats two or more times in a spec. This keeps each assertion focused on the meaningful override without hiding the test's behavior behind a general-purpose helper.
 
 ## Local factories for repeated test setup
 
-Use a descriptive local factory such as `makeProps`, `makeHookProps`, `makeCallbacks`, or
-`makeStoreState`. It should return the real type, supply valid defaults, and accept `Partial<T>`
-overrides:
+Use a descriptive local factory such as `makeProps`, `makeHookProps`, `makeCallbacks`, or `makeStoreState`. It should return the real type, supply valid defaults, and accept `Partial<T>` overrides:
 
 ```ts
 function makeProps(overrides: Partial<ComponentProps<typeof Player>> = {}) {

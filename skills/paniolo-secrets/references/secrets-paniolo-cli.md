@@ -1,7 +1,7 @@
 ---
 source-slug: secrets-paniolo-cli
-source-hash: 60e9df0c660d198e3ec8e097a9f8a13872f865ea472fb3d866f7e2ef83f7bb37
-bundled: 2026-10-02
+source-hash: 133f987a48d6b60a927930488778cb68925bcd9ecdc6ef393296d498f1ce4a54
+bundled: 2026-10-16
 title: Paniolo Secrets CLI
 type: concept
 tags:
@@ -15,10 +15,7 @@ updated: 2026-09-26
 
 # Paniolo Secrets CLI
 
-The public `paniolo secrets` command stores project secrets in the operating
-system credential store and injects selected names into one child process.
-Use a project-owned service name and a committed list of names. Keep values
-out of files, command arguments, shell history, and agent output.
+The public `paniolo secrets` command stores project secrets in the operating system credential store and injects selected names into one child process. Use a project-owned service name and a committed list of names. Keep values out of files, command arguments, shell history, and agent output.
 
 ## Contents
 
@@ -43,11 +40,7 @@ out of files, command arguments, shell history, and agent output.
 | Run | `paniolo secrets run --service SERVICE --list FILE -- COMMAND [ARGS...]` | Runs a child with listed secrets; passes through its output and exit status. |
 | Delete | `paniolo secrets delete NAME --service SERVICE` | Removes one entry; reports absence without failing. |
 
-There is no command to print a stored value. `status` reads the credential store;
-it does not count a value supplied only through the current shell environment.
-`set --stdin` and `set --generate` cannot be combined. A generated secret cannot
-be recovered from CLI output. To rotate one deliberately, delete it and generate
-a new entry as separate actions.
+There is no command to print a stored value. `status` reads the credential store; it does not count a value supplied only through the current shell environment. `set --stdin` and `set --generate` cannot be combined. A generated secret cannot be recovered from CLI output. To rotate one deliberately, delete it and generate a new entry as separate actions.
 
 ---
 
@@ -55,13 +48,9 @@ a new entry as separate actions.
 
 ## List Files and Service Names
 
-The project supplies `--service` for every action. Use different service names
-for development, staging, and production. A matching variable name under two
-services does not imply a shared value.
+The project supplies `--service` for every action. Use different service names for development, staging, and production. A matching variable name under two services does not imply a shared value.
 
-`status` and `run` require `--list`. The list is plain text with one portable
-environment variable name per line. Blank lines and `#` comments are ignored;
-duplicate names and malformed names fail. Never put a value in the list.
+`status` and `run` require `--list`. The list is plain text with one portable environment variable name per line. Blank lines and `#` comments are ignored; duplicate names and malformed names fail. Never put a value in the list.
 
 ```text
 # config/env-secrets.dev.list

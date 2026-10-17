@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-translation-aware-tests
-source-hash: 3ad23ac43d4bd1a124c6c4718655749c041b85d8001974c8a8c519c66ffbce11
-bundled: 2026-08-20
+source-hash: 1c69b68952dd0e6d73956bfe80e725b09de294b2a03a964281a9f010d735d0ef
+bundled: 2026-10-16
 title: Translation-Aware Tests
 type: concept
 tags:
@@ -14,8 +14,7 @@ updated: 2026-08-20
 
 # Translation-Aware Tests
 
-Tests that rely on text content break when translations change. Use semantic data attributes
-instead.
+Tests that rely on text content break when translations change. Use semantic data attributes instead.
 
 **Problem:**
 

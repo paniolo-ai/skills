@@ -15,35 +15,25 @@ references:
 
 ## First: do you need one?
 
-A worktree earns its cost when **another session may be using the shared
-checkout**. `HEAD`, the branch set, and the stash stack are shared across every
-worktree of a repository, so a concurrent checkout moves your branch and a
-concurrent branch switch deletes your uncommitted files.
+A worktree earns its cost when **another session may be using the shared checkout**. `HEAD`, the branch set, and the stash stack are shared across every worktree of a repository, so a concurrent checkout moves your branch and a concurrent branch switch deletes your uncommitted files.
 
 Decide from the checkout, not from preference:
 
 - `git worktree list` shows worktrees you did not create → likely yes.
-- Uncommitted changes you did not make, and the set grows between two
-  `git status` calls → yes, a session is actively writing.
+- Uncommitted changes you did not make, and the set grows between two `git status` calls → yes, a session is actively writing.
 - One commit you can make and push immediately → no, the window is too small.
 
-Full signal list and the loss modes behind each:
-`references/git-worktree-shared-checkout-hazards.md`.
+Full signal list and the loss modes behind each: `references/git-worktree-shared-checkout-hazards.md`.
 
 ## Always, regardless
 
-- `git branch --show-current` **immediately before every commit**, not at the
-  start of the task.
-- Get your work onto your own branch early. Work held only in a shared working
-  tree is one `git checkout` away from gone.
-- Never bare `git stash` or `git stash pop` — the stack is shared. Prefer a
-  temporary WIP commit.
+- `git branch --show-current` **immediately before every commit**, not at the start of the task.
+- Get your work onto your own branch early. Work held only in a shared working tree is one `git checkout` away from gone.
+- Never bare `git stash` or `git stash pop` — the stack is shared. Prefer a temporary WIP commit.
 
 ## Never touch another session's work
 
-Do not commit, stash, revert, or repair changes you did not make — not even a
-one-line fix in a file you are already editing. If a gate fails on their code,
-stop and show the output. Verify your staged set before every commit:
+Do not commit, stash, revert, or repair changes you did not make — not even a one-line fix in a file you are already editing. If a gate fails on their code, stop and show the output. Verify your staged set before every commit:
 
 ```bash
 git diff --cached --name-status   # exactly your files, nothing else

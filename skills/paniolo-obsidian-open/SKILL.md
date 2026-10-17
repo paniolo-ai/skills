@@ -22,30 +22,23 @@ references:
 
 # Obsidian Open
 
-Open a Markdown file in the user's already-running Obsidian instance using
-the `obsidian://` URI scheme — the bridge from terminal/agent work to the
-user's GUI reader. The URI focuses the existing window; it never spawns a
-duplicate app.
+Open a Markdown file in the user's already-running Obsidian instance using the `obsidian://` URI scheme — the bridge from terminal/agent work to the user's GUI reader. The URI focuses the existing window; it never spawns a duplicate app.
 
 ## Use When
 
 - Presenting a doc or wiki page to the human — "open this in Obsidian".
-- The user wants rendered Markdown with clickable `[[wikilinks]]`, graph
-  view, or backlinks rather than terminal output.
+- The user wants rendered Markdown with clickable `[[wikilinks]]`, graph view, or backlinks rather than terminal output.
 - Handing off after agent work: point the human at the page you just wrote.
 
 ## Do Not Use
 
-- Creating or editing Paniolo wiki pages — use `paniolo wiki new`; edits in
-  Obsidian bypass frontmatter, prefix, and `wiki/log.md` conventions.
+- Creating or editing Paniolo wiki pages — use `paniolo wiki new`; edits in Obsidian bypass frontmatter, prefix, and `wiki/log.md` conventions.
 - Terminal rendering — use a Markdown renderer (glow or equivalent) instead.
-- Headless or remote sessions with no desktop — the URI opens on the user's
-  GUI session; if there is none, it does nothing useful.
+- Headless or remote sessions with no desktop — the URI opens on the user's GUI session; if there is none, it does nothing useful.
 
 ## Recipe
 
-1. **Prefer the Obsidian CLI when present.** Obsidian 1.12+ ships
-   `obsidian` — it can open, read, and search, not just launch:
+1. **Prefer the Obsidian CLI when present.** Obsidian 1.12+ ships `obsidian` — it can open, read, and search, not just launch:
 
    ```text
    obsidian vault=<name> open path=<vault-relative-path>

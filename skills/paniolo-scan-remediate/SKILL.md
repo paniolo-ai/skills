@@ -14,24 +14,17 @@ references: []
 
 # paniolo-scan-remediate — fix what the audit found
 
-Act on a `paniolo scan` report: fix the findings in the working tree, then re-scan to prove the
-delta. The scanner itself is **read-only** — it never writes files; you (the agent) apply every
-change. Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package;
-`paniolo bootstrap` verifies the binary it links against it and refuses on a mismatch.
+Act on a `paniolo scan` report: fix the findings in the working tree, then re-scan to prove the delta. The scanner itself is **read-only** — it never writes files; you (the agent) apply every change. Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package; `paniolo bootstrap` verifies the binary it links against it and refuses on a mismatch.
 
 ## When to use
 
-Use this skill after `paniolo-scan` has reported findings, or when the user asks to fix,
-remediate, or improve their agent harness — "fix the scan findings", "improve my harness
-score", "clean up these AGENTS.md findings". Works in any harness: Claude Code, Cursor,
-Copilot, Codex, Gemini, and Antigravity. If no scan has run yet, step 1 produces the report.
+Use this skill after `paniolo-scan` has reported findings, or when the user asks to fix, remediate, or improve their agent harness — "fix the scan findings", "improve my harness score", "clean up these AGENTS.md findings". Works in any harness: Claude Code, Cursor, Copilot, Codex, Gemini, and Antigravity. If no scan has run yet, step 1 produces the report.
 
 ## Flow
 
 ### 1. Get a report
 
-Reuse the report from a `paniolo-scan` run earlier in this session if there is one. Otherwise
-produce one — deterministic and read-only:
+Reuse the report from a `paniolo-scan` run earlier in this session if there is one. Otherwise produce one — deterministic and read-only:
 
 ```bash
 npx --yes @paniolo/cli scan --format json .
