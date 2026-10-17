@@ -9,7 +9,7 @@ description: |
   rendering (use a Markdown renderer), or in headless sessions with no GUI.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - obsidian
 user-invocable: true
@@ -59,12 +59,18 @@ Open a Markdown file in the user's already-running Obsidian instance using the `
 3. **Build the URI**, percent-encoding every value:
 
    ```text
-   obsidian://open?vault=<name-or-id>&file=<vault-relative-path>
+   obsidian://open?vault=<name-or-id>&file=<vault-relative-path.md>
    obsidian://open?path=<absolute-path-percent-encoded>
    ```
 
-   Prefer `path=` when the vault name is unknown — Obsidian finds the most
-   specific registered vault containing that absolute path.
+   Prefer the vault form: take the registered vault whose path contains the
+   file, use its folder basename (or id) as `vault`, and give `file` as the
+   path *relative to that vault root*, with the `.md` extension. When a repo
+   is checked out inside a larger vault (for example vault `meta` holding
+   `paniolo/repos/<repo>/wiki/…`), the relative path is the long one.
+   `path=<absolute>` is the fallback only: it relies on Obsidian resolving
+   the most specific registered vault, and an absolute-path launch of a file
+   in such a nested checkout failed to open while the vault form worked.
 4. **Launch through the OS handler** (per-shell commands and quoting gotchas
    are in the URI-scheme reference):
 
@@ -100,6 +106,14 @@ in your output as a clickable `obsidian://` link instead of a bare path:
 Tell the user what you opened and on which vault. A correct `open` focuses
 Obsidian on the page; an unregistered vault or bad encoding silently does
 nothing — when in doubt, test `obsidian://open?vault=<name>` alone first.
+
+A URI launch gives no success signal: `Start-Process` returns cleanly even
+when Obsidian then reports it cannot open the file, and the window title does
+not reliably name the note. Do not report the page as opened until the user
+confirms it. If they say it failed, ask for the exact error: "vault not
+found" points at the vault name or id; "file not found" points at the
+relative path or extension, or a brand-new file Obsidian has not indexed yet
+(reload the vault).
 
 ## References
 
