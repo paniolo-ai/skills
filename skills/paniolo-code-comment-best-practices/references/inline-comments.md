@@ -1,7 +1,7 @@
 ---
 source-slug: inline-comments
-source-hash: 7482acf57fc6d86523ee365f6e1c654a703047f2bd8c207a42c8084fff3cd378
-bundled: 2026-10-16
+source-hash: 27d82fac579e0d1808b57ea009b3ee786357596d12bf25940f71f5c14368193d
+bundled: 2026-10-17
 title: Inline `//` comments
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-naming-variable-naming
-source-hash: 2ae3f35eae111f81151a4ebaa7c211a703a018a54c08a20d2e1c41f1ff04344c
-bundled: 2026-08-01
+source-hash: f33e5e7184a73239098eacea178382993019aaf4cdaf85f74bfd528d372bb2fe
+bundled: 2026-10-17
 title: Variable Naming
 type: concept
 tags:

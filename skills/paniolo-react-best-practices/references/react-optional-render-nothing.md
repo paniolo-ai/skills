@@ -1,7 +1,7 @@
 ---
 source-slug: react-optional-render-nothing
-source-hash: e4a93cd9b070d484c87bec0b456d634e477861a1c9d0902e6a3a22b939d92a9d
-bundled: 2026-10-16
+source-hash: 705c8b3a881c8774cefa57ae2b40e2647a239a2ace6b6306031ca903f15ae32e
+bundled: 2026-10-17
 title: Optional “render nothing” return
 type: concept
 tags:

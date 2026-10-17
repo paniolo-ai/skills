@@ -1,7 +1,7 @@
 ---
 source-slug: constants-placement-across-modules
-source-hash: 45e58841b7b17b46bd86dc6dc5634436d69aa6d2270399580e2c99489aaa6875
-bundled: 2026-08-01
+source-hash: a9cb494ff01daed7ceff34ce7609171e14235823c8c3ee85d4779f4d2bd94eef
+bundled: 2026-10-17
 title: Constants placement across modules
 type: concept
 tags:
@@ -12,7 +12,7 @@ updated: 2026-06-18
 
 # Constants placement across modules
 
-> **Hub:** File organization (authoring) index
+> **Hub:** [File organization (authoring)](./file-organization.md)
 
 - **1 file:** module-level `const` in that file (no `constants.ts`)
 - **2 files:** ask owner — colocate if tightly coupled, otherwise create shared module

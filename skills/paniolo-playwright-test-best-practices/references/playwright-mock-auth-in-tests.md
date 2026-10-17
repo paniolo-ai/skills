@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-mock-auth-in-tests
-source-hash: 13cac46dbeed9ad43bf82963967fe820b8a934853063fa853406345d82be1301
-bundled: 2026-10-16
+source-hash: 058e7bd4b25e734f6625b11cc27a9006215696b170ac7b6bb988601b56256572
+bundled: 2026-10-17
 title: Mock Auth in Tests
 type: concept
 tags:

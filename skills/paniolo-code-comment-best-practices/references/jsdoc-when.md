@@ -1,7 +1,7 @@
 ---
 source-slug: jsdoc-when
-source-hash: 69a355c6caa04535f3e2434c953eec749b19727f0c4892d65c20007c30c70837
-bundled: 2026-10-16
+source-hash: e656415a9ef9bdf4cb16b699840e9cd31443ac0c44c941acff426b1b09f578c8
+bundled: 2026-10-17
 title: JSDoc — when to use
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna
-source-hash: 778631c73cf159664da49089365901f5bd85c7c3bffda192d220176e9a633fde
-bundled: 2026-08-01
+source-hash: f58e7fa005a8bc0c78a2ec3ebb7387d7d27b548d4f9a95d234d3f5541e80ea50
+bundled: 2026-10-17
 title: '`no-unsafe-assignment` / dynamic tables'
 type: concept
 tags:

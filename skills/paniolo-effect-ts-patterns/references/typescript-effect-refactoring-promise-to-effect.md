@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-effect-refactoring-promise-to-effect
-source-hash: 5148cb24093d366e09f15b9d9db4dbc96e6561258e0cdcb481021ac921fbeb23
-bundled: 2026-10-16
+source-hash: d808986981454317ba20e0bee07547b01cd7c235f384b9fd079a10d3ed00880f
+bundled: 2026-10-17
 title: Refactoring Promise-Returning Functions to Effect
 type: concept
 tags:

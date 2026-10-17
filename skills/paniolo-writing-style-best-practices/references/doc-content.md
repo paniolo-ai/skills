@@ -1,7 +1,7 @@
 ---
 source-slug: doc-content
-source-hash: be7997608c4252490cc617e7f829d9acabd48034648fed1eaa90d40c93ed8e7a
-bundled: 2026-10-02
+source-hash: 38f8dd4726341bcd0f43d4ff0ddb80818a65f1166fda5b481715c6b273b2ebd0
+bundled: 2026-10-17
 title: Authoring — Doc content organization
 type: index
 tags:

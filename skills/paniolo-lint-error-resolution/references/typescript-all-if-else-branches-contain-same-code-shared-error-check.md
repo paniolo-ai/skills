@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-all-if-else-branches-contain-same-code-shared-error-check
-source-hash: eca188197bb0ed18c8d188909ee6ade3db6a1e01110c880760c42f38f2442b5e
-bundled: 2026-10-16
+source-hash: 8c05abe27566de9aa9f4e9295cb44c367197909228e656389c613e7e17c43fcd
+bundled: 2026-10-17
 title: Shared error handling across branches
 type: concept
 tags:

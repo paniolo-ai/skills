@@ -1,7 +1,7 @@
 ---
 source-slug: active-vs-passive-voice
-source-hash: 07db4198af441195f4d22fff8ea53e2b9a9f44eadfc21eb8ff73064cb53110b2
-bundled: 2026-08-01
+source-hash: fb3a23c18f999ce3220a42078e3daad2280de438b06ff53ca9dd0977aab0b813
+bundled: 2026-10-17
 title: Active vs Passive Voice
 type: concept
 tags:

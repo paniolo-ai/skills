@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-update-guards-cover-every-gated-field
-source-hash: 1843a05dadcb4d171e74fbc5dd8476b7c11359309eb41ce675a8f1ef0bbf0355
-bundled: 2026-10-16
+source-hash: a49e0a2490e7eff144bd6c0f5dc2c22d359da0fddcd307e077cfb8af2d2791e9
+bundled: 2026-10-17
 title: Update Guards Cover Every Gated Field
 type: concept
 tags:

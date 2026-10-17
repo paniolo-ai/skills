@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-session-expiry
-source-hash: e821001696a5d62aab958175a53d43a0f0567afa29e98a71772e099ac73ee449
-bundled: 2026-08-20
+source-hash: c1f49d3d5d841156d4cbee140d3774a3346aa2d74447b93a72f2d88457b69ab5
+bundled: 2026-10-17
 title: Session Expiry
 type: concept
 tags:

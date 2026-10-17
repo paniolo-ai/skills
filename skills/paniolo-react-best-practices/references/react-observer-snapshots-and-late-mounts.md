@@ -1,7 +1,7 @@
 ---
 source-slug: react-observer-snapshots-and-late-mounts
-source-hash: a1c81152ec3fd00e08a27e8a2a2dafca3e50af20d40add20c5650a401e27a00e
-bundled: 2026-10-16
+source-hash: 6897569b1a7ade33c29b21198e5f8102a9a91d1ffd0d59fca46d93cdc8420ecd
+bundled: 2026-10-17
 title: Observer Snapshots and Late Mounts
 type: concept
 tags:

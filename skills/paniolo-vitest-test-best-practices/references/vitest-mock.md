@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-mock
-source-hash: 682813b779d9a40100c68af6ee33d0844fd2b2b533ccb36cf05ce562a6a26154
-bundled: 2026-10-16
+source-hash: 673161a00751e2b1f9b59d3caffa70f5f4398b61731669620aa219d3f5e80afc
+bundled: 2026-10-17
 title: Authoring — Vitest mocking
 type: index
 tags:

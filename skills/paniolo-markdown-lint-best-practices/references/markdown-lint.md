@@ -1,7 +1,7 @@
 ---
 source-slug: markdown-lint
-source-hash: 13a5e2cde84d9f03cb926806a44f06150e207248ab6a143f3e80f787d2de5de8
-bundled: 2026-10-16
+source-hash: b03054d76c2d6e2ef58690630dac5ff5efc739a5b977a7da3453978859a111a9
+bundled: 2026-10-17
 title: Authoring — Markdown lint
 type: index
 tags:

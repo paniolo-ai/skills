@@ -1,7 +1,7 @@
 ---
 source-slug: doc-structure
-source-hash: 69c68ae8f8fd6b83ff68b953d375afae246d0621d1c9eb2095549eb8cc6e797d
-bundled: 2026-08-01
+source-hash: cb5866c1bbe44d65288a3d3f7dc1c3ab7ecdf18d442d22192879b791e7984947
+bundled: 2026-10-17
 title: Authoring — Doc structure and formatting
 type: index
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-strict-null-checks
-source-hash: 726980e5e897d1890ba460b211b587105029ceae4a2f5576449e2fa7b1b5b93a
-bundled: 2026-08-01
+source-hash: 8f1d4cc43c4313252491a981c7815b06620ba97ab78cda610a78ddca72f30830
+bundled: 2026-10-17
 title: Strict Null Checks
 type: concept
 tags:

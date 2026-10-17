@@ -1,7 +1,7 @@
 ---
 source-slug: react-component-naming
-source-hash: b1fe423b2433ddd6c57d9af1c770430572a67beffd547938d6128125058d83f3
-bundled: 2026-08-01
+source-hash: 202df3fddb2a4bf549a6e83ad82aa6d901bde019b488e95fd6f9e35bd0afea6f
+bundled: 2026-10-17
 title: React Component Naming
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: persist-middleware
-source-hash: 557f8c19c4e12027a5cf5c7362f60530175de45a2d3c7fc473fcf24ff68ae0c5
-bundled: 2026-10-16
+source-hash: cfeea42689307153ec2795bdc4dd990719f9ca64782d4ae5b951c9dbe3a5fa46
+bundled: 2026-10-17
 title: Persist Middleware
 type: concept
 tags:

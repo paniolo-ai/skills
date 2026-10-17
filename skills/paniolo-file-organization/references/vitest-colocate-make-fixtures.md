@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-colocate-make-fixtures
-source-hash: ebc6b1bc6db4ff911ae7e0264b0c3992c262e279801991ca2619742b9c46f61f
-bundled: 2026-10-16
+source-hash: 4665d7f79011f13b06923e44f2bd6c7223d239821259bdc665d4fa6f6770e7e6
+bundled: 2026-10-17
 title: Where to place `make*` helpers
 type: concept
 tags:

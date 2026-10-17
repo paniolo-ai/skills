@@ -1,7 +1,7 @@
 ---
 source-slug: memoized-selectors
-source-hash: 3a14e4bf6aa0467efdb577800515bdab79e5c9e8a57b91338a0bd2ce8e9046ef
-bundled: 2026-08-01
+source-hash: c69f529a9fa2c9556cf95a6354f6730735bbc65a2133accc5ed5029ee25b2d19
+bundled: 2026-10-17
 title: Memoized Selectors
 type: concept
 tags:

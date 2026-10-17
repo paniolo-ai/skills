@@ -1,7 +1,7 @@
 ---
 source-slug: naming
-source-hash: 87dddfba038cfe0cd830b7d4bd3b12c701124e54bb03e46dc134ce4bb6055980
-bundled: 2026-10-02
+source-hash: a7adbf8c815a1639761b0c448f7252e1462a31ca17971f9b14b150422e1fa4d7
+bundled: 2026-10-17
 title: Authoring — Naming conventions
 type: index
 tags:

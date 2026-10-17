@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-consistent-type-imports-type-only-imports
-source-hash: 9b7619595238147874460c4a3fa67cbbe48fd1a4dba5df306ac53a89ccf200dd
-bundled: 2026-08-01
+source-hash: 22140fce231cf309f1174c4ef4aabbddaab413d509c8a1eef83073f4ff40588f
+bundled: 2026-10-17
 title: '`consistent-type-imports` — type-only imports'
 type: concept
 tags:

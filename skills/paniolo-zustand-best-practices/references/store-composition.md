@@ -1,7 +1,7 @@
 ---
 source-slug: store-composition
-source-hash: b88f13fbd67f83fca1bc346370ec6a2d20f33c07ecef2593418406373e5d2fd8
-bundled: 2026-08-01
+source-hash: 72816d8569b092877178e3691592e84c426caf0e48c9969e3cdfeedc60c60630
+bundled: 2026-10-17
 title: Store Composition (Multiple Stores)
 type: concept
 tags:

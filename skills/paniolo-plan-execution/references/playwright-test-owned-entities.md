@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-test-owned-entities
-source-hash: d1a0f6ebdab81950477e8efd4c1c3428785453b7b1e3b4a337f4ee736630bec7
-bundled: 2026-10-16
+source-hash: 13b469974bbae7b23d71818f50c574dff0ee1420a3661011c0b5c5511742dfa1
+bundled: 2026-10-17
 title: Test-Owned Entities
 type: concept
 tags:

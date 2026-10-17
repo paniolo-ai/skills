@@ -1,7 +1,7 @@
 ---
 source-slug: naming-file-naming
-source-hash: d043da6a2534684c43835b5c383de053bebe771c47b434925208380c3e7c85d7
-bundled: 2026-10-16
+source-hash: 353cb650c60d96305b6f6a8aaae5b8ce3508e9ed00e7c72b97ad2f544ff4524c
+bundled: 2026-10-17
 title: File Naming
 type: concept
 tags:

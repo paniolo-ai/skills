@@ -1,7 +1,7 @@
 ---
 source-slug: zustand
-source-hash: 14bfe1b42bf2a39483e5764f00b6eedb3b2650cfa51b311fdc1884c952fcdb72
-bundled: 2026-09-03
+source-hash: 022a90267ac02bdbad6c344111f103c2d7e3a325a97b38e28e02b30952d0e7d2
+bundled: 2026-10-17
 title: Authoring — Zustand
 type: index
 tags:

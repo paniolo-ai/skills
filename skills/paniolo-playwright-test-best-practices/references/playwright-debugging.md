@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-debugging
-source-hash: 5aa4635d8795a6de0fc66befb65330086231a81c97b9f83f4e150a5030ec5917
-bundled: 2026-10-16
+source-hash: 623df63633b45e4d548c0e96713ea2f0d8da64ff6ea27059ac0cc4fa335a9efd
+bundled: 2026-10-17
 title: Debugging
 type: concept
 tags:

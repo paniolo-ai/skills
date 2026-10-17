@@ -1,7 +1,7 @@
 ---
 source-slug: completion-means-the-gate-ran
-source-hash: 0cce2a8634dbb838a092a97a847a740c503c75b2cbb77bf66f42020ac39c5e07
-bundled: 2026-10-16
+source-hash: d91d05f1ce7a33221c47ef5abe4ce66fa01ba516dd9f71175e3115896dd73f7f
+bundled: 2026-10-17
 title: Completion Means the Gate Ran
 type: concept
 tags:

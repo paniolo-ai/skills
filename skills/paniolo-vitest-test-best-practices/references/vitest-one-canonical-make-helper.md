@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-one-canonical-make-helper
-source-hash: b1fb60ab71cd0ec4eedb56f0854597b9ab4a69a3b245599494f225cda9ef200f
-bundled: 2026-10-16
+source-hash: 9f88db864c3ce1471dad91663b5d239cd160ced9d93099c6bcc33f6245179cd1
+bundled: 2026-10-17
 title: One canonical `make*` per fixture type
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-ambient-types
-source-hash: f85771e9d32baaacbb3860d65632d114f2d1f1ae2b7a87131f02a90b0b8999e7
-bundled: 2026-08-01
+source-hash: 0d43b8f05f135818d1b440623c9ba32ba4273ed7be0501aec21d3aa9e039d13a
+bundled: 2026-10-17
 title: Ambient Types
 type: concept
 tags:

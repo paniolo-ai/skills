@@ -1,7 +1,7 @@
 ---
 source-slug: react-useeffect-rules
-source-hash: 21be01b24853e663a328a4011854a14a872a927f3c086af08630cf9e15483cd9
-bundled: 2026-08-01
+source-hash: d20cbeab77ee1073d47907f77db5e199ec911a18596e662376e8302ba1179c07
+bundled: 2026-10-17
 title: useEffect Rules
 type: concept
 tags:

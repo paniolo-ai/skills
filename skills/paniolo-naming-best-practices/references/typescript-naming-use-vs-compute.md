@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-naming-use-vs-compute
-source-hash: 8d7251c54f0e4f9b55898909cbd869720ca62c5074ea73f95ee5c9bb0b0f75d4
-bundled: 2026-08-01
+source-hash: e00a0f64a16b6d906e782f2f0ed164672bda25f5e142758e2549fd88ee508630
+bundled: 2026-10-17
 title: use\* vs compute\* — The Most Common Mistake
 type: concept
 tags:

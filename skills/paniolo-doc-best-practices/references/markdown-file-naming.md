@@ -1,7 +1,7 @@
 ---
 source-slug: markdown-file-naming
-source-hash: ffd1431cb40c600e1c08e1d4311f2b0eaff44cdcb1205985939af5ff6cd7baa4
-bundled: 2026-08-01
+source-hash: 39b8a88584696a656beb33ef8183400193da8c1246ed113359029d1e48de4028
+bundled: 2026-10-17
 title: File Naming
 type: concept
 tags:

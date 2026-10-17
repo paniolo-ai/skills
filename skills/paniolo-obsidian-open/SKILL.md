@@ -9,7 +9,7 @@ description: |
   rendering (use a Markdown renderer), or in headless sessions with no GUI.
 license: MIT
 metadata:
-  version: 0.1.1
+  version: 0.1.2
 tags:
 - obsidian
 user-invocable: true
@@ -107,13 +107,49 @@ Tell the user what you opened and on which vault. A correct `open` focuses
 Obsidian on the page; an unregistered vault or bad encoding silently does
 nothing — when in doubt, test `obsidian://open?vault=<name>` alone first.
 
-A URI launch gives no success signal: `Start-Process` returns cleanly even
-when Obsidian then reports it cannot open the file, and the window title does
-not reliably name the note. Do not report the page as opened until the user
-confirms it. If they say it failed, ask for the exact error: "vault not
-found" points at the vault name or id; "file not found" points at the
-relative path or extension, or a brand-new file Obsidian has not indexed yet
-(reload the vault).
+A URI launch gives no success signal of its own: `Start-Process` returns
+cleanly even when Obsidian then reports it cannot open the file, and the
+window title does not reliably name the note. Check the app's own state
+instead. Obsidian records the open note in `<vault>/.obsidian/workspace.json`
+within a second or two, so after the launch poll that file for the note's
+name for up to about 10 seconds. A missing note never appears there, so the
+check can fail as well as pass.
+
+```powershell
+$ws = "$vaultRoot\.obsidian\workspace.json"
+1..10 | ForEach-Object {
+  Start-Sleep 1
+  if ((Get-Content $ws -Raw) -match [regex]::Escape($noteName)) { return 'opened' }
+}
+```
+
+Report "opened" only when the note appears. If it does not, work through
+these in order:
+
+1. **The path or vault is wrong.** The URI uses the vault name or id and the
+   vault-relative path with `.md`. "Vault not found" points at the name or id;
+   "file not found" for a note that is on disk and was created long ago points
+   at the path.
+2. **Obsidian is hung or overloaded.** A healthy Obsidian opens a note
+   created seconds earlier within about a second, in a plain folder, inside a
+   git checkout, and with any filename. When a burst of thousands of file
+   events hits the vault (a cargo build writing into a `.target` directory
+   inside it, for example), Obsidian stops indexing new files. Measured
+   2026-10-17 with a 40,000-file burst: from outside the app, touching the
+   file, rewriting it, renaming it, opening by note name instead of path, and
+   waiting over six minutes all failed. **Only restarting Obsidian fixed it**:
+   the stuck notes opened within two seconds afterwards. Do not keep retrying;
+   tell the user Obsidian looks hung and ask them to restart it, then retry.
+3. Do not ask the user to "reload the vault" as the fix for this case, and do
+   not write files into the vault to test it.
+
+Prevent the second case instead of recovering from it: keep build and cache
+directories out of the vault. The gate's scratch directories (`C:\lt-check-*`)
+already are; a `.target` inside a repo that sits under the vault is not.
+
+Keystrokes typed while Obsidian is hung or focused can land in the note you
+just opened and edit it. After opening a wiki page for the user, check the
+wiki's `git status` for an edit you did not make.
 
 ## References
 

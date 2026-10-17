@@ -1,7 +1,7 @@
 ---
 source-slug: anti-patterns
-source-hash: c27aac448840b386aad259f824061a57a52e6883aea517cc243d3c695445a3ad
-bundled: 2026-10-16
+source-hash: 4f7e96da5a64f77406190657543a4e24c05b6b75d5b5609711668f9d518d23da
+bundled: 2026-10-17
 title: Anti-patterns
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-effect-mixing-promises-and-effects
-source-hash: 0af9a8c396656cf0146a6cab4dc390020214e6fa5eece48ba9c1019f241841a5
-bundled: 2026-08-01
+source-hash: d721132d446eb095c6dd829c5405fdf1334b28597cdc3c0aa216baa36185fef7
+bundled: 2026-10-17
 title: Mixing Promises and Effects
 type: concept
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-effect-defining-tagged-errors
-source-hash: b141650f05c7df4f53ee225740e15237af617a4494196d73d95431560f6b92eb
-bundled: 2026-10-16
+source-hash: 937f34ef0ebf91cf6ee29ea3946974bf6d21dbde7c3d197dbb5876fc9da474b1
+bundled: 2026-10-17
 title: Defining Tagged Errors
 type: concept
 tags:

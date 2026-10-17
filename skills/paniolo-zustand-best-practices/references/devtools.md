@@ -1,7 +1,7 @@
 ---
 source-slug: devtools
-source-hash: 72ab56a7adba90eace1eb4aa5c4e56d10b1fce223e7c54d8c4c301a24d65f238
-bundled: 2026-10-16
+source-hash: 7be95945f7ba8dc46bc8cc59b6641c832f9683d51e62d001b9c621480f17ffe4
+bundled: 2026-10-17
 title: DevTools
 type: concept
 tags:

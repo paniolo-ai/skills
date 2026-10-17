@@ -1,7 +1,7 @@
 ---
 source-slug: code-layout
-source-hash: f2e7ea461759f3010a56bf522574218e87afc6b46837b375c1e9808a66d14545
-bundled: 2026-08-01
+source-hash: 5dedd99251e02e031d804e418b491fd1a51e1d9f1f6f5eec68de81836548f466
+bundled: 2026-10-17
 title: Authoring — Code layout
 type: index
 tags:

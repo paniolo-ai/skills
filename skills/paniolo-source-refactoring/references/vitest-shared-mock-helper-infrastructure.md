@@ -1,7 +1,7 @@
 ---
 source-slug: vitest-shared-mock-helper-infrastructure
-source-hash: 4be211e5c25c031559b261d16439276503b677238245283ec0dcc22671e11bbe
-bundled: 2026-10-16
+source-hash: cc4187bd2702459cab6e6007c15ef3a276741931038eb9c371199b74b8fa578d
+bundled: 2026-10-17
 title: Shared Mock Helper Infrastructure
 type: concept
 tags:

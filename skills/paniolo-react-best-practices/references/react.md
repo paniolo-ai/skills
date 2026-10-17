@@ -1,7 +1,7 @@
 ---
 source-slug: react
-source-hash: c6e1372b2e5a6da635e331baefe77d6bcac639d48f34187f3295dc1f1cde448e
-bundled: 2026-08-30
+source-hash: edc57816cc28ef6e6d8aaceea09349c11d9e4d1a9592042e5b839bbc3320177f
+bundled: 2026-10-17
 title: Authoring — React
 type: index
 tags:

@@ -1,7 +1,7 @@
 ---
 source-slug: react-common-prop-types
-source-hash: 565ebe8705f66c3ee83608dfb0d467979e8d56626e3a813da3b1e5516ca70a51
-bundled: 2026-08-16
+source-hash: 0c8bb3fc79ae9e742904d727e171ab94914d64184694913d62fb292164500261
+bundled: 2026-10-17
 title: Common Prop Types
 type: concept
 tags:

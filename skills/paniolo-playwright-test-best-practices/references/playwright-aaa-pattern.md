@@ -1,7 +1,7 @@
 ---
 source-slug: playwright-aaa-pattern
-source-hash: e3c9c9e513c5e4543f38022a98b84ba4a42c200838e23667f7b8a990094bc14a
-bundled: 2026-08-17
+source-hash: 02c1b667e7b548976c6fb173dc2fa3d6ee030e9f5c7397e3a52bb15bc00c4c57
+bundled: 2026-10-17
 title: AAA Pattern
 type: concept
 tags:

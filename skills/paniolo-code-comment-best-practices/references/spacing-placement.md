@@ -1,7 +1,7 @@
 ---
 source-slug: spacing-placement
-source-hash: 1c9c75278d1ddd9953dfdd4804df4d266a75dbee12f6be15755f72575b34ef3e
-bundled: 2026-10-16
+source-hash: 23be77ae2224cf4606876edda6f040ae13df81932476d707a7dbb09a201d3366
+bundled: 2026-10-17
 title: Spacing and placement
 type: concept
 tags:
