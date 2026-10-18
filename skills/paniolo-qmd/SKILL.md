@@ -4,7 +4,7 @@ description: |
   Find relevant skills, docs, and repo-specific guidance with the Paniolo qmd workspace search. Use before task-shaped work, when qmd results mention a repo-local skill, or when maintaining the qmd index. Do not use for editing qmd implementation code; use script, TypeScript, or test guidance for that.
 license: MIT
 metadata:
-  version: 0.5.15
+  version: 0.5.16
 tags:
 - qmd
 user-invocable: true
@@ -32,6 +32,23 @@ Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package; `pan
 - **WSL (bash):** run `paniolo qmd reindex` to build the BM25 index. GPU embedding stays on the Windows side; WSL uses fast BM25 `search`.
 
 Each platform keeps its own SQLite index on native local disk so Windows and WSL indexes never collide.
+
+### Noninteractive pnpm Prompt
+
+If `pnpm run qmd -- search ...` stops before Paniolo starts with
+`ERR_PNPM_ABORTED_REMOVE_MODULES_DIR_NO_TTY`, check that the installed local
+Paniolo shim exists and run it directly from the harness root:
+
+```powershell
+.\node_modules\.bin\paniolo.cmd qmd search "<task description>"
+```
+
+In WSL bash, use `./node_modules/.bin/paniolo qmd search "<task description>"`.
+The local shim uses the installed CLI and the same harness configuration. Do
+not set `CI=true` or disable pnpm's modules-purge confirmation merely to get
+past this prompt; that can authorize a dependency rewrite. If the shim is
+missing, inspect the configured skills and wiki directories and report that
+qmd was unavailable.
 
 ---
 

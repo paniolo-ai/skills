@@ -9,7 +9,7 @@ description: |
   rendering (use a Markdown renderer), or in headless sessions with no GUI.
 license: MIT
 metadata:
-  version: 0.1.2
+  version: 0.1.3
 tags:
 - obsidian
 user-invocable: true
@@ -148,8 +148,22 @@ directories out of the vault. The gate's scratch directories (`C:\lt-check-*`)
 already are; a `.target` inside a repo that sits under the vault is not.
 
 Keystrokes typed while Obsidian is hung or focused can land in the note you
-just opened and edit it. After opening a wiki page for the user, check the
-wiki's `git status` for an edit you did not make.
+just opened and edit it. This happened twice on 2026-10-17: a reply typed in
+the terminal appeared as "yes" at the top of an open plan page. Open pages for
+the user in **Reading view**, where typing does nothing.
+
+The vault setting is Settings, Editor, "Default view for new tabs", set to
+Reading view. Obsidian stores it in `<vault>/.obsidian/app.json` as
+`"defaultViewMode": "preview"` (verified on 2026-10-17 by changing the setting
+and reading the file). Before opening a page for the user, read that file; if
+`defaultViewMode` is not `preview`, say so and suggest the setting. Do not
+edit `app.json` yourself while Obsidian is running; the app rewrites it. The
+setting applies to tabs opened afterwards: a note already open in an editor
+tab keeps its mode until the user toggles it. There is no URI parameter for
+the view mode (`paneType` only chooses tab, split, or window).
+
+Even in Reading view, check the wiki's `git status` after opening pages for an
+edit you did not make.
 
 ## References
 
