@@ -4,7 +4,7 @@ description: |
   Find relevant skills, docs, and repo-specific guidance with the Paniolo qmd workspace search. Use before task-shaped work, when qmd results mention a repo-local skill, or when maintaining the qmd index. Do not use for editing qmd implementation code; use script, TypeScript, or test guidance for that.
 license: MIT
 metadata:
-  version: 0.5.16
+  version: 0.5.17
 tags:
 - qmd
 user-invocable: true
@@ -49,6 +49,20 @@ not set `CI=true` or disable pnpm's modules-purge confirmation merely to get
 past this prompt; that can authorize a dependency rewrite. If the shim is
 missing, inspect the configured skills and wiki directories and report that
 qmd was unavailable.
+
+### Sandbox Access To The Native Index
+
+If qmd reports `Access is denied` while inspecting a `workspace.sqlite` file
+under the platform's local state directory, the sandbox may be blocking that
+directory. Retry the same qmd command with the environment's approved
+filesystem access. Use the harness launcher or the installed local shim from
+above; do not relocate, copy, delete, or rebuild the index to evade the
+permission boundary.
+
+For `reindex`, wait for both indexing and embedding to finish, then run a
+targeted `qmd search` to verify the changed document is retrievable. If access
+cannot be granted, inspect the configured skill and wiki files directly,
+continue the task, and report that the index was not refreshed.
 
 ---
 
