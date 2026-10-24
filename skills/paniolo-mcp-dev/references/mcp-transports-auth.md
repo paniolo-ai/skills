@@ -1,6 +1,6 @@
 ---
 source-slug: mcp-transports-auth
-source-hash: fc934845d5a8bcf1d73567bb5c021fd933a291ab8744967e1bf99990d3e68d7a
+source-hash: 1a3f294d59b1026f1e17bc7c971369f4f377ef5fb6440bb6dc0dd79c9a6c57ae
 bundled: 2026-10-24
 title: MCP Transports and Authorization
 type: concept
@@ -27,7 +27,7 @@ MCP messages are JSON-RPC over two standard transports. Choose by who owns the p
 
 - **stdio** is the default for one local host: no port or listener lifecycle, the host owns the process, and it dies with that host. It remains a current transport, not a deprecated predecessor.
 - **Streamable HTTP** lets an independent server accept multiple client connections at one endpoint. A `POST` may return one JSON object or a request-scoped SSE stream. Choose SSE when the call needs progress or multiple server messages; ordinary JSON is enough for a simple tool response. An optional `GET` SSE stream belongs to the 2025 transport revisions; the 2026-07-28 draft removes it.
-- **Shared local server** is its own deployment case: bind to loopback, authenticate each HTTP request, and verify that each vendor can supply the credential. A host without that ability can use a small stdio-to-HTTP adapter while still sharing one server process. Do not claim multi-vendor support from a two-client protocol test alone; exercise actual host configurations.
+- **Shared local server** is its own deployment case. A command-only host can keep MCP stdio while a thin adapter connects to one process through native local IPC. A URL-capable host can use authenticated loopback HTTP to reach that same process. Verify the actual vendor configuration before claiming support. [native-local-ipc](./native-local-ipc.md)
 
 ## The stateless turn (draft)
 
@@ -52,7 +52,7 @@ The MCP authorization framework applies to HTTP transports. stdio servers inheri
 
 ## Checklist
 
-- One local host → stdio. Several local hosts sharing one process → authenticated loopback Streamable HTTP. Remote/multi-tenant → HTTPS Streamable HTTP with OAuth resource-server validation.
+- One local host → private stdio. Several local hosts sharing one process → thin stdio adapters over native local IPC, with authenticated loopback Streamable HTTP for URL-capable hosts. Remote/multi-tenant → HTTPS Streamable HTTP with OAuth resource-server validation.
 - For shared HTTP, test two independently initialized clients, overlapping calls, version headers, response routing, root identity, missing/invalid credentials, and queue saturation.
 - Never accept tokens/credentials as tool arguments or per-call config.
 - Don't bind session semantics to connection lifetime — the draft makes that illegal, and HTTP intermediaries make it unreliable regardless.
