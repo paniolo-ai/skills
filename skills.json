@@ -229,9 +229,9 @@
     },
     {
       "name": "paniolo-mcp-dev",
-      "description": "Build, extend, debug, or review an MCP (Model Context Protocol) server — tool design, annotations, output token efficiency, resources, or serving Agent Skills via SEP-2640. Use when adding tools to `paniolo mcp` or any MCP server, choosing leaf-vs-family tool granularity, structuring results for context cost, handling long-running ops via jobs, or wiring skills/list+skills/get. Do NOT use for WebMCP (browser page tools via document.modelContext) — that is paniolo-webmcp-dev.",
+      "description": "Build, extend, debug, or review an MCP (Model Context Protocol) server. Use for transport and authentication choices, multi-client lifecycle, tool/resource design, output efficiency, long-running jobs, interoperability tests, or serving Agent Skills via SEP-2640. Applies to `paniolo mcp` and other MCP servers. Do not use for WebMCP page tools via document.modelContext; use paniolo-webmcp-dev.",
       "license": "MIT",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "tags": [
         "mcp",
         "agents",

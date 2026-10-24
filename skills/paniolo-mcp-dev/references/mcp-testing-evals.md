@@ -1,7 +1,7 @@
 ---
 source-slug: mcp-testing-evals
-source-hash: 4cec66716cd874c697f5dc92f7424e9de43ae547686af04e98b97fda71011a52
-bundled: 2026-10-16
+source-hash: 669fe63e00d02894c85acf6e2f2a5e9dd7b45b954692d71115d1b76d2b4ae976
+bundled: 2026-10-24
 title: MCP Testing and Evals
 type: concept
 tags:
@@ -9,7 +9,7 @@ tags:
 - testing
 - evals
 - conformance
-updated: 2026-09-30
+updated: 2026-10-24
 ---
 
 # MCP Testing and Evals
@@ -42,6 +42,17 @@ output matches a snapshot, every `op` enum value is reachable, annotations are
 honest, and no schema accepts forbidden params. `paniolo-mcp`'s
 `tests/contract.rs` is the local pattern.
 
+For a server shared by several MCP clients, add a separate integration gate:
+
+1. Start one server and initialize two independent clients with different JSON-RPC IDs. Keep both connected and overlap a slow read with a second request. Assert each client receives only its own result.
+2. Repeat with the actual vendor hosts and record their versions, transport configuration, and successful tool calls. A synthetic client cannot prove that a vendor can configure the required credential.
+3. Try a missing or invalid credential, invalid `Host`/`Origin`, unsupported protocol version, and wrong configured root. None may dispatch a tool or attach to a different root's process.
+4. Fill the request queue and verify the response is bounded and retryable. If long-running jobs are shared, test whether another client can inspect or cancel a handle according to the declared access policy.
+
+Run transport tests against each protocol revision the server claims. A 2025
+sessionful test does not establish 2026 draft compatibility, and a passing
+`tools/list` test does not prove request isolation or useful concurrency.
+
 ## Layer 2 — agent behavior evals
 
 Conformance proves the wire is right; it does not prove the model can find or
@@ -64,7 +75,8 @@ use your tools. That takes evals:
    capability declarations).
 3. Conformance suite against a real build before claiming spec support —
    especially for extensions.
-4. Behavioral evals when descriptions or tool granularity change — the wire
+4. Multi-client integration and vendor-host smoke tests before claiming one server supports multiple agents.
+5. Behavioral evals when descriptions or tool granularity change — the wire
    being right doesn't mean the agent can drive it.
 
 ---
