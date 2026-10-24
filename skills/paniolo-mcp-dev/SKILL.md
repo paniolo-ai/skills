@@ -4,7 +4,7 @@ description: |
   Build, extend, debug, or review an MCP (Model Context Protocol) server. Use for transport and authentication choices, multi-client lifecycle, tool/resource design, output efficiency, long-running jobs, interoperability tests, or serving Agent Skills via SEP-2640. Applies to `paniolo mcp` and other MCP servers. Do not use for WebMCP page tools via document.modelContext; use paniolo-webmcp-dev.
 license: MIT
 metadata:
-  version: 0.2.0
+  version: 0.2.1
 tags:
 - mcp
 - agents
@@ -12,24 +12,26 @@ tags:
 references:
 - references/mcp-beyond-tools.md
 - references/mcp-discovery.md
+- references/mcp-pooled-server.md
 - references/mcp-server-security.md
 - references/mcp-skills-extension.md
 - references/mcp-testing-evals.md
 - references/mcp-token-efficiency.md
 - references/mcp-tool-design.md
 - references/mcp-transports-auth.md
+- references/native-local-ipc.md
 ---
 
 **Requires:** file-read, file-edit, terminal (run the server, drive a client, run contract tests).
 
-**Full reference:** [mcp-tool-design](references/mcp-tool-design.md) · [mcp-token-efficiency](references/mcp-token-efficiency.md) · [mcp-server-security](references/mcp-server-security.md) · [mcp-skills-extension](references/mcp-skills-extension.md) · [mcp-discovery](references/mcp-discovery.md) · [mcp-beyond-tools](references/mcp-beyond-tools.md) · [mcp-transports-auth](references/mcp-transports-auth.md) · [mcp-testing-evals](references/mcp-testing-evals.md)
+**Full reference:** [mcp-tool-design](references/mcp-tool-design.md) · [mcp-token-efficiency](references/mcp-token-efficiency.md) · [mcp-server-security](references/mcp-server-security.md) · [mcp-skills-extension](references/mcp-skills-extension.md) · [mcp-discovery](references/mcp-discovery.md) · [mcp-beyond-tools](references/mcp-beyond-tools.md) · [mcp-transports-auth](references/mcp-transports-auth.md) · [native-local-ipc](references/native-local-ipc.md) · [mcp-pooled-server](references/mcp-pooled-server.md) · [mcp-testing-evals](references/mcp-testing-evals.md)
 
 Tools are model-controlled: the model discovers and invokes them from context, so every tool is a contract between a deterministic system and a non-deterministic caller. Two token costs dominate: **standing schema cost** (every advertised `inputSchema` sits in context every turn) and **intermediate results routed through the model** (each call's output re-enters context). Design on both axes. [mcp-token-efficiency](references/mcp-token-efficiency.md)
 
 ## Preconditions
 
 - Know which hosts will connect, their supported protocol versions and transports, and which capabilities they implement. `resources`, `elicitation`, `sampling`, and the skills extension are unevenly supported. Test the intended hosts before claiming portability. [mcp-discovery](references/mcp-discovery.md)
-- Decide whether the server is private to one host, shared among local hosts, or remote/multi-user. That decides process ownership, authentication, concurrency, and deployment checks. A shared local HTTP listener is a separate case from a public OAuth server. [mcp-transports-auth](references/mcp-transports-auth.md)
+- Decide whether the server is private to one host, shared among local hosts, or remote/multi-user. That decides process ownership, authentication, concurrency, and deployment checks. For a shared local process, define its state owner before choosing native IPC, HTTP, or both client entrances. [mcp-pooled-server](references/mcp-pooled-server.md)
 - Pick the primitive by control flow before reaching for a tool: bulk/readable data → resources, canned user workflows → prompts, host-model work → sampling, user input mid-call → elicitation, long-running → tasks. [mcp-beyond-tools](references/mcp-beyond-tools.md)
 - For `paniolo mcp` work, read the parity design first (`design-paniolo-mcp-cli-parity` in paniolo-wiki): the surface is family tools with `op` enums, not one tool per CLI command.
 - Establish whether the operation is read-only, a plan→apply write, or long-running *before* choosing where it lands — that classification determines the tool it joins and the annotations it must carry.
@@ -68,7 +70,8 @@ Tools are model-controlled: the model discovers and invokes them from context, s
 
 - **Annotations are hints, not enforcement.** `readOnlyHint`/`destructiveHint` inform host consent UX; a hostile or buggy host ignores them. Real gates live server-side. [mcp-server-security](references/mcp-server-security.md)
 - **Never pass tokens through a tool** — no credential passthrough, no session forwarding; confused-deputy and token-theft mitigations are the spec's security baseline.
-- **Match the transport to the deployment**: stdio for one local host; authenticated loopback Streamable HTTP when several local hosts need one process; HTTPS Streamable HTTP with OAuth resource-server validation for remote users. Streaming responses are optional and do not create multi-client support by themselves. [mcp-transports-auth](references/mcp-transports-auth.md)
+- **Match the connection path to the host and OS**: private stdio for one local host; thin stdio adapters over native local IPC for a shared local pool; authenticated loopback Streamable HTTP for URL-capable local hosts; HTTPS Streamable HTTP with OAuth resource-server validation for remote users. Keep a documented fallback when native sockets or host HTTP settings are unavailable. Streaming responses are optional and do not create multi-client support by themselves. [native-local-ipc](references/native-local-ipc.md) [mcp-transports-auth](references/mcp-transports-auth.md)
+- **Give a pooled server one state owner.** Keep the warm core, jobs, and reports in that process. Bound clients and queued work, route each response to its caller, and test two agent hosts with overlapping requests. [mcp-pooled-server](references/mcp-pooled-server.md)
 - **Negotiate only implemented protocol versions.** Never echo an arbitrary client version or store one negotiated version for every HTTP client. Validate request metadata for the chosen version before dispatch. [mcp-transports-auth](references/mcp-transports-auth.md)
 - **Separate transport sessions from application identity.** Jobs, reports, and other cross-call state need explicit handles and access checks. One connection, protocol session, or bearer token shared by several agents does not isolate their work. [mcp-transports-auth](references/mcp-transports-auth.md)
 - **Write tools prove a plan first.** Default to showing the diff/blast radius and requiring `apply: true`; post-write, return a validation summary so the agent can confirm the world changed as intended.
