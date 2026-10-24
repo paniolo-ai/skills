@@ -1,10 +1,10 @@
 ---
 name: paniolo-mcp-dev
 description: |
-  Build, extend, debug, or review an MCP (Model Context Protocol) server — tool design, annotations, output token efficiency, resources, or serving Agent Skills via SEP-2640. Use when adding tools to `paniolo mcp` or any MCP server, choosing leaf-vs-family tool granularity, structuring results for context cost, handling long-running ops via jobs, or wiring skills/list+skills/get. Do NOT use for WebMCP (browser page tools via document.modelContext) — that is paniolo-webmcp-dev.
+  Build, extend, debug, or review an MCP (Model Context Protocol) server. Use for transport and authentication choices, multi-client lifecycle, tool/resource design, output efficiency, long-running jobs, interoperability tests, or serving Agent Skills via SEP-2640. Applies to `paniolo mcp` and other MCP servers. Do not use for WebMCP page tools via document.modelContext; use paniolo-webmcp-dev.
 license: MIT
 metadata:
-  version: 0.1.1
+  version: 0.2.0
 tags:
 - mcp
 - agents
@@ -28,7 +28,8 @@ Tools are model-controlled: the model discovers and invokes them from context, s
 
 ## Preconditions
 
-- Know which hosts will connect and which capabilities they implement — `resources`, `elicitation`, `sampling`, and the skills extension are all opt-in and unevenly supported. A mechanism that depends on an unsupported primitive is dead on that host. [mcp-discovery](references/mcp-discovery.md)
+- Know which hosts will connect, their supported protocol versions and transports, and which capabilities they implement. `resources`, `elicitation`, `sampling`, and the skills extension are unevenly supported. Test the intended hosts before claiming portability. [mcp-discovery](references/mcp-discovery.md)
+- Decide whether the server is private to one host, shared among local hosts, or remote/multi-user. That decides process ownership, authentication, concurrency, and deployment checks. A shared local HTTP listener is a separate case from a public OAuth server. [mcp-transports-auth](references/mcp-transports-auth.md)
 - Pick the primitive by control flow before reaching for a tool: bulk/readable data → resources, canned user workflows → prompts, host-model work → sampling, user input mid-call → elicitation, long-running → tasks. [mcp-beyond-tools](references/mcp-beyond-tools.md)
 - For `paniolo mcp` work, read the parity design first (`design-paniolo-mcp-cli-parity` in paniolo-wiki): the surface is family tools with `op` enums, not one tool per CLI command.
 - Establish whether the operation is read-only, a plan→apply write, or long-running *before* choosing where it lands — that classification determines the tool it joins and the annotations it must carry.
@@ -39,7 +40,7 @@ Tools are model-controlled: the model discovers and invokes them from context, s
 - Read ops and write ops go in **separate tools** so `readOnlyHint` / `destructiveHint` stay honest.
 - Results are concise-by-default with an opt-in detailed format; bulk bodies become `resource_link`s, never inline payloads.
 - Long-running or agent-spawning work goes behind a submit/status/result job surface — never a synchronous tool that holds the request open.
-- **Always ask:** before exposing anything that touches credentials, spawns processes, or accepts a caller-supplied root/config path — those cross trust boundaries a tool schema cannot express.
+- Check the user's authorization and the server-side policy before exposing credentials, process launch, or caller-supplied roots/config. Ask only when the authority or intended scope is genuinely missing; tool annotations alone do not grant it.
 
 ## Key rules
 
@@ -67,7 +68,9 @@ Tools are model-controlled: the model discovers and invokes them from context, s
 
 - **Annotations are hints, not enforcement.** `readOnlyHint`/`destructiveHint` inform host consent UX; a hostile or buggy host ignores them. Real gates live server-side. [mcp-server-security](references/mcp-server-security.md)
 - **Never pass tokens through a tool** — no credential passthrough, no session forwarding; confused-deputy and token-theft mitigations are the spec's security baseline.
-- **Match the transport to the deployment**: stdio for local servers (ambient authority, no in-band auth), streamable HTTP + OAuth resource-server validation for remote ones. Never bind state to connection lifetime — the draft lifecycle is stateless. [mcp-transports-auth](references/mcp-transports-auth.md)
+- **Match the transport to the deployment**: stdio for one local host; authenticated loopback Streamable HTTP when several local hosts need one process; HTTPS Streamable HTTP with OAuth resource-server validation for remote users. Streaming responses are optional and do not create multi-client support by themselves. [mcp-transports-auth](references/mcp-transports-auth.md)
+- **Negotiate only implemented protocol versions.** Never echo an arbitrary client version or store one negotiated version for every HTTP client. Validate request metadata for the chosen version before dispatch. [mcp-transports-auth](references/mcp-transports-auth.md)
+- **Separate transport sessions from application identity.** Jobs, reports, and other cross-call state need explicit handles and access checks. One connection, protocol session, or bearer token shared by several agents does not isolate their work. [mcp-transports-auth](references/mcp-transports-auth.md)
 - **Write tools prove a plan first.** Default to showing the diff/blast radius and requiring `apply: true`; post-write, return a validation summary so the agent can confirm the world changed as intended.
 - **Scope authority to config, not caller paths.** A tool that accepts a caller-supplied root or config is a path-traversal-shaped hole; address only configured targets.
 
@@ -91,13 +94,14 @@ Code changes directly. After edits, state which tools/resources/methods were add
 ## Validation
 
 - For `paniolo mcp`: extend `crates/paniolo-mcp/tests/contract.rs` — op enum coverage, schema snapshots, annotation assertions, and the negative test that no schema accepts `config`/`root` params; then `bash scripts/check.sh` in ranch-hand.
-- For any MCP server: drive `initialize` → `tools/list` → `tools/call` over stdio with a real client or a JSON-RPC script; confirm capabilities match what you declared and every advertised schema validates. For broader coverage: MCP Inspector for interactive checks, the conformance suite for spec-pinned scenarios — and remember conformance proves the wire, not that a model can find your tools; description tuning needs behavioral evals. [mcp-testing-evals](references/mcp-testing-evals.md)
+- For any MCP server: drive `initialize` → `tools/list` → `tools/call` over every supported transport with a real client or a JSON-RPC script. Confirm negotiated capabilities and versions, advertised schemas, error channels, and authentication. For shared HTTP, use two independent clients with overlapping requests; check response routing, bounded waiting, and cross-client handle access. Use MCP Inspector and the spec-pinned conformance suite for protocol checks, then behavioral evals for tool choice. [mcp-testing-evals](references/mcp-testing-evals.md)
 
 ## Evaluations (I/O examples)
 
 - "Add `stale list` to paniolo mcp" → add op `list` to the `stale` read tool with a `oneOf` branch, `readOnlyHint` already set on the tool, concise result with item IDs + `resource_link`s; not a new `stale_list` leaf tool.
 - "Expose the full scan report" → resource `paniolo://scan/<target>/report` linked from the `scan` tool result, not an inlined findings array.
 - "Ship the usage manual with the server" → `skill://paniolo/<name>/SKILL.md` resources + `skills/list`/`skills/get`, declared under `capabilities.extensions["io.modelcontextprotocol/skills"]`.
+- "Let Codex and Cursor use one local server" → one authenticated loopback listener, two independently tested client configs, per-request version validation, and a concurrent-connection test; ordinary JSON responses suffice unless progress or subscriptions are needed.
 
 ---
 
