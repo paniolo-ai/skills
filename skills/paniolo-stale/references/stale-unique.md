@@ -1,7 +1,7 @@
 ---
 source-slug: stale-unique
-source-hash: ef9147d9524769e9a90bbae8e7b0331454aee18cc4ee725d78187e0aa91d446c
-bundled: 2026-10-16
+source-hash: fe7f8fc7cb99964f4536936817c768d015e6cd8997839b8559cf1606c8dfed35
+bundled: 2026-10-31
 title: Why Stale Is Unique
 type: synthesis
 tags:
@@ -9,7 +9,7 @@ tags:
 - qmd
 - harness-eng
 - retrieval
-updated: 2026-10-11
+updated: 2026-10-27
 ---
 
 # Why Stale Is Unique
@@ -49,7 +49,7 @@ What was missing is a maintenance loop with the same rigor as the ingestion loop
 
 - **Detection nominates; it never proves.** A diff produces a falsifiable allegation about an exact location and claim — not a verdict. No score, agent agreement, or validator result can mint truth ([stale-automation](./stale-automation.md)).
 - **Adjudication is adversarial by construction.** Verdicts are sealed before an independent challenger sees them; the challenger gets the verdict body, never the verifier's reasoning. A remediator's patch faces a separate patch challenger, and a merge gate — not a model — decides what lands ([stale-adjudication](./stale-adjudication.md)).
-- **The ledger is durable, git-native state.** Content-addressed allegations, evidence, observations, and bundles live beside the prose they cover; scan checkpoints advance only when the ledger PR merges. Disagreement retains work instead of inventing resolution ([stale-ledger](./stale-ledger.md)).
+- **The ledger is durable, versioned state.** Content-addressed allegations, evidence, observations, and bundles live in the owner's native SQLite database; a Git PR publishes the stale-only recovery snapshot and gates scan-checkpoint advancement. Disagreement retains work instead of inventing resolution ([stale-ledger](./stale-ledger.md)).
 - **Unknown is not negative.** Unverified pairs are excluded from denominators rather than counted as fresh — the system is built to not teach itself its own blind spots.
 - **It runs on the customer's own agents.** Verification, challenge, and remediation execute through admitted CLI adapters on customer-controlled compute — no hosted black box deciding what your docs may say.
 - **It is measured against known answers.** A committed corpus, frozen gates, planted canaries, and a false-resolution budget of zero make the pipeline falsifiable end to end ([stale-calibration](./stale-calibration.md)).

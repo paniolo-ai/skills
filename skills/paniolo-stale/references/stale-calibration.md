@@ -1,19 +1,21 @@
 ---
 source-slug: stale-calibration
-source-hash: 806fa0aae26fbd1df7800068c5b5ff2a2abc3d0d301a13cd90a5c611eb3dd0fb
-bundled: 2026-10-16
+source-hash: 74b71279b837998a79d04890eeddc7458c0f97ee00c0d9adf26f5e10146937c6
+bundled: 2026-10-31
 title: Stale Calibration
 type: concept
 tags:
 - staleness
 - harness-eng
 - evals
-updated: 2026-09-28
+updated: 2026-10-27
 ---
 
 # Stale Calibration
 
 The staleness engine is measured, not assumed. A committed known-answer corpus, frozen gates, canary probes, and a deterministic dogfood report keep detection and adjudication honest — and gate "fuzzy" retrieval lanes out of production until they earn admission with measured recall.
+
+The fact-drift lane is still in offline calibration. The F15 exposed full-path diagnostics reached verification and challenge, but no remediation or proposal. A fresh independent promotion set and full-path result are still required; see plan-staleness-fact-drift-experiment. These diagnostics do not enable the live worker.
 
 ## Contents
 

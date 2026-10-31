@@ -1,7 +1,7 @@
 ---
 source-slug: stale-automation
-source-hash: 669b12bf0a63c4be15dc3d439f9f622b5c568aba3bff73e7b298b7f7f5b3926f
-bundled: 2026-10-16
+source-hash: df213cda9584521490303ea135f03c8e022b10cd75a31ff62186e97d2e03474f
+bundled: 2026-10-31
 title: Stale Automation
 type: concept
 tags:
@@ -9,14 +9,16 @@ tags:
 - harness-eng
 - agents
 - cli
-updated: 2026-09-28
+updated: 2026-10-27
 ---
 
 # Stale Automation
 
-`paniolo stale` is the staleness ledger: a durable, git-native queue of falsifiable allegations that a code change may have invalidated prose. It implements the code-invalidates-prose maintenance loop designed in design-staleness-ledger and sequenced in plan-staleness-automation.
+`paniolo stale` is the staleness ledger: a durable queue of falsifiable allegations that a code change may have invalidated prose. Its live store is in the shared SQLite workspace database; the worker publishes a recovery snapshot through a ledger PR. It implements the code-invalidates-prose maintenance loop designed in design-staleness-ledger and sequenced in plan-staleness-automation.
 
 Detection nominates bounded work; autonomous agents verify and remediate it; repository gates record the outcome beside the fix. The core invariant — **detection nominates but never proves truth** — is enforced in code: no retrieval score, agent agreement, or validator result can mint a gold label or set a disposition.
+
+**Workspace status, 2026-10-27:** the harness installs `paniolo 0.5.91`, but its tracked config sets `staleness.enabled: false` and `autoMerge: false`. The separate fact-drift F15 offline integration gate remains open after exposed diagnostics reached verification and challenge without a remediation proposal. See plan-staleness-fact-drift-experiment for the experiment and [stale-triggers](./stale-triggers.md) for deployment controls.
 
 ## Contents
 

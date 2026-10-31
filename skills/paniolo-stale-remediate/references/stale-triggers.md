@@ -1,7 +1,7 @@
 ---
 source-slug: stale-triggers
-source-hash: c1071437bc42cb1fa6974ef8efa1700e71184d67baa570c0140fd800faa6d249
-bundled: 2026-10-16
+source-hash: f349603b1107b8418a53302f55c94c16fc5ef907f9bb1c7016a6203dfaddca87
+bundled: 2026-10-31
 title: Stale Triggers
 type: concept
 tags:
@@ -9,12 +9,14 @@ tags:
 - harness-eng
 - automation
 - configuration
-updated: 2026-10-06
+updated: 2026-10-27
 ---
 
 # Stale Triggers
 
 A trigger is the event and policy boundary that starts one part of the staleness loop. `paniolo stale` supplies commands and a durable worker, but it does not schedule itself: an operator, CI workflow, or external scheduler must invoke the command with an explicit configuration.
+
+In the tracked Paniolo harness config checked 2026-10-27, `staleness.enabled` and `autoMerge` are both `false`. The installed CLI version is 0.5.91. The offline fact-drift F15 gate is still open; its diagnostics do not authorize enabling the worker. See decision-staleness-hybrid-trial and plan-staleness-fact-drift-experiment.
 
 ## Contents
 
