@@ -1,14 +1,14 @@
 ---
 source-slug: stale-configuration
-source-hash: c0570d55460692c4542888fb3c756291d92a8f9234611b06f2dc733577f03ea8
-bundled: 2026-10-16
+source-hash: 8a981a787c2bcd212a901701c16ad4b8487625afd2daaa0f521d7ea57f82ee9a
+bundled: 2026-10-31
 title: Stale Configuration
 type: concept
 tags:
 - staleness
 - harness-eng
 - configuration
-updated: 2026-10-11
+updated: 2026-10-27
 ---
 
 # Stale Configuration
@@ -46,7 +46,7 @@ All keys are camelCase.
 | `roles` | `{verifier, verdictChallenger, remediator, patchChallenger}` | every role → `default` | Each value names an `agentProfiles` key; unknown names fail validation |
 | `limits` | budget object | see [Limits And Retrieval](#limits-and-retrieval) | Phase, process, packet, repair, and total-invocation budgets |
 | `retrieval` | active and shadow retrieval object | active `4` / `50`; shadow off | `topK` and `maxImmediate` bound active scheduling. Optional `shadow` records non-authoritative qmd funnels; see [Limits And Retrieval](#limits-and-retrieval) |
-| `surfaces` | `{wikiPages, docs, codeComments}` | empty (admit all) | See [Content Surfaces](#content-surfaces) |
+| `surfaces` | `{wikiPages, docs, codeComments, htmlDocs}` | empty (admit all) | See [Content Surfaces](#content-surfaces) |
 | `autoMerge` | boolean | `false` | Request GitHub auto-merge only after the local merge gate authorizes the exact proposed head |
 
 ---
@@ -222,25 +222,26 @@ silently rewrite the saved configuration.
 
 ## Example
 
-The tracked harness workspace config currently assigns Cursor Auto to
-verification and remediation and Devin SWE-2 High to both challengers.
-It keeps automation off by default and scopes the surfaces:
+As checked on 2026-10-27, the tracked harness workspace config assigns Devin
+SWE-2 Max to verification and remediation and Cursor Auto to both challengers.
+Devin SWE-2 High is a defined profile; the tracked roles do not select it.
+Automation and auto-merge remain off:
 
 ```json
 "staleness": {
   "enabled": false,
   "ledgerPath": ".paniolo",
-  "ledger": { "backend": "sqlite" },
-  "autoMerge": true,
+  "autoMerge": false,
   "agentProfiles": {
     "cursor-auto": { "adapter": "cursor", "model": "auto" },
-    "devin-swe-2-high": { "adapter": "devin", "model": "swe-2-high" }
+    "devin-swe-2-high": { "adapter": "devin", "model": "swe-2-high" },
+    "devin-swe-2-max": { "adapter": "devin", "model": "swe-2-max" }
   },
   "roles": {
-    "verifier": "cursor-auto",
-    "verdictChallenger": "devin-swe-2-high",
-    "remediator": "cursor-auto",
-    "patchChallenger": "devin-swe-2-high"
+    "verifier": "devin-swe-2-max",
+    "verdictChallenger": "cursor-auto",
+    "remediator": "devin-swe-2-max",
+    "patchChallenger": "cursor-auto"
   },
   "limits": {
     "maxAllegationsPerPhase": 25,
@@ -271,9 +272,14 @@ It keeps automation off by default and scopes the surfaces:
       "exclude": ["target/**", "vendor/**", "generated/**"]
     },
     "codeComments": {
-      "repositories": ["ranch-hand"],
-      "include": ["**/*.rs", "**/*.ts", "**/*.tsx"],
-      "exclude": ["target/**", "vendor/**", "generated/**"]
+      "repositories": ["ranch-hand", "paniolo.ai"],
+      "include": ["**/*.rs", "**/*.ts", "**/*.tsx", "**/*.js"],
+      "exclude": ["target/**", "vendor/**", "generated/**", "**/node_modules/**", "**/dist/**", "**/test-results/**", "**/.wrangler/**"]
+    },
+    "htmlDocs": {
+      "repositories": ["paniolo.ai"],
+      "include": ["*.html", "docs/**/*.html", "pages/**/*.html"],
+      "exclude": ["drafts/**", "react/**", "dist/**", "node_modules/**", "test-results/**"]
     }
   }
 }

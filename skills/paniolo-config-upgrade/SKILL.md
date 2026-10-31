@@ -4,7 +4,7 @@ description: |
   Upgrade, migrate, or deduplicate an existing paniolo.config.json — convert the legacy product-siloed shape (scan.targets, evolve.verification.targets, wiki.wikis) to the repo-centric shape, factor repeated per-repo policy into repoDefaults or named repoTypes layers, connect a sibling repo, or trace where an effective setting came from. Writes config files after confirmation. Use when asked to migrate, modernize, dedupe, or restructure an existing paniolo.config.json, or on /paniolo-config-upgrade. Do not use to create a config from scratch — that is paniolo-config-init.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - harness
 - config
@@ -60,10 +60,9 @@ old binary refuses rather than silently ignoring the layer.
 npx @paniolo/cli evolve config graph --json
 ```
 
-`sourceShape` is `legacy` or `repo-centric`. To answer "where did this value
-come from", `evolve config effective --target <repo>` reports each effective
-setting plus its provenance (`node` / `type` / `defaults` / `preset` /
-`builtin` / `cli`); omit `--target` for the host.
+`sourceShape` is `legacy` or `repo-centric`. For a scan-only effective view and
+its layer provenance, follow `paniolo-config-best-practices`. Other config
+sections need inspection of the tracked file and the local overlay.
 
 ### 3. Migrate a legacy config
 
@@ -92,8 +91,9 @@ npx @paniolo/cli evolve config migrate --apply    # writes after confirmation
   `repoTypes.<name>`, plus `"type": "<name>"` on each member node.
 - Leave on the node: `path`, `qmd`, `workspace`, `wiki` membership, and genuine
   per-repo overrides.
-- Verify with `evolve config effective --target <name>` before and after — the
-  effective values should be identical; only the provenance changes.
+- Compare scan behavior before and after using `paniolo-config-best-practices`.
+  Compare other sections against the tracked file and local overlay. Only the
+  intended provenance should change.
 
 ### 5. Add a repo or a wiki
 
