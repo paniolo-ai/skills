@@ -1,7 +1,7 @@
 ---
 source-slug: worktree-slots
-source-hash: 2580c82e985ea64d180a9e23b0681be9ec6fc5498f1de3d537554a5a41346532
-bundled: 2026-11-07
+source-hash: 7fcdb8e545c00613cdb0aaf478a121740a4c43d049cd19c34c8f5a6200af7419
+bundled: 2026-11-08
 title: Worktree Slots
 type: concept
 tags:
@@ -18,7 +18,7 @@ updated: 2026-11-07
 A worktree pool gives one repository a fixed set of pre-warmed Git worktrees,
 called slots, and hands each coding agent its own. It ships in
 `@paniolo/cli` as `paniolo worktree pool`, and all of it described here is in
-0.5.100 and later. This page is the model and the command contract; the
+0.5.100 and later (`reclaim` in 0.5.101). This page is the model and the command contract; the
 paniolo-worktree skill holds the rules an agent follows.
 
 ## Why slots
@@ -101,6 +101,7 @@ state, unless it reports that a slot was marked `failed`.
 | `claim --owner O --branch B` | Reserves the first idle slot, fetches, detaches at the base, runs cleanup and changed preparation steps, creates the branch, and returns the path. Reuses this owner's existing claim. |
 | `claim --owner O --from origin/B` | The same, starting from an existing remote branch such as an open pull request's. |
 | `release --path P --owner O` | Returns the slot to idle, keeping caches, only if the tree is clean and the branch is merged, pushed under its own name, or equal to its upstream. |
+| `reclaim --path P [--stale-hours N] [--apply]` | Frees another owner's claim when it has been inactive for N hours (default 24) and the same release proof passes. Previews without `--apply`; refusals name what would be lost. 0.5.101 and later. |
 | `refresh [--slot N] [--retry-failed]` | Moves idle slots to the latest base and reprepares them. Never touches a claimed slot. |
 | `cleanup [--slot N] [--apply]` | Previews, then applies, the configured cleanup to reclaim space. |
 | `env [--path P]` | Prints `PANIOLO_SLOT`, `PANIOLO_SLOT_PATH`, and `PANIOLO_PORT_<NAME>` for the checkout containing a path. |
@@ -108,7 +109,7 @@ state, unless it reports that a slot was marked `failed`.
 
 `--format json` is accepted by `status`, `cleanup`, `claim`, `release`, and
 `refresh`. Agents connected to the Paniolo MCP server use the `worktree` tool
-(`status`, `env`) and the `worktree_write` tool (the writing commands, with
+(`status`, `env`) and the `worktree_write` tool (the writing commands, `reclaim` included, with
 camelCase arguments). A claim whose preparation outlasts a client timeout can
 go through `job_submit` as `worktree.claim`.
 
@@ -121,7 +122,7 @@ go through `job_submit` as `worktree.claim`.
 | Claim failed before its branch existed | The owner claims again or releases; anyone can `refresh --slot N --retry-failed`. |
 | Claim failed after its branch existed | The owner saves the work, then releases. |
 | A file held open (Windows) | Close the holder named in the diagnostic, then run its `nextAction`. The pool never kills a process. |
-| An abandoned claim | Find it with `status --stale-hours 24`, confirm nothing runs there, push its work to a branch, then release it as its owner. |
+| An abandoned claim | Find it with `status --stale-hours 24`. If its work is merged or pushed and the tree is clean, `reclaim` frees it. Otherwise confirm nothing runs there and push its work to a branch first. |
 | "Dubious ownership" | The checkout belongs to another OS account; transfer the folder before adopting it. |
 
 Every retry first checks that the checkout is clean, detached, locked, and

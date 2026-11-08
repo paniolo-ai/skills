@@ -706,7 +706,7 @@
       "name": "paniolo-worktree",
       "description": "Rules for working in a Paniolo worktree pool: when to claim a slot, how to release one, what to do with busy, failed, or abandoned slots, per-slot ports, and why a harness repository keeps a single checkout. Use before starting work in any repository whose harness config declares a `worktreePool`, before creating a worktree of a harness repository, and when a slot is busy, failed, or looks abandoned. Do NOT use for general Git worktree mechanics in a repository with no pool; load `paniolo-worktree-best-practices` for that.",
       "license": "MIT",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "tags": [
         "git",
         "worktrees",
