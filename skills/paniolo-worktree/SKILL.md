@@ -4,7 +4,7 @@ description: |
   Rules for working in a Paniolo worktree pool: when to claim a slot, how to release one, what to do with busy, failed, or abandoned slots, per-slot ports, and why a harness repository keeps a single checkout. Use before starting work in any repository whose harness config declares a `worktreePool`, before creating a worktree of a harness repository, and when a slot is busy, failed, or looks abandoned. Do NOT use for general Git worktree mechanics in a repository with no pool; load `paniolo-worktree-best-practices` for that.
 license: MIT
 metadata:
-  version: 0.2.0
+  version: 0.3.0
 tags:
 - git
 - worktrees
@@ -60,8 +60,11 @@ merged local branch afterward with `git branch -d`.
   command the diagnostic names (`refresh` or `cleanup` with
   `--retry-failed`); every retry refuses a dirty checkout.
 - **Looks abandoned:** `status --stale-hours 24` lists candidates; it never
-  frees them. Report it to a person. Freeing one means confirming nothing runs
-  there and pushing its work to a branch first.
+  frees them. If the branch is already merged or pushed and the tree is clean,
+  `reclaim --path <slot>` (0.5.101 and later) frees it: preview first, then
+  add `--apply`. Anything else, `reclaim` refuses and names what would be
+  lost; report it to a person, and push its work to a branch before anyone
+  frees it.
 
 ## Ports
 
@@ -132,7 +135,8 @@ and `adopt` with the same rules and refusals. Submit a slow claim with
 
 - Do not create a worktree for a repository that has a pool, or for a
   harness repository.
-- Do not take over, reset, or release another owner's slot.
+- Do not take over, reset, or release another owner's slot. `reclaim` is the
+  only way to free one, and only when nothing would be lost.
 - Do not release a slot whose branch is not pushed or merged.
 - Do not hand-edit `.git/paniolo/worktree-pool/state.json`.
 - Do not trust a gate that validated the configured checkout as evidence about
