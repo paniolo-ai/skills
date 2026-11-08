@@ -4,7 +4,7 @@ description: |
   Rules for working in a Paniolo worktree pool: when to claim a slot, how to release one, what to do with busy, failed, or abandoned slots, per-slot ports, and why a harness repository keeps a single checkout. Use before starting work in any repository whose harness config declares a `worktreePool`, before creating a worktree of a harness repository, and when a slot is busy, failed, or looks abandoned. Do NOT use for general Git worktree mechanics in a repository with no pool; load `paniolo-worktree-best-practices` for that.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.2.0
 tags:
 - git
 - worktrees
@@ -89,6 +89,38 @@ contains, and a harness worktree has an empty `repos/`. So:
   Never leave a commit on local `main` unpushed.
 - Before you finish, switch back to `main` with no tracked changes left.
 
+## Gates check the configured checkout, not yours
+
+Harness gates such as `paniolo wiki --config`, `paniolo scan --target`, and
+`paniolo skills bundle --check` validate the repository path named in
+`paniolo.config.json`, not your slot. So a pass may say nothing about your
+files, and another session's unfinished work in that path can fail your
+commit.
+
+- Before trusting a pass, confirm the output names your checkout.
+- To validate a slot, point a temporary config at it, run the gate, and
+  delete the file:
+
+  ```powershell
+  $c = Get-Content paniolo.config.json -Raw | ConvertFrom-Json -Depth 60
+  $c.repos.'<repo>'.path = '<path to your slot>'
+  $c | ConvertTo-Json -Depth 60 | Set-Content paniolo.config.tmp.json
+  paniolo wiki --config paniolo.config.tmp.json --fail-on error
+  ```
+
+- When a commit hook checks the wrong checkout, run the same check against
+  yours, then commit with a temporary hook that runs that check. Never use
+  `--no-verify` because someone else's work failed.
+
+## Where worktrees must not go
+
+- Never under `.cache/`. `pnpm install` runs `paniolo bootstrap`, which clears
+  `.cache`, and takes the worktree and its uncommitted work with it.
+- The `.dev-worker-` prefix belongs to pool slots. Do not give it to a
+  worktree the pool does not manage. `status` lists any other linked worktree
+  under the pool root as `unmanagedWorktrees`: report those, and check them
+  for unpushed work before anyone removes them.
+
 ## Without a shell
 
 Through the Paniolo MCP server, the `worktree` tool runs `status` and `env`,
@@ -103,6 +135,9 @@ and `adopt` with the same rules and refusals. Submit a slow claim with
 - Do not take over, reset, or release another owner's slot.
 - Do not release a slot whose branch is not pushed or merged.
 - Do not hand-edit `.git/paniolo/worktree-pool/state.json`.
+- Do not trust a gate that validated the configured checkout as evidence about
+  your slot.
+- Do not put a worktree under `.cache/`.
 - Do not drive a slot from another operating system than its `hostOs`.
 - Do not delete slot build caches to free space; use `cleanup`, which keeps
   what makes the next build fast.

@@ -4,7 +4,7 @@ description: |
   Git worktree discipline for repositories several agents share at once. Use before running `git worktree add`, before committing in a checkout whose working tree holds changes you did not make, when a commit lands on the wrong branch, when a checkout fails on Windows path length, and when deleting a worktree or a merged branch. Do NOT use for ordinary branching in a repository you are the only session touching.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.2.0
 tags:
 - git
 - worktrees
@@ -66,6 +66,21 @@ before treating a pass as evidence, and check that the configured checkout is
 clean first — otherwise their unfinished work fails your commit. Never reach
 for `--no-verify`.
 
+## Updating a branch checked out somewhere else
+
+When the branch you need to add to is checked out in a shared tree, perhaps
+with another session's unpushed commit on it, do not switch that tree. Commit
+in a detached worktree and push to the branch by name:
+
+```bash
+git worktree add --detach <path> origin/<branch>
+# commit there, then:
+git push origin HEAD:<branch>
+```
+
+The pull request updates; the shared checkout and its local branch stay as
+they were.
+
 ## Cleanup
 
 **Every step here is irreversible. Review before each one**: confirm the branch
@@ -83,7 +98,11 @@ from the new default branch.
 
 Change directory out of the worktree before removing it, verify removal by
 checking the path rather than the exit code, and `git worktree prune` after any
-manual deletion. Full sequence and failure modes:
+manual deletion. A worktree whose checkout failed partway (a path-length error,
+for example) is registered but has no usable index, so `git worktree remove`
+rejects it as not a working tree: delete the directory, then
+`git worktree prune` and `git branch -D` its branch. Full sequence and failure
+modes:
 `references/git-worktree-creation-and-cleanup.md`.
 
 ## Do Not
