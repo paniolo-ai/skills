@@ -27,11 +27,17 @@ references: []
 
 ## Core Rules
 
-1. **Skills must be ≤ 500 lines.** Enforced by `paniolo scan` (via `@paniolo/cli`; configurable via `paniolo.config.json` `skill.maxLines`).
-2. **Skills are pointers, not encyclopedias.** Tell the agent _what to do_ and _where to look_. Defer detail to the skill's own `references/` leaves, or to a page in a wiki declared under `wiki.wikis` in `paniolo.config.json`.
-3. **Docs are canonical.** Update the doc first; then update the skill to point at it.
-4. **No secrets.** Never embed credentials or PII in a skill or examples.
-5. **Naming:** harness first-party catalog skills use generic slugs (e.g. `code-comment-best-practices`) under `.agents/skills/<slug>/`. Paniolo-vendored skills live under `.agents/skills/external/paniolo-<name>/` and use `paniolo-<name>` as the slug. Repo-local skills live under `.agents/skills/repos/<repo>/<slug>/` — the path namespaces them, so slugs need not repeat the repo prefix. The `name` frontmatter must match the directory name. Sibling repos should not copy catalog skills — load the harness skill plus that repo's supplement in your wiki.
+1. **Skills must be ≤ 500 lines (100–300 lines optimal).** Enforced by `paniolo scan` (`skill-line-count` rule; configurable via `paniolo.config.json` `skill.maxLines`). SkillsBench v4 benchmark shows 2–3 focused skills (+19.0pp) outperform 4+ overlapping skills (+10.1pp), and compact workflows beat exhaustive manuals.
+2. **3-Tier Progressive Disclosure:**
+   - **Tier 1 (Catalog/Discovery):** Frontmatter `name` + `description`. Budget under 1,536 characters (Claude Code silently truncates beyond this; `skill-description-budget` warns at 80% / 1,228 chars).
+   - **Tier 2 (Core Workflow):** `SKILL.md` body (≤500 lines). Entry point, required tools, step-by-step numbered flow, and fast-fail rules.
+   - **Tier 3 (Deep Reference & Automation):** Bundled `references/` leaves and deterministic `scripts/`. Loaded or executed only on demand.
+3. **Triggering & Negative Boundaries:** Description and `## Do Not` define clear negative boundaries ("Do NOT use for...") to stop over-triggering. Avoid pushy keywords ("always", "crucial", "essential") that flood the orchestrator.
+4. **Disclose Side Effects & Require Confirmations:** If a skill writes files, commits, or mutates config, disclose in `description:` (`skill-side-effect-disclosure`). Any destructive action (delete, rm, drop, force, overwrite, truncate) must require a 2-step cue: candidate listing, `--dry-run`, or explicit confirmation (`skill-destructive-verb-confirmation`).
+5. **Deterministic Scripts over Freehand Prose:** Move repetitive CLI or file-manipulation sequences into executable scripts under `scripts/` rather than multi-paragraph instructions.
+6. **Docs are canonical.** Update the doc first; then update the skill to point at it.
+7. **No secrets.** Never embed credentials or PII in a skill or examples.
+8. **Naming:** harness first-party catalog skills use generic slugs (e.g. `code-comment-best-practices`) under `.agents/skills/<slug>/`. Paniolo-vendored skills live under `.agents/skills/external/paniolo-<name>/` and use `paniolo-<name>` as the slug. Repo-local skills live under `.agents/skills/repos/<repo>/<slug>/` — the path namespaces them, so slugs need not repeat the repo prefix. The `name` frontmatter must match the directory name. Sibling repos should not copy catalog skills — load the harness skill plus that repo's supplement in your wiki.
 
 ---
 
@@ -153,10 +159,15 @@ genuinely reusable alone. `skill-link-style` (configurable via `linkStyle` in
 
 ## Maintenance & Review Checklist
 
-- [ ] `name` and `description` are clear and conform to rules.
+- [ ] `name` and `description` are clear, concise, and conform to rules.
+- [ ] `description` is under 1,536 characters (Claude Code cap; `skill-description-budget` warns at 80% / 1,228 chars).
+- [ ] `description` includes explicit negative boundaries ("Do NOT use for...") and avoids pushy keywords.
+- [ ] Side effects (file writes, git commits, configuration edits) are disclosed in `description:` (`skill-side-effect-disclosure`).
+- [ ] Destructive actions (delete, rm, drop, force, overwrite, truncate) require a two-step confirmation or `--dry-run` (`skill-destructive-verb-confirmation`).
+- [ ] Repetitive execution steps are packaged as deterministic scripts under `scripts/`.
 - [ ] `license`, `metadata.version`, and `tags` are present for skills shipped to customers.
 - [ ] `user-invocable: true` if it should be a slash command.
-- [ ] Body is ≤ 500 lines; references are one level deep.
+- [ ] Body is ≤ 500 lines (100–300 optimal); references are one level deep.
 - [ ] Output format is explicitly specified for the agent.
 - [ ] Error handling (fast-fail) and clarifying-question policy defined.
 - [ ] Related/dependent skills are linked by full path, not bare slug.
@@ -167,13 +178,20 @@ genuinely reusable alone. `skill-link-style` (configurable via `linkStyle` in
 ## References
 
 - Line-count check: `paniolo scan` (`skill-line-count` rule)
+- Description budget check: `paniolo scan` (`skill-description-budget` rule)
+- Negative boundaries check: `paniolo scan` (`skill-missing-do-not` rule)
+- Side effect disclosure check: `paniolo scan` (`skill-side-effect-disclosure` rule)
+- Destructive confirmation check: `paniolo scan` (`skill-destructive-verb-confirmation` rule)
 - Link checks: `paniolo scan` (`skill-link-style`, `skill-link-integrity` rules)
 - Workflows: [`.agents/workflows/`](/.agents/workflows/)
 
 ## Do Not
 
 - Do not put long code examples in a skill — put them in `docs/` and link.
-- Do not exceed 500 lines — the CI check will fail.
+- Do not exceed 500 lines — the CI check will fail (`skill-line-count`).
+- Do not exceed 1,536 characters in frontmatter description — Claude Code silently truncates it.
+- Do not omit negative boundaries — always specify when NOT to use the skill.
+- Do not perform unconfirmed destructive actions (deletes, overwrites, drops) without a dry-run or two-step cue.
 - Do not duplicate content between a skill and a doc — the doc is canonical.
 - For Paniolo work, do not add Python validation when the Rust CLI covers the check.
 - Never ask the user whether to commit code changes or open a PR.

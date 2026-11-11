@@ -253,6 +253,21 @@
       ]
     },
     {
+      "name": "paniolo-merge-ops",
+      "description": "Choose merge strategy, execute 'ship it' sequences, release worktree slots, pull latest main across checkouts, and refresh idle pool slots. Mutates git state (merges PRs, switches branches, and fast-forwards checkouts). Use when merging a PR, asked to 'ship it', or returning checkouts to clean main. Do NOT use for general git branching or worktree claiming; load `paniolo-worktree` for that.",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "git",
+        "merge",
+        "worktrees",
+        "ship-it"
+      ],
+      "sourceSkill": "merge-ops",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-merge-ops",
+      "references": []
+    },
+    {
       "name": "paniolo-naming-best-practices",
       "description": "Symbol and file naming conventions for functions, types, variables, and React components. Use when naming a new function, hook, type, file, or variable, or when reviewing whether an existing name is appropriate.",
       "license": "MIT",
