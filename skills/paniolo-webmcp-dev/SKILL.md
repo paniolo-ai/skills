@@ -131,7 +131,7 @@ architecture for the whole product.
   [webmcp-react](references/webmcp-react.md) section of this skill's own
   references; no separate skill needed.
 - General frontend conventions unrelated to WebMCP (component structure,
-  state management) → [paniolo-react-best-practices/SKILL.md](../paniolo-react-best-practices/SKILL.md).
+  state management) → [paniolo-react/SKILL.md](../paniolo-react/SKILL.md).
 
 ## Do Not
 
@@ -166,7 +166,7 @@ architecture for the whole product.
 - [webmcp-observability](references/webmcp-observability.md) — production signals without PII
 - [webmcp-timeline](references/webmcp-timeline.md) — browser/flag rollout status
 - [webmcp-implementation-gotchas](references/webmcp-implementation-gotchas.md) — silent-failure bugs seen in production
-- [paniolo-react-best-practices/SKILL.md](../paniolo-react-best-practices/SKILL.md)
+- [paniolo-react/SKILL.md](../paniolo-react/SKILL.md)
 
 ---
 

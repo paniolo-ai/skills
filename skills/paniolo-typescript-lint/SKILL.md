@@ -1,10 +1,10 @@
 ---
 name: paniolo-typescript-lint
 description: |
-  Pre-authoring checklist, workflows, and resolution lookup for oxlint, ESLint, and tsc errors in strict TypeScript codebases. Use when authoring TypeScript to pass lint or resolving TypeScript lint errors. Do NOT use for Markdown (see paniolo-markdown-lint-best-practices) or Rust clippy.
+  Pre-authoring checklist, workflows, and resolution lookup for oxlint, ESLint, and tsc errors in strict TypeScript codebases. Use when authoring TypeScript to pass lint or resolving TypeScript lint errors. Do NOT use for Markdown (see paniolo-markdown-lint) or Rust clippy.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - typescript
 - lint
@@ -98,8 +98,8 @@ const legacy = thirdParty.getData();
 ## References
 
 - Full reference: [typescript-lint](references/typescript-lint.md)
-- [paniolo-typescript-best-practices](../paniolo-typescript-best-practices/SKILL.md) — language and type system conventions
-- [paniolo-react-best-practices](../paniolo-react-best-practices/SKILL.md) — React component and hook conventions
+- [paniolo-typescript](../paniolo-typescript/SKILL.md) — language and type system conventions
+- [paniolo-react](../paniolo-react/SKILL.md) — React component and hook conventions
 
 ## Do Not
 
@@ -107,7 +107,7 @@ const legacy = thirdParty.getData();
 - Do not suppress rules with disable comments without an explicit `-- reason`.
 - Do not substitute bare `npx eslint` when the repository defines a package script.
 - Do not expand scope beyond requested changes when resolving lint failures.
-- Do not use this skill for Markdown linting (see `paniolo-markdown-lint-best-practices`) or Rust (see `cargo clippy`).
+- Do not use this skill for Markdown linting (see `paniolo-markdown-lint`) or Rust (see `cargo clippy`).
 
 ---
 

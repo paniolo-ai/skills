@@ -17,16 +17,16 @@
       "references": []
     },
     {
-      "name": "paniolo-code-comment-best-practices",
+      "name": "paniolo-code-comment",
       "description": "Code comment conventions for TypeScript/React — JSDoc vs inline, when to explain why vs what, params/returns rules, spacing, placement, test comment rules, links in comments (@see vs {@link}), TODO/FIXME format, anti-patterns, writing style. Use when adding, updating, or reviewing comments in .ts or .tsx files. Do NOT use for general documentation questions unrelated to in-code comments.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "code-comments",
         "documentation"
       ],
-      "sourceSkill": "code-comment-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-code-comment-best-practices",
+      "sourceSkill": "code-comment",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-code-comment",
       "references": [
         "anti-patterns",
         "code-comments",
@@ -44,25 +44,25 @@
       ]
     },
     {
-      "name": "paniolo-config-best-practices",
+      "name": "paniolo-config",
       "description": "How to read a paniolo.config.json correctly before relying on any value in it — ask `paniolo evolve config effective` for the scan surface, and know that it covers nothing else and never reveals whether a value came from the gitignored paniolo.config.local.json overlay that can invert a setting. Use when asked what a Paniolo setting is, when explaining why a paniolo command behaved unexpectedly, or before quoting any configured value back to a user. Do NOT use to create a config from scratch (paniolo-config-init) or to migrate and deduplicate an existing one (paniolo-config-upgrade).",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "harness",
         "config"
       ],
-      "sourceSkill": "config-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-config-best-practices",
+      "sourceSkill": "config",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-config",
       "references": [
         "config-resolution"
       ]
     },
     {
       "name": "paniolo-config-init",
-      "description": "Scaffold a starter paniolo.config.json by asking the user which AI vendors/harnesses (Claude Code, Cursor, Copilot, Codex, Gemini, Antigravity, Devin) this repo should support. Use when asked to init, scaffold, or set up paniolo.config.json, configure which AI vendors a repo supports, or on /paniolo-config-init.",
+      "description": "Scaffold a starter paniolo.config.json by asking the user which AI vendors/harnesses (Claude Code, Cursor, Copilot, Codex, Gemini, Antigravity, Devin) this repo should support. Writes a starter paniolo.config.json at the repo root. Prompts for confirmation before overwriting an existing config. Use when asked to init, scaffold, or set up paniolo.config.json, configure which AI vendors a repo supports, or on /paniolo-config-init.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "harness",
         "config"
@@ -73,9 +73,9 @@
     },
     {
       "name": "paniolo-config-upgrade",
-      "description": "Upgrade, migrate, or deduplicate an existing paniolo.config.json — convert the legacy product-siloed shape (scan.targets, evolve.verification.targets, wiki.wikis) to the repo-centric shape, factor repeated per-repo policy into repoDefaults or named repoTypes layers, connect a sibling repo, or trace where an effective setting came from. Writes config files after confirmation. Use when asked to migrate, modernize, dedupe, or restructure an existing paniolo.config.json, or on /paniolo-config-upgrade. Do not use to create a config from scratch — that is paniolo-config-init.",
+      "description": "Upgrade, migrate, or deduplicate an existing paniolo.config.json — convert the legacy product-siloed shape (scan.targets, evolve.verification.targets, wiki.wikis) to the repo-centric shape, factor repeated per-repo policy into repoDefaults or named repoTypes layers, connect a sibling repo, or trace where an effective setting came from. Mutates config files after confirmation. Use when asked to migrate, modernize, dedupe, or restructure an existing paniolo.config.json, or on /paniolo-config-upgrade. Do not use to create a config from scratch — that is paniolo-config-init.",
       "license": "MIT",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "tags": [
         "harness",
         "config"
@@ -121,7 +121,7 @@
       "name": "paniolo-effect-ts-patterns",
       "description": "Effect-TS patterns for scripts (CLI orchestration, subprocesses, typed errors, schema validation). Use when building or migrating scripts, hooks, or validators — not HTTP API handlers.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "effect-ts"
       ],
@@ -163,17 +163,17 @@
       ]
     },
     {
-      "name": "paniolo-markdown-lint-best-practices",
+      "name": "paniolo-markdown-lint",
       "description": "Pre-authoring checklist and validation workflow for writing lint-clean markdown. Use when creating or editing any .md file to pass paniolo scan and paniolo wiki checks on the first try.",
       "license": "MIT",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "tags": [
         "markdown",
         "lint",
         "wiki"
       ],
-      "sourceSkill": "markdown-lint-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-markdown-lint-best-practices",
+      "sourceSkill": "markdown-lint",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-markdown-lint",
       "references": [
         "doc-content",
         "markdown-lint"
@@ -183,7 +183,7 @@
       "name": "paniolo-mcp-dev",
       "description": "Build, extend, debug, or review an MCP (Model Context Protocol) server. Use for transport and authentication choices, multi-client lifecycle, tool/resource design, output efficiency, long-running jobs, interoperability tests, or serving Agent Skills via SEP-2640. Applies to `paniolo mcp` and other MCP servers. Do not use for WebMCP page tools via document.modelContext; use paniolo-webmcp-dev.",
       "license": "MIT",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "tags": [
         "mcp",
         "agents",
@@ -220,15 +220,15 @@
       "references": []
     },
     {
-      "name": "paniolo-naming-best-practices",
+      "name": "paniolo-naming",
       "description": "Symbol and file naming conventions for functions, types, variables, and React components. Use when naming a new function, hook, type, file, or variable, or when reviewing whether an existing name is appropriate.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "naming"
       ],
-      "sourceSkill": "naming-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-naming-best-practices",
+      "sourceSkill": "naming",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-naming",
       "references": [
         "naming",
         "naming-file-naming",
@@ -280,16 +280,16 @@
       ]
     },
     {
-      "name": "paniolo-playwright-test-best-practices",
-      "description": "Playwright E2E test conventions for this project — AAA pattern, translation-aware selectors, hydration waits, mock auth, staging DB sessions, two-user flows, debugging, and CI setup. Use when authoring or editing any Playwright spec, test helper, or E2E configuration. Do NOT use for unit tests or hook tests — load paniolo-vitest-test-best-practices instead.",
+      "name": "paniolo-playwright-test",
+      "description": "Playwright E2E test conventions for this project — AAA pattern, translation-aware selectors, hydration waits, mock auth, staging DB sessions, two-user flows, debugging, and CI setup. Use when authoring or editing any Playwright spec, test helper, or E2E configuration. Do NOT use for unit tests or hook tests — load paniolo-vitest-test instead.",
       "license": "MIT",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "tags": [
         "playwright",
         "testing"
       ],
-      "sourceSkill": "playwright-test-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-playwright-test-best-practices",
+      "sourceSkill": "playwright-test",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-playwright-test",
       "references": [
         "playwright-aaa-pattern",
         "playwright-debugging",
@@ -322,15 +322,15 @@
       "references": []
     },
     {
-      "name": "paniolo-react-best-practices",
-      "description": "React 18+ conventions — ReactElement ambient type, useEffect comment rule, plain function declarations, prop and file/import conventions, paired hooks. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript-best-practices instead. For React Compiler constraints (no useCallback/useMemo, no render side effects), load paniolo-react-compiler.",
+      "name": "paniolo-react",
+      "description": "React 18+ conventions — ReactElement ambient type, useEffect comment rule, plain function declarations, prop and file/import conventions, paired hooks. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript instead. For React Compiler constraints (no useCallback/useMemo, no render side effects), load paniolo-react-compiler.",
       "license": "MIT",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "tags": [
         "react"
       ],
-      "sourceSkill": "react-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-react-best-practices",
+      "sourceSkill": "react",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-react",
       "references": [
         "react",
         "react-avoid-react-fc",
@@ -348,9 +348,9 @@
     },
     {
       "name": "paniolo-react-compiler",
-      "description": "React Compiler (babel-plugin-react-compiler) constraints — no useCallback/useMemo/memo, no ref writes or other side effects during render, no try/finally or value blocks inside compiled hooks. Use when authoring or editing React components and hooks in a project that enables the React Compiler, or when diagnosing a ReactCompilerError or a dev-build panic. Do NOT use for projects without the compiler enabled — manual memoization is legitimate there; load paniolo-react-best-practices for compiler-independent React conventions.",
+      "description": "React Compiler (babel-plugin-react-compiler) constraints — no useCallback/useMemo/memo, no ref writes or other side effects during render, no try/finally or value blocks inside compiled hooks. Use when authoring or editing React components and hooks in a project that enables the React Compiler, or when diagnosing a ReactCompilerError or a dev-build panic. Do NOT use for projects without the compiler enabled — manual memoization is legitimate there; load paniolo-react for compiler-independent React conventions.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "react",
         "react-compiler"
@@ -364,16 +364,16 @@
       ]
     },
     {
-      "name": "paniolo-safety-and-git-best-practices",
+      "name": "paniolo-safety-and-git",
       "description": "Repository-wide safety guardrails for command execution, environment management, git usage, database migrations, and honest completion reporting. Use before running deploys or migrations, before git write operations, and before reporting a task complete. Do NOT use for code-authoring conventions — load the language skill instead.",
       "license": "MIT",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "tags": [
         "git",
         "safety"
       ],
-      "sourceSkill": "safety-and-git-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-safety-and-git-best-practices",
+      "sourceSkill": "safety-and-git",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-safety-and-git",
       "references": [
         "applied-migrations-are-immutable",
         "completion-means-the-gate-ran",
@@ -385,7 +385,7 @@
       "name": "paniolo-scan",
       "description": "Audit a repository's AI coding agent harness — Claude Code, Cursor, Copilot, Codex, Gemini, and Antigravity — by running the deterministic `npx @paniolo/cli scan` CLI and reporting meta-harness scores and findings. Use when asked to scan, audit, check, or score an agent harness, a CLAUDE.md / AGENTS.md setup, skills, rules, or meta-harness, or on /paniolo-scan. Read-only — to fix findings, use paniolo-scan-remediate.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "harness",
         "scan"
@@ -396,9 +396,9 @@
     },
     {
       "name": "paniolo-scan-remediate",
-      "description": "Remediate findings from a paniolo-scan audit — present a severity-banded fix plan, apply the selected fixes in the working tree, and re-scan for the delta. Use after running paniolo-scan, or when asked to fix, remediate, or improve a repo's agent-harness scores, CLAUDE.md / AGENTS.md setup, skills, or rules — or on /paniolo-scan-remediate.",
+      "description": "Remediate findings from a paniolo-scan audit — present a severity-banded fix plan, apply the selected fixes in the working tree, and re-scan for the delta. Modifies working tree files to resolve findings. Prompts for plan selection before applying edits. Use after running paniolo-scan, or when asked to fix, remediate, or improve a repo's agent-harness scores, CLAUDE.md / AGENTS.md setup, skills, or rules — or on /paniolo-scan-remediate.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "harness",
         "scan"
@@ -444,16 +444,16 @@
       ]
     },
     {
-      "name": "paniolo-skill-best-practices",
+      "name": "paniolo-skill",
       "description": "How to write, update, split, or review SKILL.md files. Use when creating a new skill, updating an existing one, or auditing for quality and conventions.",
       "license": "MIT",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "tags": [
         "skills",
         "authoring"
       ],
-      "sourceSkill": "skill-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-skill-best-practices",
+      "sourceSkill": "skill",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-skill",
       "references": []
     },
     {
@@ -523,15 +523,15 @@
       ]
     },
     {
-      "name": "paniolo-typescript-best-practices",
-      "description": "TypeScript conventions for any repo — no `any`, explicit return types, JSDoc, exactOptionalPropertyTypes, ambient types, import style. Use when authoring or editing `.ts`/`.tsx`, resolving strictness errors, or fixing type-related lint failures. Do NOT use for React-specific typing (see paniolo-react-best-practices) or JSDoc-only changes (see paniolo-code-comment-best-practices).",
+      "name": "paniolo-typescript",
+      "description": "TypeScript conventions for any repo — no `any`, explicit return types, JSDoc, exactOptionalPropertyTypes, ambient types, import style. Use when authoring or editing `.ts`/`.tsx`, resolving strictness errors, or fixing type-related lint failures. Do NOT use for React-specific typing (see paniolo-react) or JSDoc-only changes (see paniolo-code-comment).",
       "license": "MIT",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "tags": [
         "typescript"
       ],
-      "sourceSkill": "typescript-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-typescript-best-practices",
+      "sourceSkill": "typescript",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-typescript",
       "references": [
         "typescript-ambient-types",
         "typescript-avoid-any",
@@ -552,9 +552,9 @@
     },
     {
       "name": "paniolo-typescript-lint",
-      "description": "Pre-authoring checklist, workflows, and resolution lookup for oxlint, ESLint, and tsc errors in strict TypeScript codebases. Use when authoring TypeScript to pass lint or resolving TypeScript lint errors. Do NOT use for Markdown (see paniolo-markdown-lint-best-practices) or Rust clippy.",
+      "description": "Pre-authoring checklist, workflows, and resolution lookup for oxlint, ESLint, and tsc errors in strict TypeScript codebases. Use when authoring TypeScript to pass lint or resolving TypeScript lint errors. Do NOT use for Markdown (see paniolo-markdown-lint) or Rust clippy.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "typescript",
         "lint",
@@ -576,16 +576,16 @@
       ]
     },
     {
-      "name": "paniolo-vitest-test-best-practices",
+      "name": "paniolo-vitest-test",
       "description": "Vitest unit test authoring — setup, mocking, API handler testing, and common pitfalls for non-hook code. Use when the user asks to add, update, fix, or review unit tests for utilities, components, API handlers, or scripts. Do NOT use for React hook tests — load vitest-test-hook-best-practices instead.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "vitest",
         "testing"
       ],
-      "sourceSkill": "vitest-test-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-vitest-test-best-practices",
+      "sourceSkill": "vitest-test",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-vitest-test",
       "references": [
         "vitest-colocate-make-fixtures",
         "vitest-extract-helpers-only-after-repetition",
@@ -703,16 +703,16 @@
       ]
     },
     {
-      "name": "paniolo-zustand-best-practices",
+      "name": "paniolo-zustand",
       "description": "Zustand state management patterns — store creation, selectors, Immer middleware, async actions with loading states, devtools, persist, and testing. Use when authoring or editing Zustand stores (use*Store files) or components that subscribe to stores. Do NOT use for React component structure or TypeScript-only utilities.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "zustand",
         "state"
       ],
-      "sourceSkill": "zustand-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-zustand-best-practices",
+      "sourceSkill": "zustand",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-zustand",
       "references": [
         "async-actions-with-loading-states",
         "basic-selector-pattern",

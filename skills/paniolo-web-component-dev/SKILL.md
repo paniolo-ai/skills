@@ -122,11 +122,11 @@ adding an attr/prop/event translation layer.
 ## Skill handoffs
 
 - React-side integration details (wrappers, `< 19` shims) →
-  [paniolo-react-best-practices/SKILL.md](../paniolo-react-best-practices/SKILL.md).
+  [paniolo-react/SKILL.md](../paniolo-react/SKILL.md).
 - General TypeScript conventions →
-  [paniolo-typescript-best-practices/SKILL.md](../paniolo-typescript-best-practices/SKILL.md).
+  [paniolo-typescript/SKILL.md](../paniolo-typescript/SKILL.md).
 - Vitest setup for non-browser unit tests →
-  [paniolo-vitest-test-best-practices/SKILL.md](../paniolo-vitest-test-best-practices/SKILL.md);
+  [paniolo-vitest-test/SKILL.md](../paniolo-vitest-test/SKILL.md);
   real-browser component testing per
   [web-component-testing](references/web-component-testing.md).
 

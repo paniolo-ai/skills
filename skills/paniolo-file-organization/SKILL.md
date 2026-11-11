@@ -147,7 +147,7 @@ find . -name "*.cjs" -not -path "./node_modules"     # Detect CommonJS config
 - Project rules:
   rules
 - TypeScript conventions:
-  [../external/paniolo-typescript-best-practices/SKILL.md](../paniolo-typescript-best-practices/SKILL.md)
+  [../external/paniolo-typescript/SKILL.md](../paniolo-typescript/SKILL.md)
 - Source refactoring: [../source-refactoring/SKILL.md](../paniolo-source-refactoring/SKILL.md)
 
 ## Do Not
@@ -158,8 +158,8 @@ find . -name "*.cjs" -not -path "./node_modules"     # Detect CommonJS config
 
 ## Skill Handoffs
 
-- If reorganizing includes splitting large modules, also load `file-splitting`.
-- If symbol naming decisions are part of the reorg, also load `naming-best-practices`.
+- If reorganizing includes splitting large modules, also load `paniolo-source-refactoring`.
+- If symbol naming decisions are part of the reorg, also load `paniolo-naming`.
 - **Constants placement (cross-file):** see
   [constants-placement-across-modules](references/constants-placement-across-modules.md).
 

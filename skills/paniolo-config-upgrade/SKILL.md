@@ -1,10 +1,10 @@
 ---
 name: paniolo-config-upgrade
 description: |
-  Upgrade, migrate, or deduplicate an existing paniolo.config.json — convert the legacy product-siloed shape (scan.targets, evolve.verification.targets, wiki.wikis) to the repo-centric shape, factor repeated per-repo policy into repoDefaults or named repoTypes layers, connect a sibling repo, or trace where an effective setting came from. Writes config files after confirmation. Use when asked to migrate, modernize, dedupe, or restructure an existing paniolo.config.json, or on /paniolo-config-upgrade. Do not use to create a config from scratch — that is paniolo-config-init.
+  Upgrade, migrate, or deduplicate an existing paniolo.config.json — convert the legacy product-siloed shape (scan.targets, evolve.verification.targets, wiki.wikis) to the repo-centric shape, factor repeated per-repo policy into repoDefaults or named repoTypes layers, connect a sibling repo, or trace where an effective setting came from. Mutates config files after confirmation. Use when asked to migrate, modernize, dedupe, or restructure an existing paniolo.config.json, or on /paniolo-config-upgrade. Do not use to create a config from scratch — that is paniolo-config-init.
 license: MIT
 metadata:
-  version: 0.1.1
+  version: 0.1.2
 tags:
 - harness
 - config
@@ -61,7 +61,7 @@ npx @paniolo/cli evolve config graph --json
 ```
 
 `sourceShape` is `legacy` or `repo-centric`. For a scan-only effective view and
-its layer provenance, follow `paniolo-config-best-practices`. Other config
+its layer provenance, follow `paniolo-config`. Other config
 sections need inspection of the tracked file and the local overlay.
 
 ### 3. Migrate a legacy config
@@ -91,7 +91,7 @@ npx @paniolo/cli evolve config migrate --apply    # writes after confirmation
   `repoTypes.<name>`, plus `"type": "<name>"` on each member node.
 - Leave on the node: `path`, `qmd`, `workspace`, `wiki` membership, and genuine
   per-repo overrides.
-- Compare scan behavior before and after using `paniolo-config-best-practices`.
+- Compare scan behavior before and after using `paniolo-config`.
   Compare other sections against the tracked file and local overlay. Only the
   intended provenance should change.
 
@@ -104,26 +104,19 @@ npx @paniolo/cli evolve config migrate --apply    # writes after confirmation
 - Register a wiki: `npx @paniolo/cli wiki init` stamps the wiki directory and
   registers it in the config.
 
-## Do not
+## Do Not
 
 - Do not use this for a repo with no `paniolo.config.json` yet — scaffold one with
   `paniolo-config-init`.
 - Do not hand-edit a legacy config into repo-centric shape — run
-  `evolve config migrate`, which verifies equivalence; hand edits can silently drop policy.
+  `evolve config migrate`, which verifies equivalence and creates a `.bak` backup; hand edits can silently drop policy.
+- Do not mix legacy and repo-centric keys in one file; commands refuse the mix.
 - Do not put `path`, `qmd`, or `workspace` in `repoDefaults`/`repoTypes` — identity and
   membership live on the node.
+- Do not copy a type layer's values onto its member nodes — that defeats the deduplication the layer provides.
+- Do not lower `version` below what the file's features require, or strip it from a migrated config.
 - Do not rely on `repoDefaults`/`repoTypes` while the installed `@paniolo/cli` predates
-  them — check `--version` first; the `version` field exists to fail loudly on old builds.
-
-## Guardrails
-
-- Prefer the CLI writers (`migrate --apply`, `connect --apply`, `wiki init`) —
-  they are format-preserving and verified; hand edits are not.
-- Never mix legacy and repo-centric keys in one file; commands refuse the mix.
-- Don't copy a type layer's values onto its member nodes — that's the
-  duplication the layer exists to remove; the node only needs overrides.
-- `version` declares the minimum CLI the file needs — don't lower it below what
-  the file's features require, and don't strip it from a migrated config.
+  them — check `--version` first.
 
 ## References
 

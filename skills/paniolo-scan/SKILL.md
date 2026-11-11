@@ -4,7 +4,7 @@ description: |
   Audit a repository's AI coding agent harness — Claude Code, Cursor, Copilot, Codex, Gemini, and Antigravity — by running the deterministic `npx @paniolo/cli scan` CLI and reporting meta-harness scores and findings. Use when asked to scan, audit, check, or score an agent harness, a CLAUDE.md / AGENTS.md setup, skills, rules, or meta-harness, or on /paniolo-scan. Read-only — to fix findings, use paniolo-scan-remediate.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - harness
 - scan
@@ -67,13 +67,11 @@ The audit changed nothing. Offer the two ways forward:
   installed: `npx skills add paniolo-ai/skills --skill paniolo-scan-remediate`.
 - **Stop here** — the report stands on its own as a baseline.
 
-## Guardrails
+## Do Not
 
-- The scanner is diagnostic-only, and this skill is too: no file writes, no fixes.
-- Never reimplement rules or thresholds here — read them from the JSON report.
-- No API key or paid credits are needed; this runs in the existing agent session.
-- Always surface the goodwill framing (step 3) before offering remediation — honestly, once,
-  without gating it.
+- Do not write files or apply code changes — the scanner and this skill are strictly diagnostic; use `paniolo-scan-remediate` for fixes.
+- Do not reimplement rules or thresholds here — read them from the JSON report.
+- Do not omit the goodwill framing (step 3) before offering remediation.
 
 ---
 

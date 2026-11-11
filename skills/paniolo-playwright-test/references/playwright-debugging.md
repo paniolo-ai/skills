@@ -1,0 +1,50 @@
+---
+source-slug: playwright-debugging
+source-hash: 623df63633b45e4d548c0e96713ea2f0d8da64ff6ea27059ac0cc4fa335a9efd
+bundled: 2026-11-11
+title: Debugging
+type: concept
+tags:
+- authoring
+- playwright
+- testing
+- e2e
+updated: 2026-08-20
+---
+
+# Debugging
+
+Isolate one Playwright failure and classify it before changing application behavior. Start with the repository's native package script so the documented environment and runner lifecycle still apply.
+
+## Focused Windows Run
+
+In PowerShell, set environment variables through PowerShell and invoke the package script directly:
+
+```powershell
+$env:PLAYWRIGHT_VERBOSE = "true"
+pnpm run <single-spec-script> --project=chromium path/to/example.spec.ts
+Remove-Item Env:PLAYWRIGHT_VERBOSE
+```
+
+Read the package script before adding a literal `--`. Some wrappers already forward arguments, so
+that token can change Playwright's project or file selection. Confirm the banner reports the
+intended project, spec count, and worker count.
+
+Use the wrapper's operating-system temporary directory for logs and PID metadata. Do not assume
+that `/tmp` exists on Windows, and do not depend on shell redirection for required diagnostics.
+
+## Diagnosis Order
+
+1. Confirm the wrapper printed its readiness marker and intended test selection.
+1. Validate the session, roles, identifiers, relationships, and domain values in the fixture.
+1. Find the first failed assertion or failed request with its response status and body.
+1. Inspect owned server logs for an earlier child exit or backend error.
+1. Confirm teardown removed owned rows, descendants, and listeners.
+1. Re-run the focused case before broadening to the surrounding suite.
+
+An outer timeout, forced process termination, or reporter pipe error is inconclusive unless a test
+assertion already established a product failure.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

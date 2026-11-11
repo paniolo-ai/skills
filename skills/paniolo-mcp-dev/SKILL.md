@@ -4,7 +4,7 @@ description: |
   Build, extend, debug, or review an MCP (Model Context Protocol) server. Use for transport and authentication choices, multi-client lifecycle, tool/resource design, output efficiency, long-running jobs, interoperability tests, or serving Agent Skills via SEP-2640. Applies to `paniolo mcp` and other MCP servers. Do not use for WebMCP page tools via document.modelContext; use paniolo-webmcp-dev.
 license: MIT
 metadata:
-  version: 0.2.1
+  version: 0.2.2
 tags:
 - mcp
 - agents
@@ -93,6 +93,14 @@ Code changes directly. After edits, state which tools/resources/methods were add
 - If a host can't see a tool, check `initialize` capability negotiation and `tools/list` before debugging the handler — a capability the host never declared silently receives no calls.
 - If a write op appears uncallable, check the annotations/consent path — a `destructiveHint` tool under a strict host policy is gated, not broken.
 - Never swallow a JSON-RPC error into a tool result, or a tool failure into a protocol error — each has a defined channel; crossing them breaks host retry and error UX.
+
+## Do Not
+
+- Do not confuse MCP with WebMCP — WebMCP tools run in-browser via `document.modelContext`; use `paniolo-webmcp-dev` for browser page tools.
+- Do not expose destructive tools without confirmation gates (`apply: true` or diff preview) and honest `destructiveHint` annotations.
+- Do not store cross-client state globally in a pooled server — isolate session handles, jobs, and access tokens.
+- Do not emit duplicate content in both structured and text payload blocks.
+- Do not wrap every leaf CLI command into an isolated tool; consolidate into workflow-oriented family tools.
 
 ## Validation
 

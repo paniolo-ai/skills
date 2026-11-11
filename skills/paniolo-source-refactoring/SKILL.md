@@ -139,7 +139,7 @@ Once all symbols and tests have migrated, delete the original file. Do not leave
 ## References
 
 - [file-organization](../paniolo-file-organization/SKILL.md)
-- [vitest-test-best-practices](../paniolo-vitest-test-best-practices/SKILL.md)
+- [paniolo-vitest-test](../paniolo-vitest-test/SKILL.md)
 
 ---
 
