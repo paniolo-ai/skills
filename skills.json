@@ -189,28 +189,6 @@
       ]
     },
     {
-      "name": "paniolo-lint-error-resolution",
-      "description": "Guide for resolving lint errors in strict TypeScript environments — oxlint, ESLint, and tsc. Use when encountering lint errors in files being edited. Load the repo-specific lint supplement when fixing a workspace app repo's code.",
-      "license": "MIT",
-      "version": "0.1.0",
-      "tags": [
-        "lint",
-        "typescript"
-      ],
-      "sourceSkill": "lint-error-resolution",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-lint-error-resolution",
-      "references": [
-        "typescript-all-if-else-branches-contain-same-code-shared-error-check",
-        "typescript-isolateddeclarations-explicit-type-annotations-on-exports",
-        "typescript-lint",
-        "typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna",
-        "typescript-no-unsafe-type-assertion-request-validation",
-        "typescript-optional-method-chain-use-typed-query-wrapper",
-        "typescript-quick-lookup",
-        "typescript-require-useeffect-comment-comment-before-useeffect"
-      ]
-    },
-    {
       "name": "paniolo-markdown-lint-best-practices",
       "description": "Pre-authoring checklist and validation workflow for writing lint-clean markdown. Use when creating or editing any .md file to pass paniolo scan and paniolo wiki checks on the first try.",
       "license": "MIT",
@@ -614,18 +592,28 @@
       ]
     },
     {
-      "name": "paniolo-typescript-lint-best-practices",
-      "description": "Pre-authoring checklist, workflow, and common-error lookup for writing lint-clean TypeScript. Use when writing new code to pass lint on the first try. Load the repo-specific supplement when editing a workspace app repo.",
+      "name": "paniolo-typescript-lint",
+      "description": "Pre-authoring checklist, workflows, and resolution lookup for oxlint, ESLint, and tsc errors in strict TypeScript codebases. Use when authoring TypeScript to pass lint or resolving TypeScript lint errors. Do NOT use for Markdown (see paniolo-markdown-lint-best-practices) or Rust clippy.",
       "license": "MIT",
       "version": "0.1.0",
       "tags": [
         "typescript",
-        "lint"
+        "lint",
+        "oxlint",
+        "eslint",
+        "tsc"
       ],
-      "sourceSkill": "typescript-lint-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-typescript-lint-best-practices",
+      "sourceSkill": "typescript-lint",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-typescript-lint",
       "references": [
-        "typescript-lint"
+        "typescript-all-if-else-branches-contain-same-code-shared-error-check",
+        "typescript-isolateddeclarations-explicit-type-annotations-on-exports",
+        "typescript-lint",
+        "typescript-no-unsafe-assignment-no-unsafe-call-no-unsafe-member-access-dyna",
+        "typescript-no-unsafe-type-assertion-request-validation",
+        "typescript-optional-method-chain-use-typed-query-wrapper",
+        "typescript-quick-lookup",
+        "typescript-require-useeffect-comment-comment-before-useeffect"
       ]
     },
     {

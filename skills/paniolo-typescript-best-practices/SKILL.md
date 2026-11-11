@@ -87,7 +87,7 @@ references:
 
 ## Skill handoffs
 
-- Lint failures → also load `paniolo-lint-error-resolution`.
+- Lint failures → also load `paniolo-typescript-lint`.
 - React-focused edits → also load `paniolo-react-best-practices`.
 - JSDoc-only changes → load `paniolo-code-comment-best-practices`.
 
@@ -109,7 +109,7 @@ references:
 - Full reference: [typescript-typescript](references/typescript-typescript.md)
 - [paniolo-react-best-practices/SKILL.md](../paniolo-react-best-practices/SKILL.md)
 - [paniolo-code-comment-best-practices/SKILL.md](../paniolo-code-comment-best-practices/SKILL.md)
-- [paniolo-lint-error-resolution/SKILL.md](../paniolo-lint-error-resolution/SKILL.md)
+- [paniolo-typescript-lint/SKILL.md](../paniolo-typescript-lint/SKILL.md)
 
 ---
 

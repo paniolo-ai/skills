@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-optional-method-chain-use-typed-query-wrapper
 source-hash: b38335b4d6e12b00ff2120fbaa02de5c2fc6a35e284766659ad461efa015f3b2
-bundled: 2026-10-17
+bundled: 2026-11-11
 title: Query-builder optional chains — use a typed wrapper
 type: concept
 tags:

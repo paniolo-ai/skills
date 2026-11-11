@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-require-useeffect-comment-comment-before-useeffect
 source-hash: 16e02ebe9ccc507dd3b3da92e020b5006717a1e7ba616ad9335437fa35ce2120
-bundled: 2026-10-17
+bundled: 2026-11-11
 title: '`require-useeffect-comment` — comment before `useEffect`'
 type: concept
 tags:
