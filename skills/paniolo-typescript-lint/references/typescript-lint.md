@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-lint
 source-hash: a4552c63aabea76072044b3dfcc9dc73016d0ffe854d28d369a88b33e4e211a9
-bundled: 2026-10-17
+bundled: 2026-11-11
 title: Authoring — TypeScript lint
 type: index
 tags:

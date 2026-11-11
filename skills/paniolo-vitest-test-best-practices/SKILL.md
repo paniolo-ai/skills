@@ -23,7 +23,7 @@ references:
 **Related skills:**
 
 - [`code-comment-best-practices/SKILL.md`](../paniolo-code-comment-best-practices/SKILL.md)
-- [`typescript-lint-best-practices/SKILL.md`](../paniolo-typescript-lint-best-practices/SKILL.md)
+- [`typescript-lint/SKILL.md`](../paniolo-typescript-lint/SKILL.md)
 
 ## Full reference
 

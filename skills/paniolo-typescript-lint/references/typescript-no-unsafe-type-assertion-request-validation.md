@@ -1,7 +1,7 @@
 ---
 source-slug: typescript-no-unsafe-type-assertion-request-validation
 source-hash: 651707602f1b7a0b9439a1a2ab15893e4b401372c136ccf3d3a5e5f497a999a9
-bundled: 2026-10-17
+bundled: 2026-11-11
 title: '`no-unsafe-type-assertion` — request validation'
 type: concept
 tags:
