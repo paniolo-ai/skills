@@ -1,13 +1,15 @@
 ---
 name: paniolo-source-refactoring
 description: |
-  Patterns for splitting functions and components into their own files. Ensures consistent exports, JSDoc preservation, and test colocation. Use when refactoring large files or extracting reusable logic.
+  Refactor existing code and break large consolidated files or helper aggregates into single-function modules. Covers single-export default exports, JSDoc preservation, import updates, test colocation, and avoiding leftover moved comments or barrel re-exports. Use when refactoring, modularizing, or decomposing multi-export files. Do NOT use for authoring new files from scratch.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.2.0
 tags:
 - refactoring
+- files
 references:
+- references/avoid-multi-function-helpersts-modules.md
 - references/file-organization.md
 - references/vitest-shared-mock-helper-infrastructure.md
 ---
@@ -20,29 +22,26 @@ references:
 
 Use this skill when:
 
-- Splitting large files into focused modules/components.
-- Moving logic into new files while preserving behavior and tests.
+- Splitting large files into focused modules or components.
+- Decomposing multi-export aggregate helper files into single-function modules.
+- Moving logic into new files while preserving behavior, JSDoc, and tests.
 
 Execution workflow:
 
-1. Extract one coherent symbol/group at a time with minimal behavior change.
-2. Keep exports/imports aligned with repo conventions and avoid barrel files.
-3. Update colocated tests or add targeted tests for extracted logic.
-4. Validate with targeted tests first, then the project's lint script.
-
-Output requirements:
-
-- Summarize what was extracted/moved and where.
-- Note any import-path or export-shape changes.
+1. Identify all call sites and import sites before touching code.
+2. Extract one coherent symbol or function at a time with minimal behavior change.
+3. Keep exports and imports aligned with repository conventions and avoid barrel files.
+4. Move or create colocated tests for extracted logic.
+5. Validate with targeted tests first, then run lint.
 
 ## Key Rules
 
-### 1. Default Export for Single Symbols
+### 1. Default Export for Single-Symbol Modules
 
-If the new file only exports one main function or component, use `export default`:
+When a new file contains a single exported function or component, make it the default export on the declaration:
 
 ```typescript
-// ✅ GOOD: Single exported function
+// ✅ GOOD: Single exported function as default export
 /**
  * @param value - The value to check
  * @returns True if value is a record
@@ -52,8 +51,7 @@ export default function isRecord(value: unknown): value is Record<string, unknow
 }
 ```
 
-If the file needs to export multiple related symbols (e.g., related types or small helpers that
-don't merit their own files), use named exports or a combination:
+If the file exports multiple tightly related symbols (such as component props and a component, or related type definitions), use named exports or a combination:
 
 ```typescript
 // ✅ GOOD: Multiple related exports
@@ -61,101 +59,87 @@ export type FooProps = { ... };
 export function Foo() { ... }
 ```
 
-**Note:** If the file ONLY exports one thing, it MUST be `export default`.
-For function declarations, put the default export on the declaration:
-`export default function foo()` rather than `function foo()` followed by `export default foo;`.
+### 2. Split Multi-Export Helper Aggregates
 
-### 2. Use Absolute Imports for Portable Files
+Do not allow `react/`, `api/`, or `shared/` to grow aggregate `*Helpers.ts` files with several named exports. Extract each function into its own camelCase default-export module and colocated test.
 
-When extracting test helpers, utilities, or shared modules that will be imported from multiple
-locations, use absolute paths (`@/`) to ensure the helper works regardless of the caller's directory
-depth.
+### 3. No Barrel Re-Exports
 
-**Why:** Relative paths (`../../../`) break when tests or modules move to different directory
-levels. Absolute paths (`@react/item/manage/helpers`) remain stable.
+Do not create an `index.ts` file that merely re-exports the split files. Call sites must import directly from the specific module path.
 
-```typescript
-// ❌ BAD: Relative path breaks from different caller locations
-vi.doMock("../manage/useItemManagerView", () => ({ default: mockFn }));
+### 4. Absolute Imports for Shared Test Helpers
 
-// ✅ GOOD: Absolute path works from any location
-vi.doMock("@react/item/manage/useItemManagerView", () => ({ default: mockFn }));
-```
+When extracting test helpers, utilities, or shared fixtures imported from multiple locations, use absolute paths (`@/` or package aliases) rather than fragile relative paths (`../../..`). Test helper files must use the `.test-util.ts[x]` suffix.
 
-For test helper files created during refactoring, **always use absolute imports** if the helper will
-be shared across multiple test suites.
+### 5. Avoid Module-Level Side Effects in Test Helpers
 
-### 3. Avoid Module-Level Side Effects in Test Helpers
+Test helper modules must export callable setup functions rather than auto-executing at import time. Use `vi.hoisted()` for shared mock state.
 
-Test helper files should export **callable setup functions**, not auto-execute at import time. Use
-`vi.hoisted()` for shared mock state.
+### 6. Preserve JSDoc
 
-See
-for full mocking patterns and examples.
+Always copy JSDoc comments from the original file to the new file verbatim. Ensure parameter and return descriptions remain accurate. Do not add redundant TypeScript types inside JSDoc comments.
 
-### 4. Preserve JSDoc
+### 7. Colocate Tests
 
-Always copy the JSDoc comments from the original file to the new file. Ensure parameters and return
-descriptions are accurate. Do not include types in JSDoc for TypeScript files.
-
-### 5. Move and Refactor Tests
-
-If the symbol being moved has existing tests, they must be moved to a new test file colocated with
-the source.
+When moving a symbol that has existing tests:
 
 1. Create `NewFile.test.ts` next to `NewFile.ts`.
-2. Move relevant `it`/`describe` blocks from the old test file to the new one.
-3. Update imports in the new test file to point to the new location.
-4. Update imports in the old test file if it still needs other symbols.
-5. Remove the moved tests from the old test file.
-6. Run the tests to ensure everything still passes.
+2. Move the relevant test cases from the old test file to the new one.
+3. Update imports in both test files.
+4. Run targeted tests to confirm green status before removing the original file.
 
-### 6. Update References
+### 8. Strict Prohibition on Leftover "Moved To" Comments
 
-Search the codebase for all occurrences of the moved symbol and update their imports.
+Never leave behind refactoring notes such as `// symbol moved to ./path`. These lines are forbidden in the codebase and must be removed before committing:
 
-- If switching from a named export in a multi-symbol file to a default export in a new file, change
-  `import { symbol } from './Original'` to `import symbol from './New'`.
-- When extracting test helpers: update all test files that import these helpers to use absolute
-  paths (`@react/item/manage/test-utils/mockUseItemManagerView.test-util`). Also follow the
-  convention of naming helper files with a `.test-util.ts[x]` suffix so their purpose is obvious.
+```bash
+git grep -nE "^\s*//.*\bmoved to\b.*$" || true
+```
+
+If a migration note is useful for reviewers, place it in the commit message or PR description instead.
+
+### 9. Remove Consolidated File When Empty
+
+Once all symbols and tests have migrated, delete the original file. Do not leave behind empty or comment-only files.
 
 ## Step-by-Step Refactoring Process
 
-1. **Identify the target**: Select the function or component to split off.
-2. **Create the new file**: Create `NewFile.tsx` or `NewFile.ts` in the appropriate directory.
-3. **Copy logic and JSDoc**: Transfer the code and its comments. Use `export default` if it's the
-   only export.
-4. **Locate tests**: Find the existing tests for the symbol (usually in `OriginalFile.test.ts`).
-5. **Split tests**: Move the tests to `NewFile.test.ts`.
-6. **Update imports**: Use `grep*search` or `semantic*search` to find all usages and update imports.
-7. **Verify**: Run the project's lint script and `the project's unit-test script -- <NewFile>.test.ts` to confirm the change
-   is correct.
+1. **Identify the target**: Select the function, component, or helper to extract.
+2. **Scan usages**: Search the codebase (`grep` or symbol search) for all import sites.
+3. **Create the module**: Create `NewSymbol.ts` or `NewSymbol.tsx` with `export default function NewSymbol()`.
+4. **Transfer logic and JSDoc**: Copy function implementation and its JSDoc comments.
+5. **Colocate tests**: Create `NewSymbol.test.ts` and transfer the corresponding tests.
+6. **Update imports**: Update all call sites from named imports to default imports.
+7. **Clean up**: Remove leftover refactoring comments; remove the original file if fully migrated.
+8. **Verify**: Run targeted unit tests followed by project linting.
+
+## Validation
+
+```bash
+<your unit-test command> path/to/changed.test.ts
+<your lint command>
+```
+
+## Evaluations (I/O Examples)
+
+**Input:** "Split `shared/src/utils/helpers.ts` into separate files"
+**Expected:** Agent reads the file, identifies each exported symbol, creates one file per symbol named after the symbol with default export, updates all import sites, colocates tests, removes leftover moved comments, removes original file, and runs lint and tests.
+
+**Input:** "Extract `formatDate` helper to its own file"
+**Expected:** Agent creates `formatDate.ts` next to the source, moves function and JSDoc as `export default function formatDate`, updates import sites, runs validation, and creates no barrel re-export.
 
 ## Do Not
 
-- Do not violate repo-wide rules in rules.
-- Do not add broad lint/type suppressions without explicit justification.
-- Do not expand scope beyond the requested task without calling it out.
-
-## Success Criteria
-
-- Changes follow this skill's conventions and project rules.
-- Relevant validation commands are run, or skipped with a clear reason.
-- Results clearly summarize behavior impact and remaining risks.
-
-## Skill Handoffs
-
-- If the refactor is specifically file decomposition, also load `file-splitting`.
-- If naming changes are central to the refactor, also load `naming-best-practices`.
+- Do not create barrel `index.ts` re-exports.
+- Do not drop or abbreviate JSDoc when moving symbols.
+- Do not leave `// moved to` comments in source code.
+- Do not create new files from scratch without an existing symbol to split or refactor.
+- Do not add broad lint or type suppressions during refactoring.
 
 ## References
 
-- File organization reference: [file-organization](references/file-organization.md)
-- Mock helper patterns: [vitest-shared-mock-helper-infrastructure](references/vitest-shared-mock-helper-infrastructure.md)
-- Repo-wide rules: rules
-- [file-splitting/SKILL.md](../paniolo-file-splitting/SKILL.md)
-- [naming-best-practices/SKILL.md](../paniolo-naming-best-practices/SKILL.md)
+- [file-organization](../paniolo-file-organization/SKILL.md)
+- [vitest-test-best-practices](../paniolo-vitest-test-best-practices/SKILL.md)
 
 ---
 
