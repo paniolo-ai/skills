@@ -85,45 +85,39 @@
       "references": []
     },
     {
-      "name": "paniolo-deployment-operations",
-      "description": "Deployment rollback, health monitoring, and production troubleshooting. Use when recovering from a failed deployment, checking deployment health, or diagnosing production issues.",
+      "name": "paniolo-deployment",
+      "description": "Core deployment workflow, environment configuration, secrets management, health monitoring, rollbacks, and incident triage. Use when deploying code, configuring environments, rolling back failed deploys, or verifying deployment health.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "tags": [
-        "deployment"
+        "deployment",
+        "operations"
       ],
-      "sourceSkill": "deployment-operations",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-deployment-operations",
+      "sourceSkill": "deployment",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-deployment",
       "references": []
     },
     {
-      "name": "paniolo-deployment-strategies",
-      "description": "Core deployment workflow, environment variable configuration, and secrets management. Use when deploying code, configuring environments, or managing secrets.",
+      "name": "paniolo-doc",
+      "description": "Documentation and writing standards for Markdown docs: file naming, structure, ToC, anchors, qmd retrieval, clarity, active voice, audience, tone, and conciseness. Use when authoring, editing, or reviewing wiki pages, READMEs, or CONTRIBUTING files. Do NOT use for in-code JSDoc comments or SKILL.md files.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "tags": [
-        "deployment"
+        "documentation",
+        "writing"
       ],
-      "sourceSkill": "deployment-strategies",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-deployment-strategies",
-      "references": []
-    },
-    {
-      "name": "paniolo-doc-best-practices",
-      "description": "Documentation standards — file naming, structure, writing style, formatting, skill+doc pairs, placement, and maintenance. Use when creating, updating, reviewing, or auditing any Markdown doc in a configured wiki's `wiki/`, `README.md`, or `CONTRIBUTING.md`. Also use when deciding whether a new topic needs a doc, a skill, or both. Do NOT use for in-code JSDoc/TSDoc comments — load code-comment-best-practices instead.",
-      "license": "MIT",
-      "version": "0.1.0",
-      "tags": [
-        "documentation"
-      ],
-      "sourceSkill": "doc-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-doc-best-practices",
+      "sourceSkill": "doc",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-doc",
       "references": [
+        "active-vs-passive-voice",
+        "audience-and-tone",
+        "avoid-jargon-unless-necessary",
         "doc-content",
         "doc-structure",
         "markdown-anchor-links",
         "markdown-file-naming",
         "markdown-required-elements",
+        "writing-style-clarity-and-conciseness",
         "writing-style-writing-style"
       ]
     },
@@ -170,22 +164,6 @@
         "naming-conventions",
         "project-structure-example",
         "vitest-colocate-make-fixtures"
-      ]
-    },
-    {
-      "name": "paniolo-file-splitting",
-      "description": "Step-by-step guide for breaking large consolidated files into single-function files — naming, exports, import paths, test colocation, and validation. Use when refactoring consolidated utilities or test helpers into modular, maintainable pieces. Do NOT use for creating new files from scratch — this skill is for splitting existing files only.",
-      "license": "MIT",
-      "version": "0.1.0",
-      "tags": [
-        "files",
-        "refactoring"
-      ],
-      "sourceSkill": "file-splitting",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-file-splitting",
-      "references": [
-        "avoid-multi-function-helpersts-modules",
-        "file-organization"
       ]
     },
     {
@@ -282,40 +260,23 @@
       ]
     },
     {
-      "name": "paniolo-plan-best-practices",
-      "description": "Author or review executable implementation plans with dependency-ordered cards, observable acceptance criteria, verification gates, explicit deferrals, and safety boundaries. Use when creating or improving a plan before implementation begins. Do NOT use to execute an existing approved plan; load paniolo-plan-execution instead.",
+      "name": "paniolo-plan",
+      "description": "Author, execute, or audit implementation plans with dependency-ordered cards, observable contracts, test-backed acceptance criteria, and honest verification gates. Use when creating or refining a plan before implementation begins, or when implementing and auditing an approved plan.",
       "license": "MIT",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "tags": [
         "plans",
-        "authoring"
+        "authoring",
+        "implementation",
+        "verification"
       ],
-      "sourceSkill": "plan-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-plan-best-practices",
+      "sourceSkill": "plan",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-plan",
       "references": [
         "completion-means-the-gate-ran",
         "cross-layer-data-flow-verification",
         "plan-acceptance-evidence",
         "plan-authoring-best-practices",
-        "playwright-e2e-fixture-contract-validation"
-      ]
-    },
-    {
-      "name": "paniolo-plan-execution",
-      "description": "Execute or audit an existing implementation plan by revalidating its claims against current code, tracking card-to-behavior evidence, diagnosing failures before patching, running required gates, and updating status honestly. Use when implementing a plan or reviewing another agent's plan execution. Do NOT use to author a new plan from scratch; load paniolo-plan-best-practices instead.",
-      "license": "MIT",
-      "version": "0.1.1",
-      "tags": [
-        "plans",
-        "implementation",
-        "verification"
-      ],
-      "sourceSkill": "plan-execution",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-plan-execution",
-      "references": [
-        "completion-means-the-gate-ran",
-        "cross-layer-data-flow-verification",
-        "plan-acceptance-evidence",
         "plan-execution-workflow",
         "playwright-e2e-fixture-contract-validation",
         "playwright-failure-classification",
@@ -501,15 +462,17 @@
     },
     {
       "name": "paniolo-source-refactoring",
-      "description": "Patterns for splitting functions and components into their own files. Ensures consistent exports, JSDoc preservation, and test colocation. Use when refactoring large files or extracting reusable logic.",
+      "description": "Refactor existing code and break large consolidated files or helper aggregates into single-function modules. Covers single-export default exports, JSDoc preservation, import updates, test colocation, and avoiding leftover moved comments or barrel re-exports. Use when refactoring, modularizing, or decomposing multi-export files. Do NOT use for authoring new files from scratch.",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "tags": [
-        "refactoring"
+        "refactoring",
+        "files"
       ],
       "sourceSkill": "source-refactoring",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-source-refactoring",
       "references": [
+        "avoid-multi-function-helpersts-modules",
         "file-organization",
         "vitest-shared-mock-helper-infrastructure"
       ]
@@ -707,9 +670,9 @@
     },
     {
       "name": "paniolo-worktree",
-      "description": "Rules for working in a Paniolo worktree pool: when to claim a slot, how to release one, what to do with busy, failed, or abandoned slots, per-slot ports, and why a harness repository keeps a single checkout. Use before starting work in any repository whose harness config declares a `worktreePool`, before creating a worktree of a harness repository, and when a slot is busy, failed, or looks abandoned. Do NOT use for general Git worktree mechanics in a repository with no pool; load `paniolo-worktree-best-practices` for that.",
+      "description": "Git worktree pool rules, slot lifecycle, and shared-checkout concurrency discipline. Covers pool claims, releases, per-slot ports, non-pool sibling worktrees, Windows path length, sparse checkouts, and harness single-checkout rules. Use when working in pool checkouts, creating git worktrees, or handling concurrent checkouts.",
       "license": "MIT",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "tags": [
         "git",
         "worktrees",
@@ -718,42 +681,9 @@
       "sourceSkill": "worktree",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-worktree",
       "references": [
-        "worktree-slots"
-      ]
-    },
-    {
-      "name": "paniolo-worktree-best-practices",
-      "description": "Git worktree discipline for repositories several agents share at once. Use before running `git worktree add`, before committing in a checkout whose working tree holds changes you did not make, when a commit lands on the wrong branch, when a checkout fails on Windows path length, and when deleting a worktree or a merged branch. Do NOT use for ordinary branching in a repository you are the only session touching.",
-      "license": "MIT",
-      "version": "0.2.0",
-      "tags": [
-        "git",
-        "worktrees"
-      ],
-      "sourceSkill": "worktree-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-worktree-best-practices",
-      "references": [
         "git-worktree-creation-and-cleanup",
-        "git-worktree-shared-checkout-hazards"
-      ]
-    },
-    {
-      "name": "paniolo-writing-style-best-practices",
-      "description": "Writing style standards for documentation — clarity, conciseness, audience, tone, active vs passive voice, and jargon handling. Use when writing or reviewing prose in wiki authoring pages, README.md, CONTRIBUTING.md, SKILL.md, or inline code comments. Do NOT use for structural/formatting questions (file naming, ToC, headers, code blocks) — load doc-best-practices instead.",
-      "license": "MIT",
-      "version": "0.1.0",
-      "tags": [
-        "writing"
-      ],
-      "sourceSkill": "writing-style-best-practices",
-      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-writing-style-best-practices",
-      "references": [
-        "active-vs-passive-voice",
-        "audience-and-tone",
-        "avoid-jargon-unless-necessary",
-        "doc-content",
-        "writing-style-clarity-and-conciseness",
-        "writing-style-writing-style"
+        "git-worktree-shared-checkout-hazards",
+        "worktree-slots"
       ]
     },
     {

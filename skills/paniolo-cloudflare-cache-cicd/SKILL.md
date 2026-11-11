@@ -131,10 +131,8 @@ git add . && git commit -m "fix: lint issues"
 
 ## References
 
-- Core deploy workflow:
-  [deployment-strategies skill](../paniolo-deployment-strategies/SKILL.md)
-- Rollback / monitoring:
-  [deployment-operations skill](../paniolo-deployment-operations/SKILL.md)
+- Core deploy, rollback, and operations workflow:
+  [deployment skill](../paniolo-deployment/SKILL.md)
 
 ## Do Not
 
@@ -150,8 +148,7 @@ git add . && git commit -m "fix: lint issues"
 
 ## Skill Handoffs
 
-- If incident response or rollback steps are needed, also load `deployment-operations`.
-- If task is release planning/configuration, also load `deployment-strategies`.
+- If deployment configuration, rollback, or operational triage is needed, also load `deployment`.
 
 ---
 
