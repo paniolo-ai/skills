@@ -99,26 +99,22 @@
     },
     {
       "name": "paniolo-doc",
-      "description": "Documentation and writing standards for Markdown docs: file naming, structure, ToC, anchors, qmd retrieval, clarity, active voice, audience, tone, and conciseness. Use when authoring, editing, or reviewing wiki pages, READMEs, or CONTRIBUTING files. Do NOT use for in-code JSDoc comments or SKILL.md files.",
+      "description": "Documentation standards for Markdown documents: file naming, heading hierarchy, ToC, explicit anchor tags, doc placement, and QMD semantic retrieval formatting. Use when creating, restructuring, or auditing wiki pages, READMEs, or CONTRIBUTING files. Do NOT use for general prose writing style (load paniolo-writing) or in-code JSDoc comments.",
       "license": "MIT",
       "version": "0.2.0",
       "tags": [
         "documentation",
-        "writing"
+        "markdown",
+        "structure"
       ],
       "sourceSkill": "doc",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-doc",
       "references": [
-        "active-vs-passive-voice",
-        "audience-and-tone",
-        "avoid-jargon-unless-necessary",
         "doc-content",
         "doc-structure",
         "markdown-anchor-links",
         "markdown-file-naming",
-        "markdown-required-elements",
-        "writing-style-clarity-and-conciseness",
-        "writing-style-writing-style"
+        "markdown-required-elements"
       ]
     },
     {
@@ -684,6 +680,26 @@
         "git-worktree-creation-and-cleanup",
         "git-worktree-shared-checkout-hazards",
         "worktree-slots"
+      ]
+    },
+    {
+      "name": "paniolo-writing",
+      "description": "Writing style standards for communication and prose: clarity, conciseness, audience calibration, tone, active voice, and jargon handling. Use when writing PR descriptions, commit messages, issue summaries, user replies, code comments, or documentation prose. Do NOT use for document formatting/layout (file naming, ToC, anchors) — load paniolo-doc for that.",
+      "license": "MIT",
+      "version": "0.2.0",
+      "tags": [
+        "writing",
+        "communication",
+        "style"
+      ],
+      "sourceSkill": "writing",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-writing",
+      "references": [
+        "active-vs-passive-voice",
+        "audience-and-tone",
+        "avoid-jargon-unless-necessary",
+        "writing-style-clarity-and-conciseness",
+        "writing-style-writing-style"
       ]
     },
     {
