@@ -76,7 +76,7 @@ If a squash merge was previously performed outside this policy, leave `main` as 
 ## References
 
 - [paniolo-worktree](../paniolo-worktree/SKILL.md) — worktree pool lifecycle and commands
-- [paniolo-safety-and-git-best-practices](../paniolo-safety-and-git-best-practices/SKILL.md) — repository safety guardrails and git conventions
+- [paniolo-safety-and-git](../paniolo-safety-and-git/SKILL.md) — repository safety guardrails and git conventions
 
 ## Do Not
 

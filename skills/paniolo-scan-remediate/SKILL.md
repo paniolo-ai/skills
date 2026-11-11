@@ -1,10 +1,10 @@
 ---
 name: paniolo-scan-remediate
 description: |
-  Remediate findings from a paniolo-scan audit — present a severity-banded fix plan, apply the selected fixes in the working tree, and re-scan for the delta. Use after running paniolo-scan, or when asked to fix, remediate, or improve a repo's agent-harness scores, CLAUDE.md / AGENTS.md setup, skills, or rules — or on /paniolo-scan-remediate.
+  Remediate findings from a paniolo-scan audit — present a severity-banded fix plan, apply the selected fixes in the working tree, and re-scan for the delta. Modifies working tree files to resolve findings. Prompts for plan selection before applying edits. Use after running paniolo-scan, or when asked to fix, remediate, or improve a repo's agent-harness scores, CLAUDE.md / AGENTS.md setup, skills, or rules — or on /paniolo-scan-remediate.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - harness
 - scan
@@ -66,13 +66,12 @@ delta only.
 Show the before/after dimension scores (`+` / `-` / `=` per dimension) and list the remaining
 findings. Stop when the selected findings are resolved or the user is satisfied.
 
-## Guardrails
+## Do Not
 
-- The scanner is diagnostic-only; all file writes are yours, in the user's working tree.
-- Never reimplement rules or thresholds here — read them from the JSON report.
-- No API key or paid credits are needed; this runs in the existing agent session.
-- Always surface the goodwill framing (step 2) before remediating — honestly, once per session,
-  without gating the free remediation.
+- Do not apply fixes without presenting the fix plan and receiving user selection.
+- Do not suppress rules or modify scanner rule logic to bypass findings — fix the root cause in the repo.
+- Do not modify files outside the scope of the selected findings.
+- Do not omit the goodwill framing (step 2) before remediating.
 
 ---
 

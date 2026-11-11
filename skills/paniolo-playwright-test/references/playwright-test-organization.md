@@ -1,0 +1,37 @@
+---
+source-slug: playwright-test-organization
+source-hash: be03c2050c377a69f2fe5892916b5956ccc08bba8ee246dc5083ac6a01aa16a1
+bundled: 2026-11-11
+title: Test Organization
+type: concept
+tags:
+- authoring
+- playwright
+- testing
+- e2e
+updated: 2026-06-18
+---
+
+# Test Organization
+
+Tests live under `e2e/`:
+
+- `e2e/specs/` — feature specs and user-flow specs
+- `e2e/specs/sharing/helpers/` — two-user share/invitation helpers
+- `e2e/specs/tagging/helpers/` — realtime tagging helpers
+- `e2e/utils/` — auth setup, response wait helpers, effect wrappers, console/error tracking
+
+**`*.e2e-util.ts` naming:** when a helper file **default-exports one function**, the basename is **camelCase** and matches that symbol (for example `createPublicLiveCommunityChain.e2e-util.ts` in `e2e/utils/live/`). Kebab-case basenames are for multi-export or non-function modules only.
+
+Test styles used in this repo:
+
+- Anonymous/public page tests
+- Authenticated single-user tests
+- Two-user real-session sharing/invitation tests
+- Realtime cross-user tests
+- Accessibility checks with `@axe-core/playwright`
+- Lighthouse performance audits
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

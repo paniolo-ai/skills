@@ -4,7 +4,7 @@ description: |
   Effect-TS patterns for scripts (CLI orchestration, subprocesses, typed errors, schema validation). Use when building or migrating scripts, hooks, or validators — not HTTP API handlers.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - effect-ts
 references:
@@ -88,6 +88,13 @@ See also: [typescript-effect-mixing-promises-and-effects](references/typescript-
 | [typescript-effect-mixing-promises-and-effects](references/typescript-effect-mixing-promises-and-effects.md) | Mixing Promise and Effect |
 | [typescript-effect-throwing-instead-of-effectfail](references/typescript-effect-throwing-instead-of-effectfail.md) | Throwing vs Effect.fail   |
 | [typescript-bun-script-portability](references/typescript-bun-script-portability.md) | Portable Bun scripts |
+
+## Do Not
+
+- Do not use Effect-TS patterns for HTTP API handlers — use standard request/response handlers for API routes.
+- Do not throw bare exceptions inside `Effect.gen` generators; use `yield* Effect.fail(...)` or tagged errors.
+- Do not use `Effect.tryPromise` without an explicit `catch` mapping function, which leads to untyped `unknown` defect channels.
+- Do not mix Promises and Effects in the same internal call chain; convert at entry or boundary points.
 
 ## Validation Commands
 

@@ -126,7 +126,7 @@ git checkout main
 ## References
 
 - [paniolo-secrets](../paniolo-secrets/SKILL.md)
-- [paniolo-safety-and-git-best-practices](../paniolo-safety-and-git-best-practices/SKILL.md)
+- [paniolo-safety-and-git](../paniolo-safety-and-git/SKILL.md)
 
 ---
 

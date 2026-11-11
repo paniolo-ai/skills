@@ -1,10 +1,10 @@
 ---
 name: paniolo-react-compiler
 description: |
-  React Compiler (babel-plugin-react-compiler) constraints — no useCallback/useMemo/memo, no ref writes or other side effects during render, no try/finally or value blocks inside compiled hooks. Use when authoring or editing React components and hooks in a project that enables the React Compiler, or when diagnosing a ReactCompilerError or a dev-build panic. Do NOT use for projects without the compiler enabled — manual memoization is legitimate there; load paniolo-react-best-practices for compiler-independent React conventions.
+  React Compiler (babel-plugin-react-compiler) constraints — no useCallback/useMemo/memo, no ref writes or other side effects during render, no try/finally or value blocks inside compiled hooks. Use when authoring or editing React components and hooks in a project that enables the React Compiler, or when diagnosing a ReactCompilerError or a dev-build panic. Do NOT use for projects without the compiler enabled — manual memoization is legitimate there; load paniolo-react for compiler-independent React conventions.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - react
 - react-compiler
@@ -71,15 +71,15 @@ array. Runs lint.
 **Expected:** Declines, replaces with a plain `const`, and notes the compiler memoizes it.
 
 **Input:** "Add a useEffect that syncs `selectedId` to localStorage."
-**Expected:** Defers to `paniolo-react-best-practices` for the useEffect comment and dependency
+**Expected:** Defers to `paniolo-react` for the useEffect comment and dependency
 conventions; this skill only adds that no memoization is introduced.
 
 ## Skill handoffs
 
 - Compiler-independent React conventions (props, file layout, `useEffect` comment rule, paired
-  hooks) → load `paniolo-react-best-practices`.
-- Hook tests → load `paniolo-vitest-test-best-practices`.
-- TypeScript-only files with no React imports → load `paniolo-typescript-best-practices`.
+  hooks) → load `paniolo-react`.
+- Hook tests → load `paniolo-vitest-test`.
+- TypeScript-only files with no React imports → load `paniolo-typescript`.
 
 ## Do Not
 
@@ -96,7 +96,7 @@ conventions; this skill only adds that no memoization is introduced.
   render purity, ref writes, `useLayoutEffect`
 - [react-compiler-control-flow](references/react-compiler-control-flow.md) — `try`/`catch` and
   value-block constraints
-- [paniolo-react-best-practices/SKILL.md](../paniolo-react-best-practices/SKILL.md)
+- [paniolo-react/SKILL.md](../paniolo-react/SKILL.md)
 
 ---
 

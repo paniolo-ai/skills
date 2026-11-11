@@ -1,10 +1,10 @@
 ---
 name: paniolo-config-init
 description: |
-  Scaffold a starter paniolo.config.json by asking the user which AI vendors/harnesses (Claude Code, Cursor, Copilot, Codex, Gemini, Antigravity, Devin) this repo should support. Use when asked to init, scaffold, or set up paniolo.config.json, configure which AI vendors a repo supports, or on /paniolo-config-init.
+  Scaffold a starter paniolo.config.json by asking the user which AI vendors/harnesses (Claude Code, Cursor, Copilot, Codex, Gemini, Antigravity, Devin) this repo should support. Writes a starter paniolo.config.json at the repo root. Prompts for confirmation before overwriting an existing config. Use when asked to init, scaffold, or set up paniolo.config.json, configure which AI vendors a repo supports, or on /paniolo-config-init.
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - harness
 - config
@@ -26,7 +26,7 @@ For an **existing** config — migrating the legacy shape, deduplicating repeate
 
 ### 1. Check for an existing config
 
-Look for `paniolo.config.json` at the repo root. If present, read it and show the current `harnesses` value before continuing — don't silently overwrite a file someone already tuned.
+Look for `paniolo.config.json` at the repo root. If present, read it, display the existing contents to the user, and prompt for explicit confirmation before overwriting — never silently overwrite an existing config.
 
 ### 2. Detect likely vendors from existing adapters
 
@@ -75,14 +75,11 @@ Show the written file's contents. Offer to run
 `npx --yes @paniolo/cli scan --format json .` (the `paniolo-scan` skill) to confirm the new
 config loads and to get a baseline score.
 
-## Guardrails
+## Do Not
 
-- Never invent a `harnesses` value the user didn't pick or explicitly confirm from a
-  detected default.
-- Don't write `rules`, `guidance`, or `boundary` overrides unless asked — this skill
-  scaffolds, it doesn't tune.
-- Never overwrite an existing `paniolo.config.json` without showing its current
-  contents and getting explicit confirmation first.
+- Do not overwrite an existing `paniolo.config.json` without showing its current contents and getting explicit user confirmation first.
+- Do not invent a `harnesses` value the user did not pick or explicitly confirm from a detected default.
+- Do not write `rules`, `guidance`, or `boundary` overrides unless asked — this skill scaffolds, it doesn't tune.
 
 ---
 
