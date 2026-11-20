@@ -668,7 +668,7 @@
       "name": "paniolo-worktree",
       "description": "Git worktree pool rules, slot lifecycle, N-slot single-agent coordination, and shared-checkout concurrency discipline. Covers pool claims, releases, staggering heavy gates across slots, per-slot ports, non-pool sibling worktrees, Windows path length, sparse checkouts, and harness single-checkout rules. Use when working in pool checkouts, coordinating multiple slots from one agent, creating git worktrees, or handling concurrent checkouts.",
       "license": "MIT",
-      "version": "0.5.0",
+      "version": "0.4.1",
       "tags": [
         "git",
         "worktrees",
