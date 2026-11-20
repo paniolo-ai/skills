@@ -1,7 +1,7 @@
 ---
 source-slug: worktree-slots
-source-hash: 7fcdb8e545c00613cdb0aaf478a121740a4c43d049cd19c34c8f5a6200af7419
-bundled: 2026-11-08
+source-hash: 34f2626d30d9e60c86f9d5e83423a950be8fe493c84152787964ebfa2ba46cc8
+bundled: 2026-11-20
 title: Worktree Slots
 type: concept
 tags:
@@ -10,7 +10,7 @@ tags:
 - worktree-pool
 - agents
 - harness
-updated: 2026-11-07
+updated: 2026-11-20
 ---
 
 # Worktree Slots
@@ -36,7 +36,9 @@ a reused slot keeps its dependencies and caches warm for the next task.
   allocation order, each Git-locked so `git worktree prune` cannot remove it.
 - **Owner.** Any nonempty string naming one agent session, such as its
   session ID. Every command that changes a claim takes `--owner` and refuses
-  another owner's slot.
+  another owner's slot. One agent driving multiple slots concurrently passes
+  distinct task-scoped owner strings (`<session-id>-<task>`) so `claim`
+  allocates a separate idle slot instead of returning the first one.
 - **State.** One JSON file in the repository's Git common directory
   (`.git/paniolo/worktree-pool/state.json`), changed only under a lock. Never
   edit it by hand; every recovery has a command.
@@ -127,6 +129,36 @@ go through `job_submit` as `worktree.claim`.
 
 Every retry first checks that the checkout is clean, detached, locked, and
 linked, so no recovery can discard work.
+
+## Choosing a slot topology (N slots, 1 agent)
+
+A pool supports 1 to 16 slots, sized to local disk and human review bandwidth:
+
+- **Heavy compiled repositories** (large per-slot build caches, e.g. Rust): 2
+  warm slots is usually the local sweet spot.
+- **Lightweight repositories** (TypeScript apps, documentation wikis): 3 to 4
+  slots cost little disk space and let one slot wait on CI or E2E while another
+  runs cleanup and a third holds active feature work.
+
+On a single workstation, **N slots driven by one coordinating agent** typically
+outperforms N independent peer agent chats:
+
+1. **Hide wait time without hardware contention.** When slot A blocks on an
+   unattended build, test gate, or release cut, the same agent claims slot B
+   with a distinct task-scoped owner (`<session-id>-<task>`), completes bounded
+   edits and focused checks there, and holds slot B's heavy push gate until
+   slot A clears.
+2. **Preserve single-thread human ergonomics.** One top-level agent holds
+   shared constraints, avoids duplicate explanations, and gives one status view
+   across all claimed slots.
+3. **Isolate noisy work with child subagents.** When a spare slot holds rote
+   work (lint, comments, markdown fixes, boilerplate tests) or an independent
+   debugging loop, have the coordinating agent delegate that slot to a temporary
+   child subagent (optionally on a cheaper, faster model) rather than opening an
+   uncoordinated peer chat.
+
+Two independent peer agents only pay off when tasks are genuinely unrelated
+*and* a host-level command queue or remote CI serializes their heavy gates.
 
 ## Harness repositories take no slots
 
