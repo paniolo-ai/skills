@@ -322,6 +322,23 @@
       "references": []
     },
     {
+      "name": "paniolo-queue",
+      "description": "Inspect and run commands through Paniolo host command queues (`paniolo queue` and the `queue` / `queue_write` MCP tools) to serialize heavy builds, test suites, and push gates across worktree slots and agents on one machine. Use when checking whether a host build lane is busy, queuing a heavy command in FIFO order, cancelling a waiting queue request, or reconciling an enrolled host queue. Do NOT use for claiming Git worktree slots (load `paniolo-worktree`) or for long-running MCP background jobs (`job_submit`).",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "queue",
+        "concurrency",
+        "worktrees",
+        "cli"
+      ],
+      "sourceSkill": "queue",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-queue",
+      "references": [
+        "host-command-queues"
+      ]
+    },
+    {
       "name": "paniolo-react",
       "description": "React 18+ conventions — ReactElement ambient type, useEffect comment rule, plain function declarations, prop and file/import conventions, paired hooks. Use when authoring or editing any React component, hook, or page. Do NOT use for general TypeScript-only utilities with no React imports — load paniolo-typescript instead. For React Compiler constraints (no useCallback/useMemo, no render side effects), load paniolo-react-compiler.",
       "license": "MIT",
