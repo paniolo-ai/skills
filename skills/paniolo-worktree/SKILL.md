@@ -1,10 +1,10 @@
 ---
 name: paniolo-worktree
 description: |
-  Git worktree pool rules, slot lifecycle, and shared-checkout concurrency discipline. Covers pool claims, releases, per-slot ports, non-pool sibling worktrees, Windows path length, sparse checkouts, and harness single-checkout rules. Use when working in pool checkouts, creating git worktrees, or handling concurrent checkouts.
+  Git worktree pool rules, slot lifecycle, N-slot single-agent coordination, and shared-checkout concurrency discipline. Covers pool claims, releases, staggering heavy gates across slots, per-slot ports, non-pool sibling worktrees, Windows path length, sparse checkouts, and harness single-checkout rules. Use when working in pool checkouts, coordinating multiple slots from one agent, creating git worktrees, or handling concurrent checkouts.
 license: MIT
 metadata:
-  version: 0.4.0
+  version: 0.5.0
 tags:
 - git
 - worktrees
@@ -37,6 +37,17 @@ paniolo worktree pool claim --repo <key> --owner <session-id> --branch <topic>
 - Work only in the path returned by `claim`. Never guess a slot path from directory listings.
 - To continue an open pull request branch, claim with `--from origin/<branch>`.
 - If no slot is idle, wait. Never take over a slot owned by another session.
+
+### Driving Multiple Slots From One Agent (N Slots, 1 Agent)
+
+A pool holds 1 to 16 slots. Size the pool to disk and review bandwidth (typically 2 warm slots for heavy compiled repositories with large build caches; 3 to 4 slots for lightweight web or documentation repositories).
+
+Prefer driving multiple slots from **one coordinating agent** over opening independent peer agent chats on the same machine:
+
+- **When to claim an additional slot:** When your first slot is blocked on a long unattended wait (release cut, full push gate, CI, or slow E2E suite) and you have separate bounded work that benefits from the same thread context. Pass a task-scoped owner suffix (`--owner <session-id>-<task>`) because repeating the same `--owner` returns your existing slot.
+- **Stagger heavy local gates:** Never run heavy local builds, full test suites, or push gates across multiple slots at the same time on one host unless a host-level command queue or remote CI serializes them. Finish edits, focused tests, and commits in the spare slot, then hold its heavy push gate until the active build finishes.
+- **Use temporary child subagents for rote or deep-debug work:** Do not interleave two messy debugging loops in one context window. Keep one top-level agent coordinating the slots and delegate noisy mechanical tasks (lint, comments, markdown cleanup, boilerplate tests) on a spare slot to a temporary child subagent (optionally on a cheaper, faster model).
+- **Release independently:** Release each claimed slot with the exact `--owner` string that claimed it once its branch is pushed or merged and its tree is clean.
 
 ### Releasing a Slot
 
@@ -126,6 +137,7 @@ Harness commands such as `paniolo wiki`, `paniolo scan`, and `paniolo skills bun
 - Do not create a worktree for a harness repository.
 - Do not take over, reset, or release a slot owned by another session.
 - Do not release a slot whose branch has unpushed commits or uncommitted edits.
+- Do not overlap heavy local builds or push gates across multiple claimed slots on the same host; stagger them so they do not contend for CPU, RAM, and disk.
 - Do not use bare `git stash` in shared repositories.
 - Do not trust gate output that validated a checkout other than your own.
 - Do not end a harness session on a topic branch.
