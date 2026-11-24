@@ -673,12 +673,28 @@
       "name": "paniolo-wiki",
       "description": "Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).",
       "license": "MIT",
-      "version": "0.5.16",
+      "version": "0.5.17",
       "tags": [
         "wiki"
       ],
       "sourceSkill": "llm-wiki",
       "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-wiki",
+      "references": []
+    },
+    {
+      "name": "paniolo-wiki-cloud",
+      "description": "Use Paniolo Wiki Cloud — the zero-install web editor (paniolo.ai/dashboard/wiki), Browser WebMCP (document.modelContext), and Remote MCP server (api.paniolo.ai/v1/wiki/mcp) over your own GitHub wiki repositories, with browser-local QMD search. Use when connecting GitHub repos, minting a Remote MCP Bearer token, calling Remote MCP or WebMCP wiki tools, ingesting HTTPS URLs into raw/, or configuring browser-local embeddings and reranking. Do NOT use for local CLI wiki validation or editorial schema rules (load paniolo-wiki instead).",
+      "license": "MIT",
+      "version": "0.1.0",
+      "tags": [
+        "wiki",
+        "cloud",
+        "mcp",
+        "webmcp",
+        "qmd"
+      ],
+      "sourceSkill": "wiki-cloud",
+      "homepage": "https://github.com/paniolo-ai/skills/tree/main/skills/paniolo-wiki-cloud",
       "references": []
     },
     {
