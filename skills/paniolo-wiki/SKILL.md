@@ -4,7 +4,7 @@ description: |
   Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).
 license: MIT
 metadata:
-  version: 0.5.16
+  version: 0.5.17
 tags:
 - wiki
 user-invocable: true
@@ -47,6 +47,7 @@ Nine verbs, and the validator only rejects one it does not recognize — it cann
 - Answering a question from the wiki and optionally filing the answer back as a page.
 - Linting the wiki for contradictions, stale claims, orphans, or missing cross-refs.
 - Deleting, renaming, or moving a wiki page.
+- For the zero-install web editor (`paniolo.ai/dashboard/wiki`), Browser WebMCP, or Remote MCP (`api.paniolo.ai/v1/wiki/mcp`), load the `paniolo-wiki-cloud` skill.
 
 ## Golden rule
 
