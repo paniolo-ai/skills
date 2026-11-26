@@ -683,9 +683,9 @@
     },
     {
       "name": "paniolo-wiki-cloud",
-      "description": "Use Paniolo Wiki Cloud — the zero-install web editor (paniolo.ai/dashboard/wiki), Browser WebMCP (document.modelContext), and Remote MCP server (api.paniolo.ai/v1/wiki/mcp) over your own GitHub wiki repositories, with browser-local QMD search. Use when connecting GitHub repos, minting a Remote MCP Bearer token, calling Remote MCP or WebMCP wiki tools, ingesting HTTPS URLs into raw/, or configuring browser-local embeddings and reranking. Do NOT use for local CLI wiki validation or editorial schema rules (load paniolo-wiki instead).",
+      "description": "Use Paniolo Wiki Cloud — the zero-install web editor (paniolo.ai/dashboard/wiki), Browser WebMCP (document.modelContext), and Remote MCP server (api.paniolo.ai/v1/wiki/mcp) over your own GitHub wiki repositories, with browser-local QMD search and the live Remote MCP-to-Browser RPC bridge. Use when connecting GitHub repos, connecting via OAuth 2.1 DCR or a 30-day Bearer token, calling any of the 12 Remote MCP or 9 WebMCP wiki tools, ingesting HTTPS URLs into raw/, or configuring browser-local embeddings and reranking. Do NOT use for local CLI wiki validation or editorial schema rules (load paniolo-wiki instead).",
       "license": "MIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "tags": [
         "wiki",
         "cloud",
