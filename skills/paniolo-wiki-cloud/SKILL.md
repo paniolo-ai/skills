@@ -1,10 +1,10 @@
 ---
 name: paniolo-wiki-cloud
 description: |
-  Use Paniolo Wiki Cloud — the zero-install web editor (paniolo.ai/dashboard/wiki), Browser WebMCP (document.modelContext), and Remote MCP server (api.paniolo.ai/v1/wiki/mcp) over your own GitHub wiki repositories, with browser-local QMD search. Use when connecting GitHub repos, minting a Remote MCP Bearer token, calling Remote MCP or WebMCP wiki tools, ingesting HTTPS URLs into raw/, or configuring browser-local embeddings and reranking. Do NOT use for local CLI wiki validation or editorial schema rules (load paniolo-wiki instead).
+  Use Paniolo Wiki Cloud — the zero-install web editor (paniolo.ai/dashboard/wiki), Browser WebMCP (document.modelContext), and Remote MCP server (api.paniolo.ai/v1/wiki/mcp) over your own GitHub wiki repositories, with browser-local QMD search and the live Remote MCP-to-Browser RPC bridge. Use when connecting GitHub repos, connecting via OAuth 2.1 DCR or a 30-day Bearer token, calling any of the 12 Remote MCP or 9 WebMCP wiki tools, ingesting HTTPS URLs into raw/, or configuring browser-local embeddings and reranking. Do NOT use for local CLI wiki validation or editorial schema rules (load paniolo-wiki instead).
 license: MIT
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 tags:
 - wiki
 - cloud
@@ -31,9 +31,18 @@ For wiki authoring discipline (page kinds, `raw/` provenance, `wiki/log.md` verb
 
 ## 2. Remote MCP Server (`https://api.paniolo.ai/v1/wiki/mcp`)
 
-Use Remote MCP to let headless AI agents (Claude Desktop, Cursor, Codex, Antigravity) read, search, capture sources, and propose Pull Requests against your granted GitHub wikis without a local checkout.
+Use Remote MCP to let headless AI agents (Claude Desktop, Cursor, ChatGPT, Codex, Antigravity) read, search, scan, capture sources, and propose Pull Requests against your granted GitHub wikis without a local checkout.
 
-### Authenticate with a Scoped Bearer Token
+### Option A: One-Click OAuth 2.1 (Dynamic Client Registration + PKCE)
+
+Point any OAuth-capable MCP client (Claude Desktop, Cursor, ChatGPT) directly at `https://api.paniolo.ai/v1/wiki/mcp`. The server advertises standard MCP OAuth discovery and PKCE `S256`:
+
+- **RFC 9728 Protected Resource Metadata:** `GET https://api.paniolo.ai/.well-known/oauth-protected-resource/v1/wiki/mcp` (and `/v1/wiki/mcp/.well-known/oauth-protected-resource`)
+- **RFC 8414 Authorization Server Metadata:** `GET https://api.paniolo.ai/.well-known/oauth-authorization-server/v1/wiki/oauth`
+- **RFC 7591 Dynamic Client Registration:** `POST https://api.paniolo.ai/v1/wiki/oauth/register`
+- **Consent & Token Exchange:** Browser consent at `https://paniolo.ai/dashboard/wiki/oauth/authorize`, single-use PKCE `S256` code exchange at `POST https://api.paniolo.ai/v1/wiki/oauth/token`
+
+### Option B: Scoped Bearer Token (30 Days)
 
 1. In `https://paniolo.ai/dashboard/wiki`, open **Settings** → **Remote MCP Server & Browser WebMCP**.
 2. Click **Generate Scoped MCP Bearer Token (30d)** (calls `POST /v1/wiki/mcp/token`, scopes: `wiki:read`, `wiki:capture`, `wiki:propose`).
@@ -52,19 +61,24 @@ Use Remote MCP to let headless AI agents (Claude Desktop, Cursor, Codex, Antigra
 }
 ```
 
-RFC 9728 protected-resource metadata is published at `GET https://api.paniolo.ai/v1/wiki/mcp/.well-known/oauth-protected-resource`.
+### Remote MCP Tool Catalog (12 Tools · JSON-RPC 2.0 · `2025-03-26`)
 
-### Remote MCP Tool Catalog (JSON-RPC 2.0 · `2025-03-26`)
+| Tool | Scope | Mode | Behavior |
+| --- | --- | --- | --- |
+| `paniolo_wiki_list_projects` | `wiki:read` | Server | Lists GitHub wiki repositories granted to the authenticated account. |
+| `paniolo_wiki_list_pages` | `wiki:read` | Server | Lists Markdown files in a granted `(installation_id, owner, repo, branch, root)`. |
+| `paniolo_wiki_read_page` | `wiki:read` | Server | Reads a commit-pinned Markdown file (`path`, `sha`, `content`). |
+| `paniolo_wiki_search_keyword` | `wiki:read` | Server | Full-text GitHub Code Search merged with path/slug search in a granted repository. |
+| `paniolo_wiki_semantic_search` | `wiki:read` | Browser Bridge | Routes to an open `/dashboard/wiki` tab for browser-local QMD embeddings + reranking (`mode: "browser_qmd"`). |
+| `paniolo_wiki_scan_corpus` | `wiki:read` | Browser Bridge | Runs the full browser-local wiki health scan over all synced pages in the open tab (`mode: "browser_qmd"`). |
+| `paniolo_wiki_related_pages` | `wiki:read` | Browser Bridge | Computes related pages and suggested `[[wikilinks]]` via the open tab's local index (`mode: "browser_qmd"`). |
+| `paniolo_wiki_browser_stage_draft` | `wiki:propose` | Browser Bridge | Stages a proposed Markdown edit directly into the open tab's **Review Inbox** for human diff review. |
+| `paniolo_wiki_validate` | `wiki:read` | Server | Validates proposed Markdown files against the commit-pinned repository tree (frontmatter, wikilinks, path safety). |
+| `paniolo_wiki_capture_source` | `wiki:capture` | Server | SSRF-guarded live HTTPS fetch returning a provenance-stamped `raw/<domain>/<slug>.md` preview. |
+| `paniolo_wiki_propose_change` | `wiki:propose` | Server | Opens a **GitHub Pull Request** with proposed file operations. Never pushes directly to the default branch. |
+| `paniolo_wiki_job_status` | `wiki:read` | Server | Inspects an account-bound wiki job status. |
 
-| Tool | Scope | Behavior |
-| --- | --- | --- |
-| `paniolo_wiki_list_projects` | `wiki:read` | Lists GitHub wiki repositories granted to the authenticated account. |
-| `paniolo_wiki_list_pages` | `wiki:read` | Lists Markdown files in a granted `(installation_id, owner, repo, branch, root)`. |
-| `paniolo_wiki_read_page` | `wiki:read` | Reads a commit-pinned Markdown file (`path`, `sha`, `content`). |
-| `paniolo_wiki_search_keyword` | `wiki:read` | Searches Markdown paths/slugs in a granted repository. |
-| `paniolo_wiki_capture_source` | `wiki:capture` | SSRF-guarded live HTTPS fetch returning a provenance-stamped `raw/<domain>/<slug>.md` preview. |
-| `paniolo_wiki_propose_change` | `wiki:propose` | Opens a **GitHub Pull Request** with proposed file operations. Never pushes directly to the default branch. |
-| `paniolo_wiki_job_status` | `wiki:read` | Inspects an account-bound wiki job status. |
+**Remote MCP ↔ Browser RPC Bridge:** The four Browser Bridge tools deliver commands to your open `https://paniolo.ai/dashboard/wiki` tab over **Supabase Realtime WebSocket** (with automatic HTTP polling fallback) and return the browser's local compute result with zero server GPU cost. If no tab is open, they return `mode: "no_active_browser"` cleanly.
 
 **Safety invariant:** Remote MCP agents can never self-approve or push directly to the default branch; `paniolo_wiki_propose_change` always creates a topic branch and Pull Request for human merge.
 
